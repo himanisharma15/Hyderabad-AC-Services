@@ -33,7 +33,6 @@ Confirmation: (WhatsApp-integrated lead generation)
 The UI dynamically highlights service areas in Hyderabad (Kukatpally, Madhapur, Secunderabad, etc.) based on user selection to build immediate geographical trust.
 
 📁 Project Structure
-Plaintext
 src/
 ├── assets/          # Compressed WebP images & Brand SVGs
 ├── components/
@@ -44,19 +43,21 @@ src/
 ├── pages/           # Home, Services, About, Contact
 ├── theme/           # Tailwind extend (Colors: #0EA5E9, #1E293B)
 └── App.js           # Route definitions
+
+
 🚀 Getting Started
 Clone the repo:
 
-Bash
 git clone https://github.com/your-username/hyd-ac-react.git
+
 Install Dependencies:
 
-Bash
 npm install
+
 Run Development Server:
 
-Bash
 npm run dev
+
 📈 Performance & UX Goals
 LCP (Largest Contentful Paint): < 1.5s
 
