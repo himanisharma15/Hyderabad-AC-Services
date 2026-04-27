@@ -1,66 +1,107 @@
-❄️ Hyderabad AC Services – Premium React Overhaul
-This repository contains the source code for the modern, high-conversion redesign of the Hyderabad AC Services platform. Built with a focus on speed, mobile-first responsiveness, and a "premium-cool" aesthetic.
+# Hyderabad AC Services - Premium React Overhaul
 
-🛠 Tech Stack
-Core: React.js (Functional Components + Hooks)
+A modern, high-performance redesign of the Hyderabad AC Services platform built using React.js.
 
-Routing: React Router 6 (Clean, nested service routes)
+Focused on:
+- Speed
+- Mobile-first UX
+- High conversion
+- SEO optimization
 
-Styling: Tailwind CSS (Utility-first for rapid UI development)
+## Tech Stack
 
-Animations: Framer Motion (For premium page transitions and scroll reveals)
+**Core:** React.js (Hooks + Functional Components)  
+**Routing:** React Router v6  
+**Styling:** Tailwind CSS  
+**Animations:** Framer Motion  
+**Icons:** Lucide React  
+**Forms:** React Hook Form + Zod  
+**State:** Zustand
 
-Icons: Lucide React (Elegant, lightweight stroke icons)
+## Key Features
 
-Form Handling: React Hook Form + Zod (For the instant booking engine)
+### Bento Service Grid
+- Clean responsive layout
+- Modern card-based UI
+- Smooth hover effects
 
-State Management: Zustand (Lightweight booking state management)
+### Glassmorphic Booking Engine
+**Flow:**
+1. Select Service
+2. Choose Date & Time
+3. Confirm via WhatsApp
 
-✨ Premium UI/UX Features
-1. The "Bento" Service Grid
-Replacing cluttered lists with a modern, responsive grid. Each service (Split AC, Window AC, Central Cooling) is housed in a high-contrast card with subtle hover scales.
+- Backdrop blur UI
+- Multi-step form
+- High conversion focused
 
-2. Glassmorphic Booking Engine
-A floating "Instant Quote" component using backdrop-blur effects. It guides the user through a 3-step process:
+### Hyper-Local Trust
+Dynamic service areas:
+- Kukatpally
+- Madhapur
+- Secunderabad
+- Gachibowli
 
-Selection: (Repair, Service, or Gas Charging)
+## Project Structure
 
-Scheduling: (Date/Time picker)
-
-Confirmation: (WhatsApp-integrated lead generation)
-
-3. Hyper-Local Context
-The UI dynamically highlights service areas in Hyderabad (Kukatpally, Madhapur, Secunderabad, etc.) based on user selection to build immediate geographical trust.
-
-📁 Project Structure
+```text
 src/
-├── assets/          # Compressed WebP images & Brand SVGs
-├── components/
-│   ├── ui/          # Reusable "Atomic" components (Buttons, Inputs, Cards)
-│   ├── layout/      # Navbar, Footer, Section wrappers
-│   └── booking/     # Multi-step booking form logic
-├── hooks/           # useScroll, useWindowSize, useBooking
-├── pages/           # Home, Services, About, Contact
-├── theme/           # Tailwind extend (Colors: #0EA5E9, #1E293B)
-└── App.js           # Route definitions
+|- assets/                 # Images & SVGs
+|- components/
+|  |- ui/                  # Buttons, Cards, Inputs
+|  |- layout/              # Navbar, Footer
+|  `- booking/             # Booking logic
+|- hooks/                  # Custom hooks
+|- pages/                  # All pages
+|- theme/                  # Tailwind config
+`- App.jsx                 # Routes
+```
 
+## Getting Started
 
-🚀 Getting Started
-Clone the repo:
-
+### 1. Clone Repo
+```bash
 git clone https://github.com/your-username/hyd-ac-react.git
+```
 
-Install Dependencies:
+### 2. Go to Folder
+```bash
+cd hyd-ac-react
+```
 
+### 3. Install Dependencies
+```bash
 npm install
+```
 
-Run Development Server:
-
+### 4. Run Project
+```bash
 npm run dev
+```
 
-📈 Performance & UX Goals
-LCP (Largest Contentful Paint): < 1.5s
+## Performance Goals
+- LCP < 1.5s
+- Mobile-first design
+- SEO optimized
+- +40% lead conversion target
 
-Conversion Rate Goal: Increase lead generation by 40% via "One-Tap Call" optimization.
+## Accessibility
+- ARIA compliant
+- Keyboard navigation
+- Screen-reader friendly
 
-Accessibility: Full ARIA compliance for inclusive service booking.
+## Business Features
+- One-tap call
+- WhatsApp integration
+- Instant booking
+- Location-based trust
+
+## Future Scope
+- Next.js migration (SEO boost)
+- Admin dashboard
+- Analytics integration
+- AI-based recommendations
+
+## License
+
+MIT License
