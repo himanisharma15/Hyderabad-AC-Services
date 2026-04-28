@@ -106,6 +106,11 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
       return;
     }
 
+    if (id === 'contact') {
+      navigateTo('/contact');
+      return;
+    }
+
     window.location.href = `/#${id}`;
   };
 
@@ -184,7 +189,7 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
           <button
             className={`${styles.navLink} ${activeSection === 'contact' ? styles.navLinkActive : ''}`}
             type="button"
-            onClick={() => scrollToSection('contact')}
+            onClick={() => navigateTo('/contact')}
           >
             Contact
           </button>
@@ -260,7 +265,7 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
               Exhaust
             </button>
 
-            <button className={styles.mobileLink} type="button" onClick={() => scrollToSection('contact')}>
+            <button className={styles.mobileLink} type="button" onClick={() => navigateTo('/contact')}>
               Contact
             </button>
 
