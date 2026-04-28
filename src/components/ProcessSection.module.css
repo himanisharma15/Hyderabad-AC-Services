@@ -1,0 +1,258 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: 84px 24px 92px;
+  background:
+    radial-gradient(circle at top left, rgba(67, 145, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.glowA,
+.glowB {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+.glowA {
+  top: 8px;
+  left: -140px;
+  width: 300px;
+  height: 300px;
+  background: rgba(57, 167, 255, 0.06);
+}
+
+.glowB {
+  right: -120px;
+  bottom: -140px;
+  width: 320px;
+  height: 320px;
+  background: rgba(29, 94, 255, 0.05);
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto 34px;
+  text-align: left;
+}
+
+.header h2 {
+  margin: 0;
+  color: #0b2b55;
+  font-size: var(--fs-title-lg);
+  line-height: 1.05;
+}
+
+.header p {
+  margin: 12px 0 0;
+  max-width: 520px;
+  color: #5a728f;
+  font-size: var(--fs-subtitle);
+  line-height: 1.6;
+}
+
+.workflowLayout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 32px;
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.workflowImageWrap {
+  position: relative;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.workflowImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 0;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.badgeWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #0b2b55;
+  background: rgba(29, 94, 255, 0.08);
+  box-shadow: 0 8px 18px rgba(13, 50, 112, 0.06);
+  border: 1px solid rgba(29, 94, 255, 0.06);
+  font-size: var(--fs-step-badge);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.connector {
+  width: 2px;
+  height: 20px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(29, 94, 255, 0.2), rgba(29, 94, 255, 0.08));
+  transform-origin: top;
+}
+
+.card {
+  position: relative;
+  padding: 10px 0 10px 0;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  color: #0b2b55;
+  font-size: var(--fs-step-title);
+  line-height: 1.2;
+}
+
+.card p {
+  margin: 0;
+  color: #5a728f;
+  max-width: 460px;
+  font-size: var(--fs-step-body);
+  line-height: 1.58;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 20px 88px;
+  }
+
+  .workflowLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.72fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .step {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 16px 82px;
+  }
+
+  .timeline {
+    max-width: 720px;
+  }
+
+  .workflowImageWrap {
+    height: 100%;
+  }
+
+  .workflowLayout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .workflowImageWrap {
+    position: relative;
+    top: 0;
+    order: -1;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .badgeWrap {
+    justify-content: center;
+  }
+
+  .connector {
+    height: 18px;
+    margin-top: 8px;
+  }
+
+  .card {
+    text-align: center;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    margin-bottom: 28px;
+  }
+
+  .workflowImageWrap {
+    padding: 0;
+    height: auto;
+  }
+
+  .badge {
+    width: 40px;
+    height: 40px;
+  }
+
+  .step {
+    grid-template-columns: 46px minmax(0, 1fr);
+  }
+
+  .connector {
+    height: 16px;
+  }
+
+  .card {
+    text-align: left;
+  }
+}

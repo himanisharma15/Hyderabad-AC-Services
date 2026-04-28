@@ -1,0 +1,98 @@
+.hero {
+  position: relative;
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 56px 24px;
+  background:
+    radial-gradient(circle at top right, rgba(56, 152, 255, 0.28), transparent 42%),
+    linear-gradient(135deg, #0d2f5a 0%, #184d93 44%, #236fc3 100%);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 26, 55, 0.18), rgba(7, 26, 55, 0.55));
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.content span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.content h1 {
+  margin: 18px 0 0;
+  color: #f6fbff;
+  font-size: clamp(2rem, 5.2vw, 4rem);
+  line-height: 1.07;
+}
+
+.content p {
+  margin: 16px auto 0;
+  max-width: 760px;
+  color: rgba(232, 243, 255, 0.95);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.actions {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions a,
+.actions button {
+  height: 46px;
+  border-radius: 12px;
+  padding: 0 18px;
+  text-decoration: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.actions a {
+  color: #f4faff;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.actions button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #1d5eff, #39a7ff);
+  box-shadow: 0 16px 34px rgba(29, 94, 255, 0.28);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 66vh;
+    padding: 42px 16px;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+}
