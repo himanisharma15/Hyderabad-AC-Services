@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import TopNavbar from '../components/blog/TopNavbar';
 import HeroSection from '../components/contact/HeroSection';
 import BranchesSection from '../components/contact/BranchesSection';
 import ContactFormSection from '../components/contact/ContactFormSection';
@@ -25,7 +24,6 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-wrapper">
-      <TopNavbar />
       <HeroSection />
       <BranchesSection />
       <ContactFormSection />
