@@ -195,7 +195,7 @@ const posts = [
       <p><strong>Contact us today to book your AC service and keep your home cool and comfortable!</strong></p>
     `,
   },
-];
+]
 
 export default function BlogPage() {
   const [selectedPost, setSelectedPost] = useState(null);
@@ -207,9 +207,9 @@ export default function BlogPage() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'Blog - Hyderabad AC Services';
-  }, []);
+    window.scrollTo(0, 0)
+    document.title = 'Blog - Hyderabad AC Services'
+  }, [])
 
   useEffect(() => {
     if (!selectedPost) {
@@ -324,5 +324,5 @@ export default function BlogPage() {
       </main>
       {typeof document !== 'undefined' ? createPortal(modalMarkup, document.body) : null}
     </div>
-  );
+  )
 }
