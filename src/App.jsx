@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import ServicesPage from './components/ServicesPage';
@@ -41,17 +43,27 @@ export default function App() {
     setIsModalOpen(false);
   };
 
-  const isServicesPage = pathname.startsWith('/services');
+  const renderPage = () => {
+    if (pathname.startsWith('/contact')) {
+      return <ContactPage />;
+    }
+
+    if (pathname.startsWith('/blog')) {
+      return <BlogPage />;
+    }
+
+    if (pathname.startsWith('/services')) {
+      return <ServicesPage onBookNow={handleOpenModal} />;
+    }
+
+    return <HomePage onBookNow={handleOpenModal} />;
+  };
 
   return (
     <div className={styles.page}>
       <Navbar onBookNow={handleOpenModal} currentPathname={pathname} />
 
-      {isServicesPage ? (
-        <ServicesPage onBookNow={handleOpenModal} />
-      ) : (
-        <HomePage onBookNow={handleOpenModal} />
-      )}
+      {renderPage()}
 
       <ServiceFormModal
         isOpen={isModalOpen}
