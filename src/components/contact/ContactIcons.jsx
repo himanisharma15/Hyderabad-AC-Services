@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const PhoneIcon = ({ size = 40, className = '' }) => (
   <svg
     width={size}

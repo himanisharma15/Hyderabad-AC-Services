@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import './BlogPage.css';
+import { useEffect } from 'react'
+import './BlogPage.css'
 
-const blogImage = '/Air%20Conditioner%20Maintenance%20in%20The%20Winter%20(1).jpeg';
+const blogImage = '/Air%20Conditioner%20Maintenance%20in%20The%20Winter%20(1).jpeg'
 
 const insights = [
   {
@@ -29,18 +29,16 @@ const insights = [
     meta: '5 min read',
     image: blogImage,
   },
-];
+]
 
 const BlogPage = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'Blog - Hyderabad AC Services';
-  }, []);
+    window.scrollTo(0, 0)
+    document.title = 'Blog - Hyderabad AC Services'
+  }, [])
 
   return (
     <div className="blog-page">
-      
-
       <main className="blog-page__main">
         <section className="blog-hero" aria-labelledby="blog-hero-title">
           <video className="blog-hero__video" autoPlay muted loop playsInline preload="metadata">
@@ -105,7 +103,7 @@ const BlogPage = () => {
         </section>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage

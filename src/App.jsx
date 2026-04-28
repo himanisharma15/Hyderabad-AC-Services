@@ -18,7 +18,9 @@ export default function App() {
       document.body.style.overflow = 'hidden'
       return
     }
+
     document.body.style.overflow = ''
+
     return () => {
       document.body.style.overflow = ''
     }
@@ -26,6 +28,7 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => setPathname(window.location.pathname)
+
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
@@ -39,23 +42,31 @@ export default function App() {
     setIsModalOpen(false)
   }
 
-  const isServicesPage = pathname.startsWith('/services')
+  const renderPage = () => {
+    if (pathname.startsWith('/contact')) {
+      return <ContactPage />
+    }
+
+    if (pathname.startsWith('/about')) {
+      return <AboutPage onBookNow={handleOpenModal} />
+    }
+
+    if (pathname.startsWith('/blog')) {
+      return <BlogPage />
+    }
+
+    if (pathname.startsWith('/services')) {
+      return <ServicesPage onBookNow={handleOpenModal} />
+    }
+
+    return <HomePage onBookNow={handleOpenModal} />
+  }
 
   return (
     <div className={styles.page}>
       <Navbar onBookNow={handleOpenModal} currentPathname={pathname} />
 
-      {pathname.startsWith('/contact') ? (
-        <ContactPage />
-      ) : pathname.startsWith('/about') ? (
-        <AboutPage onBookNow={handleOpenModal} />
-      ) : pathname.startsWith('/blog') ? (
-        <BlogPage />
-      ) : isServicesPage ? (
-        <ServicesPage onBookNow={handleOpenModal} />
-      ) : (
-        <HomePage onBookNow={handleOpenModal} />
-      )}
+      {renderPage()}
 
       <ServiceFormModal
         isOpen={isModalOpen}
