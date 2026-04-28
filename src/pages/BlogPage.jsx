@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import TopNavbar from '../components/blog/TopNavbar';
 import './BlogPage.css';
 
 const blogImage = '/Air%20Conditioner%20Maintenance%20in%20The%20Winter%20(1).jpeg';
@@ -40,7 +39,7 @@ const BlogPage = () => {
 
   return (
     <div className="blog-page">
-      <TopNavbar />
+      
 
       <main className="blog-page__main">
         <section className="blog-hero" aria-labelledby="blog-hero-title">

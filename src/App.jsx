@@ -38,21 +38,17 @@ export default function App() {
     setIsModalOpen(false)
   }
 
-  if (pathname.startsWith('/contact')) {
-    return <ContactPage />
-  }
-
-  if (pathname.startsWith('/blog')) {
-    return <BlogPage />
-  }
-
   const isServicesPage = pathname.startsWith('/services')
 
   return (
     <div className={styles.page}>
       <Navbar onBookNow={handleOpenModal} currentPathname={pathname} />
 
-      {isServicesPage ? (
+      {pathname.startsWith('/contact') ? (
+        <ContactPage />
+      ) : pathname.startsWith('/blog') ? (
+        <BlogPage />
+      ) : isServicesPage ? (
         <ServicesPage onBookNow={handleOpenModal} />
       ) : (
         <HomePage onBookNow={handleOpenModal} />
