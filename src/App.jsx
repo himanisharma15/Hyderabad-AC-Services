@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import ServicesPage from './components/ServicesPage';
+import AboutPage from './components/AboutPage';
 import ServiceFormModal from './components/ServiceFormModal';
 import styles from './App.module.css';
 
@@ -42,12 +43,15 @@ export default function App() {
   };
 
   const isServicesPage = pathname.startsWith('/services');
+  const isAboutPage = pathname.startsWith('/about');
 
   return (
     <div className={styles.page}>
       <Navbar onBookNow={handleOpenModal} currentPathname={pathname} />
 
-      {isServicesPage ? (
+      {isAboutPage ? (
+        <AboutPage onBookNow={handleOpenModal} />
+      ) : isServicesPage ? (
         <ServicesPage onBookNow={handleOpenModal} />
       ) : (
         <HomePage onBookNow={handleOpenModal} />
