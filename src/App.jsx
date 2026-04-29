@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
+import AboutPage from './pages/AboutPage'
 import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
 import ServicesPage from './components/ServicesPage'
@@ -46,6 +47,8 @@ export default function App() {
 
       {pathname.startsWith('/contact') ? (
         <ContactPage />
+      ) : pathname.startsWith('/about') ? (
+        <AboutPage onBookNow={handleOpenModal} />
       ) : pathname.startsWith('/blog') ? (
         <BlogPage />
       ) : isServicesPage ? (
