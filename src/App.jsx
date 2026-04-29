@@ -1,23 +1,13 @@
-<<<<<<< HEAD
-import { useEffect, useState } from 'react';
-import BlogPage from './pages/BlogPage';
-import ContactPage from './pages/ContactPage';
-import Navbar from './components/Navbar';
-import HomePage from './components/HomePage';
-import ServicesPage from './components/ServicesPage';
-import ServiceFormModal from './components/ServiceFormModal';
-import styles from './App.module.css';
-=======
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
+import AboutPage from './pages/AboutPage'
 import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
 import ServicesPage from './components/ServicesPage'
 import ServiceFormModal from './components/ServiceFormModal'
 import styles from './App.module.css'
->>>>>>> da8dbf6 (your changes)
 
 // AC Service Pages
 import ACServiceDetail from './pages/services/ACService'
