@@ -13,7 +13,7 @@ const PremiumFooter = () => {
       hours: '9 AM – 9 PM',
     },
     services: [
-      { name: 'AC Service', link: '/services/ac-service' },
+      { name: 'AC Service', link: '/ac-service' },
       { name: 'AC Repair', link: '/services/ac-repair' },
       { name: 'AC Installation', link: '/services/ac-installation' },
       { name: 'Ducting', link: '/services/ducting' },
