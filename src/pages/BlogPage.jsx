@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import React, { useEffect } from 'react';
 import './BlogPage.css';
 
@@ -39,7 +40,6 @@ const BlogPage = () => {
 
   return (
     <div className="blog-page">
-      
 
       <main className="blog-page__main">
         <section className="blog-hero" aria-labelledby="blog-hero-title">
