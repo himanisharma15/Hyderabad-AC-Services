@@ -124,11 +124,19 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
 
         <div className={styles.desktopMenu}>
           <button
-            className={`${styles.navLink} ${activeSection === 'home' && !isServicesRoute ? styles.navLinkActive : ''}`}
+            className={`${styles.navLink} ${activeSection === 'home' && !isServicesRoute && !currentPathname.startsWith('/about') ? styles.navLinkActive : ''}`}
             type="button"
             onClick={() => scrollToSection('home')}
           >
             Home
+          </button>
+
+          <button
+            className={`${styles.navLink} ${currentPathname.startsWith('/about') ? styles.navLinkActive : ''}`}
+            type="button"
+            onClick={() => navigateTo('/about')}
+          >
+            About
           </button>
 
           <button
@@ -220,6 +228,14 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
           >
             <button className={styles.mobileLink} type="button" onClick={() => scrollToSection('home')}>
               Home
+            </button>
+
+            <button
+              className={`${styles.mobileLink} ${currentPathname.startsWith('/about') ? styles.navLinkActive : ''}`}
+              type="button"
+              onClick={() => navigateTo('/about')}
+            >
+              About
             </button>
 
             <button
