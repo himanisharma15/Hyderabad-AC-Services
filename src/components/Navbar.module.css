@@ -11,7 +11,7 @@
 .navbar {
   max-width: 1260px;
   margin: 0 auto;
-  height: 76px;
+  height: 92px;
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -21,21 +21,19 @@
 .logo {
   border: 0;
   background: transparent;
-  color: #0c2e5a;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
+  padding: 0;
+  line-height: 0;
 }
 
-.logo span {
-  color: #2b78ff;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-}
-
-.logo strong {
-  font-size: 1.14rem;
+.logoImage {
+  height: 74px;
+  width: clamp(146px, 19vw, 258px);
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .desktopMenu {
@@ -121,23 +119,24 @@
 
 .bookButton,
 .mobileBookButton {
-  height: 42px;
-  border: 0;
-  border-radius: 11px;
-  padding: 0 18px;
+  height: 46px;
+  border: 1px solid rgba(29, 94, 255, 0.2);
+  border-radius: 999px;
+  padding: 0 22px;
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: linear-gradient(135deg, #1d5eff, #39a7ff);
-  box-shadow: 0 14px 28px rgba(31, 95, 237, 0.24);
+  background: #1d5eff;
+  box-shadow: 0 12px 26px rgba(29, 94, 255, 0.22);
   cursor: pointer;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
 .bookButton:hover,
 .mobileBookButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(31, 95, 237, 0.3);
+  background: #164bd1;
+  box-shadow: 0 16px 32px rgba(29, 94, 255, 0.28);
 }
 
 .mobileToggle {
@@ -159,6 +158,16 @@
 }
 
 @media (max-width: 920px) {
+  .navbar {
+    height: 78px;
+  }
+
+  .logoImage {
+    height: 60px;
+    width: clamp(123px, 35.8vw, 202px);
+    max-width: 100%;
+  }
+
   .desktopMenu {
     display: none;
   }
