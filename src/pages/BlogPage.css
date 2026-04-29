@@ -6,6 +6,33 @@
     #eef3f6;
   color: #0f2e4a;
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 0.7s ease forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes backgroundGlow {
+  0%, 100% {
+    box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18), 0 0 30px rgba(44, 123, 167, 0);
+  }
+  50% {
+    box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18), 0 0 50px rgba(44, 123, 167, 0.35);
+  }
 }
 
 .blog-page__main {
@@ -58,6 +85,28 @@
   box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18);
   padding: 34px 30px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: backgroundGlow 4s ease-in-out infinite;
+}
+
+.blog-hero__card > * {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: textRise 0.6s ease forwards;
+}
+
+.blog-hero__card h1 {
+  animation-delay: 0.12s;
+}
+
+.blog-hero__card p {
+  animation-delay: 0.24s;
+}
+
+.blog-hero__cta {
+  animation-delay: 0.36s;
 }
 
 .blog-hero__card h1 {
@@ -69,7 +118,7 @@
 }
 
 .blog-hero__card p {
-  margin: 12px auto 0;
+  margin: 0 auto;
   max-width: 46ch;
   color: #5f7490;
   font-size: 0.98rem;
@@ -77,14 +126,26 @@
 }
 
 .blog-hero__cta {
-  margin-top: 18px;
+  margin-top: 0;
   border: 0;
   border-radius: 999px;
-  padding: 10px 20px;
+  padding: 10px 16px;
+  width: fit-content;
+  align-self: center;
   color: #fff;
   background: linear-gradient(135deg, #4a99c9, #2c7ba7);
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blog-hero__cta:hover {
+  transform: scale(0.92);
+  box-shadow: 0 8px 24px rgba(44, 123, 167, 0.4);
+}
+
+.blog-hero__cta:active {
+  transform: scale(0.88);
 }
 
 .blog-section {
@@ -95,8 +156,8 @@
 .blog-section__pill {
   display: inline-block;
   border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 0.78rem;
+  padding: 10px 22px;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #2c7ba7;
@@ -109,6 +170,7 @@
   font-size: clamp(1.9rem, 3vw, 2.7rem);
   line-height: 1.18;
   color: #102b47;
+  font-weight: 900;
 }
 
 .blog-section > p {
@@ -121,8 +183,10 @@
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
+  gap: 28px;
   text-align: left;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .blog-card {
@@ -133,16 +197,16 @@
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(216, 228, 237, 0.9);
   border-radius: 18px;
-  padding: 14px;
+  padding: 20px;
   box-shadow: 0 14px 34px rgba(16, 43, 71, 0.09);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
 }
 
 .blog-card__image-wrap {
-  width: 220px;
+  width: 185px;
   height: 100%;
-  flex: 0 0 220px;
+  flex: 0 0 185px;
   border-radius: 10px;
   overflow: hidden;
   background: #dfeaf3;
@@ -156,8 +220,30 @@
 }
 
 .blog-card__content {
-  width: 60%;
+  width: 100%;
   flex: 1;
+}
+
+.blog-card__content > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: textRise 0.55s ease forwards;
+}
+
+.blog-card__meta {
+  animation-delay: 0.1s;
+}
+
+.blog-card h3 {
+  animation-delay: 0.18s;
+}
+
+.blog-card__description {
+  animation-delay: 0.26s;
+}
+
+.blog-card__readmore {
+  animation-delay: 0.34s;
 }
 
 .blog-card__meta {
@@ -213,6 +299,16 @@
 .blog-card__readmore:hover {
   color: #0f5bc7;
   transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-page,
+  .blog-hero__card > *,
+  .blog-card__content > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .blog-modal-overlay {
@@ -284,7 +380,10 @@
 
 @media (hover: hover) {
   .blog-card:hover {
-    box-shadow: 0 18px 44px rgba(16, 43, 71, 0.16);
+    transform: translateY(-8px);
+    box-shadow: 0 28px 56px rgba(44, 123, 167, 0.35), 0 0 40px rgba(74, 153, 201, 0.2);
+    border-color: rgba(74, 153, 201, 0.4);
+    background: rgba(255, 255, 255, 0.98);
   }
 }
 

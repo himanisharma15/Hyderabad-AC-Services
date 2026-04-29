@@ -268,7 +268,7 @@ export default function BlogPage() {
               Reliable installation, servicing, and repair solutions to keep your cooling systems
               efficient and dependable.
             </p>
-            <button type="button" className="blog-hero__cta">Request Services</button>
+            <a href="/services" className="blog-hero__cta">Request Services</a>
           </div>
         </section>
 

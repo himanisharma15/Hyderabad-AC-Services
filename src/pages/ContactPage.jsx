@@ -3,7 +3,6 @@ import HeroSection from '../components/contact/HeroSection';
 import BranchesSection from '../components/contact/BranchesSection';
 import ContactFormSection from '../components/contact/ContactFormSection';
 import MapSection from '../components/contact/MapSection';
-import PremiumFooter from '../components/contact/PremiumFooter';
 import './ContactPage.css';
 
 const ContactPage = () => {
@@ -28,7 +27,6 @@ const ContactPage = () => {
       <BranchesSection />
       <ContactFormSection />
       <MapSection />
-      <PremiumFooter />
     </div>
   );
 };

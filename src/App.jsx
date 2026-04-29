@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
 import ServicesPage from './components/ServicesPage'
 import ServiceFormModal from './components/ServiceFormModal'
+import PremiumFooter from './components/contact/PremiumFooter'
 import styles from './App.module.css'
 
 export default function App() {
@@ -53,6 +54,8 @@ export default function App() {
       ) : (
         <HomePage onBookNow={handleOpenModal} />
       )}
+
+      <PremiumFooter />
 
       <ServiceFormModal
         isOpen={isModalOpen}
