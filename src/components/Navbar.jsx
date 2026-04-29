@@ -46,6 +46,7 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
   const [isMobileAccordionOpen, setIsMobileAccordionOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const isServicesRoute = currentPathname.startsWith('/services');
+  const isBlogRoute = currentPathname.startsWith('/blog');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,6 +133,14 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
             onClick={() => navigateTo('/services')}
           >
             Services
+          </button>
+
+          <button
+            className={`${styles.navLink} ${isBlogRoute ? styles.navLinkActive : ''}`}
+            type="button"
+            onClick={() => navigateTo('/blog')}
+          >
+            Blog
           </button>
 
           <div
@@ -223,6 +232,10 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
               onClick={() => navigateTo('/services')}
             >
               Services
+            </button>
+
+            <button className={styles.mobileLink} type="button" onClick={() => navigateTo('/blog')}>
+              Blog
             </button>
 
             <div className={styles.mobileDropdownWrap}>
