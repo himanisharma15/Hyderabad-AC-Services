@@ -1,3 +1,5 @@
+
+import React from 'react';
 import './MapSection.css';
 
 const MapSection = () => {

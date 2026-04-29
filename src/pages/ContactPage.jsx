@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import HeroSection from '../components/contact/HeroSection';
 import BranchesSection from '../components/contact/BranchesSection';
 import ContactFormSection from '../components/contact/ContactFormSection';

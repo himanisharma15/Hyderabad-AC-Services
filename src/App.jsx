@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
@@ -26,50 +27,45 @@ import RestaurantExhaustDetail from './pages/services/RestaurantExhaust'
 import BasementExhaustDetail from './pages/services/BasementExhaust'
 import RestaurantExhaustCleaningDetail from './pages/services/RestaurantExhaustCleaning'
 export default function App() {
-<<<<<<< HEAD
+
   const [selectedService, setSelectedService] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [pathname, setPathname] = useState(window.location.pathname);
-=======
   const [selectedService, setSelectedService] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
->>>>>>> da8dbf6 (your changes)
+
+  const [pathname, setPathname] = useState(window.location.pathname)
+  const [selectedService, setSelectedService] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-      return;
+      document.body.style.overflow = 'hidden'
+      return
     }
-
-    document.body.style.overflow = '';
-
+    document.body.style.overflow = ''
     return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isModalOpen]);
+      document.body.style.overflow = ''
+    }
+  }, [isModalOpen])
 
-<<<<<<< HEAD
   useEffect(() => {
-    const handleLocationChange = () => {
-      setPathname(window.location.pathname);
-    };
+    const handlePopState = () => setPathname(window.location.pathname)
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
 
-    window.addEventListener('popstate', handleLocationChange);
-    return () => window.removeEventListener('popstate', handleLocationChange);
-  }, []);
 
-=======
->>>>>>> da8dbf6 (your changes)
   const handleOpenModal = (serviceTitle = 'General HVAC Consultation') => {
-    setSelectedService(serviceTitle);
-    setIsModalOpen(true);
-  };
+    setSelectedService(serviceTitle)
+    setIsModalOpen(true)
+  }
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalOpen(false)
+  }
 
-<<<<<<< HEAD
+
   const renderPage = () => {
     if (pathname.startsWith('/contact')) {
       return <ContactPage />;
@@ -85,16 +81,25 @@ export default function App() {
 
     return <HomePage onBookNow={handleOpenModal} />;
   };
-
-=======
->>>>>>> da8dbf6 (your changes)
+  const isServicesPage = pathname.startsWith('/services')
   return (
     <BrowserRouter>
       <div className={styles.page}>
         <Navbar onBookNow={handleOpenModal} />
 
-<<<<<<< HEAD
+
       {renderPage()}
+      {pathname.startsWith('/contact') ? (
+        <ContactPage />
+      ) : pathname.startsWith('/about') ? (
+        <AboutPage onBookNow={handleOpenModal} />
+      ) : pathname.startsWith('/blog') ? (
+        <BlogPage />
+      ) : isServicesPage ? (
+        <ServicesPage onBookNow={handleOpenModal} />
+      ) : (
+        <HomePage onBookNow={handleOpenModal} />
+      )}
 
       <ServiceFormModal
         isOpen={isModalOpen}
@@ -103,7 +108,6 @@ export default function App() {
       />
     </div>
   );
-=======
         <Routes>
           <Route path="/" element={<HomePage onBookNow={handleOpenModal} />} />
           <Route path="/services" element={<ServicesPage onBookNow={handleOpenModal} />} />
@@ -138,5 +142,5 @@ export default function App() {
       </div>
     </BrowserRouter>
   )
->>>>>>> da8dbf6 (your changes)
-}
+
+  )}
