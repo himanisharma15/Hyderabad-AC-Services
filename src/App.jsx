@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
@@ -85,13 +84,12 @@ export default function App() {
         </Routes>
 
         <PremiumFooter />
-
-      <ServiceFormModal
-        isOpen={isModalOpen}
-        selectedService={selectedService}
-        onClose={handleCloseModal}
-      />
-    </div>
+        <ServiceFormModal
+          isOpen={isModalOpen}
+          selectedService={selectedService}
+          onClose={handleCloseModal}
+        />
+      </div>
     </BrowserRouter>
   )
 }

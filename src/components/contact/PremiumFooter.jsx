@@ -15,8 +15,6 @@ const PremiumFooter = () => {
     },
     services: [
       { name: 'AC Service', link: '/ac-service' },
-
-      { name: 'AC Service', link: '/services/ac-service' },
       { name: 'AC Repair', link: '/services/ac-repair' },
       { name: 'AC Installation', link: '/services/ac-installation' },
       { name: 'Ducting', link: '/services/ducting' },
