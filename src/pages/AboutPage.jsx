@@ -1,8 +1,8 @@
 import styles from './AboutPage.module.css';
-import { 
+import {
   FaPhoneAlt, FaSnowflake, FaArrowRight, FaMapMarkerAlt, 
   FaTools, FaClock, FaShieldAlt, FaUsers, FaCheckCircle, 
-  FaAward, FaClipboardList, FaStar, FaBullseye
+  FaAward, FaClipboardList, FaStar, FaBullseye, FaStarHalfAlt, FaRegStar
 } from 'react-icons/fa';
 import acTechnicianHero from '../assets/ac_technician_hero.png?v=2';
 import acInstallIndoor from '../assets/ac_install_indoor.png';
@@ -34,6 +34,16 @@ const fadeUpItem = {
 };
 
 export default function AboutPage({ onBookNow }) {
+  const renderStars = (rating, prefix = '') => {
+    const stars = [];
+    const full = Math.floor(rating);
+    const half = rating - full >= 0.5;
+    const empty = 5 - full - (half ? 1 : 0);
+    for (let i = 0; i < full; i++) stars.push(<FaStar key={`${prefix}-full-${i}`} />);
+    if (half) stars.push(<FaStarHalfAlt key={`${prefix}-half`} />);
+    for (let i = 0; i < empty; i++) stars.push(<FaRegStar key={`${prefix}-empty-${i}`} />);
+    return stars;
+  };
   const navigateTo = (pathname) => {
     if (window.location.pathname !== pathname) {
       window.history.pushState({}, '', pathname);
@@ -389,9 +399,9 @@ export default function AboutPage({ onBookNow }) {
 
           <motion.div className={styles.testimonialsGrid} variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
             {[
-              { name: "Jerome Bell", location: "Riverside District", avatar: avatarJerome, text: "The team arrived within an hour of my call. They quickly diagnosed the gas leak in my split AC, fixed it, and didn't leave any mess behind. True professionals!" },
-              { name: "Eleanor Pena", location: "Downtown Area", avatar: avatarEleanor, text: "We hired them to upgrade our office ducting. Not only were they incredibly affordable, but they finished the entire installation over the weekend so our work wasn't disrupted." },
-              { name: "Robert Fox", location: "Oakwood Business Park", avatar: avatarRobert, text: "I've used several AC services in Hyderabad, but this company is by far the best. Their AMC package gives me complete peace of mind. Highly recommended." }
+              { name: "Jerome Bell", location: "Riverside District", avatar: avatarJerome, text: "The team arrived within an hour of my call. They quickly diagnosed the gas leak in my split AC, fixed it, and didn't leave any mess behind. True professionals!", rating: 4.5 },
+              { name: "Eleanor Pena", location: "Downtown Area", avatar: avatarEleanor, text: "We hired them to upgrade our office ducting. Not only were they incredibly affordable, but they finished the entire installation over the weekend so our work wasn't disrupted.", rating: 4.2 },
+              { name: "Robert Fox", location: "Oakwood Business Park", avatar: avatarRobert, text: "I've used several AC services in Hyderabad, but this company is by far the best. Their AMC package gives me complete peace of mind. Highly recommended.", rating: 4.8 }
             ].map((testimonial, idx) => (
               <motion.div key={idx} className={styles.testimonialCard} variants={fadeUpItem}>
                 <div className={styles.testimonialBg}>
@@ -401,7 +411,7 @@ export default function AboutPage({ onBookNow }) {
                 </div>
                 
                 <div className={styles.starsRow}>
-                  <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                  {renderStars(testimonial.rating, `t-${idx}`)}
                 </div>
                 <p className={styles.testimonialText}>
                   {testimonial.text}
