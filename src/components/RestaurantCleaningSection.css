@@ -22,7 +22,8 @@
 
 .restaurant-clean-hero {
   position: relative;
-  padding: clamp(64px, 8vw, 110px) 0 clamp(56px, 7vw, 94px);
+  /* reduced bottom padding to remove excessive blank space */
+  padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 4vw, 32px);
   background:
     linear-gradient(90deg, rgba(45, 55, 72, 0.05) 1px, transparent 1px),
     linear-gradient(0deg, rgba(29, 94, 255, 0.055) 1px, transparent 1px),
@@ -146,7 +147,6 @@
   background: rgba(255, 255, 255, 0.82);
   box-shadow: var(--clean-shadow);
   backdrop-filter: blur(16px);
-  animation: restaurantCleanFloat 6s ease-in-out infinite;
 }
 
 .restaurant-clean-image-card::before {
@@ -162,9 +162,9 @@
 .restaurant-clean-image-card img {
   display: block;
   width: 100%;
-  min-height: 420px;
-  max-height: 560px;
+  height: clamp(380px, 44vw, 520px);
   object-fit: cover;
+  object-position: 50% 28%;
   transition: transform 700ms ease;
 }
 
@@ -201,7 +201,8 @@
 }
 
 .restaurant-clean-section {
-  padding: clamp(58px, 7vw, 96px) 0;
+  /* reduced vertical spacing between sections */
+  padding: clamp(24px, 4vw, 40px) 0;
 }
 
 .restaurant-clean-section--soft {
@@ -459,17 +460,6 @@
   }
 }
 
-@keyframes restaurantCleanFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @keyframes restaurantCleanPulse {
   0%,
   100% {
@@ -558,7 +548,7 @@
   }
 
   .restaurant-clean-image-card img {
-    min-height: 320px;
+    height: 320px;
   }
 
   .restaurant-clean-card-grid--four,

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import ductSystemImage from '../../assets/hvac-ducting-3d.png'
 import './BasementExhaust.css'
+
+const ductSystemImage = 'https://images.pexels.com/photos/162568/air-conditioner-air-conditioning-outside-air-conditioners-162568.jpeg?auto=compress&cs=tinysrgb&w=1200'
 
 const benefits = [
   {
@@ -234,14 +235,6 @@ export default function BasementExhaustPageDetail() {
         </div>
       </section>
 
-      <section className="basement-final-cta" aria-labelledby="basement-cta-title">
-        <div className="basement-container basement-final-cta__inner basement-reveal">
-          <h2 id="basement-cta-title">Ensure Safe &amp; Fresh Air in Your Basement</h2>
-          <a className="basement-button basement-button--light" href="/contact">
-            Get Consultation
-          </a>
-        </div>
-      </section>
     </main>
   )
 }

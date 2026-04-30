@@ -205,7 +205,8 @@
 
 .basement-section__header {
   max-width: 740px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
+  text-align: center;
 }
 
 .basement-section__header h2,
