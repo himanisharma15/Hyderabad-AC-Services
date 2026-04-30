@@ -1,15 +1,9 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Settings, ShieldCheck, Wind, CheckCircle, Droplets, Activity, Building, Zap } from 'lucide-react';
 import './ExhaustAMCSection.css';
+import './RestaurantCleaningSection.css';
 
-export default function RestaurantCleaningSection() {
-  const elementsRef = useRef([]);
-
-import { useEffect } from 'react'
-import './RestaurantCleaningSection.css'
-
-const ductSystemImage = '/DUCTING CONSTRUCTORS.jpg'
+const ductSystemImage = '/DUCTING CONSTRUCTORS.jpg';
 
 const importanceCards = [
   {
@@ -32,7 +26,7 @@ const importanceCards = [
     title: 'Boosts System Efficiency',
     text: 'Restores smooth airflow and lowers stress on equipment.',
   },
-]
+];
 
 const cleaningItems = [
   {
@@ -55,8 +49,10 @@ const cleaningItems = [
     title: 'Exhaust Fans',
     text: 'Fan blades, casing, and outlet cleaning.',
   },
-]
+];
 
+export default function RestaurantCleaningSection() {
+  const elementsRef = useRef([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

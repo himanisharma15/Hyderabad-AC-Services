@@ -1,15 +1,9 @@
-
 import React, { useEffect, useRef } from 'react';
-import { Settings, ShieldCheck, Wind, CheckCircle, Clock, Activity, Building, Droplets, Zap, Gauge } from 'lucide-react';
+import { Settings, ShieldCheck, Wind, CheckCircle, Clock, Activity, Building, Droplets, Zap } from 'lucide-react';
 import '../../components/ExhaustAMCSection.css';
+import './BasementExhaust.css';
 
-export default function BasementExhaust() {
-  const elementsRef = useRef([]);
-
-import { useEffect } from 'react'
-import './BasementExhaust.css'
-
-const ductSystemImage = 'https://images.pexels.com/photos/162568/air-conditioner-air-conditioning-outside-air-conditioners-162568.jpeg?auto=compress&cs=tinysrgb&w=1200'
+const ductSystemImage = 'https://images.pexels.com/photos/162568/air-conditioner-air-conditioning-outside-air-conditioners-162568.jpeg?auto=compress&cs=tinysrgb&w=1200';
 
 const benefits = [
   {
@@ -37,8 +31,10 @@ const benefits = [
     title: 'Supports Proper Air Circulation',
     text: 'Balances airflow for consistent ventilation performance.',
   },
-]
+];
 
+export default function BasementExhaust() {
+  const elementsRef = useRef([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -91,7 +87,7 @@ const benefits = [
               {[
                 { value: '100%', label: 'Balanced Airflow' },
                 { value: '24/7', label: 'Safety Monitored' },
-                { value: 'Zero', label: 'Stagnant Air' }
+                { value: 'Zero', label: 'Stagnant Air' },
               ].map((stat, idx) => (
                 <div className="amc-stat-card" key={idx}>
                   <strong>{stat.value}</strong>
@@ -113,12 +109,12 @@ const benefits = [
         <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Why Basement Ventilation Matters</h2>
         <div className="amc-includes-grid">
           {[
-            { title: "Removes Smoke & Fumes", desc: "Extracts trapped car exhaust and fumes before they spread through the building.", icon: <Zap size={32} /> },
-            { title: "Prevents Moisture & Mold", desc: "Controls damp air that can lead to structural damage, odors, and mold growth.", icon: <Droplets size={32} /> },
-            { title: "Improves Air Quality", desc: "Continuously refreshes stale air, making enclosed zones safer to breathe in.", icon: <Wind size={32} /> },
-            { title: "Enhances Fire Safety", desc: "Crucial for removing thick smoke in case of emergencies in underground levels.", icon: <ShieldCheck size={32} /> },
-            { title: "Balanced Circulation", desc: "Ensures uniform airflow across all corners of massive basement spaces.", icon: <Activity size={32} /> },
-            { title: "Energy Efficient", desc: "Smart systems that optimize power usage based on carbon monoxide levels.", icon: <Settings size={32} /> }
+            { title: 'Removes Smoke & Fumes', desc: 'Extracts trapped car exhaust and fumes before they spread through the building.', icon: <Zap size={32} /> },
+            { title: 'Prevents Moisture & Mold', desc: 'Controls damp air that can lead to structural damage, odors, and mold growth.', icon: <Droplets size={32} /> },
+            { title: 'Improves Air Quality', desc: 'Continuously refreshes stale air, making enclosed zones safer to breathe in.', icon: <Wind size={32} /> },
+            { title: 'Enhances Fire Safety', desc: 'Crucial for removing thick smoke in case of emergencies in underground levels.', icon: <ShieldCheck size={32} /> },
+            { title: 'Balanced Circulation', desc: 'Ensures uniform airflow across all corners of massive basement spaces.', icon: <Activity size={32} /> },
+            { title: 'Energy Efficient', desc: 'Smart systems that optimize power usage based on carbon monoxide levels.', icon: <Settings size={32} /> },
           ].map((item, idx) => (
             <div className="amc-include-card amc-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
               <div className="include-icon">{item.icon}</div>
@@ -133,11 +129,11 @@ const benefits = [
         <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Key Advantages</h2>
         <div className="benefits-highlight-grid amc-fade-up" ref={addToRefs}>
           {[
-            "Prevents Toxic Gas Buildup",
-            "Eliminates Damp Smells",
-            "Protects Building Structure",
-            "CO2 & CO Monitoring",
-            "Meets Safety Regulations"
+            'Prevents Toxic Gas Buildup',
+            'Eliminates Damp Smells',
+            'Protects Building Structure',
+            'CO2 & CO Monitoring',
+            'Meets Safety Regulations',
           ].map((item, idx) => (
             <div className="benefit-highlight" key={idx}>
               <CheckCircle size={20} />
@@ -151,10 +147,10 @@ const benefits = [
         <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Ideal For</h2>
         <div className="who-needs-grid who-needs-grid-4">
           {[
-            { title: "Residential Buildings", icon: <Building size={32} /> },
-            { title: "Parking Basements", icon: <Wind size={32} /> },
-            { title: "Commercial Complexes", icon: <Building size={32} /> },
-            { title: "Industrial Facilities", icon: <Settings size={32} /> }
+            { title: 'Residential Buildings', icon: <Building size={32} /> },
+            { title: 'Parking Basements', icon: <Wind size={32} /> },
+            { title: 'Commercial Complexes', icon: <Building size={32} /> },
+            { title: 'Industrial Facilities', icon: <Settings size={32} /> },
           ].map((who, idx) => (
             <div className="who-needs-card amc-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
               {who.icon}
@@ -169,11 +165,11 @@ const benefits = [
         <div className="amc-workflow-wrap amc-fade-up" ref={addToRefs}>
           <div className="amc-step-line"></div>
           {[
-            { step: "Site Inspection", icon: <Activity size={32} /> },
-            { step: "System Design", icon: <Settings size={32} /> },
-            { step: "Installation", icon: <Settings size={32} /> },
-            { step: "Airflow Testing", icon: <Wind size={32} /> },
-            { step: "Maintenance Support", icon: <Clock size={32} /> }
+            { step: 'Site Inspection', icon: <Activity size={32} /> },
+            { step: 'System Design', icon: <Settings size={32} /> },
+            { step: 'Installation', icon: <Settings size={32} /> },
+            { step: 'Airflow Testing', icon: <Wind size={32} /> },
+            { step: 'Maintenance Support', icon: <Clock size={32} /> },
           ].map((item, idx) => (
             <div className="amc-step" key={idx}>
               <div className="amc-step-icon">{item.icon}</div>
@@ -183,18 +179,12 @@ const benefits = [
         </div>
       </section>
 
-
       <section className="amc-cta">
         <div className="amc-fade-up" ref={addToRefs}>
           <h2>Ensure Safe & Fresh Air in Your Basement</h2>
           <a href="/contact" className="amc-btn amc-btn-inverse">Get a Free Quote</a>
         </div>
       </section>
-
     </div>
   );
-
-    </main>
-  )
-
 }
