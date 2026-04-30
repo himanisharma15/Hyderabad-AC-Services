@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Settings, ShieldCheck, Wind, CheckCircle, Droplets, Activity, Building, Zap } from 'lucide-react';
 import './ExhaustAMCSection.css';
-
+import './RestaurantCleaningSection.css';
 export default function RestaurantCleaningSection() {
   const elementsRef = useRef([]);
 
