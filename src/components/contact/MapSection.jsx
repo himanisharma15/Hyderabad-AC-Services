@@ -23,11 +23,11 @@ const MapSection = () => {
 
         <div className="map-info">
           <div className="map-info-item">
-            <h3>📍 Our Service Area</h3>
+            <h3>Our Service Area</h3>
             <p>We service all areas of Hyderabad including Banjara Hills, Hi-Tech City, HITEC City, Jubilee Hills, and surrounding regions.</p>
           </div>
           <div className="map-info-item">
-            <h3>🚚 Fast Delivery</h3>
+            <h3>Fast Delivery</h3>
             <p>We ensure quick response time and reliable service. Our technicians are distributed across the city for prompt assistance.</p>
           </div>
         </div>
