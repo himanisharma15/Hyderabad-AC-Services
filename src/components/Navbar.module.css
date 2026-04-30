@@ -65,7 +65,7 @@
   bottom: 4px;
   height: 2px;
   border-radius: 999px;
-  background: #1d5eff;
+  background: var(--brand-primary);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.2s ease;
@@ -73,7 +73,7 @@
 
 .navLink:hover,
 .navLinkActive {
-  color: #1d5eff;
+  color: var(--brand-primary);
 }
 
 .navLink:hover::after,
@@ -114,20 +114,20 @@
 .dropdownItem:hover,
 .dropdownItemActive {
   background: rgba(47, 119, 255, 0.1);
-  color: #1d5eff;
+  color: var(--brand-primary);
 }
 
 .bookButton,
 .mobileBookButton {
   height: 46px;
-  border: 1px solid rgba(29, 94, 255, 0.2);
+  border: 1px solid rgba(var(--brand-primary-rgb), 0.18);
   border-radius: 999px;
   padding: 0 22px;
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: #1d5eff;
-  box-shadow: 0 12px 26px rgba(29, 94, 255, 0.22);
+  background: var(--brand-primary);
+  box-shadow: 0 12px 26px rgba(var(--brand-primary-rgb), 0.22);
   cursor: pointer;
   transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
@@ -135,8 +135,8 @@
 .bookButton:hover,
 .mobileBookButton:hover {
   transform: translateY(-2px);
-  background: #164bd1;
-  box-shadow: 0 16px 32px rgba(29, 94, 255, 0.28);
+  background: var(--brand-primary-hover);
+  box-shadow: 0 16px 32px rgba(var(--brand-primary-rgb), 0.28);
 }
 
 .mobileToggle {
@@ -145,8 +145,8 @@
   height: 40px;
   border: 0;
   border-radius: 10px;
-  color: #1d5eff;
-  background: rgba(29, 94, 255, 0.1);
+  color: var(--brand-primary);
+  background: rgba(var(--brand-primary-rgb), 0.1);
 }
 
 .mobileMenu {
@@ -216,7 +216,7 @@
   }
 
   .mobileDropdownToggle svg {
-    color: #2b78ff;
+    color: var(--brand-primary);
     transition: transform 0.2s ease;
   }
 

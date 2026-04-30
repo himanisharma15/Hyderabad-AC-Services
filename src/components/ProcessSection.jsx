@@ -134,7 +134,7 @@ export default function ProcessSection() {
         >
           <img
             className={styles.workflowImage}
-            src="/images /Preventive Maintenance.jpg"
+            src="/images%20/workflow.jpg"
             alt="AC service workflow"
           />
         </motion.figure>
