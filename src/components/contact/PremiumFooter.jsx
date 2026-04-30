@@ -27,9 +27,9 @@ const PremiumFooter = () => {
       { name: 'Contact', link: '/contact' },
     ],
     social: [
-      { name: 'Facebook', icon: Facebook, link: 'https://facebook.com' },
-      { name: 'Instagram', icon: Instagram, link: 'https://instagram.com' },
-      { name: 'WhatsApp', icon: MessageCircle, link: 'https://wa.me/918712322475' },
+      { name: 'Facebook', icon: Facebook, link: 'https://www.facebook.com/hyderabadacservices' },
+      { name: 'Instagram', icon: Instagram, link: 'https://www.instagram.com/hyderabadacservices/' },
+      { name: 'WhatsApp', icon: MessageCircle, link: 'https://api.whatsapp.com/send/?phone=918712322475&text&app_absent=0' },
     ],
   };
 
