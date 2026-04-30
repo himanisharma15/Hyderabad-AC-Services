@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './ACInstallationSection.css';
 import techImage from '../assets/ac-install-tech.png';
 
@@ -35,6 +35,8 @@ export default function ACInstallationSection() {
   const elementsRef = useRef([]);
 
   useEffect(() => {
+    const elements = elementsRef.current;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -43,12 +45,12 @@ export default function ACInstallationSection() {
       });
     }, { threshold: 0.1 });
 
-    elementsRef.current.forEach(el => {
+    elements.forEach(el => {
       if (el) observer.observe(el);
     });
 
     return () => {
-      elementsRef.current.forEach(el => {
+      elements.forEach(el => {
         if (el) observer.unobserve(el);
       });
     };

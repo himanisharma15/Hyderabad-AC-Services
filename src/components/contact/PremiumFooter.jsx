@@ -1,10 +1,7 @@
-import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 import './PremiumFooter.css';
 
 const PremiumFooter = () => {
-  const currentYear = new Date().getFullYear();
-
   const footerData = {
     contact: {
       title: 'Hyderabad AC Services',
