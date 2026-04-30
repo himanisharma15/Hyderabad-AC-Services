@@ -14,7 +14,7 @@ export const services = [
   {
     title: 'Copper Pipe Planning',
     description: 'Accurate copper piping design for efficient refrigerant flow and durability.',
-    image: '/images /Preventive Maintenance.jpg',
+    image: '/blogimage1.jpg',
     icon: 'FaTools',
   },
   {
@@ -26,7 +26,7 @@ export const services = [
   {
     title: 'AC Gas Leak',
     description: 'Safe leak detection and repair to restore cooling and prevent repeat issues.',
-    image: '/images /Gas Refill.jpg',
+    image: '/blogimage2.jpg',
     icon: 'FaFireAlt',
   },
   {
@@ -44,7 +44,7 @@ export const services = [
   {
     title: 'AC Scrap',
     description: 'Responsible scrap handling and disposal support for old AC units.',
-    image: '/images /Emergency Support.jpg',
+    image: '/blogimage4.jpg',
     icon: 'FaFan',
   },
   {

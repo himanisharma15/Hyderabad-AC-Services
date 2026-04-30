@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import './PremiumFooter.css';
 
 const PremiumFooter = () => {
@@ -26,9 +27,9 @@ const PremiumFooter = () => {
       { name: 'Contact', link: '/contact' },
     ],
     social: [
-      { name: 'Facebook', icon: Facebook, link: 'https://www.facebook.com/hyderabadacservices' },
-      { name: 'Instagram', icon: Instagram, link: 'https://www.instagram.com/hyderabadacservices/' },
-      { name: 'WhatsApp', icon: MessageCircle, link: 'https://api.whatsapp.com/send/?phone=918712322475&text&app_absent=0' },
+      { name: 'Facebook', icon: FaFacebookF, link: 'https://www.facebook.com/hyderabadacservices' },
+      { name: 'Instagram', icon: FaInstagram, link: 'https://www.instagram.com/hyderabadacservices/' },
+      { name: 'WhatsApp', icon: FaWhatsapp, link: 'https://api.whatsapp.com/send/?phone=918712322475&text&app_absent=0' },
     ],
   };
 
@@ -40,9 +41,14 @@ const PremiumFooter = () => {
           {/* Column 1: Contact Info */}
           <div className="footer-column contact-column">
             <h3 className="footer-column-title">Contact Info</h3>
-            <div className="footer-logo">
-              <div className="footer-logo-icon">AC</div>
-              <p className="footer-brand-name">{footerData.contact.title}</p>
+            <div className="footer-brand-card">
+              <div className="footer-logo">
+                <div className="footer-logo-icon">AC</div>
+                <div className="footer-brand-copy">
+                  <p className="footer-brand-name">{footerData.contact.title}</p>
+                  <span className="footer-brand-subtitle">Hyderabad, India</span>
+                </div>
+              </div>
             </div>
             <p className="footer-description">{footerData.contact.description}</p>
 

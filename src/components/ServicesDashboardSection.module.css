@@ -141,7 +141,7 @@
   font-family: var(--heading);
   font-size: 28px;
   font-weight: 700;
-  color: #154769;
+  color: var(--brand-primary);
   margin-bottom: 12px;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .bookBtn {
-  background: linear-gradient(135deg, #154769 0%, #154769 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary) 100%);
   color: white;
   border: none;
   padding: 12px 32px;
@@ -167,7 +167,7 @@
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(var(--brand-primary-rgb), 0.3);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -198,7 +198,7 @@
   transform: translateY(-10px) scale(1.02);
   background: #ffffff;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-  border-color: #154769;
+  border-color: var(--brand-primary);
 }
 
 .imageWrapper {
@@ -233,7 +233,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #154769;
+  color: var(--brand-primary);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
@@ -263,7 +263,7 @@
 .card:hover .cardAction {
   opacity: 1;
   transform: translateY(0);
-  color: #154769;
+  color: var(--brand-primary);
 }
 
 /* POSITIONS (SYMMETRIC) */
@@ -311,7 +311,7 @@
 }
 
 .line {
-  stroke: #154769;
+  stroke: var(--brand-primary);
   stroke-dasharray: 4, 4;
   stroke-linecap: round;
   transition: all 0.4s ease;

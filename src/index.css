@@ -12,6 +12,7 @@
   --accent-border: rgba(29, 94, 255, 0.35);
   --social-bg: rgba(244, 243, 236, 0.5);
   --brand-primary: #154769;       /* HSB 204,80,41 — main brand color */
+  --brand-primary-rgb: 21, 71, 105;
   --brand-primary-hover: #0f3450; /* darker hover state */
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px,

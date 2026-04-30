@@ -29,11 +29,15 @@
   gap: 1.5rem;
 }
 
+.contact-column {
+  padding-right: 0.5rem;
+}
+
 /* Right-side (Connect With Us) balance */
 .social-column {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center icons and hours for visual balance */
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
@@ -44,8 +48,27 @@
   margin: 0;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(21, 71, 105, 0.3);
+  padding-bottom: 0.85rem;
+  position: relative;
+  width: 100%;
+}
+
+.footer-column-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.85rem;
+  background: linear-gradient(90deg, rgba(21, 71, 105, 0.95), rgba(58, 172, 225, 0.45));
+}
+
+.footer-brand-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(80, 171, 221, 0.18);
+  border-radius: 16px;
+  padding: 0.6rem;
+  box-shadow: 0 14px 26px rgba(5, 21, 38, 0.12);
+  max-width: 280px;
 }
 
 /* Contact Column */
@@ -53,15 +76,15 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
-  background: rgba(21, 71, 105, 0.1);
+  padding: 0.8rem 0.9rem;
+  background: rgba(21, 71, 105, 0.18);
+  border: 1px solid rgba(21, 71, 105, 0.22);
   border-radius: 12px;
-  margin-bottom: 0.5rem;
 }
 
 .footer-logo-icon {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,11 +96,22 @@
   box-shadow: 0 4px 12px rgba(21, 71, 105, 0.3);
 }
 
+.footer-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .footer-brand-name {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
+}
+
+.footer-brand-subtitle {
+  font-size: 0.82rem;
+  color: rgba(228, 243, 255, 0.72);
 }
 
 .footer-description {
@@ -106,7 +140,7 @@
 }
 
 .footer-contact-item svg {
-  color: #154769;
+  color: #26a9d7;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
@@ -163,7 +197,7 @@
 /* Social Column */
 .footer-social-links {
   display: flex;
-  gap: 14px; /* increase spacing between icons (12-16px) */
+  gap: 14px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -174,20 +208,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(21, 71, 105, 0.15);
-  border: 1px solid rgba(21, 71, 105, 0.3);
-  border-radius: 10px;
-  color: #154769;
-  transition: all 0.28s ease; /* smooth transition */
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(58, 172, 225, 0.22);
+  border-radius: 12px;
+  color: #1fb0e0;
+  transition: all 0.28s ease;
   cursor: pointer;
+  box-shadow: 0 10px 24px rgba(6, 24, 42, 0.12);
 }
 
 .footer-social-link:hover {
-  transform: scale(1.1); /* slight scale on hover */
-  background: linear-gradient(120deg, #154769 0%, #0d5a82 100%); /* lighter accent */
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(120deg, #154769 0%, #0d5a82 100%);
   border-color: rgba(21, 71, 105, 0.9);
   color: #ffffff;
-  box-shadow: 0 10px 30px rgba(21, 71, 105, 0.18); /* soft glow */
+  box-shadow: 0 10px 30px rgba(21, 71, 105, 0.18);
 }
 
 .footer-social-link:active {
@@ -196,12 +231,15 @@
 
 /* Hours Section */
 .footer-hours {
-  background: rgba(21, 71, 105, 0.085);
-  border-left: 3px solid #154769;
-  padding: 18px; /* increased padding (16-20px) */
-  border-radius: 10px;
-  min-width: 220px; /* slightly increase width for balance */
-  margin-top: 12px; /* space beneath icons */
+  width: 100%;
+  max-width: 260px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(21, 71, 105, 0.16));
+  border: 1px solid rgba(58, 172, 225, 0.22);
+  border-left: 4px solid #154769;
+  padding: 18px 18px 16px;
+  border-radius: 14px;
+  margin-top: 14px;
+  box-shadow: 0 14px 28px rgba(6, 24, 42, 0.16);
 }
 
 .hours-title {
@@ -216,24 +254,21 @@
 .hours-text {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #154769;
+  color: #ffffff;
   margin: 0 0 0.3rem;
 }
 
 .hours-subtext {
   font-size: 0.85rem;
-  color: rgba(228, 243, 255, 0.75);
+  color: rgba(228, 243, 255, 0.82);
   margin: 0;
 }
 
 /* Footer Bottom */
 .footer-bottom {
   width: 100%;
-  /* reduce padding to bring the bottom line closer to the main content */
   padding: 1rem clamp(1rem, 3vw, 2.2rem);
-  /* keep transparent so the parent gradient shows through */
   background: transparent;
-  /* subtle divider above the bottom text to make it premium and light */
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -317,10 +352,9 @@
 }
 
 .footer-copyright p {
-  /* subtle, premium bottom line styling */
-  font-size: 13px; /* 12-14px */
-  color: rgba(228, 243, 255, 0.68); /* lower opacity 0.6-0.7 */
-  margin: 24px 0 0; /* spacing above the bottom text */
+  font-size: 13px;
+  color: rgba(228, 243, 255, 0.68);
+  margin: 24px 0 0;
   line-height: 1.4;
   text-align: center;
 }
@@ -377,28 +411,28 @@
 
   .footer-column-title {
     font-size: 1rem;
+  }
 
-    .footer-contact-section {
-      padding: 1.5rem;
-    }
+  .footer-contact-section {
+    padding: 1.5rem;
+  }
 
-    .footer-contact-title {
-      font-size: 1rem;
-    }
+  .footer-contact-title {
+    font-size: 1rem;
+  }
 
-    .footer-contact-message {
-      font-size: 0.9rem;
-      margin-bottom: 1.25rem;
-    }
+  .footer-contact-message {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
 
-    .footer-contact-channels {
-      gap: 1rem;
-    }
+  .footer-contact-channels {
+    gap: 1rem;
+  }
 
-    .footer-contact-channel {
-      padding: 0.65rem 1rem;
-      font-size: 0.85rem;
-    }
+  .footer-contact-channel {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -414,6 +448,19 @@
   .footer-logo {
     flex-direction: column;
     text-align: center;
+    gap: 0.7rem;
+  }
+
+  .footer-brand-copy {
+    align-items: center;
+  }
+
+  .footer-brand-card {
+    max-width: 100%;
+  }
+
+  .footer-hours {
+    max-width: 100%;
   }
 
   .footer-social-links {
@@ -422,21 +469,21 @@
 
   .footer-bottom {
     padding: 1.5rem 1rem;
+  }
 
-    .footer-contact-section {
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-    }
+  .footer-contact-section {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
 
-    .footer-contact-channels {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+  .footer-contact-channels {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-    .footer-contact-channel {
-      width: 100%;
-      justify-content: center;
-    }
+  .footer-contact-channel {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -450,7 +497,11 @@ body[data-theme="dark"] .footer-main {
 }
 
 body[data-theme="dark"] .footer-column-title {
-  border-bottom-color: rgba(123, 179, 221, 0.4);
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .footer-column-title::after {
+  background: linear-gradient(90deg, rgba(123, 179, 221, 0.95), rgba(123, 179, 221, 0.35));
 }
 
 body[data-theme="dark"] .footer-logo {
