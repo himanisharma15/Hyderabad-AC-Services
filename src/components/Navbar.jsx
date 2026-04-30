@@ -44,7 +44,6 @@ const trackableSections = [
   'ac-scrap',
   'air-curtain',
   'exhaust',
-
   'amc',
   'restaurant-exhaust',
   'basement-exhaust',

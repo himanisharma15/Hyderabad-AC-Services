@@ -109,55 +109,94 @@
   100% { transform: translateY(0px); }
 }
 
-/* 2. SERVICES (CARD GRID) */
+/* 2. SERVICES — Clean Card Grid */
 .scrap-services {
-  padding: 6rem 2rem;
+  padding: 5rem 2rem 6rem;
   background: #ffffff;
 }
-.scrap-services-grid {
-  max-width: 1200px;
+
+.scrap-offer-grid {
+  max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
-.scrap-offer-card {
+
+.scrap-simple-card {
+  width: calc(25% - 1.5rem);
+  min-width: 220px;
+  max-width: 260px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e8f0fe;
   border-radius: 16px;
-  padding: 2rem;
+  padding: 2.25rem 1.5rem 2rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: default;
 }
-.scrap-offer-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.1); /* green shadow */
-  border-color: #a7f3d0;
+
+.scrap-simple-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 147, 233, 0.12);
+  border-color: #bfdbfe;
 }
-.offer-icon {
-  background: #ecfdf5;
-  color: #10b981;
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+
+.scrap-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: #eaf6ff;
+  color: #0ea5e9;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem auto;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-.scrap-offer-card h3 {
-  font-size: 1.15rem;
+
+.scrap-simple-card:hover .scrap-card-icon {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+.scrap-card-title {
+  font-size: 1rem;
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  line-height: 1.3;
 }
-.scrap-offer-card p {
-  font-size: 0.95rem;
+
+.scrap-card-desc {
+  font-size: 0.875rem;
   color: #64748b;
   margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .scrap-simple-card {
+    width: calc(50% - 1.5rem);
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .scrap-simple-card {
+    width: 100%;
+    max-width: 340px;
+  }
 }
 
 /* 3. WHO CAN SELL */
+
 .scrap-who {
   padding: 6rem 2rem;
   background: #f8fafc;
@@ -376,14 +415,112 @@
     width: 2px; height: 100%;
     left: 50%; top: 0; bottom: 0; right: auto; margin-left: -1px;
   }
+
+  /* Tablet: hide SVG, single-column layout */
+  .scrap-services-shell {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .scrap-services-path {
+    display: none;
+  }
+  .scrap-services-timeline {
+    position: relative;
+    padding: 1rem 1rem 1rem 3.5rem;
+  }
+  /* Vertical dashed connector line on left */
+  .scrap-services-timeline::before {
+    content: "";
+    position: absolute;
+    left: 34px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 147, 233, 0.08) 0%,
+      rgba(0, 180, 216, 0.45) 40%,
+      rgba(0, 198, 255, 0.45) 60%,
+      rgba(0, 147, 233, 0.08) 100%
+    );
+    border-radius: 2px;
+  }
+  .scrap-services-timeline .scrap-offer-card::before {
+    left: -2.6rem;
+    width: 2.6rem;
+  }
 }
+
 @media (max-width: 768px) {
   .scrap-hero-container { grid-template-columns: 1fr; gap: 3rem; }
   .scrap-hero-content { order: 1; text-align: center; align-items: center; }
   .scrap-hero-image-wrapper { order: 2; }
-  .scrap-services-grid { grid-template-columns: 1fr; }
   .who-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .scrap-hero-heading { font-size: 2.25rem; }
   .scrap-section-title { font-size: 2.25rem; }
-  .scrap-cta h2 { font-size: 2.25rem; }
+
+  /* On mobile, remove fixed height so text can wrap naturally */
+  .scrap-services-timeline {
+    padding: 8px 0.75rem 8px 2.75rem;
+    gap: 14px;
+  }
+  .scrap-services-timeline::before {
+    left: 26px;
+  }
+  .scrap-services-timeline .scrap-offer-card {
+    height: auto;
+    min-height: 68px;
+    padding: 0.85rem 0.9rem 0.85rem 4rem;
+    border-radius: 40px;
+    gap: 0.65rem;
+  }
+  .scrap-offer-copy h3 {
+    white-space: normal;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+  .scrap-offer-copy p {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+  .scrap-step-badge {
+    width: 52px;
+    height: 52px;
+    font-size: 0.82rem;
+    left: -1.3rem;
+    border-width: 3px;
+  }
+  .scrap-services-timeline .offer-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  .scrap-services-timeline .offer-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes scrapPathDraw {
+  from {
+    stroke-dashoffset: 260;
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes scrapIconFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
 }

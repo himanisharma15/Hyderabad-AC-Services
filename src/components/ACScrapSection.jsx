@@ -60,18 +60,23 @@ export default function ACScrapSection() {
       {/* 2. SERVICES (CARD GRID) */}
       <section className="scrap-services">
         <h2 className="scrap-section-title scrap-fade-up" ref={addToRefs}>What We Offer</h2>
-        <div className="scrap-services-grid">
+        <div className="scrap-offer-grid">
           {[
-            { title: "Buy Old AC Units", desc: "We accept window, split, cassette, and centralized systems.", icon: <Package size={28} /> },
-            { title: "Free Pickup", desc: "Zero transportation or uninstallation charges.", icon: <Truck size={28} /> },
-            { title: "Instant Payment", desc: "Cash, UPI, or bank transfer right at your doorstep.", icon: <Banknote size={28} /> },
-            { title: "Eco-Friendly Recycling", desc: "Responsible dismantling and hazardous gas disposal.", icon: <Leaf size={28} /> },
-            { title: "Bulk Collection", desc: "B2B solutions for replacing enterprise climate networks.", icon: <Building2 size={28} /> }
+            { title: "Buy Old AC Units",     desc: "We accept window, split, cassette, and centralized systems.", icon: <Package  size={26} /> },
+            { title: "Free Pickup",           desc: "Zero transportation or uninstallation charges.",              icon: <Truck    size={26} /> },
+            { title: "Instant Payment",       desc: "Cash, UPI, or bank transfer right at your doorstep.",        icon: <Banknote size={26} /> },
+            { title: "Eco-Friendly Recycling",desc: "Responsible dismantling and hazardous gas disposal.",        icon: <Leaf     size={26} /> },
+            { title: "Bulk Collection",       desc: "B2B solutions for replacing enterprise climate networks.",    icon: <Building2 size={26} /> },
           ].map((offer, idx) => (
-            <div className="scrap-offer-card scrap-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
-              <div className="offer-icon">{offer.icon}</div>
-              <h3>{offer.title}</h3>
-              <p>{offer.desc}</p>
+            <div
+              className="scrap-simple-card scrap-fade-up"
+              ref={addToRefs}
+              style={{ transitionDelay: `${idx * 0.1}s` }}
+              key={idx}
+            >
+              <div className="scrap-card-icon">{offer.icon}</div>
+              <h3 className="scrap-card-title">{offer.title}</h3>
+              <p className="scrap-card-desc">{offer.desc}</p>
             </div>
           ))}
         </div>
@@ -155,13 +160,7 @@ export default function ACScrapSection() {
         </div>
       </section>
 
-      {/* 7. CTA BANNER */}
-      <section className="scrap-cta">
-        <div className="scrap-fade-up" ref={addToRefs}>
-          <h2>Sell Your Old AC Today</h2>
-          <button className="scrap-btn scrap-btn-inverse">Contact Us</button>
-        </div>
-      </section>
+
 
     </div>
   );

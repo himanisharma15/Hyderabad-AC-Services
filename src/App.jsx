@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
@@ -37,7 +36,9 @@ export default function App() {
       document.body.style.overflow = 'hidden'
       return
     }
+
     document.body.style.overflow = ''
+
     return () => {
       document.body.style.overflow = ''
     }
@@ -82,14 +83,13 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
-      <PremiumFooter />
-
-      <ServiceFormModal
-        isOpen={isModalOpen}
-        selectedService={selectedService}
-        onClose={handleCloseModal}
-      />
-    </div>
+        <PremiumFooter />
+        <ServiceFormModal
+          isOpen={isModalOpen}
+          selectedService={selectedService}
+          onClose={handleCloseModal}
+        />
+      </div>
     </BrowserRouter>
   )
 }
