@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { PenTool, Fan, ShieldCheck, Wrench } from 'lucide-react';
 
-const whatsappUrl = 'https://wa.me/918712322475?text=Hi%2C%20I%20need%20ducting%20service%20details.';
+const whatsappUrl = 'https://api.whatsapp.com/send/?phone=918712322475&text=Hi%2C%20I%20need%20ducting%20service%20details.&type=phone_number&app_absent=0';
 
 const ductingFeatures = [
   {
@@ -53,13 +53,13 @@ export default function DuctingSection() {
   }, []);
 
   return (
-    <section className="bg-[#fcfdfd] font-sans w-full py-24 sm:py-32 overflow-hidden border-b border-gray-100">
-      <div 
+    <section className="bg-[#fcfdfd] font-sans w-full pt-12 pb-6 sm:pt-16 sm:pb-10 overflow-hidden border-b border-gray-100">
+      <div
         ref={containerRef}
         className="mx-auto max-w-300 px-6 lg:px-8 opacity-0 translate-y-8 transition-all duration-700 ease-out"
       >
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
-          
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-40 items-center justify-between">
+
           {/* Left Side */}
           <div className="lg:w-[45%]">
             <div className="inline-block border-t-[3px] border-blue-600 pt-3 mb-5">
@@ -73,15 +73,39 @@ export default function DuctingSection() {
             <p className="text-gray-500 mb-10 leading-relaxed text-[15px] max-w-lg">
               At Hyderabad AC Services, we specialize in custom ducting solutions for HVAC systems—designed for efficiency, durability, and noise-free airflow. Whether you're setting up a Centralized AC System, Ventilation System, Commercial Exhaust Setup, or industrial exhaust, we deliver precision and performance.
             </p>
-            <a 
-              href={whatsappUrl} 
-              target="_blank" 
+
+            {/* Features moved to left side below text */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-6 mb-12">
+              {ductingFeatures.map((feature, i) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full border border-blue-100 flex items-center justify-center text-blue-600 bg-white shadow-sm">
+                      <Icon size={18} strokeWidth={2} />
+                    </div>
+                    <div>
+                      <h4 className="text-[0.95rem] font-bold text-gray-800 mb-1 leading-tight">
+                        {feature.title}
+                      </h4>
+                      <p className="text-gray-500 text-[12px] leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white text-[14px] font-bold tracking-wider rounded border border-blue-600 shadow-sm hover:bg-transparent hover:text-blue-600 hover:shadow-none transition-all"
             >
               CONTACT US
             </a>
           </div>
+
 
           {/* Right Side - Staggered Grid (Image 2 style) */}
           <div className="lg:w-[55%] w-full relative sm:pl-6">

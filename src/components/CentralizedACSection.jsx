@@ -24,8 +24,8 @@ const itemVariants = {
 
 const headerVariants = {
   hidden: { opacity: 0, y: -20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.8, ease: "easeOut" }
   }
@@ -109,84 +109,108 @@ export default function CentralizedACSection() {
   }, [])
 
   return (
-    <section className="bg-white flex flex-col font-sans">
-      {/* Header Section */}
-      <motion.div 
-        className="relative w-screen min-h-[72vh] text-center flex flex-col items-center justify-center overflow-visible py-16 sm:py-20"
-        style={{
-          backgroundImage: 'url(/header.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={headerVariants}
-      >
-        <span className="inline-block text-[0.65rem] font-bold tracking-[0.3em] text-[#0d2f5a] uppercase mb-3">
-          Industrial Grade Climate Control
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0d2f5a] uppercase leading-[1.15] font-['Inter','Montserrat',sans-serif]">
-          Our End-To-End Capabilities
-        </h2>
-        <p className="mt-4 text-[15px] leading-relaxed text-[#0d2f5a]/85 max-w-2xl mx-auto px-6">
-          From initial blueprint to final optimization, we manage every stage of your climate control infrastructure.
-        </p>
+    <section className="bg-[#fcfdfd] font-sans w-full pt-12 pb-6 sm:pt-16 sm:pb-10 overflow-hidden border-b border-gray-100">
+      {/* Hero Section with Text Left, Image Right */}
+      <div className="max-w-[1400px] mx-auto w-full px-6 lg:px-12 py-20 lg:py-32">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-40 items-center justify-between">
 
-        {/* 5-Column Bento Grid */}
-        <motion.div 
-          ref={gridRef}
-          className="absolute left-1/2 bottom-0 z-20 w-full max-w-350 -translate-x-1/2 translate-y-1/2 px-6 lg:px-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {capabilities.map((item, index) => (
-              <motion.div 
-                key={index} 
-                variants={itemVariants}
-                className="bento-card relative flex min-h-70 flex-col overflow-hidden rounded-xl border border-gray-200 bg-linear-to-b from-gray-50 to-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group"
-              >
-                {/* Magic Mouse Glow Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
-                     style={{ background: 'radial-gradient(circle 250px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(15, 23, 42, 0.03), transparent 80%)' }}>
-                </div>
-                
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="mb-5 h-32 w-full overflow-hidden rounded-lg">
-                    <img
-                      src={encodeURI(`/${item.imageName || `${item.title}.jpg`}`)}
-                      alt={item.title}
-                      className="block h-full w-full object-cover"
-                    />
-                  </div>
+          {/* Left Side: Content & Capabilities */}
+          <motion.div
+            className="lg:w-[45%] flex flex-col"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="inline-block text-[0.7rem] font-bold tracking-[0.3em] text-blue-600 uppercase mb-4">
+              Industrial Grade Climate Control
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0d2f5a] mb-6 leading-[1.1]">
+              Centralized AC <br />
+              <span className="text-blue-600">Solutions</span>
+            </h1>
+            <p className="text-lg leading-relaxed text-gray-600 max-w-xl mb-12">
+              From initial blueprint to final optimization, we manage every stage of your climate control infrastructure with precision engineering and advanced technology.
+            </p>
 
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-800 shadow-sm transition-colors duration-300 group-hover:border-gray-900 group-hover:bg-gray-900 group-hover:text-white">
-                    <item.icon className={`h-5 w-5 stroke-[1.5px] ${item.pulse ? 'icon-pulse' : ''}`} />
-                  </div>
-                  
-                  <div className="mt-auto">
-                    <h3 className="mb-3 font-['Inter','Montserrat',sans-serif] text-[13px] font-bold uppercase tracking-widest text-gray-900">
+            {/* Capabilities Grid - Moved to Left Side Below Text */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-8">
+              {capabilities.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="flex flex-col gap-4 group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white shadow-sm">
+                      <item.icon className={`h-6 w-6 stroke-[1.5px] ${item.pulse ? 'icon-pulse' : ''}`} />
+                    </div>
+                    <h3 className="font-bold text-[14px] uppercase tracking-wider text-gray-900">
                       {item.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      {item.desc}
-                    </p>
+                  </div>
+                  <p className="text-gray-500 text-sm leading-relaxed pl-16">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-16">
+              <a
+                href="https://api.whatsapp.com/send/?phone=918712322475&text=Hi%2C%20I'm%20interested%20in%20Centralized%20AC%20Solutions&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block px-10 py-4 bg-[#0d2f5a] text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-900/10 active:scale-95"
+              >
+                DISCUSS YOUR PROJECT
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right Side: Image Display */}
+          <motion.div
+            className="lg:w-[45%] w-full"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="relative">
+              {/* Decorative Elements */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(13,47,90,0.15)] border border-gray-100">
+                <img
+                  src="/header.jpg"
+                  alt="Centralized AC System"
+                  className="w-full h-[650px] object-cover object-center"
+                />
+                {/* Overlay Badge */}
+                <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">✓</div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Quality Guaranteed</p>
+                      <p className="text-sm font-bold text-[#0d2f5a]">Industry-Leading HVAC Standards</p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
+              </div>
+            </div>
+          </motion.div>
 
-      <div className="max-w-350 mx-auto w-full border-y border-gray-200 px-6 pt-48 pb-24 sm:pt-56 sm:pb-32 lg:px-12">
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto w-full px-6 lg:px-12 py-8 sm:py-10">
 
         {/* Brands We Work With */}
-        <motion.div 
+        <motion.div
           className="border-t border-gray-200 pt-8 flex flex-col items-center gap-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +229,8 @@ export default function CentralizedACSection() {
         </motion.div>
 
       </div>
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes subtle-glow {
           0%, 100% { box-shadow: 0 0 10px rgba(0,0,0,0.05); }
           50% { box-shadow: 0 0 25px rgba(0,0,0,0.2); }
