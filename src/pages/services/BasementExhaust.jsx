@@ -1,9 +1,44 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Settings, ShieldCheck, Wind, CheckCircle, Clock, Activity, Building, Droplets, Zap, Gauge } from 'lucide-react';
 import '../../components/ExhaustAMCSection.css';
 
 export default function BasementExhaust() {
   const elementsRef = useRef([]);
+
+import { useEffect } from 'react'
+import './BasementExhaust.css'
+
+const ductSystemImage = 'https://images.pexels.com/photos/162568/air-conditioner-air-conditioning-outside-air-conditioners-162568.jpeg?auto=compress&cs=tinysrgb&w=1200'
+
+const benefits = [
+  {
+    icon: 'smoke',
+    title: 'Removes Smoke & Fumes',
+    text: 'Extracts trapped fumes before they spread through the building.',
+  },
+  {
+    icon: 'air',
+    title: 'Improves Air Quality',
+    text: 'Keeps enclosed basement zones cleaner and easier to breathe in.',
+  },
+  {
+    icon: 'moisture',
+    title: 'Prevents Moisture & Mold',
+    text: 'Controls damp air that can lead to odor, stains, and mold growth.',
+  },
+  {
+    icon: 'safety',
+    title: 'Enhances Safety',
+    text: 'Reduces air stagnation and supports safer underground spaces.',
+  },
+  {
+    icon: 'circulation',
+    title: 'Supports Proper Air Circulation',
+    text: 'Balances airflow for consistent ventilation performance.',
+  },
+]
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -148,6 +183,7 @@ export default function BasementExhaust() {
         </div>
       </section>
 
+
       <section className="amc-cta">
         <div className="amc-fade-up" ref={addToRefs}>
           <h2>Ensure Safe & Fresh Air in Your Basement</h2>
@@ -157,4 +193,8 @@ export default function BasementExhaust() {
 
     </div>
   );
+
+    </main>
+  )
+
 }

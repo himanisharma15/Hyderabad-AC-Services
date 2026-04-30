@@ -1,9 +1,45 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ArrowRight, Check, IndianRupee, Search, ShieldCheck, TrendingUp, X } from 'lucide-react';
 import './ACGasLeakSection.css';
 import technicianImage from '../assets/ac-technician.png';
 
+const whatsappUrl = 'https://wa.me/918712322475?text=Hi%2C%20I%20need%20AC%20gas%20leak%20repair%20service.';
+
+const gasLeakFeatures = [
+  {
+    Icon: Search,
+    title: 'Detect leaks accurately using advanced tools',
+    popup:
+      'We inspect refrigerant lines, flare joints, coils, valves, and pressure behavior to locate the actual leak point before repair.',
+    points: ['Pressure diagnostics', 'Joint and coil checks', 'Clear fault reporting'],
+  },
+  {
+    Icon: ShieldCheck,
+    title: 'Seal and repair leaks permanently',
+    popup:
+      'Our technicians repair the leak source with proper sealing, brazing, and fitting correction methods based on the AC condition.',
+    points: ['Root-cause repair', 'Secure fittings', 'Reliable sealing work'],
+  },
+  {
+    Icon: TrendingUp,
+    title: 'Recharge gas to optimal levels',
+    popup:
+      'After leak rectification, we recharge refrigerant to the right operating level so cooling performance returns safely and efficiently.',
+    points: ['Correct gas quantity', 'Cooling performance check', 'Final pressure testing'],
+  },
+  {
+    Icon: IndianRupee,
+    title: 'Reduce electricity bills',
+    popup:
+      'A properly repaired and charged AC cools faster, reduces compressor strain, and helps avoid unnecessary power consumption.',
+    points: ['Lower compressor load', 'Faster cooling recovery', 'Better energy efficiency'],
+  },
+];
+
 export default function ACGasLeakSection() {
   const containerRef = useRef(null);
+  const [selectedFeature, setSelectedFeature] = useState(null);
+  const SelectedFeatureIcon = selectedFeature?.Icon;
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -23,6 +59,19 @@ export default function ACGasLeakSection() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!selectedFeature) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedFeature(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedFeature]);
+
   return (
     <section className="gasleak-section">
       <div className="gasleak-container" ref={containerRef}>
@@ -37,40 +86,23 @@ export default function ACGasLeakSection() {
           </p>
 
           <div className="gasleak-features">
-            <div className="gasleak-feature-card">
-              <div className="gasleak-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </div>
-              <span className="gasleak-feature-text">Detect leaks accurately using advanced tools</span>
-            </div>
-            <div className="gasleak-feature-card">
-              <div className="gasleak-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-              </div>
-              <span className="gasleak-feature-text">Seal and repair leaks permanently</span>
-            </div>
-            <div className="gasleak-feature-card">
-              <div className="gasleak-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                  <polyline points="17 6 23 6 23 12"></polyline>
-                </svg>
-              </div>
-              <span className="gasleak-feature-text">Recharge gas to optimal levels</span>
-            </div>
-            <div className="gasleak-feature-card">
-              <div className="gasleak-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <span className="gasleak-feature-text">Reduce electricity bills</span>
-            </div>
+            {gasLeakFeatures.map((feature) => (
+              <button
+                className="gasleak-feature-card"
+                key={feature.title}
+                type="button"
+                onClick={() => setSelectedFeature(feature)}
+                aria-haspopup="dialog"
+              >
+                <span className="gasleak-feature-icon">
+                  <feature.Icon size={22} strokeWidth={2.2} />
+                </span>
+                <span className="gasleak-feature-copy">
+                  <span className="gasleak-feature-text">{feature.title}</span>
+                  <span className="gasleak-feature-action">View details</span>
+                </span>
+              </button>
+            ))}
           </div>
 
           <div className="gasleak-trust">
@@ -88,10 +120,16 @@ export default function ACGasLeakSection() {
             </div>
           </div>
 
-          <button className="gasleak-cta">
+          <a
+            className="gasleak-cta"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Contact Hyderabad AC Services on WhatsApp for AC gas leak repair"
+          >
             Contact Us
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </button>
+            <ArrowRight size={18} strokeWidth={2.3} />
+          </a>
         </div>
 
         {/* Right Side: Image */}
@@ -104,6 +142,49 @@ export default function ACGasLeakSection() {
         </div>
 
       </div>
+
+      {selectedFeature && (
+        <div
+          className="gasleak-popup-backdrop"
+          onClick={() => setSelectedFeature(null)}
+          role="presentation"
+        >
+          <div
+            className="gasleak-popup"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="gasleak-popup-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="gasleak-popup-close"
+              type="button"
+              onClick={() => setSelectedFeature(null)}
+              aria-label="Close service details"
+            >
+              <X size={18} strokeWidth={2.4} />
+            </button>
+            <div className="gasleak-popup-icon">
+              {SelectedFeatureIcon ? <SelectedFeatureIcon size={28} strokeWidth={2.2} /> : null}
+            </div>
+            <span className="gasleak-popup-kicker">AC Gas Leak Service</span>
+            <h3 id="gasleak-popup-title">{selectedFeature.title}</h3>
+            <p>{selectedFeature.popup}</p>
+            <ul>
+              {selectedFeature.points.map((point) => (
+                <li key={point}>
+                  <Check size={17} strokeWidth={2.6} />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <a className="gasleak-popup-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
+              Chat on WhatsApp
+              <ArrowRight size={17} strokeWidth={2.4} />
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,9 +1,62 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Settings, ShieldCheck, Wind, CheckCircle, Droplets, Activity, Building, Zap } from 'lucide-react';
 import './ExhaustAMCSection.css';
 
 export default function RestaurantCleaningSection() {
   const elementsRef = useRef([]);
+
+import { useEffect } from 'react'
+import './RestaurantCleaningSection.css'
+
+const ductSystemImage = '/DUCTING CONSTRUCTORS.jpg'
+
+const importanceCards = [
+  {
+    icon: 'grease',
+    title: 'Removes Grease & Smoke',
+    text: 'Clears sticky buildup from high-use kitchen exhaust paths.',
+  },
+  {
+    icon: 'fire',
+    title: 'Prevents Fire Hazards',
+    text: 'Reduces combustible deposits in hoods, ducts, and fans.',
+  },
+  {
+    icon: 'air',
+    title: 'Improves Air Quality',
+    text: 'Helps remove heat, odor, fumes, and stale kitchen air.',
+  },
+  {
+    icon: 'efficiency',
+    title: 'Boosts System Efficiency',
+    text: 'Restores smooth airflow and lowers stress on equipment.',
+  },
+]
+
+const cleaningItems = [
+  {
+    icon: 'hood',
+    title: 'Kitchen Hood',
+    text: 'Surface degreasing and hygiene cleaning.',
+  },
+  {
+    icon: 'duct',
+    title: 'Exhaust Ducts',
+    text: 'Internal duct grease and soot removal.',
+  },
+  {
+    icon: 'filter',
+    title: 'Filters',
+    text: 'Deep wash for better capture and airflow.',
+  },
+  {
+    icon: 'fan',
+    title: 'Exhaust Fans',
+    text: 'Fan blades, casing, and outlet cleaning.',
+  },
+]
+
 
   useEffect(() => {
     window.scrollTo(0, 0);

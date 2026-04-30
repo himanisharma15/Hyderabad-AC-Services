@@ -2,6 +2,35 @@ import React, { useEffect, useRef } from 'react';
 import './ACInstallationSection.css';
 import techImage from '../assets/ac-install-tech.png';
 
+const whatsappUrl = 'https://wa.me/918712322475?text=Hi%2C%20I%20need%20AC%20installation%20service.';
+
+const trustFeatures = [
+  {
+    title: 'Experienced & Certified Technicians',
+    desc: 'Skilled installation team for split, window, ductable, and centralized AC systems.',
+  },
+  {
+    title: 'Affordable Pricing',
+    desc: 'Clear estimates with no hidden charges before work begins.',
+  },
+  {
+    title: 'High-Quality Materials',
+    desc: 'Reliable copper piping, insulation, brackets, wiring, and fittings.',
+  },
+  {
+    title: 'All Major Brands',
+    desc: 'Installation support for leading residential and commercial AC brands.',
+  },
+  {
+    title: 'Same-Day / Next-Day Service',
+    desc: 'Fast scheduling across Hyderabad for urgent installation needs.',
+  },
+  {
+    title: 'Performance Check',
+    desc: 'Post-installation testing for airflow, cooling, drainage, and stability.',
+  },
+];
+
 export default function ACInstallationSection() {
   const elementsRef = useRef([]);
 
@@ -35,7 +64,7 @@ export default function ACInstallationSection() {
     <div className="install-page">
       
       {/* 1. HERO SECTION */}
-      <section className="install-hero">
+      <section className="install-hero" style={{ '--install-hero-bg': `url(${techImage})` }}>
         <div className="install-hero-container fade-up-element" ref={addToRefs}>
           <div className="install-hero-content">
             <h1 className="install-hero-heading">
@@ -47,10 +76,15 @@ export default function ACInstallationSection() {
             <p className="install-hero-desc">
               At Hyderabad AC Services, we specialize in expert AC installation services in Hyderabad for all major brands and models—Split AC, Window AC, Cassette AC, Ductable Units, and Centralized Air Conditioning Systems. Our certified technicians ensure perfect installation, optimal cooling performance, and long-term efficiency.
             </p>
-            <button className="install-btn">Contact Us</button>
-          </div>
-          <div className="install-hero-image-wrapper">
-            <img src={techImage} alt="AC Technician Installing Air Conditioner" className="install-hero-image" />
+            <a
+              className="install-btn"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Contact Hyderabad AC Services on WhatsApp for AC installation"
+            >
+              Contact Us
+            </a>
           </div>
         </div>
       </section>
@@ -59,23 +93,35 @@ export default function ACInstallationSection() {
       <section className="install-warnings-section">
         <h2 className="install-section-heading fade-up-element" ref={addToRefs}>Why Choose Professional AC Installation?</h2>
         <div className="install-warnings-grid">
-          <div className="warning-card fade-up-element" ref={addToRefs} style={{ transitionDelay: '0.1s' }}>
-            <span className="warning-icon">⚠️</span>
+          <div
+            className="warning-card fade-up-element"
+            ref={addToRefs}
+            style={{ transitionDelay: '0.1s', '--warning-delay': '90ms' }}
+          >
             <div className="warning-title">Poor Cooling Efficiency</div>
             <div className="warning-desc">Incorrect placement or sizing leads to uneven temperature and poor airflow.</div>
           </div>
-          <div className="warning-card fade-up-element" ref={addToRefs} style={{ transitionDelay: '0.2s' }}>
-            <span className="warning-icon">⚠️</span>
+          <div
+            className="warning-card fade-up-element"
+            ref={addToRefs}
+            style={{ transitionDelay: '0.2s', '--warning-delay': '180ms' }}
+          >
             <div className="warning-title">Higher Electricity Bills</div>
             <div className="warning-desc">Improper wiring or sealant can cause the system to overwork, consuming more power.</div>
           </div>
-          <div className="warning-card fade-up-element" ref={addToRefs} style={{ transitionDelay: '0.3s' }}>
-            <span className="warning-icon">⚠️</span>
+          <div
+            className="warning-card fade-up-element"
+            ref={addToRefs}
+            style={{ transitionDelay: '0.3s', '--warning-delay': '270ms' }}
+          >
             <div className="warning-title">Frequent Breakdowns</div>
             <div className="warning-desc">Bad installations are the leading cause of early gas leaks and compressor stress.</div>
           </div>
-          <div className="warning-card fade-up-element" ref={addToRefs} style={{ transitionDelay: '0.4s' }}>
-            <span className="warning-icon">⚠️</span>
+          <div
+            className="warning-card fade-up-element"
+            ref={addToRefs}
+            style={{ transitionDelay: '0.4s', '--warning-delay': '360ms' }}
+          >
             <div className="warning-title">Shorter Lifespan</div>
             <div className="warning-desc">A poorly installed unit will wear out significantly faster than a properly fitted one.</div>
           </div>
@@ -94,7 +140,15 @@ export default function ACInstallationSection() {
             { title: "Copper Pipe Pre-Installation", desc: "Concealed piping and internal infrastructure laid down during property construction." },
             { title: "AC Replacement & Relocation", desc: "Safe uninstallation, transport, and careful reinstallation in your new location." }
           ].map((service, idx) => (
-            <div className="service-card fade-up-element" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
+            <div
+              className="service-card fade-up-element"
+              ref={addToRefs}
+              style={{
+                transitionDelay: `${idx * 0.1}s`,
+                '--card-delay': `${idx * 90}ms`,
+              }}
+              key={idx}
+            >
               <svg className="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
@@ -110,34 +164,35 @@ export default function ACInstallationSection() {
       <section className="install-trust-section">
         <div className="install-trust-container fade-up-element" ref={addToRefs}>
           <div className="install-trust-content">
+            <span className="install-trust-kicker">Features</span>
             <h2>Why Hyderabad AC Services?</h2>
-            <div className="trust-checklist">
-              {[
-                "Experienced & Certified Technicians",
-                "Affordable Pricing (No Hidden Charges)",
-                "High-Quality Materials",
-                "Installation for All Major Brands",
-                "Same-Day / Next-Day Service",
-                "Post-Installation Performance Check"
-              ].map((item, idx) => (
-                <div className="trust-item" key={idx}>
-                  <svg className="trust-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  {item}
-                </div>
-              ))}
-            </div>
+            <p>
+              Reliable AC installation with careful planning, clean execution, and final
+              performance checks for long-term comfort.
+            </p>
+            <a
+              className="install-trust-cta"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Book Service
+            </a>
           </div>
-          <div></div>{/* Empty div for grid offset if desired, or can be filled with an abstract graphic */}
-        </div>
-      </section>
 
-      {/* 5. FINAL CTA BANNER */}
-      <section className="install-cta-banner">
-        <div className="fade-up-element" ref={addToRefs}>
-          <h2>Don’t compromise your comfort with poor installation.</h2>
-          <button className="install-btn install-btn-inverse">Book Installation Now</button>
+          <div className="trust-feature-grid">
+            {trustFeatures.map((feature, idx) => (
+              <article className="trust-feature" key={feature.title}>
+                <span className="trust-feature-icon">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

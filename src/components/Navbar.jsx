@@ -96,6 +96,8 @@ export default function Navbar({ onBookNow }) {
   const [activeSection, setActiveSection] = useState('home');
   const currentPathname = location.pathname;
   const isServicesRoute = currentPathname.startsWith('/services');
+  const isBlogRoute = currentPathname.startsWith('/blog');
+  const isContactRoute = currentPathname.startsWith('/contact');
   const isAcServiceRoute = currentPathname === '/ac-service';
 
   useEffect(() => {
@@ -254,6 +256,14 @@ export default function Navbar({ onBookNow }) {
             Services
           </button>
 
+          <button
+            className={`${styles.navLink} ${isBlogRoute ? styles.navLinkActive : ''}`}
+            type="button"
+            onClick={() => navigateTo('/blog')}
+          >
+            Blog
+          </button>
+
           <div
             className={styles.dropdownWrap}
             onMouseEnter={() => setOpenDesktopDropdown(true)}
@@ -333,7 +343,7 @@ export default function Navbar({ onBookNow }) {
           </div>
 
           <button
-            className={`${styles.navLink} ${activeSection === 'contact' ? styles.navLinkActive : ''}`}
+            className={`${styles.navLink} ${isContactRoute ? styles.navLinkActive : ''}`}
             type="button"
             onClick={() => navigateTo('/contact')}
           >
@@ -382,6 +392,10 @@ export default function Navbar({ onBookNow }) {
               onClick={() => navigateTo('/services')}
             >
               Services
+            </button>
+
+            <button className={styles.mobileLink} type="button" onClick={() => navigateTo('/blog')}>
+              Blog
             </button>
 
             <div className={styles.mobileDropdownWrap}>

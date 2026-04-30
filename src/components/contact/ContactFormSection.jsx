@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MapPin, Clock, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
+import { CheckCircle } from 'lucide-react';
 import acServiceImage from '../../assets/2f3aa925-8713-4c37-8c14-9b01f40a33f5_.jpg';
 import './ContactFormSection.css';
 
