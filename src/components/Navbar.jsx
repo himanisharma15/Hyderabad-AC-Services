@@ -26,7 +26,6 @@ const trackableSections = [
   'ducting',
   'gas-leak-fix',
   'exhaust',
-  'contact',
 ];
 
 function isAirConditioningSection(id) {
@@ -47,6 +46,7 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
   const [activeSection, setActiveSection] = useState('home');
   const isServicesRoute = currentPathname.startsWith('/services');
   const isBlogRoute = currentPathname.startsWith('/blog');
+  const isContactRoute = currentPathname.startsWith('/contact');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -191,9 +191,9 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
           </button>
 
           <button
-            className={`${styles.navLink} ${activeSection === 'contact' ? styles.navLinkActive : ''}`}
+            className={`${styles.navLink} ${isContactRoute ? styles.navLinkActive : ''}`}
             type="button"
-            onClick={() => scrollToSection('contact')}
+            onClick={() => navigateTo('/contact')}
           >
             Contact
           </button>
@@ -273,7 +273,7 @@ export default function Navbar({ onBookNow, currentPathname = '/' }) {
               Exhaust
             </button>
 
-            <button className={styles.mobileLink} type="button" onClick={() => scrollToSection('contact')}>
+            <button className={styles.mobileLink} type="button" onClick={() => navigateTo('/contact')}>
               Contact
             </button>
 

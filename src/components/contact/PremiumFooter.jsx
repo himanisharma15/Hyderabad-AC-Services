@@ -25,8 +25,6 @@ const PremiumFooter = () => {
       { name: 'About Us', link: '/about' },
       { name: 'Services', link: '/services' },
       { name: 'Contact', link: '/contact' },
-      { name: 'Terms & Conditions', link: '/terms' },
-      { name: 'Privacy Policy', link: '/privacy' },
     ],
     social: [
       { name: 'Facebook', icon: Facebook, link: 'https://facebook.com' },
@@ -128,16 +126,7 @@ const PremiumFooter = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-container">
           <div className="footer-copyright">
-            <p>
-              © {currentYear} Hyderabad AC Services. All rights reserved. | Trusted AC Installation & Repair Services
-            </p>
-          </div>
-          <div className="footer-bottom-links">
-            <a href="/privacy">Privacy Policy</a>
-            <span className="divider">•</span>
-            <a href="/terms">Terms & Conditions</a>
-            <span className="divider">•</span>
-            <a href="/sitemap">Sitemap</a>
+            <p>© 2026 Hyderabad AC Services. All rights reserved. | Trusted AC Installation & Repair Services</p>
           </div>
         </div>
       </div>
