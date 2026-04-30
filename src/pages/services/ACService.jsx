@@ -273,37 +273,92 @@ export default function ACServicePage() {
         </div>
       </motion.section>
 
-      <motion.section id="service-includes" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="relative overflow-hidden bg-white px-6 py-16 sm:px-8 lg:px-12">
-        <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/70 blur-3xl" />
+      <motion.section id="service-includes" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="relative overflow-hidden bg-[#f5f7fa] px-6 py-20 sm:px-8 lg:px-12">
+        <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
-          <SectionHeading title="Our AC Service Includes" />
+          <motion.div variants={fadeUp} className="mx-auto text-center mb-16">
+            <h2 className="text-5xl sm:text-6xl font-black tracking-tight text-slate-950">
+              Our AC Service Includes
+            </h2>
+          </motion.div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-0">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5" style={{ perspective: '1000px' }}>
             {serviceIncludes.map((item, index) => {
               const Icon = item.icon
               return (
-                <motion.div key={item.title} variants={scaleIn} className="group relative text-center">
-                  <div className="relative mx-auto mb-5 flex h-22 items-center justify-center">
-                    {index < serviceIncludes.length - 1 ? (
-                      <div className="absolute left-1/2 top-1/2 hidden h-px w-full overflow-hidden bg-blue-100 lg:block">
-                        <motion.div
-                          animate={{ x: ['-100%', '100%'] }}
-                          transition={{ duration: 2.2, repeat: Infinity, ease: 'linear', delay: index * 0.25 }}
-                          className="h-full w-1/2 bg-linear-to-r from-transparent via-[#1d5eff] to-transparent"
-                        />
-                      </div>
-                    ) : null}
-                    <div className="relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-blue-200 bg-white text-[#1d5eff] shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#1d5eff] group-hover:shadow-lg">
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="h-80 group"
+                >
+                  <motion.div
+                    initial={{ rotateY: 0 }}
+                    whileHover={{ rotateY: 180 }}
+                    transition={{ duration: 0.6, ease: 'easeInOut' }}
+                    style={{ transformStyle: 'preserve-3d', width: '100%', height: '100%' }}
+                  >
+                    {/* Front of card */}
+                    <motion.div
+                      style={{ backfaceVisibility: 'hidden', width: '100%', height: '100%' }}
+                      className="absolute inset-0 rounded-2xl border border-blue-100/60 bg-white/90 backdrop-blur shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center p-6 overflow-hidden"
+                    >
+                      {/* Subtle background gradient */}
                       <motion.div
-                        animate={{ scale: [1, 1.08, 1] }}
-                        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: index * 0.25 }}
+                        animate={{ 
+                          opacity: [0.3, 0.6, 0.3]
+                        }}
+                        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                        className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-transparent pointer-events-none rounded-2xl"
+                      />
+
+                      <motion.div
+                        className="relative z-10 inline-flex h-20 w-20 items-center justify-center rounded-full border-3 border-blue-200 bg-white text-[#1d5eff] shadow-md mb-4"
+                        animate={{ 
+                          y: [0, -4, 0],
+                          scale: [1, 1.05, 1]
+                        }}
+                        transition={{ 
+                          duration: 2.8, 
+                          repeat: Infinity, 
+                          ease: 'easeInOut',
+                          delay: index * 0.2
+                        }}
+                        whileHover={{ scale: 1.15, y: -8 }}
                       >
-                        <Icon className="h-6 w-6" />
+                        <Icon className="h-10 w-10" />
                       </motion.div>
-                    </div>
-                  </div>
-                  <h3 className="mx-auto max-w-44 text-lg font-black text-slate-950">{item.title}</h3>
-                  <p className="mx-auto mt-3 max-w-52 text-xs leading-5 text-slate-500">{item.description}</p>
+
+                      <h3 className="relative z-10 text-lg font-black text-slate-950 leading-tight">{item.title}</h3>
+                    </motion.div>
+
+                    {/* Back of card */}
+                    <motion.div
+                      style={{ backfaceVisibility: 'hidden', rotateY: 180, width: '100%', height: '100%' }}
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 shadow-lg flex flex-col items-center justify-center text-center p-6 overflow-hidden"
+                    >
+                      {/* Glow effect on back */}
+                      <motion.div
+                        animate={{ 
+                          opacity: [0.4, 0.7, 0.4]
+                        }}
+                        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                        className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none rounded-2xl"
+                      />
+
+                      <p className="relative z-10 text-sm leading-6 text-white font-medium">{item.description}</p>
+
+                      <motion.div 
+                        className="relative z-10 mt-4 inline-flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/40 bg-white/10 backdrop-blur text-white"
+                        animate={{ scale: [1, 1.08, 1] }}
+                        transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.2 }}
+                      >
+                        <Icon className="h-8 w-8" />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
               )
             })}
@@ -320,7 +375,7 @@ export default function ACServicePage() {
             <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
               <motion.div variants={fadeUp} className="max-w-xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1d5eff]">Basement &amp; Cellar Exhaust Services in Hyderabad</p>
-                <h2 className="mt-4 text-4xl font-black leading-tight text-[#0d2f5a] sm:text-5xl">
+                <h2 className="mt-4 text-4xl font-black leading-tight text-[#0d2f5a] sm:text-only5xl">
                   Ensure Fresh Air &amp; Safe Ventilation in Your Basement
                 </h2>
                 <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
@@ -335,7 +390,7 @@ export default function ACServicePage() {
               <motion.div variants={scaleIn} className="rounded-3xl border border-blue-100 bg-white p-3 shadow-2xl shadow-slate-300/40">
                 <div className="relative overflow-hidden rounded-2xl">
                   <img
-                    src="https://images.pexels.com/photos/162568/air-conditioner-air-conditioning-outside-air-conditioners-162568.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="/Ensure Fresh Air & Safe Ventilation.jpg"
                     alt="Basement ventilation duct system"
                     className="h-[340px] w-full object-cover transition-transform duration-500 hover:scale-105 sm:h-[380px]"
                   />
