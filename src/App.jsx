@@ -26,15 +26,8 @@ import AMCDetail from './pages/services/AMC'
 import RestaurantExhaustDetail from './pages/services/RestaurantExhaust'
 import BasementExhaustDetail from './pages/services/BasementExhaust'
 import RestaurantExhaustCleaningDetail from './pages/services/RestaurantExhaustCleaning'
+
 export default function App() {
-
-  const [selectedService, setSelectedService] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [pathname, setPathname] = useState(window.location.pathname);
-  const [selectedService, setSelectedService] = useState('')
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const [pathname, setPathname] = useState(window.location.pathname)
   const [selectedService, setSelectedService] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -49,70 +42,24 @@ export default function App() {
     }
   }, [isModalOpen])
 
-  useEffect(() => {
-    const handlePopState = () => setPathname(window.location.pathname)
-    window.addEventListener('popstate', handlePopState)
-    return () => window.removeEventListener('popstate', handlePopState)
-  }, [])
-
-
   const handleOpenModal = (serviceTitle = 'General HVAC Consultation') => {
     setSelectedService(serviceTitle)
     setIsModalOpen(true)
   }
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-  }
+  const handleCloseModal = () => setIsModalOpen(false)
 
-
-  const renderPage = () => {
-    if (pathname.startsWith('/contact')) {
-      return <ContactPage />;
-    }
-
-    if (pathname.startsWith('/blog')) {
-      return <BlogPage />;
-    }
-
-    if (pathname.startsWith('/services')) {
-      return <ServicesPage onBookNow={handleOpenModal} />;
-    }
-
-    return <HomePage onBookNow={handleOpenModal} />;
-  };
-  const isServicesPage = pathname.startsWith('/services')
   return (
     <BrowserRouter>
       <div className={styles.page}>
         <Navbar onBookNow={handleOpenModal} />
 
-
-      {renderPage()}
-      {pathname.startsWith('/contact') ? (
-        <ContactPage />
-      ) : pathname.startsWith('/about') ? (
-        <AboutPage onBookNow={handleOpenModal} />
-      ) : pathname.startsWith('/blog') ? (
-        <BlogPage />
-      ) : isServicesPage ? (
-        <ServicesPage onBookNow={handleOpenModal} />
-      ) : (
-        <HomePage onBookNow={handleOpenModal} />
-      )}
-
-      <ServiceFormModal
-        isOpen={isModalOpen}
-        selectedService={selectedService}
-        onClose={handleCloseModal}
-      />
-    </div>
-  );
         <Routes>
           <Route path="/" element={<HomePage onBookNow={handleOpenModal} />} />
           <Route path="/services" element={<ServicesPage onBookNow={handleOpenModal} />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/about" element={<AboutPage onBookNow={handleOpenModal} />} />
 
           {/* AC Service Detail Routes */}
           <Route path="/ac-service" element={<ACServiceDetail />} />
@@ -142,5 +89,4 @@ export default function App() {
       </div>
     </BrowserRouter>
   )
-
-  )}
+}

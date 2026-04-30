@@ -116,14 +116,7 @@ select {
   display: block;
   text-align: left;
 }
-
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  min-height: 100vh;
-  display: block;
-  box-sizing: border-box;
-}
+/* cleaned duplicate block removed */
 
 /* Utility container used by inner sections to center content when needed */
 .container {
@@ -140,10 +133,7 @@ h2 {
   font-family: var(--heading);
   color: var(--text-h);
 }
-
-  font-weight: 500;
-  color: var(--text-h);
-}
+/* heading styles above */
 
 h1 {
   font-size: 56px;

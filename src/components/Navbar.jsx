@@ -208,7 +208,7 @@ export default function Navbar({ onBookNow }) {
             type="button"
             onClick={() => navigateTo('/about')}
           >
-            About
+            About Us
           </button>
 
           <button
