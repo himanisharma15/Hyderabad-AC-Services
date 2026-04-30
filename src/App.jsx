@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
@@ -25,6 +25,16 @@ import AirCurtainDetail from './pages/services/AirCurtain'
 import AMCDetail from './pages/services/AMC'
 import BasementExhaustDetail from './pages/services/BasementExhaust'
 import RestaurantExhaustCleaningDetail from './pages/services/RestaurantExhaustCleaning'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
 
 export default function App() {
   const [selectedService, setSelectedService] = useState('')
@@ -54,6 +64,7 @@ export default function App() {
     <BrowserRouter>
       <div className={styles.page}>
         <Navbar onBookNow={handleOpenModal} />
+        <ScrollToTop />
 
         <Routes>
           <Route path="/" element={<HomePage onBookNow={handleOpenModal} />} />
