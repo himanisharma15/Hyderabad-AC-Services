@@ -1,8 +1,9 @@
-/* AC Scrap Service CSS */
+/* AC Scrap Services Premium CSS */
+
 .scrap-page {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  background: #f8fafc;
+  background: #ffffff;
   overflow-x: hidden;
 }
 
@@ -10,294 +11,401 @@
 .scrap-fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scrap-fade-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Global Elements */
-.scrap-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #10b981; /* Green accent */
-  color: #ffffff;
-  padding: 1.1rem 2.5rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  border: none;
-  width: max-content;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.25);
-  margin-top: 1rem;
-}
-.scrap-btn:hover {
-  background-color: #059669;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-}
-.scrap-section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 3rem;
-}
-
 /* 1. HERO SECTION */
 .scrap-hero {
-  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); /* Light green to white */
-  padding: 8rem 2rem 5rem 2rem;
-  display: flex;
-  align-items: center;
-  min-height: 80vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  padding: 10rem 2rem 6rem 2rem;
+  position: relative;
 }
+
+.scrap-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
 .scrap-hero-container {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 4rem;
   align-items: center;
 }
-.scrap-hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+
+.scrap-eyebrow {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
 .scrap-hero-heading {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 4rem;
+  font-weight: 900;
   line-height: 1.1;
   color: #0f172a;
   margin: 0;
 }
+
+.scrap-hero-heading span {
+  color: #2563eb;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .scrap-hero-subheading {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2563eb;
-  margin: 0;
-}
-.scrap-hero-desc {
-  font-size: 1.15rem;
-  line-height: 1.6;
   color: #475569;
-  margin: 0;
-}
-.scrap-hero-image-wrapper {
-  position: relative;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  padding: 1rem;
-  border-radius: 2rem;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1);
-  animation: scrapFloat 6s ease-in-out infinite;
-}
-.scrap-hero-image {
-  width: 100%;
-  border-radius: 1.5rem;
-  display: block;
-}
-@keyframes scrapFloat {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  margin: 1.5rem 0 1rem 0;
 }
 
-/* 2. SERVICES — Clean Card Grid */
-.scrap-services {
-  padding: 5rem 2rem 6rem;
+.scrap-hero-desc {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+  max-width: 600px;
+}
+
+.scrap-hero-tags {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.scrap-hero-tags span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 0.4rem 0.8rem;
   background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.scrap-hero-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scrap-hero-note {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.scrap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 1.25rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  width: max-content;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  text-decoration: none;
+}
+
+.scrap-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+}
+
+.scrap-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.scrap-stat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.scrap-stat-card strong {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.scrap-stat-card span {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.scrap-graphic-wrapper {
+  position: relative;
+}
+
+.scrap-hero-image-wrapper {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  animation: scrapFloat 6s ease-in-out infinite;
+}
+
+.scrap-hero-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+}
+
+.scrap-image-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.scrap-image-badge span {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.scrap-image-badge svg {
+  color: #2563eb;
+}
+
+@keyframes scrapFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* 2. SERVICES SECTION */
+.scrap-services {
+  padding: 8rem 2rem;
+  background: #f8fafc;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.scrap-section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.scrap-section-desc {
+  font-size: 1.125rem;
+  color: #64748b;
 }
 
 .scrap-offer-grid {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 .scrap-simple-card {
-  width: calc(25% - 1.5rem);
-  min-width: 220px;
-  max-width: 260px;
   background: #ffffff;
-  border: 1px solid #e8f0fe;
-  border-radius: 16px;
-  padding: 2.25rem 1.5rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: default;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  transition: all 0.3s ease;
 }
 
 .scrap-simple-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 147, 233, 0.12);
-  border-color: #bfdbfe;
+  transform: translateY(-10px);
+  box-shadow: 0 30px 40px -10px rgba(37, 99, 235, 0.1);
+  border-color: #2563eb;
 }
 
 .scrap-card-icon {
+  background: #f0f9ff;
+  color: #2563eb;
   width: 64px;
   height: 64px;
-  border-radius: 14px;
-  background: #eaf6ff;
-  color: #0ea5e9;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.3s ease, color 0.3s ease;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
 }
 
 .scrap-simple-card:hover .scrap-card-icon {
-  background: #0ea5e9;
+  background: #2563eb;
   color: #ffffff;
 }
 
 .scrap-card-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #0f172a;
-  margin: 0;
-  line-height: 1.3;
+  margin-bottom: 1rem;
 }
 
 .scrap-card-desc {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #64748b;
+  line-height: 1.7;
   margin: 0;
-  line-height: 1.6;
-}
-
-@media (max-width: 1024px) {
-  .scrap-simple-card {
-    width: calc(50% - 1.5rem);
-    max-width: none;
-  }
-}
-
-@media (max-width: 520px) {
-  .scrap-simple-card {
-    width: 100%;
-    max-width: 340px;
-  }
 }
 
 /* 3. WHO CAN SELL */
-
 .scrap-who {
-  padding: 6rem 2rem;
-  background: #f8fafc;
+  padding: 8rem 2rem;
+  background: #ffffff;
+  text-align: center;
 }
+
 .who-grid {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 4rem auto 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
+
 .who-card {
-  background: #ffffff;
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 2rem 1rem;
-  text-align: center;
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  padding: 3rem 1.5rem;
+  transition: all 0.3s ease;
 }
+
 .who-card:hover {
-  transform: translateY(-4px);
-  border-color: #bfdbfe;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  transform: translateY(-8px);
+  border-color: #2563eb;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
 }
+
 .who-icon {
   color: #2563eb;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
 }
+
 .who-card h4 {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #1e293b;
-  margin: 0;
 }
 
-/* 4. HOW IT WORKS (WORKFLOW) */
+/* 4. WORKFLOW */
 .scrap-workflow {
-  padding: 6rem 2rem;
-  background: #ffffff;
+  padding: 8rem 2rem;
+  background: #f8fafc;
+  text-align: center;
 }
+
 .scrap-workflow-wrap {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1100px;
+  margin: 5rem auto 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   position: relative;
-  margin-top: 4rem;
 }
-.scrap-line {
+
+.scrap-step-line {
   position: absolute;
-  top: 36px;
-  left: 10%;
-  right: 10%;
+  top: 40px;
+  left: 5%;
+  right: 5%;
   height: 2px;
   background: #e2e8f0;
   z-index: 0;
 }
+
 .scrap-step {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ffffff;
+  gap: 1.5rem;
+  background: #f8fafc;
   padding: 0 1rem;
-  transition: transform 0.3s ease;
 }
-.scrap-step:hover {
-  transform: translateY(-5px) scale(1.05);
-}
+
 .scrap-step-icon {
-  background: #ecfdf5;
-  border: 2px solid #10b981;
-  color: #10b981;
-  width: 72px;
-  height: 72px;
+  background: #ffffff;
+  border: 3px solid #2563eb;
+  color: #2563eb;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.1);
-  margin-bottom: 1rem;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
+
 .scrap-step:hover .scrap-step-icon {
-  background: #10b981;
+  background: #2563eb;
   color: #ffffff;
+  transform: scale(1.1);
 }
+
 .scrap-step span {
   font-weight: 700;
   color: #0f172a;
+  font-size: 1.1rem;
 }
 
-/* 5. WHY CHOOSE US */
+/* 5. TRUST HIGHLIGHTS */
 .scrap-why {
-  padding: 5rem 2rem;
-  background: #f8fafc;
+  padding: 6rem 2rem;
+  background: #ffffff;
 }
+
 .scrap-trust-grid {
   max-width: 1000px;
   margin: 0 auto;
@@ -306,221 +414,158 @@
   justify-content: center;
   gap: 1.5rem;
 }
+
 .scrap-trust-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 1rem 1.75rem;
+  background: #f0f9ff;
+  padding: 1.25rem 2.5rem;
   border-radius: 99px;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-  transition: transform 0.3s ease;
+  gap: 1rem;
+  transition: all 0.3s ease;
 }
+
 .scrap-trust-card:hover {
+  background: #2563eb;
+  color: #ffffff;
   transform: translateY(-3px);
-  border-color: #a7f3d0;
 }
+
 .scrap-trust-card svg {
-  color: #10b981;
+  color: #2563eb;
+  transition: color 0.3s ease;
 }
+
+.scrap-trust-card:hover svg {
+  color: #ffffff;
+}
+
 .scrap-trust-card span {
-  font-weight: 600;
-  color: #334155;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 /* 6. FAQ ACCORDION */
 .scrap-faq {
-  padding: 6rem 2rem;
-  background: #ffffff;
+  padding: 8rem 2rem;
+  background: #f8fafc;
 }
+
 .scrap-faq-container {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
+
 .s-faq-item {
-  background: #f8fafc;
+  background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
+
 .s-faq-item:hover {
-  border-color: #bfdbfe;
+  border-color: #2563eb;
 }
+
 .s-faq-question {
   width: 100%;
   text-align: left;
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   background: none;
   border: none;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #0f172a;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .s-faq-answer {
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  color: #475569;
-  line-height: 1.6;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #64748b;
+  line-height: 1.7;
 }
+
 .s-faq-item.active .s-faq-answer {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  max-height: 300px;
+  padding: 0 2rem 2rem 2rem;
+  max-height: 500px;
 }
+
 .s-faq-icon {
   transition: transform 0.3s ease;
   color: #2563eb;
 }
+
 .s-faq-item.active .s-faq-icon {
   transform: rotate(180deg);
 }
 
 /* 7. CTA BANNER */
 .scrap-cta {
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+  padding: 10rem 2rem;
   text-align: center;
-  color: #ffffff;
+  color: #0c4a6e;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #bae6fd;
 }
+
 .scrap-cta h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: #0c4a6e;
 }
+
+.scrap-cta p {
+  font-size: 1.25rem;
+  color: #374151;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
 .scrap-btn-inverse {
-  background-color: #ffffff;
-  color: #1e40af;
+  background-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
+
 .scrap-btn-inverse:hover {
-  background-color: #f8fafc;
-  color: #1e3a8a;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .scrap-hero-heading { font-size: 2.75rem; }
+  .scrap-hero-heading { font-size: 3rem; }
+  .scrap-offer-grid { grid-template-columns: repeat(2, 1fr); }
   .who-grid { grid-template-columns: repeat(2, 1fr); }
-  .scrap-workflow-wrap { flex-direction: column; gap: 3rem; }
-  .scrap-line {
+  .scrap-workflow-wrap { flex-direction: column; gap: 3rem; align-items: flex-start; padding-left: 2rem; }
+  .scrap-step-line {
     width: 2px; height: 100%;
-    left: 50%; top: 0; bottom: 0; right: auto; margin-left: -1px;
+    left: 60px; top: 0; bottom: 0; right: auto;
   }
-
-  /* Tablet: hide SVG, single-column layout */
-  .scrap-services-shell {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .scrap-services-path {
-    display: none;
-  }
-  .scrap-services-timeline {
-    position: relative;
-    padding: 1rem 1rem 1rem 3.5rem;
-  }
-  /* Vertical dashed connector line on left */
-  .scrap-services-timeline::before {
-    content: "";
-    position: absolute;
-    left: 34px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 147, 233, 0.08) 0%,
-      rgba(0, 180, 216, 0.45) 40%,
-      rgba(0, 198, 255, 0.45) 60%,
-      rgba(0, 147, 233, 0.08) 100%
-    );
-    border-radius: 2px;
-  }
-  .scrap-services-timeline .scrap-offer-card::before {
-    left: -2.6rem;
-    width: 2.6rem;
-  }
+  .scrap-step { flex-direction: row; gap: 2rem; background: transparent; }
 }
 
 @media (max-width: 768px) {
-  .scrap-hero-container { grid-template-columns: 1fr; gap: 3rem; }
-  .scrap-hero-content { order: 1; text-align: center; align-items: center; }
-  .scrap-hero-image-wrapper { order: 2; }
-  .who-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .scrap-hero-heading { font-size: 2.25rem; }
+  .scrap-hero-container { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+  .scrap-hero-content { align-items: center; }
+  .scrap-hero-heading { font-size: 2.5rem; }
+  .scrap-hero-tags { justify-content: center; flex-wrap: wrap; }
+  .scrap-stats-row { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+  .scrap-offer-grid { grid-template-columns: 1fr; }
   .scrap-section-title { font-size: 2.25rem; }
-
-  /* On mobile, remove fixed height so text can wrap naturally */
-  .scrap-services-timeline {
-    padding: 8px 0.75rem 8px 2.75rem;
-    gap: 14px;
-  }
-  .scrap-services-timeline::before {
-    left: 26px;
-  }
-  .scrap-services-timeline .scrap-offer-card {
-    height: auto;
-    min-height: 68px;
-    padding: 0.85rem 0.9rem 0.85rem 4rem;
-    border-radius: 40px;
-    gap: 0.65rem;
-  }
-  .scrap-offer-copy h3 {
-    white-space: normal;
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
-  }
-  .scrap-offer-copy p {
-    font-size: 0.78rem;
-    line-height: 1.45;
-  }
-  .scrap-step-badge {
-    width: 52px;
-    height: 52px;
-    font-size: 0.82rem;
-    left: -1.3rem;
-    border-width: 3px;
-  }
-  .scrap-services-timeline .offer-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    flex-shrink: 0;
-  }
-  .scrap-services-timeline .offer-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@keyframes scrapPathDraw {
-  from {
-    stroke-dashoffset: 260;
-    opacity: 0;
-  }
-
-  to {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes scrapIconFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-2px);
-  }
 }

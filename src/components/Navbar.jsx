@@ -126,38 +126,35 @@ export default function Navbar({ onBookNow }) {
   }, []);
 
   useEffect(() => {
-    // Update active section based on route change
-    if (currentPathname === '/') {
-      setActiveSection('home');
-    } else if (currentPathname === '/services') {
-      setActiveSection('services');
-    } else if (currentPathname === '/contact') {
-      setActiveSection('contact');
-    } else if (currentPathname === '/amc') {
-      setActiveSection('amc');
-    } else if (currentPathname === '/ac-service') {
-      setActiveSection('ac-service');
-    } else if (currentPathname === '/centralized-ac') {
-      setActiveSection('centralized-ac');
-    } else if (currentPathname === '/copper-pipe') {
-      setActiveSection('copper-pipe');
-    } else if (currentPathname === '/ducting') {
-      setActiveSection('ducting');
-    } else if (currentPathname === '/ac-gas-leak') {
-      setActiveSection('ac-gas-leak');
-    } else if (currentPathname === '/ac-installation') {
-      setActiveSection('ac-installation');
-    } else if (currentPathname === '/ac-repair') {
-      setActiveSection('ac-repair');
-    } else if (currentPathname === '/ac-scrap') {
-      setActiveSection('ac-scrap');
-    } else if (currentPathname === '/air-curtain') {
-      setActiveSection('air-curtain');
-    } else if (currentPathname === '/basement-exhaust') {
-      setActiveSection('basement-exhaust');
-    } else if (currentPathname === '/restaurant-exhaust-cleaning') {
-      setActiveSection('restaurant-exhaust-cleaning');
+    const routeSectionMap = {
+      '/': 'home',
+      '/services': 'services',
+      '/contact': 'contact',
+      '/amc': 'amc',
+      '/ac-service': 'ac-service',
+      '/centralized-ac': 'centralized-ac',
+      '/copper-pipe': 'copper-pipe',
+      '/ducting': 'ducting',
+      '/ac-gas-leak': 'ac-gas-leak',
+      '/ac-installation': 'ac-installation',
+      '/ac-repair': 'ac-repair',
+      '/ac-scrap': 'ac-scrap',
+      '/air-curtain': 'air-curtain',
+      '/basement-exhaust': 'basement-exhaust',
+      '/restaurant-exhaust-cleaning': 'restaurant-exhaust-cleaning',
+    };
+
+    const nextSection = routeSectionMap[currentPathname];
+
+    if (!nextSection) {
+      return;
     }
+
+    const frameId = window.requestAnimationFrame(() => {
+      setActiveSection(nextSection);
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, [currentPathname]);
 
   const closeMenus = () => {

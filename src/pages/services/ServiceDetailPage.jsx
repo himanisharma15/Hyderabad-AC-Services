@@ -5,7 +5,6 @@ import {
   Clock3,
   CheckCircle2,
   MessageCircle,
-  Phone,
   ShieldCheck,
   Sparkles,
   Star,
@@ -65,18 +64,6 @@ function SectionHeading({ eyebrow, title, description, centered = false, light =
           {description}
         </p>
       ) : null}
-    </div>
-  )
-}
-
-function IconCard({ icon: Icon, title, description, light = false }) {
-  return (
-    <div className={`group rounded-2xl border p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${light ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-white'}`}>
-      <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl ${light ? 'bg-white/10 text-white' : 'bg-[#1d5eff]/10 text-[#1d5eff]'}`}>
-        <Icon className="h-6 w-6" />
-      </div>
-      <h3 className={`text-lg font-semibold ${light ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
-      <p className={`mt-2 text-sm leading-6 ${light ? 'text-white/75' : 'text-slate-600'}`}>{description}</p>
     </div>
   )
 }

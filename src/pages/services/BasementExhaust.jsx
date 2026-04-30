@@ -3,41 +3,13 @@ import { Settings, ShieldCheck, Wind, CheckCircle, Clock, Activity, Building, Dr
 import '../../components/ExhaustAMCSection.css';
 import './BasementExhaust.css';
 
-const ductSystemImage = 'https://images.pexels.com/photos/162568/air-conditioner-air-conditioning-outside-air-conditioners-162568.jpeg?auto=compress&cs=tinysrgb&w=1200';
-
-const benefits = [
-  {
-    icon: 'smoke',
-    title: 'Removes Smoke & Fumes',
-    text: 'Extracts trapped fumes before they spread through the building.',
-  },
-  {
-    icon: 'air',
-    title: 'Improves Air Quality',
-    text: 'Keeps enclosed basement zones cleaner and easier to breathe in.',
-  },
-  {
-    icon: 'moisture',
-    title: 'Prevents Moisture & Mold',
-    text: 'Controls damp air that can lead to odor, stains, and mold growth.',
-  },
-  {
-    icon: 'safety',
-    title: 'Enhances Safety',
-    text: 'Reduces air stagnation and supports safer underground spaces.',
-  },
-  {
-    icon: 'circulation',
-    title: 'Supports Proper Air Circulation',
-    text: 'Balances airflow for consistent ventilation performance.',
-  },
-];
-
 export default function BasementExhaust() {
   const elementsRef = useRef([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const elements = elementsRef.current;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -46,12 +18,12 @@ export default function BasementExhaust() {
       });
     }, { threshold: 0.1 });
 
-    elementsRef.current.forEach((el) => {
+    elements.forEach((el) => {
       if (el) observer.observe(el);
     });
 
     return () => {
-      elementsRef.current.forEach((el) => {
+      elements.forEach((el) => {
         if (el) observer.unobserve(el);
       });
     };
@@ -99,7 +71,7 @@ export default function BasementExhaust() {
 
           <div className="amc-graphic-wrapper">
             <div className="amc-hero-image-wrapper">
-              <img src="/images /real_basement_hero.png" alt="Basement Exhaust" className="amc-hero-image" />
+              <img src="/images/real_basement_hero.png" alt="Basement Exhaust" className="amc-hero-image" />
             </div>
           </div>
         </div>

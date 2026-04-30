@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Check, IndianRupee, Search, ShieldCheck, TrendingUp, X } from 'lucide-react';
 import './ACGasLeakSection.css';
 import technicianImage from '../assets/ac-technician.png';
@@ -42,6 +42,8 @@ export default function ACGasLeakSection() {
   const SelectedFeatureIcon = selectedFeature?.Icon;
 
   useEffect(() => {
+    const container = containerRef.current;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -50,12 +52,12 @@ export default function ACGasLeakSection() {
       });
     }, { threshold: 0.1 });
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (container) observer.unobserve(container);
     };
   }, []);
 

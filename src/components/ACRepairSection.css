@@ -3,7 +3,7 @@
 .repair-page {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  background: #f8fafc;
+  background: #ffffff;
   overflow-x: hidden;
 }
 
@@ -11,7 +11,7 @@
 .repair-fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .repair-fade-up.is-visible {
   opacity: 1;
@@ -20,49 +20,104 @@
 
 /* 1. HERO SECTION */
 .repair-hero {
-  background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
-  padding: 8rem 2rem 5rem 2rem;
-  display: flex;
-  align-items: center;
-  min-height: 80vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  padding: 10rem 2rem 6rem 2rem;
+  position: relative;
+}
+
+.repair-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+  pointer-events: none;
 }
 
 .repair-hero-container {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 4rem;
   align-items: center;
 }
 
-.repair-hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+.repair-eyebrow {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .repair-hero-heading {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 4rem;
+  font-weight: 900;
   line-height: 1.1;
   color: #0f172a;
-  text-transform: uppercase;
   margin: 0;
+}
+
+.repair-hero-heading span {
+  color: #2563eb;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .repair-hero-subheading {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2563eb;
-  margin: 0;
+  color: #475569;
+  margin: 1.5rem 0 1rem 0;
 }
 
 .repair-hero-desc {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: #475569;
+  color: #64748b;
   margin: 0;
+  max-width: 600px;
+}
+
+.repair-hero-tags {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.repair-hero-tags span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 0.4rem 0.8rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.repair-hero-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.repair-hero-note {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
 }
 
 .repair-btn {
@@ -71,60 +126,119 @@
   justify-content: center;
   background-color: #2563eb;
   color: #ffffff;
-  padding: 1rem 2.5rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  border-radius: 8px;
+  padding: 1.25rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
   cursor: pointer;
   border: none;
   width: max-content;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
-  margin-top: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  text-decoration: none;
 }
 
 .repair-btn:hover {
   background-color: #1d4ed8;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+}
+
+.repair-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.repair-stat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.repair-stat-card strong {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.repair-stat-card span {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.repair-graphic-wrapper {
+  position: relative;
 }
 
 .repair-hero-image-wrapper {
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  padding: 1rem;
   border-radius: 2rem;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   animation: repairFloat 6s ease-in-out infinite;
 }
 
 .repair-hero-image {
   width: 100%;
-  border-radius: 1.5rem;
+  aspect-ratio: 4/5;
+  object-fit: cover;
   display: block;
 }
 
+.repair-image-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.repair-image-badge span {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.repair-image-badge svg {
+  color: #2563eb;
+}
+
 @keyframes repairFloat {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 /* 2. COMMON PROBLEMS */
 .repair-problems {
-  padding: 6rem 2rem;
-  background: #ffffff;
+  padding: 8rem 2rem;
+  background: #f8fafc;
+}
+
+.section-header {
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
 }
 
 .repair-section-heading {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+.repair-section-desc {
+  font-size: 1.125rem;
+  color: #64748b;
 }
 
 .problems-grid {
@@ -138,40 +252,49 @@
 .problem-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 20px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  gap: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
 .problem-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.08);
-  border-color: #bfdbfe;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  border-color: #2563eb;
 }
 
 .problem-icon {
-  color: #ef4444;
-  width: 32px;
-  height: 32px;
+  color: #2563eb;
+  background: #eff6ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.problem-card:hover .problem-icon {
+  background: #2563eb;
+  color: #ffffff;
 }
 
 .problem-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #334155;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
 }
 
 /* 3. OUR SERVICES */
 .repair-services {
-  padding: 6rem 2rem;
-  background: #f8fafc;
-  text-align: center;
+  padding: 8rem 2rem;
+  background: #ffffff;
 }
 
 .services-grid {
@@ -183,65 +306,71 @@
 }
 
 .services-card {
-  background: #ffffff;
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  transition: all 0.3s ease;
 }
 
 .services-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  transform: translateY(-10px);
+  box-shadow: 0 30px 40px -10px rgba(37, 99, 235, 0.1);
+  border-color: #bfdbfe;
 }
 
 .services-icon-box {
-  background: #eff6ff;
+  background: #ffffff;
   color: #2563eb;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.services-card:hover .services-icon-box {
+  background: #2563eb;
+  color: #ffffff;
 }
 
 .services-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #0f172a;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .services-card p {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.5;
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.7;
   margin: 0;
 }
 
 /* 4. WORKFLOW */
 .repair-workflow {
-  padding: 6rem 2rem;
-  background: #ffffff;
+  padding: 8rem 2rem;
+  background: #f8fafc;
   text-align: center;
 }
 
-.workflow-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.repair-workflow-wrap {
+  max-width: 1100px;
+  margin: 5rem auto 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   position: relative;
-  margin-top: 4rem;
 }
 
-.workflow-line {
+.repair-step-line {
   position: absolute;
-  top: 40px; /* middle of icon */
+  top: 40px;
   left: 5%;
   right: 5%;
   height: 2px;
@@ -249,25 +378,20 @@
   z-index: 0;
 }
 
-.workflow-step {
+.repair-step {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  background: #ffffff;
+  gap: 1.5rem;
+  background: #f8fafc;
   padding: 0 1rem;
-  transition: transform 0.3s ease;
 }
 
-.workflow-step:hover {
-  transform: translateY(-5px) scale(1.05);
-}
-
-.workflow-icon-wrapper {
+.repair-step-icon {
   background: #ffffff;
-  border: 2px solid #2563eb;
+  border: 3px solid #2563eb;
   color: #2563eb;
   width: 80px;
   height: 80px;
@@ -275,26 +399,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.workflow-step:hover .workflow-icon-wrapper {
+.repair-step:hover .repair-step-icon {
   background: #2563eb;
   color: #ffffff;
+  transform: scale(1.1);
 }
 
-.workflow-step h4 {
-  font-size: 1.1rem;
+.repair-step span {
   font-weight: 700;
-  color: #1e293b;
-  margin: 0;
+  color: #0f172a;
+  font-size: 1.1rem;
 }
 
 /* 5. TRUST HIGHLIGHTS */
 .repair-trust {
   padding: 6rem 2rem;
-  background: #f8fafc;
-  text-align: center;
+  background: #ffffff;
 }
 
 .trust-grid {
@@ -307,77 +431,105 @@
 }
 
 .trust-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 1rem 1.5rem;
+  background: #f1f5f9;
+  padding: 1.25rem 2.5rem;
   border-radius: 99px;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-  transition: transform 0.3s ease;
+  gap: 1rem;
+  transition: all 0.3s ease;
 }
 
 .trust-card:hover {
+  background: #2563eb;
+  color: #ffffff;
   transform: translateY(-3px);
-  border-color: #bfdbfe;
 }
 
 .trust-card svg {
-  color: #10b981;
+  color: #22c55e;
+  transition: color 0.3s ease;
+}
+
+.trust-card:hover svg {
+  color: #ffffff;
 }
 
 .trust-card span {
-  font-weight: 600;
-  color: #334155;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 /* 6. FINAL CTA */
 .repair-cta-banner {
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+  padding: 10rem 2rem;
   text-align: center;
-  color: #ffffff;
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #bae6fd;
+}
+
+.repair-cta-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .repair-cta-banner h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+.repair-cta-banner p {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
 }
 
 .repair-btn-inverse {
-  background-color: #ffffff;
-  color: #1e40af;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
 .repair-btn-inverse:hover {
-  background-color: #f8fafc;
-  color: #1e3a8a;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background-color: #1d4ed8;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .repair-hero-heading { font-size: 2.75rem; }
+  .repair-hero-heading { font-size: 3rem; }
   .problems-grid { grid-template-columns: repeat(3, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .workflow-container { flex-direction: column; gap: 3rem; }
-  .workflow-line {
+  .repair-workflow-wrap { flex-direction: column; gap: 3rem; align-items: flex-start; padding-left: 2rem; }
+  .repair-step-line {
     width: 2px; height: 100%;
-    left: 50%; top: 0; bottom: 0; right: auto; margin-left: -1px;
+    left: 60px; top: 0; bottom: 0; right: auto;
   }
+  .repair-step { flex-direction: row; gap: 2rem; background: transparent; }
 }
 
 @media (max-width: 768px) {
-  .repair-hero-container { grid-template-columns: 1fr; gap: 3rem; }
-  .repair-hero-content { order: 1; text-align: center; align-items: center; }
-  .repair-hero-image-wrapper { order: 2; }
+  .repair-hero-container { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+  .repair-hero-content { align-items: center; }
+  .repair-hero-heading { font-size: 2.5rem; }
+  .repair-hero-tags { justify-content: center; flex-wrap: wrap; }
+  .repair-stats-row { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
   .problems-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: 1fr; }
-  .repair-hero-heading { font-size: 2.25rem; }
-  .repair-section-heading { font-size: 2rem; }
-  .repair-cta-banner h2 { font-size: 2.25rem; }
+  .repair-section-heading { font-size: 2.25rem; }
+  .repair-cta-banner h2 { font-size: 2.5rem; }
 }

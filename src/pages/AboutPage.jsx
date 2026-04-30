@@ -4,7 +4,6 @@ import {
   FaTools, FaClock, FaShieldAlt, FaUsers, FaCheckCircle, 
   FaAward, FaClipboardList, FaStar, FaBullseye, FaStarHalfAlt, FaRegStar, FaUserCircle
 } from 'react-icons/fa';
-import acTechnicianHero from '../assets/ac_technician_hero.png?v=2';
 import acInstallIndoor from '../assets/ac_install_indoor.png';
 import acCheckOutdoor from '../assets/ac_check_outdoor.png';
 import familyAcComfort from '../assets/family_ac_comfort.png';
@@ -55,38 +54,67 @@ export default function AboutPage({ onBookNow }) {
   return (
     <div className={styles.aboutPage}>
       {/* Hero Section */}
-      <motion.section className={styles.hero} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7 }}>
-        <div className={styles.container}>
-          <div className={styles.heroContent}>
-            <div className={styles.badge}>
-              <FaSnowflake className={styles.badgeIcon} />
-              <span>Expert Heating & Cooling Specialists</span>
-            </div>
-            <h1 className={styles.title}>
-              Expert Air Conditioning &<br />
-              Heating Repair Services
-            </h1>
-            <p className={styles.description}>
-              From scorching summer days to unexpected breakdowns, Hyderabad AC Services is your trusted partner for commercial and residential cooling. We deliver fast, affordable, and energy-efficient HVAC solutions across Hyderabad to ensure you stay comfortable year-round.
-            </p>
-            <div className={styles.actions}>
-              <button className={styles.scheduleBtn} onClick={() => onBookNow('General HVAC Consultation')}>
-                Schedule Now <FaArrowRight className={styles.btnIcon} />
-              </button>
-              <a href="tel:+918712322475" className={styles.phoneBlock} style={{textDecoration: 'none', color: 'inherit'}}>
-                <div className={styles.phoneIconWrapper}>
-                  <FaPhoneAlt className={styles.phoneIcon} />
-                </div>
-                <div className={styles.phoneText}>
-                  <span className={styles.phoneLabel}>Call Us Now</span>
-                  <span className={styles.phoneNumber}>+91 87123 22475</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className={styles.heroImage}>
-            <img src={acTechnicianHero} alt="AC Technician" />
-          </div>
+      <motion.section className={styles.hero} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <div className={styles.bgLayer} />
+        <div className={styles.overlay} />
+        
+        <div className={styles.heroContentCentered}>
+          <motion.div 
+            className={styles.badgeGlassHero}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <FaSnowflake className={styles.badgeIconGlass} />
+            <span>Trusted Cooling Partners Since 2014</span>
+          </motion.div>
+          
+          <motion.h1 
+            className={styles.heroTitleCentered}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Expert Air Conditioning &<br />
+            Heating Repair Services
+          </motion.h1>
+          
+          <motion.p 
+            className={styles.heroDescCentered}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            From scorching summer days to unexpected breakdowns, Hyderabad AC Services is your trusted partner for commercial and residential cooling. We deliver fast, affordable, and energy-efficient HVAC solutions across Hyderabad.
+          </motion.p>
+          
+          <motion.div 
+            className={styles.heroActionsCentered}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <button className={styles.scheduleBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
+              Schedule Now <FaArrowRight />
+            </button>
+            <a href="tel:+918712322475" className={styles.phoneLinkHero}>
+              <div className={styles.phoneIconWrapHero}><FaPhoneAlt /></div>
+              <span>+91 87123 22475</span>
+            </a>
+          </motion.div>
+
+          <motion.div 
+            className={styles.trustStripHero}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <span>⭐ 4.9 Rated</span>
+            <span className={styles.dotHero}>•</span>
+            <span>10+ Years Experience</span>
+            <span className={styles.dotHero}>•</span>
+            <span>Certified Experts</span>
+          </motion.div>
         </div>
       </motion.section>
       

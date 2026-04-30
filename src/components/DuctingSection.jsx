@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { PenTool, Fan, ShieldCheck, Wrench } from 'lucide-react';
 
 const whatsappUrl = 'https://wa.me/918712322475?text=Hi%2C%20I%20need%20ducting%20service%20details.';
@@ -30,6 +30,8 @@ export default function DuctingSection() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    const container = containerRef.current;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -39,13 +41,13 @@ export default function DuctingSection() {
       });
     }, { threshold: 0.1 });
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, []);
@@ -54,7 +56,7 @@ export default function DuctingSection() {
     <section className="bg-[#fcfdfd] font-sans w-full py-24 sm:py-32 overflow-hidden border-b border-gray-100">
       <div 
         ref={containerRef}
-        className="mx-auto max-w-[1200px] px-6 lg:px-8 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+        className="mx-auto max-w-300 px-6 lg:px-8 opacity-0 translate-y-8 transition-all duration-700 ease-out"
       >
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
           
@@ -98,7 +100,7 @@ export default function DuctingSection() {
                       }`}
                     >
                       {/* Circular Thin-bordered Icon */}
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full border border-blue-200 flex items-center justify-center text-blue-600 bg-white shadow-sm mt-1">
+                      <div className="shrink-0 w-12 h-12 rounded-full border border-blue-200 flex items-center justify-center text-blue-600 bg-white shadow-sm mt-1">
                         <Icon size={20} strokeWidth={1.8} />
                       </div>
                       <div className="pt-1">
@@ -123,7 +125,7 @@ export default function DuctingSection() {
           <img 
             src="/DUCTING%20CONTRACTORS.jpg" 
             alt="DUCTING CONTRACTORS" 
-            className="w-full h-auto max-h-[500px] object-cover object-center"
+            className="w-full h-auto max-h-125 object-cover object-center"
           />
         </div>
         
