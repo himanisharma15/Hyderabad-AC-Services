@@ -12,7 +12,7 @@ const PremiumFooter = () => {
       description: 'Trusted AC installation, repair and HVAC support across Hyderabad',
       phone: '+91 8712322475',
       email: 'info@hyderabadacservices.com',
-      hours: '9 AM – 9 PM',
+      hours: '24/7',
     },
     services: [
       { name: 'AC Service', link: '/ac-service' },
@@ -28,8 +28,6 @@ const PremiumFooter = () => {
       { name: 'About Us', link: '/about' },
       { name: 'Services', link: '/services' },
       { name: 'Contact', link: '/contact' },
-      { name: 'Terms & Conditions', link: '/terms' },
-      { name: 'Privacy Policy', link: '/privacy' },
     ],
     social: [
       { name: 'Facebook', icon: Facebook, link: 'https://facebook.com' },
@@ -121,15 +119,7 @@ const PremiumFooter = () => {
             <div className="footer-hours">
               <h4 className="hours-title">Working Hours</h4>
               <p className="hours-text">{footerData.contact.hours}</p>
-              <p className="hours-subtext">Monday to Sunday</p>
-            </div>
-
-            <div className="footer-map-preview">
-              <img 
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 140'%3E%3Crect fill='%23f0f6fb' width='200' height='140'/%3E%3Ccircle cx='100' cy='70' r='8' fill='%230b84dc'/%3E%3Cpath d='M100 30L120 100L100 85L80 100Z' fill='%230b84dc' opacity='0.2'/%3E%3C/svg%3E"
-                alt="Service Area Map"
-                className="map-preview-image"
-              />
+              <p className="hours-subtext">Available Daily</p>
             </div>
           </div>
         </div>
@@ -139,16 +129,7 @@ const PremiumFooter = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-container">
           <div className="footer-copyright">
-            <p>
-              © {currentYear} Hyderabad AC Services. All rights reserved. | Trusted AC Installation & Repair Services
-            </p>
-          </div>
-          <div className="footer-bottom-links">
-            <a href="/privacy">Privacy Policy</a>
-            <span className="divider">•</span>
-            <a href="/terms">Terms & Conditions</a>
-            <span className="divider">•</span>
-            <a href="/sitemap">Sitemap</a>
+            <p>© 2026 Hyderabad AC Services. All rights reserved. | Trusted AC Installation & Repair Services</p>
           </div>
         </div>
       </div>

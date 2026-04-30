@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
 import ServicesPage from './components/ServicesPage'
 import ServiceFormModal from './components/ServiceFormModal'
+import PremiumFooter from './components/contact/PremiumFooter'
 import styles from './App.module.css'
 
 // AC Service Pages
@@ -81,6 +82,14 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
+      <PremiumFooter />
+
+      <ServiceFormModal
+        isOpen={isModalOpen}
+        selectedService={selectedService}
+        onClose={handleCloseModal}
+      />
+    </div>
         <ServiceFormModal
           isOpen={isModalOpen}
           selectedService={selectedService}
