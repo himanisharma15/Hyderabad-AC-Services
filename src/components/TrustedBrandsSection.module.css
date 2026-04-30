@@ -1,0 +1,300 @@
+.section {
+  padding: 80px 24px 100px;
+  background: #eef5fb;
+  position: relative;
+  z-index: 4;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* HEADER — centered above */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.label {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 900;
+  color: #154769;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-family: var(--heading);
+  font-size: 30px;
+  font-weight: 900;
+  color: #1e293b;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.subtext {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* TWO-COLUMN BODY */
+.body {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 100px;
+  align-items: center;
+}
+
+/* LEFT — 2×2 cards */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.logoCard {
+  position: relative;
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  height: 180px;
+}
+
+.logoCard:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 25px 60px rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.logoCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.logoCard:hover::before {
+  opacity: 0.08;
+}
+
+.logoCard::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent);
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.logoCard:hover::after {
+  bottom: -10px;
+  left: -10px;
+}
+
+.logoCard svg, .logoCard img {
+  height: 45px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.logoCard:hover svg, .logoCard:hover img {
+  transform: scale(1.1);
+}
+
+.cardTitle {
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #64748b;
+  transition: 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.logoCard:hover .cardTitle {
+  color: #1e293b;
+}
+
+/* ── VOLTAS ── */
+.voltasLogo {
+  display: flex;
+  align-items: center;
+}
+
+.voltasText {
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-style: italic;
+  color: #1565C0;
+  letter-spacing: -1px;
+  font-family: var(--heading);
+}
+
+/* ── BLUE STAR ── */
+.bluestarLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bluestarBox {
+  background: #1A237E;
+  border: 3px solid #1A237E;
+  border-radius: 6px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bluestarStar {
+  color: white;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.bluestarText {
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #1A237E;
+  font-family: var(--heading);
+  letter-spacing: 0.5px;
+}
+
+/* ── CARRIER ── */
+.carrierLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrierOval {
+  border: 4px solid #4A148C;
+  background: #4A148C;
+  border-radius: 50px;
+  padding: 14px 36px;
+}
+
+.carrierText {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* ── DAIKIN ── */
+.daikinLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.daikinChevron {
+  color: #29B6F6;
+  font-size: 2.2rem;
+  line-height: 1;
+  transform: scaleY(1.6);
+}
+
+.daikinTextGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.daikinText {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0277BD;
+  font-family: var(--heading);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.daikinSub {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #0288D1;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* RIGHT — image */
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 640px;
+  width: 100%;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 640px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  box-shadow: 0 32px 80px rgba(37, 99, 235, 0.22);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.imageWrapper:hover .serviceImage {
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .body {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logoCard {
+    padding: 32px 16px;
+  }
+
+  .brandName {
+    font-size: 1.4rem;
+  }
+}

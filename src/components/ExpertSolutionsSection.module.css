@@ -1,0 +1,236 @@
+.section {
+  padding: 80px 20px;
+  background: #eef5fb;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px; /* Increased horizontal spacing */
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Increased spacing between elements */
+}
+
+.heading {
+  font-family: var(--heading);
+  font-size: 52px; /* Bigger and stronger */
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.subheading {
+  font-size: 1.15rem;
+  color: #64748b; /* Lighter color */
+  line-height: 1.7;
+  margin: 0;
+  max-width: 550px;
+}
+
+.highlightCard {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(21, 71, 105, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 500px;
+}
+
+.highlightCard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(21, 71, 105, 0.2);
+  border-color: rgba(21, 71, 105, 0.4);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.settingsIcon {
+  color: #154769;
+  opacity: 0.8;
+  transition: transform 0.4s ease;
+}
+
+.highlightCard:hover .settingsIcon {
+  transform: rotate(90deg);
+}
+
+.cardHeader h3 {
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.highlightCard p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.serviceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.serviceList li {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.serviceList li:hover {
+  transform: translateX(8px);
+}
+
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  color: #154769;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.serviceList li:hover .iconWrapper {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(21, 71, 105, 0.4));
+}
+
+.listText h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Hide descriptions to keep it cleaner/tertiary */
+.listText p {
+  display: none;
+}
+
+.right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.2);
+  width: 100%;
+  max-width: 500px;
+  animation: float 5s ease-in-out infinite;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.imageWrapper:hover {
+  transform: scale(1.04);
+  box-shadow: 0 40px 100px rgba(21, 71, 105, 0.25);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(21, 71, 105, 0.1), transparent);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    gap: 40px;
+  }
+  
+  .heading {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 968px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .subheading {
+    margin: 0 auto;
+  }
+
+  .highlightCard {
+    margin: 0 auto;
+  }
+
+  .serviceList {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 80px 20px;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+}

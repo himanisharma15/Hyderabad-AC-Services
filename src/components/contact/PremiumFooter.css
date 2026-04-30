@@ -45,7 +45,7 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(0, 174, 221, 0.3);
+  border-bottom: 2px solid rgba(21, 71, 105, 0.3);
 }
 
 /* Contact Column */
@@ -54,7 +54,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(0, 174, 221, 0.1);
+  background: rgba(21, 71, 105, 0.1);
   border-radius: 12px;
   margin-bottom: 0.5rem;
 }
@@ -106,7 +106,7 @@
 }
 
 .footer-contact-item svg {
-  color: #00aedd;
+  color: #154769;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
@@ -151,7 +151,7 @@
 }
 
 .footer-link:hover {
-  color: #00aedd;
+  color: #154769;
   transform: translateX(4px);
 }
 
@@ -174,8 +174,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 174, 221, 0.15);
-  border: 1px solid rgba(0, 174, 221, 0.3);
+  background: rgba(21, 71, 105, 0.15);
+  border: 1px solid rgba(21, 71, 105, 0.3);
   border-radius: 10px;
   color: #00aedd;
   transition: all 0.28s ease; /* smooth transition */
@@ -216,7 +216,7 @@
 .hours-text {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #00aedd;
+  color: #154769;
   margin: 0 0 0.3rem;
 }
 
@@ -342,7 +342,7 @@
 }
 
 .footer-bottom-links a:hover {
-  color: #00aedd;
+  color: #154769;
 }
 
 .divider {

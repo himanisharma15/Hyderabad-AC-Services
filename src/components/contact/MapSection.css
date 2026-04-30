@@ -57,14 +57,14 @@
 .map-info-item {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 174, 221, 0.12);
+  border: 1px solid rgba(21, 71, 105, 0.12);
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(21, 71, 105, 0.08);
   transition: all 0.3s ease;
 }
 
 .map-info-item:hover {
-  border-color: rgba(0, 174, 221, 0.25);
+  border-color: rgba(21, 71, 105, 0.25);
   box-shadow: 0 12px 32px rgba(21, 71, 105, 0.15);
   transform: translateY(-6px);
 }
