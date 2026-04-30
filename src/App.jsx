@@ -23,7 +23,6 @@ import AirCurtainDetail from './pages/services/AirCurtain'
 
 // Exhaust Service Pages
 import AMCDetail from './pages/services/AMC'
-import RestaurantExhaustDetail from './pages/services/RestaurantExhaust'
 import BasementExhaustDetail from './pages/services/BasementExhaust'
 import RestaurantExhaustCleaningDetail from './pages/services/RestaurantExhaustCleaning'
 
@@ -74,7 +73,6 @@ export default function App() {
 
           {/* Exhaust Service Detail Routes */}
           <Route path="/amc" element={<AMCDetail />} />
-          <Route path="/restaurant-exhaust" element={<RestaurantExhaustDetail />} />
           <Route path="/basement-exhaust" element={<BasementExhaustDetail />} />
           <Route path="/restaurant-exhaust-cleaning" element={<RestaurantExhaustCleaningDetail />} />
 
