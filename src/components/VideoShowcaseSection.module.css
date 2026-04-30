@@ -1,0 +1,132 @@
+.section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(180deg, #eef5fb 0%, #dbeafe 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.videoWrapper {
+  width: 100%;
+  height: 70vh; /* Premium desktop strip height */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.controlsOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.playButton {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding-left: 4px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.playButton:hover {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+}
+
+.pauseBtn {
+  opacity: 0;
+}
+
+.controlsOverlay:hover .pauseBtn {
+  opacity: 1;
+}
+
+.qualityBadge {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 99px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #22c55e;
+  animation: pulseLive 2s infinite;
+}
+
+@keyframes pulseLive {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+@media (max-width: 1024px) {
+  .videoWrapper {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .videoWrapper {
+    height: 50vh;
+  }
+
+  .playButton {
+    width: 64px;
+    height: 64px;
+  }
+
+  .qualityBadge {
+    top: 20px;
+    left: 20px;
+  }
+}

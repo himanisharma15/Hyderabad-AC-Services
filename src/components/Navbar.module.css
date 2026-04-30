@@ -5,7 +5,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: rgba(243, 249, 255, 0.9);
-  border-bottom: 1px solid rgba(85, 139, 226, 0.18);
+  border-bottom: 1px solid rgba(21, 71, 105, 0.15);
 }
 
 .navbar {
@@ -21,7 +21,7 @@
 .logo {
   border: 0;
   background: transparent;
-  color: #0c2e5a;
+  color: #154769;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -29,7 +29,7 @@
 }
 
 .logo span {
-  color: #2b78ff;
+  color: #154769;
   font-weight: 800;
   letter-spacing: 0.03em;
 }
@@ -47,7 +47,7 @@
 .navLink {
   border: 0;
   background: transparent;
-  color: #103764;
+  color: #154769;
   font-size: 0.95rem;
   font-weight: 600;
   display: inline-flex;
@@ -67,7 +67,7 @@
   bottom: 4px;
   height: 2px;
   border-radius: 999px;
-  background: #1d5eff;
+  background: #154769;
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.2s ease;
@@ -75,7 +75,7 @@
 
 .navLink:hover,
 .navLinkActive {
-  color: #1d5eff;
+  color: #154769;
 }
 
 .navLink:hover::after,
@@ -96,9 +96,9 @@
   top: 100%;
   left: 0;
   border-radius: 12px;
-  border: 1px solid rgba(79, 140, 255, 0.2);
+  border: 1px solid rgba(21, 71, 105, 0.2);
   background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 18px 44px rgba(14, 45, 95, 0.16);
+  box-shadow: 0 18px 44px rgba(21, 71, 105, 0.16);
 }
 
 .dropdownItem {
@@ -106,7 +106,7 @@
   border: 0;
   background: transparent;
   text-align: left;
-  color: #1b3f6a;
+  color: #154769;
   padding: 10px;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -115,8 +115,8 @@
 
 .dropdownItem:hover,
 .dropdownItemActive {
-  background: rgba(47, 119, 255, 0.1);
-  color: #1d5eff;
+  background: rgba(21, 71, 105, 0.1);
+  color: #154769;
 }
 
 .bookButton,
@@ -128,8 +128,8 @@
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.01em;
-  background: linear-gradient(135deg, #1d5eff, #39a7ff);
-  box-shadow: 0 14px 28px rgba(31, 95, 237, 0.24);
+  background: linear-gradient(135deg, #154769, #154769);
+  box-shadow: 0 14px 28px rgba(21, 71, 105, 0.24);
   cursor: pointer;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
@@ -137,7 +137,7 @@
 .bookButton:hover,
 .mobileBookButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(31, 95, 237, 0.3);
+  box-shadow: 0 18px 34px rgba(21, 71, 105, 0.3);
 }
 
 .mobileToggle {
@@ -146,8 +146,8 @@
   height: 40px;
   border: 0;
   border-radius: 10px;
-  color: #1d5eff;
-  background: rgba(29, 94, 255, 0.1);
+  color: #154769;
+  background: rgba(21, 71, 105, 0.1);
 }
 
 .mobileMenu {
@@ -171,7 +171,7 @@
   .mobileMenu {
     display: grid;
     gap: 8px;
-    border-top: 1px solid rgba(85, 139, 226, 0.18);
+    border-top: 1px solid rgba(21, 71, 105, 0.15);
     padding: 10px 16px 16px;
     background: rgba(245, 250, 255, 0.98);
   }
@@ -180,14 +180,14 @@
     border: 0;
     background: transparent;
     text-align: left;
-    color: #163f6c;
+    color: #154769;
     font-weight: 600;
     padding: 10px;
     border-radius: 8px;
   }
 
   .mobileDropdownWrap {
-    border: 1px solid rgba(79, 140, 255, 0.2);
+    border: 1px solid rgba(21, 71, 105, 0.2);
     border-radius: 10px;
     background: #ffffff;
   }
@@ -201,13 +201,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    color: #163f6c;
+    color: #154769;
     font-size: 0.95rem;
     font-weight: 600;
   }
 
   .mobileDropdownToggle svg {
-    color: #2b78ff;
+    color: #154769;
     transition: transform 0.2s ease;
   }
 
@@ -222,8 +222,8 @@
   .mobileDropdownMenu li button {
     width: 100%;
     border: 0;
-    background: rgba(49, 129, 255, 0.08);
-    color: #1f4f7f;
+    background: rgba(21, 71, 105, 0.08);
+    color: #154769;
     font-size: 0.88rem;
     padding: 8px;
     text-align: left;

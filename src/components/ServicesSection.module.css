@@ -4,7 +4,7 @@
   padding: 0 0 96px;
   background:
     radial-gradient(circle at top left, rgba(69, 158, 255, 0.16), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(29, 94, 255, 0.1), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(21, 71, 105, 0.1), transparent 24%),
     linear-gradient(180deg, #f3f9ff 0%, #ffffff 58%, #f8fbff 100%);
 }
 
@@ -29,7 +29,7 @@
   bottom: -100px;
   width: 260px;
   height: 260px;
-  background: rgba(29, 94, 255, 0.08);
+  background: rgba(21, 71, 105, 0.08);
 }
 
 .header {

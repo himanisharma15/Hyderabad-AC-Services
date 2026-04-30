@@ -1,6 +1,12 @@
 import HomeHero from './HomeHero';
 import ServicesDashboardSection from './ServicesDashboardSection';
+import ExpertSolutionsSection from './ExpertSolutionsSection';
+import WhyChooseUsSection from './WhyChooseUsSection';
+import HowItWorksSection from './HowItWorksSection';
+import TrustedBrandsSection from './TrustedBrandsSection';
+import VideoShowcaseSection from './VideoShowcaseSection';
 import ServiceCategorySection from './ServiceCategorySection';
+import CtaSection from './CtaSection';
 import { acServices, exhaustServices } from '../data/serviceCategories';
 
 export default function HomePage({ onBookNow }) {
@@ -9,24 +15,14 @@ export default function HomePage({ onBookNow }) {
       <HomeHero onBookNow={onBookNow} />
 
       <main>
-        <ServicesDashboardSection />
-
-        <ServiceCategorySection
-          id="air-conditioning"
-          title="Advanced Air Conditioning Solutions"
-          subtitle="Reliable cooling services for homes and businesses"
-          services={acServices}
-          onBookNow={onBookNow}
-        />
-
-        <ServiceCategorySection
-          id="exhaust"
-          title="Efficient Exhaust & Ventilation Systems"
-          subtitle="Smart airflow solutions for commercial and residential spaces"
-          services={exhaustServices}
-          onBookNow={onBookNow}
-          alt
-        />
+        <ServicesDashboardSection onBookNow={onBookNow} />
+        <ExpertSolutionsSection />
+        <VideoShowcaseSection onBookNow={onBookNow} />
+        <WhyChooseUsSection />
+        <HowItWorksSection />
+        <TrustedBrandsSection />
+        
+        <CtaSection onBookNow={onBookNow} />
       </main>
     </>
   );

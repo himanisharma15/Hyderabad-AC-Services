@@ -9,7 +9,7 @@
   width: 100%;
   padding: 60px clamp(1rem, 3vw, 2.2rem);
   background: linear-gradient(180deg, #154769 0%, #0d2f47 100%);
-  border-top: 2px solid rgba(0, 174, 221, 0.2);
+  border-top: 2px solid rgba(21, 71, 105, 0.2);
 }
 
 .footer-container {
@@ -34,7 +34,7 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(0, 174, 221, 0.3);
+  border-bottom: 2px solid rgba(21, 71, 105, 0.3);
 }
 
 /* Contact Column */
@@ -43,7 +43,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(0, 174, 221, 0.1);
+  background: rgba(21, 71, 105, 0.1);
   border-radius: 12px;
   margin-bottom: 0.5rem;
 }
@@ -95,7 +95,7 @@
 }
 
 .footer-contact-item svg {
-  color: #00aedd;
+  color: #154769;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
@@ -140,7 +140,7 @@
 }
 
 .footer-link:hover {
-  color: #00aedd;
+  color: #154769;
   transform: translateX(4px);
 }
 
@@ -162,17 +162,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 174, 221, 0.15);
-  border: 1px solid rgba(0, 174, 221, 0.3);
+  background: rgba(21, 71, 105, 0.15);
+  border: 1px solid rgba(21, 71, 105, 0.3);
   border-radius: 10px;
-  color: #00aedd;
+  color: #154769;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .footer-social-link:hover {
   background: linear-gradient(120deg, #0b84dc 0%, #0a6cc8 100%);
-  border-color: #00aedd;
+  border-color: #154769;
   color: #ffffff;
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(7, 86, 173, 0.3);
@@ -184,8 +184,8 @@
 
 /* Hours Section */
 .footer-hours {
-  background: rgba(0, 174, 221, 0.1);
-  border-left: 3px solid #00aedd;
+  background: rgba(21, 71, 105, 0.1);
+  border-left: 3px solid #154769;
   padding: 1rem;
   border-radius: 8px;
 }
@@ -202,7 +202,7 @@
 .hours-text {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #00aedd;
+  color: #154769;
   margin: 0 0 0.3rem;
 }
 
@@ -218,8 +218,8 @@
   height: 120px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(0, 174, 221, 0.3);
-  background: rgba(0, 174, 221, 0.05);
+  border: 1px solid rgba(21, 71, 105, 0.3);
+  background: rgba(21, 71, 105, 0.05);
 }
 
 .map-preview-image {
@@ -233,7 +233,7 @@
   width: 100%;
   padding: 2rem clamp(1rem, 3vw, 2.2rem);
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
-  border-top: 1px solid rgba(0, 174, 221, 0.15);
+  border-top: 1px solid rgba(21, 71, 105, 0.15);
 }
 
 .footer-bottom-container {
@@ -274,7 +274,7 @@
 }
 
 .footer-bottom-links a:hover {
-  color: #00aedd;
+  color: #154769;
 }
 
 .divider {
