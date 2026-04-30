@@ -128,8 +128,8 @@ export default function ACServicePage() {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
       <section className="relative isolate bg-[#f8fbff] px-6 pb-14 pt-0 sm:px-8 sm:pt-0 lg:px-12 lg:pb-16 lg:pt-0">
-        <div className="absolute left-[-8rem] top-16 h-72 w-72 rounded-full bg-blue-100/80 blur-3xl" />
-        <div className="absolute right-[-6rem] top-28 h-80 w-80 rounded-full bg-cyan-100/80 blur-3xl" />
+        <div className="absolute left-[-8rem] top-16 h-72 w-72 rounded-full bg-[#d9e7f0]/85 blur-3xl" />
+        <div className="absolute right-[-6rem] top-28 h-80 w-80 rounded-full bg-[#e8f1f7]/90 blur-3xl" />
         <div className="absolute bottom-0 left-1/2 h-44 w-96 -translate-x-1/2 rounded-full bg-white blur-3xl" />
 
         <div className="relative mx-auto grid min-h-[calc(100svh-190px)] max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
@@ -151,11 +151,11 @@ export default function ACServicePage() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
-              <a href="tel:+918712322475" className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#1d5eff] px-8 font-semibold text-white shadow-xl shadow-blue-500/20 transition-all duration-300 hover:scale-105 hover:bg-[#164bd1] hover:shadow-2xl active:scale-95">
+              <a href="tel:+918712322475" className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#154769] px-8 font-semibold text-white shadow-xl shadow-[#154769]/20 transition-all duration-300 hover:scale-105 hover:bg-[#103754] hover:shadow-2xl active:scale-95">
                 Schedule Service
                 <ArrowRight className="h-5 w-5" />
               </a>
-              <a href="https://wa.me/918712322475" target="_blank" rel="noreferrer" className="inline-flex h-14 items-center justify-center gap-3 rounded-full border border-slate-200 bg-white/70 px-8 font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:border-[#1d5eff]/30 hover:bg-white hover:text-[#1d5eff] active:scale-95">
+              <a href="https://wa.me/918712322475" target="_blank" rel="noreferrer" className="inline-flex h-14 items-center justify-center gap-3 rounded-full border border-slate-200 bg-white/70 px-8 font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:border-[#154769]/30 hover:bg-white hover:text-[#154769] active:scale-95">
                 <FaWhatsapp className="h-5 w-5 text-[#25d366]" />
                 WhatsApp
               </a>
@@ -175,7 +175,7 @@ export default function ACServicePage() {
             return (
               <motion.div key={stat.value} variants={fadeUp} className="rounded-2xl border border-white/70 bg-white/60 p-5 shadow-lg shadow-slate-200/60 backdrop-blur">
                 <div className="flex items-center gap-4">
-                  <div className="grid h-11 w-11 place-items-center rounded-full bg-blue-50 text-[#1d5eff]">
+                  <div className="grid h-11 w-11 place-items-center rounded-full bg-[#e8f1f7] text-[#154769]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -190,20 +190,20 @@ export default function ACServicePage() {
       </section>
 
       <motion.section initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="relative bg-white px-6 py-16 sm:px-8 lg:px-12">
-        <div className="absolute left-[8%] top-24 h-80 w-80 rounded-full bg-blue-100/70 blur-3xl" />
-        <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-cyan-50 blur-3xl" />
+        <div className="absolute left-[8%] top-24 h-80 w-80 rounded-full bg-[#d9e7f0]/70 blur-3xl" />
+        <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-[#eef4f8] blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
           <SectionHeading
             title="Why Regular AC Service Matters"
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-[1.05fr_1fr]">
-            <motion.div variants={fadeUp} className="group relative overflow-hidden rounded-2xl border border-blue-100 bg-white/60 p-7 shadow-xl shadow-blue-100/50 backdrop-blur">
-              <div className="absolute inset-0 bg-linear-to-br from-white/90 via-blue-50/60 to-cyan-50/50" />
+            <motion.div variants={fadeUp} className="group relative overflow-hidden rounded-2xl border border-[#b8ccda] bg-white/60 p-7 shadow-xl shadow-[#d9e7f0]/55 backdrop-blur">
+              <div className="absolute inset-0 bg-linear-to-br from-white/90 via-[#e8f1f7]/70 to-[#eef4f8]/60" />
               <div className="relative">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-100 bg-white text-[#1d5eff] shadow-sm">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#b8ccda] bg-white text-[#154769] shadow-sm">
                       <ThermometerSun className="h-6 w-6" />
                     </div>
                     <h3 className="mt-5 text-[2.25rem] font-black text-slate-950">Consistent Cooling</h3>
@@ -223,21 +223,21 @@ export default function ACServicePage() {
                     </motion.div>
 
                     <motion.div animate={{ opacity: [0.45, 1, 1], scale: [0.96, 1, 1] }} transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }} className="absolute right-8 top-8 flex flex-col items-center gap-2">
-                      <div className="h-28 w-5 rounded-full border border-blue-200 bg-white p-1">
-                        <motion.div animate={{ height: ['54%', '54%', '54%'] }} transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }} className="mt-auto rounded-full bg-[#1d5eff]" />
+                      <div className="h-28 w-5 rounded-full border border-[#b8ccda] bg-white p-1">
+                        <motion.div animate={{ height: ['54%', '54%', '54%'] }} transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }} className="mt-auto rounded-full bg-[#154769]" />
                       </div>
-                      <span className="text-xs font-semibold text-[#1d5eff]">After</span>
+                      <span className="text-xs font-semibold text-[#154769]">After</span>
                     </motion.div>
 
                     <motion.div animate={{ x: [-18, 18, -18], opacity: [0.3, 0.85, 0.3] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-10 left-16 right-16 space-y-2">
-                      <div className="h-1 rounded-full bg-linear-to-r from-transparent via-cyan-300 to-transparent" />
-                      <div className="ml-8 h-1 rounded-full bg-linear-to-r from-transparent via-blue-300 to-transparent" />
-                      <div className="mr-10 h-1 rounded-full bg-linear-to-r from-transparent via-cyan-200 to-transparent" />
+                      <div className="h-1 rounded-full bg-linear-to-r from-transparent via-[#8fb0c6] to-transparent" />
+                      <div className="ml-8 h-1 rounded-full bg-linear-to-r from-transparent via-[#6f93ad] to-transparent" />
+                      <div className="mr-10 h-1 rounded-full bg-linear-to-r from-transparent via-[#b8ccda] to-transparent" />
                     </motion.div>
                   </div>
 
                   <div className="flex flex-col justify-center">
-                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1d5eff]">Cooling Stabilized</div>
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#154769]">Cooling Stabilized</div>
                     <p className="mt-3 text-sm leading-6 text-slate-600">
                       Dust and weak airflow can make cooling fluctuate. A clean service restores a steady blue-zone reading and smoother comfort.
                     </p>
@@ -253,11 +253,11 @@ export default function ACServicePage() {
                 <motion.div
                   key={item.title}
                   variants={fadeUp}
-                  animate={{ boxShadow: ['0 1px 2px rgba(15, 23, 42, 0.04)', '0 0 0 1px rgba(29, 94, 255, 0.12)', '0 1px 2px rgba(15, 23, 42, 0.04)'] }}
+                  animate={{ boxShadow: ['0 1px 2px rgba(15, 23, 42, 0.04)', '0 0 0 1px rgba(21, 71, 105, 0.12)', '0 1px 2px rgba(15, 23, 42, 0.04)'] }}
                   transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
                   className="group rounded-2xl border border-gray-200 bg-white/85 p-6 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#1d5eff]">
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e8f1f7] text-[#154769]">
                     <motion.div animate={{ rotate: [0, 6, 0, -6, 0] }} transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}>
                       <Icon className="h-6 w-6" />
                     </motion.div>
@@ -274,7 +274,7 @@ export default function ACServicePage() {
       </motion.section>
 
       <motion.section id="service-includes" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="relative overflow-hidden bg-[#f5f7fa] px-6 py-20 sm:px-8 lg:px-12">
-        <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
+        <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-[#d9e7f0]/45 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
           <motion.div variants={fadeUp} className="mx-auto text-center mb-16">
             <h2 className="text-5xl sm:text-6xl font-black tracking-tight text-slate-950">
@@ -303,7 +303,7 @@ export default function ACServicePage() {
                     {/* Front of card */}
                     <motion.div
                       style={{ backfaceVisibility: 'hidden', width: '100%', height: '100%' }}
-                      className="absolute inset-0 rounded-2xl border border-blue-100/60 bg-white/90 backdrop-blur shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center p-6 overflow-hidden"
+                      className="absolute inset-0 rounded-2xl border border-[#b8ccda]/70 bg-white/90 backdrop-blur shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center p-6 overflow-hidden"
                     >
                       {/* Subtle background gradient */}
                       <motion.div
@@ -311,11 +311,11 @@ export default function ACServicePage() {
                           opacity: [0.3, 0.6, 0.3]
                         }}
                         transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                        className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-transparent pointer-events-none rounded-2xl"
+                        className="absolute inset-0 bg-gradient-to-br from-[#e8f1f7]/60 to-transparent pointer-events-none rounded-2xl"
                       />
 
                       <motion.div
-                        className="relative z-10 inline-flex h-20 w-20 items-center justify-center rounded-full border-3 border-blue-200 bg-white text-[#1d5eff] shadow-md mb-4"
+                        className="relative z-10 inline-flex h-20 w-20 items-center justify-center rounded-full border-3 border-[#b8ccda] bg-white text-[#154769] shadow-md mb-4"
                         animate={{ 
                           y: [0, -4, 0],
                           scale: [1, 1.05, 1]
@@ -337,7 +337,7 @@ export default function ACServicePage() {
                     {/* Back of card */}
                     <motion.div
                       style={{ backfaceVisibility: 'hidden', rotateY: 180, width: '100%', height: '100%' }}
-                      className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 shadow-lg flex flex-col items-center justify-center text-center p-6 overflow-hidden"
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#103754] to-[#154769] shadow-lg flex flex-col items-center justify-center text-center p-6 overflow-hidden"
                     >
                       {/* Glow effect on back */}
                       <motion.div
@@ -366,28 +366,28 @@ export default function ACServicePage() {
         </div>
       </motion.section>
 
-      <motion.section initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="relative overflow-hidden bg-linear-to-b from-[#f7fbff] to-[#edf4ff] px-6 py-18 sm:px-8 lg:px-12">
-        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-200/40 blur-3xl" />
+      <motion.section initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger} className="relative overflow-hidden bg-linear-to-b from-[#f7fbff] to-[#e8f1f7] px-6 py-18 sm:px-8 lg:px-12">
+        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#b8ccda]/45 blur-3xl" />
         <div className="absolute right-[-7rem] top-16 h-80 w-80 rounded-full bg-white/80 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl space-y-18">
-          <div className="rounded-[1.8rem] border border-blue-100/70 bg-white/80 p-6 shadow-xl shadow-blue-100/45 backdrop-blur sm:p-8 lg:p-10">
+          <div className="rounded-[1.8rem] border border-[#b8ccda]/80 bg-white/80 p-6 shadow-xl shadow-[#d9e7f0]/50 backdrop-blur sm:p-8 lg:p-10">
             <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
               <motion.div variants={fadeUp} className="max-w-xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1d5eff]">Basement &amp; Cellar Exhaust Services in Hyderabad</p>
-                <h2 className="mt-4 text-4xl font-black leading-tight text-[#0d2f5a] sm:text-only5xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#154769]">Basement &amp; Cellar Exhaust Services in Hyderabad</p>
+                <h2 className="mt-4 text-4xl font-black leading-tight text-[#103754] sm:text-only5xl">
                   Ensure Fresh Air &amp; Safe Ventilation in Your Basement
                 </h2>
                 <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
                   Engineered basement exhaust systems built to remove fumes, control humidity,
                   and keep enclosed spaces safer and healthier.
                 </p>
-                <a href="tel:+918712322475" className="mt-7 inline-flex h-13 items-center justify-center rounded-full bg-[#1d5eff] px-7 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#164bd1]">
+                <a href="tel:+918712322475" className="mt-7 inline-flex h-13 items-center justify-center rounded-full bg-[#154769] px-7 font-semibold text-white shadow-lg shadow-[#154769]/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#103754]">
                   Contact Us
                 </a>
               </motion.div>
 
-              <motion.div variants={scaleIn} className="rounded-3xl border border-blue-100 bg-white p-3 shadow-2xl shadow-slate-300/40">
+              <motion.div variants={scaleIn} className="rounded-3xl border border-[#b8ccda] bg-white p-3 shadow-2xl shadow-slate-300/40">
                 <div className="relative overflow-hidden rounded-2xl">
                   <img
                     src="/Ensure Fresh Air & Safe Ventilation.jpg"
@@ -397,7 +397,7 @@ export default function ACServicePage() {
                   <motion.div
                     animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/15 via-transparent to-[#0d2f5a]/20"
+                    className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/15 via-transparent to-[#103754]/20"
                   />
                 </div>
               </motion.div>
@@ -405,7 +405,7 @@ export default function ACServicePage() {
           </div>
 
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-            <motion.h3 variants={fadeUp} className="text-4xl font-black text-[#0d2f5a] sm:text-5xl">
+            <motion.h3 variants={fadeUp} className="text-4xl font-black text-[#103754] sm:text-5xl">
               Why Basement Ventilation Matters
             </motion.h3>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -418,8 +418,8 @@ export default function ACServicePage() {
               ].map((benefit) => {
                 const Icon = benefit.icon
                 return (
-                  <motion.div key={benefit.title} variants={fadeUp} className="group rounded-2xl border border-blue-100 bg-white p-5 shadow-md shadow-blue-100/30 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#1d5eff]">
+                  <motion.div key={benefit.title} variants={fadeUp} className="group rounded-2xl border border-[#b8ccda] bg-white p-5 shadow-md shadow-[#d9e7f0]/30 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f1f7] text-[#154769]">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h4 className="mt-4 text-lg font-black text-slate-900">{benefit.title}</h4>
@@ -431,12 +431,12 @@ export default function ACServicePage() {
           </motion.div>
 
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-            <motion.h3 variants={fadeUp} className="text-4xl font-black text-[#0d2f5a] sm:text-5xl">
+            <motion.h3 variants={fadeUp} className="text-4xl font-black text-[#103754] sm:text-5xl">
               Ideal For
             </motion.h3>
             <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {['Residential Buildings', 'Parking Basements', 'Commercial Complexes', 'Industrial Facilities'].map((space) => (
-                <motion.div key={space} variants={fadeUp} className="rounded-xl border border-blue-100 bg-white px-5 py-4 text-center text-sm font-bold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <motion.div key={space} variants={fadeUp} className="rounded-xl border border-[#b8ccda] bg-white px-5 py-4 text-center text-sm font-bold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                   {space}
                 </motion.div>
               ))}
@@ -444,12 +444,12 @@ export default function ACServicePage() {
           </motion.div>
 
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-            <motion.h3 variants={fadeUp} className="text-4xl font-black text-[#0d2f5a] sm:text-5xl">
+            <motion.h3 variants={fadeUp} className="text-4xl font-black text-[#103754] sm:text-5xl">
               Our Ventilation Process
             </motion.h3>
-            <div className="mt-7 rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-100/30 sm:p-8">
+            <div className="mt-7 rounded-3xl border border-[#b8ccda] bg-white p-6 shadow-lg shadow-[#d9e7f0]/30 sm:p-8">
               <div className="relative grid gap-6 lg:grid-cols-5 lg:gap-4">
-                <div className="pointer-events-none absolute left-[10%] right-[10%] top-7 hidden h-px bg-linear-to-r from-transparent via-[#1d5eff]/45 to-transparent lg:block" />
+                <div className="pointer-events-none absolute left-[10%] right-[10%] top-7 hidden h-px bg-linear-to-r from-transparent via-[#154769]/45 to-transparent lg:block" />
                 {[
                   { icon: Gauge, label: 'Site Inspection' },
                   { icon: Wrench, label: 'System Design' },
@@ -460,10 +460,10 @@ export default function ACServicePage() {
                   const Icon = step.icon
                   return (
                     <motion.div key={step.label} variants={fadeUp} className="relative z-10 text-center">
-                      <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-blue-200 bg-white text-[#1d5eff] shadow-sm">
+                      <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#b8ccda] bg-white text-[#154769] shadow-sm">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <div className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#1d5eff]">Step {index + 1}</div>
+                      <div className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#154769]">Step {index + 1}</div>
                       <div className="mt-1 text-sm font-bold text-slate-800">{step.label}</div>
                     </motion.div>
                   )

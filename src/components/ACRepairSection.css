@@ -1,6 +1,9 @@
 /* AC Repair Services Premium CSS */
 
 .repair-page {
+  --repair-blue: #154769;
+  --repair-blue-dark: #103754;
+  --repair-blue-soft: #e8f1f7;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
   background: #ffffff;
@@ -20,7 +23,7 @@
 
 /* 1. HERO SECTION */
 .repair-hero {
-  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--repair-blue-soft) 0%, #ffffff 100%);
   padding: 10rem 2rem 6rem 2rem;
   position: relative;
 }
@@ -32,7 +35,7 @@
   left: 0;
   right: 0;
   height: 100%;
-  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+  background: radial-gradient(circle at 80% 20%, rgba(21, 71, 105, 0.05) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -48,8 +51,8 @@
 .repair-eyebrow {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--repair-blue-soft);
+  color: var(--repair-blue);
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 99px;
@@ -67,8 +70,8 @@
 }
 
 .repair-hero-heading span {
-  color: #2563eb;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: var(--repair-blue);
+  background: linear-gradient(90deg, var(--repair-blue), #2a628a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -124,7 +127,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #2563eb;
+  background-color: var(--repair-blue);
   color: #ffffff;
   padding: 1.25rem 3rem;
   font-size: 1.1rem;
@@ -134,14 +137,14 @@
   border: none;
   width: max-content;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(21, 71, 105, 0.3);
   text-decoration: none;
 }
 
 .repair-btn:hover {
-  background-color: #1d4ed8;
+  background-color: var(--repair-blue-dark);
   transform: translateY(-3px);
-  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(21, 71, 105, 0.4);
 }
 
 .repair-stats-row {
@@ -209,7 +212,7 @@
 }
 
 .repair-image-badge svg {
-  color: #2563eb;
+  color: var(--repair-blue);
 }
 
 @keyframes repairFloat {
@@ -265,12 +268,12 @@
 .problem-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-  border-color: #2563eb;
+  border-color: var(--repair-blue);
 }
 
 .problem-icon {
-  color: #2563eb;
-  background: #eff6ff;
+  color: var(--repair-blue);
+  background: var(--repair-blue-soft);
   width: 60px;
   height: 60px;
   border-radius: 16px;
@@ -281,7 +284,7 @@
 }
 
 .problem-card:hover .problem-icon {
-  background: #2563eb;
+  background: var(--repair-blue);
   color: #ffffff;
 }
 
@@ -322,7 +325,7 @@
 
 .services-icon-box {
   background: #ffffff;
-  color: #2563eb;
+  color: var(--repair-blue);
   width: 64px;
   height: 64px;
   border-radius: 16px;
@@ -335,7 +338,7 @@
 }
 
 .services-card:hover .services-icon-box {
-  background: #2563eb;
+  background: var(--repair-blue);
   color: #ffffff;
 }
 
@@ -391,8 +394,8 @@
 
 .repair-step-icon {
   background: #ffffff;
-  border: 3px solid #2563eb;
-  color: #2563eb;
+  border: 3px solid var(--repair-blue);
+  color: var(--repair-blue);
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -404,7 +407,7 @@
 }
 
 .repair-step:hover .repair-step-icon {
-  background: #2563eb;
+  background: var(--repair-blue);
   color: #ffffff;
   transform: scale(1.1);
 }
@@ -441,7 +444,7 @@
 }
 
 .trust-card:hover {
-  background: #2563eb;
+  background: var(--repair-blue);
   color: #ffffff;
   transform: translateY(-3px);
 }
@@ -462,7 +465,7 @@
 
 /* 6. FINAL CTA */
 .repair-cta-banner {
-  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+  background: linear-gradient(135deg, var(--repair-blue-soft) 0%, #f4f8fb 100%);
   padding: 10rem 2rem;
   text-align: center;
   color: #0f172a;
@@ -478,7 +481,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(21, 71, 105, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -497,16 +500,16 @@
 }
 
 .repair-btn-inverse {
-  background-color: #2563eb;
+  background-color: var(--repair-blue);
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 10px 25px rgba(21, 71, 105, 0.2);
 }
 
 .repair-btn-inverse:hover {
-  background-color: #1d4ed8;
+  background-color: var(--repair-blue-dark);
   color: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 15px 30px rgba(21, 71, 105, 0.3);
 }
 
 /* Responsive */

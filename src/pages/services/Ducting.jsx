@@ -2,7 +2,7 @@ import DuctingSection from '../../components/DuctingSection'
 
 export default function DuctingPageDetail() {
   return (
-    <div className="bg-[#f5f9ff] min-h-screen">
+    <div className="bg-[#eef4f8] min-h-screen">
       <DuctingSection />
     </div>
   )

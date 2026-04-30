@@ -1,6 +1,9 @@
 /* AC Scrap Services Premium CSS */
 
 .scrap-page {
+  --scrap-blue: #154769;
+  --scrap-blue-dark: #103754;
+  --scrap-blue-soft: #e8f1f7;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
   background: #ffffff;
@@ -20,7 +23,7 @@
 
 /* 1. HERO SECTION */
 .scrap-hero {
-  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--scrap-blue-soft) 0%, #ffffff 100%);
   padding: 10rem 2rem 6rem 2rem;
   position: relative;
 }
@@ -32,7 +35,7 @@
   left: 0;
   right: 0;
   height: 100%;
-  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+  background: radial-gradient(circle at 80% 20%, rgba(21, 71, 105, 0.05) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -48,8 +51,8 @@
 .scrap-eyebrow {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #e0f2fe;
-  color: #0369a1;
+  background: var(--scrap-blue-soft);
+  color: var(--scrap-blue);
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 99px;
@@ -67,8 +70,8 @@
 }
 
 .scrap-hero-heading span {
-  color: #2563eb;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: var(--scrap-blue);
+  background: linear-gradient(90deg, var(--scrap-blue), #2a628a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -124,7 +127,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #2563eb;
+  background-color: var(--scrap-blue);
   color: #ffffff;
   padding: 1.25rem 3rem;
   font-size: 1.1rem;
@@ -134,14 +137,14 @@
   border: none;
   width: max-content;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(21, 71, 105, 0.3);
   text-decoration: none;
 }
 
 .scrap-btn:hover {
-  background-color: #1d4ed8;
+  background-color: var(--scrap-blue-dark);
   transform: translateY(-3px);
-  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(21, 71, 105, 0.4);
 }
 
 .scrap-stats-row {
@@ -209,7 +212,7 @@
 }
 
 .scrap-image-badge svg {
-  color: #2563eb;
+  color: var(--scrap-blue);
 }
 
 @keyframes scrapFloat {
@@ -260,12 +263,12 @@
 .scrap-simple-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 30px 40px -10px rgba(37, 99, 235, 0.1);
-  border-color: #2563eb;
+  border-color: var(--scrap-blue);
 }
 
 .scrap-card-icon {
-  background: #f0f9ff;
-  color: #2563eb;
+  background: var(--scrap-blue-soft);
+  color: var(--scrap-blue);
   width: 64px;
   height: 64px;
   border-radius: 16px;
@@ -277,7 +280,7 @@
 }
 
 .scrap-simple-card:hover .scrap-card-icon {
-  background: #2563eb;
+  background: var(--scrap-blue);
   color: #ffffff;
 }
 
@@ -321,12 +324,12 @@
 .who-card:hover {
   background: #ffffff;
   transform: translateY(-8px);
-  border-color: #2563eb;
+  border-color: var(--scrap-blue);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
 }
 
 .who-icon {
-  color: #2563eb;
+  color: var(--scrap-blue);
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
@@ -376,8 +379,8 @@
 
 .scrap-step-icon {
   background: #ffffff;
-  border: 3px solid #2563eb;
-  color: #2563eb;
+  border: 3px solid var(--scrap-blue);
+  color: var(--scrap-blue);
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -389,7 +392,7 @@
 }
 
 .scrap-step:hover .scrap-step-icon {
-  background: #2563eb;
+  background: var(--scrap-blue);
   color: #ffffff;
   transform: scale(1.1);
 }
@@ -416,7 +419,7 @@
 }
 
 .scrap-trust-card {
-  background: #f0f9ff;
+  background: var(--scrap-blue-soft);
   padding: 1.25rem 2.5rem;
   border-radius: 99px;
   display: inline-flex;
@@ -426,13 +429,13 @@
 }
 
 .scrap-trust-card:hover {
-  background: #2563eb;
+  background: var(--scrap-blue);
   color: #ffffff;
   transform: translateY(-3px);
 }
 
 .scrap-trust-card svg {
-  color: #2563eb;
+  color: var(--scrap-blue);
   transition: color 0.3s ease;
 }
 
@@ -468,7 +471,7 @@
 }
 
 .s-faq-item:hover {
-  border-color: #2563eb;
+  border-color: var(--scrap-blue);
 }
 
 .s-faq-question {
@@ -502,7 +505,7 @@
 
 .s-faq-icon {
   transition: transform 0.3s ease;
-  color: #2563eb;
+  color: var(--scrap-blue);
 }
 
 .s-faq-item.active .s-faq-icon {
@@ -511,7 +514,7 @@
 
 /* 7. CTA BANNER */
 .scrap-cta {
-  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+  background: linear-gradient(135deg, var(--scrap-blue-soft) 0%, #f4f8fb 100%);
   padding: 10rem 2rem;
   text-align: center;
   color: #0c4a6e;
@@ -535,13 +538,13 @@
 }
 
 .scrap-btn-inverse {
-  background-color: #2563eb;
+  background-color: var(--scrap-blue);
   color: #ffffff;
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
 .scrap-btn-inverse:hover {
-  background-color: #1d4ed8;
+  background-color: var(--scrap-blue-dark);
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);

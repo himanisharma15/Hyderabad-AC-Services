@@ -1,7 +1,10 @@
 /* Ducting Services Premium CSS */
 
 .ducting-section {
-  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  --duct-blue: #154769;
+  --duct-blue-dark: #103754;
+  --duct-blue-soft: #e8f1f7;
+  background: linear-gradient(135deg, var(--duct-blue-soft) 0%, #ffffff 100%);
   padding: clamp(1rem, 2vw, 1.75rem) 2rem clamp(4rem, 6vw, 6rem);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
@@ -39,7 +42,7 @@
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.1;
-  color: #0f172a;
+  color: var(--duct-blue-dark);
   margin: 0;
 }
 
@@ -80,7 +83,7 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: #3b82f6;
+  color: var(--duct-blue);
   flex-shrink: 0;
 }
 
@@ -88,7 +91,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #0f172a;
+  background-color: var(--duct-blue);
   color: #ffffff;
   padding: 1rem 2.5rem;
   font-size: 1rem;
@@ -100,13 +103,13 @@
   border: none;
   width: max-content;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 14px 0 rgba(21, 71, 105, 0.18);
 }
 
 .ducting-cta:hover {
-  background-color: #1e293b;
+  background-color: var(--duct-blue-dark);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(21, 71, 105, 0.24);
 }
 
 /* Image Right Side & Glassmorphism */

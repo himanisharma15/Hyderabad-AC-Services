@@ -1,6 +1,9 @@
 /* AC Installation Services Premium CSS */
 
 .install-page {
+  --install-blue: #154769;
+  --install-blue-dark: #103754;
+  --install-blue-soft: #e8f1f7;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
   background: #f8fafc;
@@ -22,9 +25,9 @@
 .install-hero {
   position: relative;
   isolation: isolate;
-  background-color: #e0f2fe;
+  background-color: var(--install-blue-soft);
   background-image:
-    linear-gradient(90deg, rgba(224, 242, 254, 0.96) 0%, rgba(191, 219, 254, 0.82) 42%, rgba(37, 99, 235, 0.32) 72%, rgba(14, 116, 144, 0.28) 100%),
+    linear-gradient(90deg, rgba(232, 241, 247, 0.96) 0%, rgba(201, 218, 230, 0.82) 42%, rgba(21, 71, 105, 0.32) 72%, rgba(16, 55, 84, 0.28) 100%),
     var(--install-hero-bg);
   background-position: center right;
   background-size: cover;
@@ -63,7 +66,7 @@
 .install-hero-subheading {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2563eb;
+  color: var(--install-blue);
   margin: 0;
 }
 
@@ -78,7 +81,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #2563eb;
+  background-color: var(--install-blue);
   color: #ffffff;
   padding: 1.125rem 2.5rem;
   font-size: 1.05rem;
@@ -89,14 +92,14 @@
   text-decoration: none;
   width: max-content;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 14px 0 rgba(21, 71, 105, 0.25);
   margin-top: 1rem;
 }
 
 .install-btn:hover {
-  background-color: #1d4ed8;
+  background-color: var(--install-blue-dark);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(21, 71, 105, 0.4);
 }
 
 /* 2. WHY PROFESSIONAL INSTALLATION (WARNING CARDS) */
@@ -145,7 +148,7 @@
 .warning-card::before {
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, transparent 0%, transparent 36%, rgba(37, 99, 235, 0.12) 48%, rgba(255, 255, 255, 0.76) 52%, transparent 64%, transparent 100%);
+  background: linear-gradient(115deg, transparent 0%, transparent 36%, rgba(21, 71, 105, 0.12) 48%, rgba(255, 255, 255, 0.76) 52%, transparent 64%, transparent 100%);
   opacity: 0;
   transform: translateX(-115%);
   transition: opacity 0.25s ease, transform 0.72s ease;
@@ -160,11 +163,11 @@
 
 .warning-card:hover {
   transform: translateY(-10px) rotateX(3deg) rotateY(3deg);
-  border-color: rgba(37, 99, 235, 0.32);
+  border-color: rgba(21, 71, 105, 0.32);
   background:
     linear-gradient(145deg, #ffffff, #f3f8ff),
     #ffffff;
-  box-shadow: 0 24px 46px -18px rgba(37, 99, 235, 0.24);
+  box-shadow: 0 24px 46px -18px rgba(21, 71, 105, 0.24);
 }
 
 .warning-card:hover::before {
@@ -204,7 +207,7 @@
 .install-services-section {
   padding: 6rem 2rem;
   background:
-    radial-gradient(circle at 20% 10%, rgba(37, 99, 235, 0.08), transparent 30rem),
+    radial-gradient(circle at 20% 10%, rgba(21, 71, 105, 0.08), transparent 30rem),
     #f8fafc;
   text-align: center;
 }
@@ -269,7 +272,7 @@
 }
 
 .service-icon {
-  color: #2563eb;
+  color: var(--install-blue);
   width: 40px; height: 40px;
   margin-bottom: 1.5rem;
   transition: transform 0.32s ease, filter 0.32s ease;
@@ -333,7 +336,7 @@
   max-width: 1180px;
   width: 100%;
   background: #ffffff;
-  border-left: 5px solid #2563eb;
+  border-left: 5px solid var(--install-blue);
   border-radius: 0;
   padding: clamp(3rem, 6vw, 5rem);
   display: grid;
@@ -360,7 +363,7 @@
   bottom: -5px;
   width: 54px;
   height: 3px;
-  background: #2563eb;
+  background: var(--install-blue);
   content: "";
 }
 
@@ -392,7 +395,7 @@
   justify-content: center;
   margin-top: 1.6rem;
   border-radius: 4px;
-  background: #2563eb;
+  background: var(--install-blue);
   padding: 0 1.25rem;
   color: #ffffff;
   font-weight: 800;
@@ -402,7 +405,7 @@
 
 .install-trust-cta:hover {
   transform: translateY(-2px);
-  background: #1d4ed8;
+  background: var(--install-blue-dark);
   box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
 }
 
@@ -434,7 +437,7 @@
   justify-content: center;
   border: 2px solid rgba(37, 99, 235, 0.22);
   border-radius: 999px;
-  color: #2563eb;
+  color: var(--install-blue);
   font-size: 0.78rem;
   font-weight: 900;
 }

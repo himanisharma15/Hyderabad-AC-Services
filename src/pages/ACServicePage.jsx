@@ -50,20 +50,20 @@ export default function ACServicePage() {
   return (
     <main className="overflow-hidden bg-white">
       {/* Hero Section */}
-      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="relative bg-linear-to-br from-[#0d2f5a] via-[#1d5eff]/30 to-white px-6 py-24 sm:px-8 lg:px-12">
+      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="relative bg-linear-to-br from-[#103754] via-[#154769]/30 to-white px-6 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 lg:items-center">
             {/* Left Column */}
             <motion.div variants={fadeUp} className="flex flex-col justify-center space-y-8">
               <div className="space-y-6">
-                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#1d5eff]/40 bg-white/15 px-4 py-2.5 backdrop-blur w-fit">
+                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#154769]/40 bg-white/15 px-4 py-2.5 backdrop-blur w-fit">
                   <Sparkles className="h-4 w-4 text-amber-300" />
                   <span className="text-sm font-semibold text-white tracking-wide">Premium HVAC Expertise</span>
                 </motion.div>
 
                 <motion.div variants={fadeUp} className="space-y-4">
                   <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                    AC Service in <span className="text-[#1d5eff]">Hyderabad</span>
+                    AC Service in <span className="text-[#154769]">Hyderabad</span>
                   </h1>
                   <p className="text-lg text-white/90 leading-relaxed max-w-2xl font-light">
                     Hyderabad AC Services provides complete AC servicing for homes, offices, and commercial spaces with clean cooling, better performance, and reliable on-site support.
@@ -73,7 +73,7 @@ export default function ACServicePage() {
 
               {/* CTA Buttons */}
               <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row sm:items-center pt-4">
-                <button className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#1d5eff] px-8 font-semibold text-white shadow-xl shadow-[#1d5eff]/40 transition-all duration-300 hover:shadow-2xl hover:shadow-[#1d5eff]/60 hover:scale-105 active:scale-95">
+                <button className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#154769] px-8 font-semibold text-white shadow-xl shadow-[#154769]/40 transition-all duration-300 hover:shadow-2xl hover:shadow-[#154769]/60 hover:scale-105 active:scale-95">
                   <span>Book Service</span>
                   <ArrowRight className="h-5 w-5" />
                 </button>
@@ -106,7 +106,7 @@ export default function ACServicePage() {
                   alt="AC Technician" 
                   className="h-112.5 w-full object-cover sm:h-137.5" 
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0d2f5a]/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#103754]/30 via-transparent to-transparent" />
               </div>
 
               {/* Floating Badge 1 */}
@@ -114,7 +114,7 @@ export default function ACServicePage() {
                 initial={{ opacity: 0, scale: 0.8 }} 
                 whileInView={{ opacity: 1, scale: 1 }} 
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="absolute -left-6 top-12 flex items-center gap-3 rounded-2xl bg-white px-5 py-3 font-semibold text-[#0d2f5a] shadow-xl backdrop-blur hover:shadow-2xl transition-all duration-300"
+                className="absolute -left-6 top-12 flex items-center gap-3 rounded-2xl bg-white px-5 py-3 font-semibold text-[#103754] shadow-xl backdrop-blur hover:shadow-2xl transition-all duration-300"
               >
                 <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
                 <span className="text-sm">Trusted AC Support</span>
@@ -125,7 +125,7 @@ export default function ACServicePage() {
                 initial={{ opacity: 0, scale: 0.8 }} 
                 whileInView={{ opacity: 1, scale: 1 }} 
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="absolute right-0 bottom-16 flex items-center gap-3 rounded-2xl bg-linear-to-r from-[#1d5eff] to-[#1644cc] px-5 py-3 font-semibold text-white shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="absolute right-0 bottom-16 flex items-center gap-3 rounded-2xl bg-linear-to-r from-[#154769] to-[#103754] px-5 py-3 font-semibold text-white shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 <Zap className="h-5 w-5" />
                 <span className="text-sm">Fast & Reliable</span>
@@ -136,14 +136,14 @@ export default function ACServicePage() {
       </motion.section>
 
       {/* Services Intro Section */}
-      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-linear-to-b from-white to-blue-50/30 px-6 py-24 sm:px-8 lg:px-12">
+      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-linear-to-b from-white to-[#e8f1f7]/40 px-6 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-5xl">
-          <motion.div variants={fadeUp} className="rounded-3xl bg-white/70 px-8 py-12 sm:px-12 sm:py-16 backdrop-blur border border-blue-100 shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-white/90">
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full bg-[#1d5eff]/15 px-4 py-2 mb-8 border border-[#1d5eff]/30">
-              <span className="text-xs font-bold tracking-widest text-[#1d5eff] uppercase">Professional AC Services</span>
+          <motion.div variants={fadeUp} className="rounded-3xl bg-white/70 px-8 py-12 sm:px-12 sm:py-16 backdrop-blur border border-[#b8ccda] shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-white/90">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full bg-[#154769]/15 px-4 py-2 mb-8 border border-[#154769]/30">
+              <span className="text-xs font-bold tracking-widest text-[#154769] uppercase">Professional AC Services</span>
             </motion.div>
             
-            <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-[#0d2f5a] mb-8 leading-tight">
+            <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-[#103754] mb-8 leading-tight">
               Service that keeps your cooling smooth and dependable
             </motion.h2>
             
@@ -154,7 +154,7 @@ export default function ACServicePage() {
                 'Skilled technicians with structured on-site service flow.',
               ].map((benefit, i) => (
                 <motion.div key={i} variants={fadeUp} className="flex gap-4 items-start">
-                  <BadgeCheck className="mt-0.5 h-6 w-6 shrink-0 text-[#1d5eff]" />
+                  <BadgeCheck className="mt-0.5 h-6 w-6 shrink-0 text-[#154769]" />
                   <p className="text-slate-700 text-lg leading-relaxed">{benefit}</p>
                 </motion.div>
               ))}
@@ -167,7 +167,7 @@ export default function ACServicePage() {
       <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-white px-6 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <motion.div variants={fadeUp} className="mb-16 text-center space-y-4">
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#0d2f5a] leading-tight">What's Included in Our AC Service</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#103754] leading-tight">What's Included in Our AC Service</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">Complete maintenance covering all essential components</p>
           </motion.div>
 
@@ -183,12 +183,12 @@ export default function ACServicePage() {
               <motion.div 
                 key={i} 
                 variants={fadeUp} 
-                className="group rounded-2xl border border-blue-100 bg-linear-to-br from-white to-blue-50/30 p-8 transition-all duration-300 hover:scale-105 hover:border-[#1d5eff]/50 hover:bg-white hover:shadow-2xl"
+                className="group rounded-2xl border border-[#b8ccda] bg-linear-to-br from-white to-[#e8f1f7]/40 p-8 transition-all duration-300 hover:scale-105 hover:border-[#154769]/50 hover:bg-white hover:shadow-2xl"
               >
-                <div className="mb-5 inline-flex items-center justify-center h-14 w-14 rounded-xl bg-[#1d5eff]/15 group-hover:bg-[#1d5eff]/25 transition-all duration-300">
-                  <service.icon className="h-7 w-7 text-[#1d5eff]" />
+                <div className="mb-5 inline-flex items-center justify-center h-14 w-14 rounded-xl bg-[#154769]/15 group-hover:bg-[#154769]/25 transition-all duration-300">
+                  <service.icon className="h-7 w-7 text-[#154769]" />
                 </div>
-                <h3 className="mb-3 text-xl font-bold text-[#0d2f5a] group-hover:text-[#1d5eff] transition-colors">{service.title}</h3>
+                <h3 className="mb-3 text-xl font-bold text-[#103754] group-hover:text-[#154769] transition-colors">{service.title}</h3>
                 <p className="text-slate-600 leading-relaxed text-sm">{service.desc}</p>
               </motion.div>
             ))}
@@ -197,7 +197,7 @@ export default function ACServicePage() {
       </motion.section>
 
       {/* Why Choose Us Section */}
-      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-linear-to-br from-[#0d2f5a] to-[#1d5eff] px-6 py-24 sm:px-8 lg:px-12">
+      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-linear-to-br from-[#103754] to-[#154769] px-6 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <motion.div variants={fadeUp} className="mb-16 text-center space-y-4">
             <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">Why Choose Our AC Service</h2>
@@ -233,10 +233,10 @@ export default function ACServicePage() {
       <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-white px-6 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <motion.div variants={fadeUp} className="mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#1d5eff]/15 px-4 py-2 border border-[#1d5eff]/30">
-              <span className="text-xs font-bold tracking-widest text-[#1d5eff] uppercase">How It Works</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#154769]/15 px-4 py-2 border border-[#154769]/30">
+              <span className="text-xs font-bold tracking-widest text-[#154769] uppercase">How It Works</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#0d2f5a] leading-tight">Our AC Service Process</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#103754] leading-tight">Our AC Service Process</h2>
           </motion.div>
 
           <div className="grid gap-8 lg:grid-cols-3">
@@ -248,10 +248,10 @@ export default function ACServicePage() {
               <motion.div 
                 key={i} 
                 variants={fadeUp} 
-                className="group rounded-2xl border border-blue-100 bg-linear-to-br from-white to-blue-50/40 p-8 lg:p-10 transition-all duration-300 hover:scale-105 hover:border-[#1d5eff]/50 hover:shadow-2xl"
+                className="group rounded-2xl border border-[#b8ccda] bg-linear-to-br from-white to-[#e8f1f7]/45 p-8 lg:p-10 transition-all duration-300 hover:scale-105 hover:border-[#154769]/50 hover:shadow-2xl"
               >
-                <div className="mb-6 text-6xl sm:text-7xl font-bold text-[#1d5eff]/20 group-hover:text-[#1d5eff]/40 transition-all duration-300">{step.num}</div>
-                <h3 className="mb-3 text-2xl font-bold text-[#0d2f5a]">{step.title}</h3>
+                <div className="mb-6 text-6xl sm:text-7xl font-bold text-[#154769]/20 group-hover:text-[#154769]/40 transition-all duration-300">{step.num}</div>
+                <h3 className="mb-3 text-2xl font-bold text-[#103754]">{step.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -260,7 +260,7 @@ export default function ACServicePage() {
       </motion.section>
 
       {/* Types of AC Section */}
-      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-gradient-to-b from-white to-blue-50 px-6 py-24 sm:px-8 lg:px-12">
+      <motion.section initial="hidden" whileInView="show" variants={containerVariants} className="bg-gradient-to-b from-white to-[#e8f1f7] px-6 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <motion.div variants={fadeUp} className="mb-16 text-center space-y-4">
             <h2 className="text-4xl sm:text-5xl font-bold text-[#0d2f5a] leading-tight">AC Service for All Types</h2>
@@ -277,10 +277,10 @@ export default function ACServicePage() {
               <motion.div 
                 key={i} 
                 variants={fadeUp} 
-                className="group rounded-2xl border border-white bg-white p-8 text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:border-[#1d5eff]/50"
+                className="group rounded-2xl border border-white bg-white p-8 text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:border-[#154769]/50"
               >
-                <div className="mb-4 inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-[#1d5eff]/15 group-hover:bg-[#1d5eff]/25 transition-all duration-300">
-                  <type.icon className="h-8 w-8 text-[#1d5eff]" />
+                <div className="mb-4 inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-[#154769]/15 group-hover:bg-[#154769]/25 transition-all duration-300">
+                  <type.icon className="h-8 w-8 text-[#154769]" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-[#0d2f5a]">{type.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{type.desc}</p>
