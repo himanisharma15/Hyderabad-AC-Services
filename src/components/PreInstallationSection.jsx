@@ -125,7 +125,7 @@ export default function PreInstallationSection() {
           inset: 0;
           z-index: 2;
           background:
-            linear-gradient(120deg, transparent 22%, rgba(29, 94, 255, 0.13) 42%, transparent 62%);
+            linear-gradient(120deg, transparent 22%, rgba(21, 71, 105, 0.13) 42%, transparent 62%);
           content: "";
           opacity: 0;
           transform: translateX(-120%);
@@ -139,15 +139,15 @@ export default function PreInstallationSection() {
           border: 1px solid transparent;
           background:
             linear-gradient(#ffffff, #ffffff) padding-box,
-            linear-gradient(135deg, rgba(29, 94, 255, 0.85), rgba(13, 47, 90, 0.1), rgba(29, 94, 255, 0.85)) border-box;
+            linear-gradient(135deg, rgba(21, 71, 105, 0.85), rgba(16, 55, 84, 0.1), rgba(21, 71, 105, 0.85)) border-box;
           content: "";
           opacity: 0;
           transition: opacity 280ms ease;
         }
         .preinstall-feature-card:hover {
           transform: translateY(-8px);
-          border-color: rgba(29, 94, 255, 0.32);
-          box-shadow: 0 24px 48px rgba(13, 47, 90, 0.14);
+          border-color: rgba(21, 71, 105, 0.32);
+          box-shadow: 0 24px 48px rgba(16, 55, 84, 0.14);
         }
         .preinstall-feature-card:hover::before {
           opacity: 1;
@@ -171,7 +171,7 @@ export default function PreInstallationSection() {
           height: 48px;
           place-items: center;
           border-radius: 8px;
-          background: rgba(29, 94, 255, 0.06);
+          background: rgba(21, 71, 105, 0.08);
           color: #172033;
           transition:
             background-color 260ms ease,
@@ -180,18 +180,18 @@ export default function PreInstallationSection() {
         }
         .preinstall-feature-card:hover .preinstall-feature-card__icon {
           transform: translateY(-3px) rotate(-6deg) scale(1.08);
-          background: #1d5eff;
+          background: #154769;
           color: #ffffff;
         }
         .preinstall-feature-card__tag {
           display: inline-flex;
           align-items: center;
           min-height: 28px;
-          border: 1px solid rgba(29, 94, 255, 0.16);
+          border: 1px solid rgba(21, 71, 105, 0.16);
           border-radius: 999px;
-          background: rgba(29, 94, 255, 0.06);
+          background: rgba(21, 71, 105, 0.08);
           padding: 0 10px;
-          color: #1d5eff;
+          color: #154769;
           font-size: 0.67rem;
           font-weight: 800;
           letter-spacing: 0.12em;
@@ -203,7 +203,7 @@ export default function PreInstallationSection() {
         }
         .preinstall-feature-card:hover .preinstall-feature-card__tag {
           transform: translateY(-2px);
-          background: #0d2f5a;
+          background: #103754;
           color: #ffffff;
         }
         .preinstall-feature-card__details {
@@ -236,7 +236,7 @@ export default function PreInstallationSection() {
           height: 6px;
           margin-top: 7px;
           border-radius: 999px;
-          background: #1d5eff;
+          background: #154769;
           content: "";
           opacity: 0.45;
           transition:

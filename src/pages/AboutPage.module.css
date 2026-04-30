@@ -1,4 +1,9 @@
 .aboutPage {
+  --brand-blue: #154769;
+  --brand-blue-dark: #103754;
+  --brand-blue-soft: #e8f1f7;
+  --brand-blue-mid: #2a628a;
+  --brand-blue-line: #b8ccda;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -40,7 +45,7 @@
   background: linear-gradient(
     to bottom,
     rgba(15, 23, 42, 0.7) 0%,
-    rgba(37, 99, 235, 0.4) 100%
+    rgba(21, 71, 105, 0.45) 100%
   );
   z-index: 1;
 }
@@ -72,8 +77,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(224, 242, 254, 0.9);
-  border: 1px solid #bae6fd;
+  background: rgba(232, 241, 247, 0.92);
+  border: 1px solid var(--brand-blue-line);
   padding: 8px 20px;
   border-radius: 999px;
   font-weight: 800;
@@ -81,7 +86,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 24px;
-  color: #0369a1;
+  color: var(--brand-blue);
   backdrop-filter: blur(4px);
 }
 
@@ -113,7 +118,7 @@
 }
 
 .scheduleBtnPrimary {
-  background: #2563eb;
+  background: var(--brand-blue);
   color: white;
   border: none;
   padding: 18px 36px;
@@ -125,13 +130,13 @@
   align-items: center;
   gap: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 10px 25px rgba(21, 71, 105, 0.35);
 }
 
 .scheduleBtnPrimary:hover {
-  background: #1d4ed8;
+  background: var(--brand-blue-dark);
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 15px 30px rgba(21, 71, 105, 0.42);
 }
 
 .phoneLinkHero {
@@ -157,7 +162,7 @@
 
 .phoneIconWrapHero {
   font-size: 1.2rem;
-  color: #3b82f6;
+  color: var(--brand-blue-mid);
 }
 
 .trustStripHero {
@@ -172,7 +177,7 @@
 }
 
 .dotHero {
-  color: #3b82f6;
+  color: var(--brand-blue-mid);
   font-weight: 900;
 }
 
@@ -192,8 +197,8 @@
 }
 
 .subTag {
-  color: #0284c7;
-  background: #e0f2fe;
+  color: var(--brand-blue);
+  background: var(--brand-blue-soft);
   padding: 6px 16px;
   border-radius: 999px;
   font-weight: 700;
@@ -218,7 +223,7 @@
 }
 
 .textBlue {
-  color: #0284c7;
+  color: var(--brand-blue);
 }
 
 .sectionDesc {
@@ -284,8 +289,8 @@
 }
 
 .featureIconWrap {
-  background: #E0F2FE;
-  color: #0284c7;
+  background: var(--brand-blue-soft);
+  color: var(--brand-blue);
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -303,7 +308,7 @@
 }
 
 .primaryBtn {
-  background: #0369a1;
+  background: var(--brand-blue);
   color: white;
   border: none;
   padding: 14px 28px;
@@ -318,13 +323,13 @@
 }
 
 .primaryBtn:hover {
-  background: #38BDF8;
+  background: var(--brand-blue-dark);
 }
 
 .outlineBtn {
   background: white;
-  color: #0369A1;
-  border: 2px solid #BAE6FD;
+  color: var(--brand-blue);
+  border: 2px solid var(--brand-blue-line);
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
@@ -337,9 +342,9 @@
 }
 
 .outlineBtn:hover {
-  background: #0284c7;
+  background: var(--brand-blue);
   color: white;
-  border-color: #0284c7;
+  border-color: var(--brand-blue);
 }
 
 .floatingCardLeft {
@@ -358,7 +363,7 @@
 }
 
 .shieldIcon {
-  background: #0369a1;
+  background: var(--brand-blue);
   color: white;
   width: 48px;
   height: 48px;
@@ -387,13 +392,13 @@
 .avatarGroup {
   display: flex;
   align-items: center;
-  background: #F0F9FF;
+  background: var(--brand-blue-soft);
   padding: 8px;
   border-radius: 50%;
 }
 
 .usersIcon {
-  color: #0369A1;
+  color: var(--brand-blue);
   font-size: 1.5rem;
 }
 
@@ -416,7 +421,7 @@
 }
 
 .checkIcon {
-  color: #0369A1;
+  color: var(--brand-blue);
   font-size: 1.25rem;
 }
 
@@ -428,13 +433,13 @@
 }
 
 .statsBanner {
-  background: #0369a1;
+  background: var(--brand-blue);
   padding: 40px 0;
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 16px;
   color: white;
-  box-shadow: 0 20px 40px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 20px 40px rgba(21, 71, 105, 0.22);
 }
 
 .statsContainer {
@@ -516,14 +521,14 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: #F0F9FF;
+  background: var(--brand-blue-soft);
   border-radius: 50%;
   margin-bottom: 4px;
 }
 
 .targetIcon {
   font-size: 1.75rem;
-  color: #0369A1;
+  color: var(--brand-blue);
 }
 
 .floatingText {
@@ -620,8 +625,8 @@
 }
 
 .badgeSolid {
-  background: #e0f2fe;
-  color: #0284C7;
+  background: var(--brand-blue-soft);
+  color: var(--brand-blue);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -641,7 +646,7 @@
 }
 
 .primaryBtnTeal {
-  background: #0284c7;
+  background: var(--brand-blue);
   color: white;
   border: none;
   padding: 14px 28px;
@@ -656,7 +661,7 @@
 }
 
 .primaryBtnTeal:hover {
-  background: #0369a1;
+  background: var(--brand-blue-dark);
 }
 
 .projectsGrid {
@@ -720,7 +725,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #0EA5E9;
+  background: var(--brand-blue);
   color: white;
   border: none;
   display: flex;
@@ -731,7 +736,7 @@
 }
 
 .projectIconBtn:hover {
-  background: #0369a1;
+  background: var(--brand-blue-dark);
   transform: scale(1.05);
 }
 
@@ -855,7 +860,7 @@
 }
 
 .handshakeIcon {
-  color: #0284C7;
+  color: var(--brand-blue);
   font-size: 1.25rem;
   display: flex;
   align-items: center;
@@ -917,20 +922,20 @@
 }
 
 .whyCardTeal {
-  background: #0284c7;
+  background: var(--brand-blue);
   color: white;
   color: white;
 }
 .whyIconTeal {
-  background: #38BDF8;
+  background: var(--brand-blue-mid);
   color: white;
 }
 .whyIconTeal::before {
-  box-shadow: 6px 6px 0 6px #38BDF8;
+  box-shadow: 6px 6px 0 6px var(--brand-blue-mid);
   border-bottom-right-radius: 12px;
 }
 .whyIconTeal::after {
-  box-shadow: 6px -6px 0 6px #38BDF8;
+  box-shadow: 6px -6px 0 6px var(--brand-blue-mid);
   border-top-right-radius: 12px;
 }
 
@@ -1007,7 +1012,7 @@
 
 .testimonialCard {
   position: relative;
-  background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--brand-blue-soft) 0%, #ffffff 100%);
   border-radius: 20px;
   padding: 40px 32px 32px;
   display: flex;
@@ -1032,7 +1037,7 @@
   top: -20px;
   left: -20px;
   font-size: 8rem;
-  color: #0284C7;
+  color: var(--brand-blue);
 }
 
 .bgSnow2 {
@@ -1040,7 +1045,7 @@
   top: -40px;
   left: 40%;
   font-size: 6rem;
-  color: #0284C7;
+  color: var(--brand-blue);
 }
 
 .bgSnow3 {
@@ -1048,7 +1053,7 @@
   top: -20px;
   right: -30px;
   font-size: 9rem;
-  color: #0284C7;
+  color: var(--brand-blue);
 }
 
 .quoteIconWrap {
@@ -1092,9 +1097,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f9ff;
+  background: var(--brand-blue-soft);
   border-radius: 50%;
-  color: #0284c7;
+  color: var(--brand-blue);
 }
 
 .authorUserIcon {
@@ -1110,11 +1115,11 @@
 
 .authorInfo span {
   font-size: 0.75rem;
-  color: #0284c7;
+  color: var(--brand-blue);
   font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  background: #e0f2fe;
+  background: var(--brand-blue-soft);
   padding: 2px 8px;
   border-radius: 4px;
   display: inline-block;
@@ -1132,14 +1137,14 @@
   width: 20px;
   height: 6px;
   border-radius: 999px;
-  background: #38BDF8;
+  background: var(--brand-blue-mid);
 }
 
 .indicatorDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #bae6fd;
+  background: var(--brand-blue-line);
 }
 
 /* --- Responsive Layout Adjustments --- */
@@ -1269,7 +1274,7 @@
 .testimonialCard:hover {
   transform: translateY(-12px) scale(1.03);
   box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-  border-bottom: 4px solid #38BDF8;
+  border-bottom: 4px solid var(--brand-blue-mid);
 }
 
 .featureItem {
@@ -1280,7 +1285,7 @@
   transform: translateY(-8px);
 }
 .featureItem:hover .featureIconWrap {
-  background: #38BDF8;
+  background: var(--brand-blue);
   color: white;
   transform: scale(1.1) rotate(5deg);
 }
@@ -1305,7 +1310,7 @@
 }
 .primaryBtn:hover, .scheduleBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 20px rgba(21, 71, 105, 0.35);
 }
 .primaryBtn:active, .scheduleBtn:active {
   transform: translateY(0);
@@ -1320,12 +1325,12 @@
 .ctaContainer {
   max-width: 1000px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue) 100%);
   padding: 60px 40px;
   border-radius: 24px;
   text-align: center;
   color: white;
-  box-shadow: 0 25px 50px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 25px 50px rgba(21, 71, 105, 0.24);
 }
 
 .ctaTitle {
@@ -1354,7 +1359,7 @@
 
 .ctaBtnPrimary {
   background: white;
-  color: #0284c7;
+  color: var(--brand-blue);
   border: none;
   border-radius: 999px;
   padding: 16px 36px;
@@ -1371,7 +1376,7 @@
 .ctaBtnPrimary:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  background: #f0f9ff;
+  background: var(--brand-blue-soft);
 }
 
 .ctaBtnOutline {

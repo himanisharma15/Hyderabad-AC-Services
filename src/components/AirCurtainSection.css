@@ -1,6 +1,9 @@
 /* Air Curtain Premium CSS */
 
 .curtain-page {
+  --curtain-blue: #154769;
+  --curtain-blue-dark: #103754;
+  --curtain-blue-soft: #e8f1f7;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
   background: #ffffff;
@@ -20,7 +23,7 @@
 
 /* 1. HERO SECTION */
 .curtain-hero {
-  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--curtain-blue-soft) 0%, #ffffff 100%);
   padding: 10rem 2rem 6rem 2rem;
   position: relative;
 }
@@ -37,8 +40,8 @@
 .curtain-eyebrow {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--curtain-blue-soft);
+  color: var(--curtain-blue);
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 99px;
@@ -56,8 +59,8 @@
 }
 
 .curtain-hero-heading span {
-  color: #2563eb;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: var(--curtain-blue);
+  background: linear-gradient(90deg, var(--curtain-blue), #2a628a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -113,7 +116,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #2563eb;
+  background-color: var(--curtain-blue);
   color: #ffffff;
   padding: 1.25rem 3rem;
   font-size: 1.1rem;
@@ -123,14 +126,14 @@
   border: none;
   width: max-content;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(21, 71, 105, 0.3);
   text-decoration: none;
 }
 
 .curtain-btn:hover {
-  background-color: #1d4ed8;
+  background-color: var(--curtain-blue-dark);
   transform: translateY(-3px);
-  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(21, 71, 105, 0.4);
 }
 
 .curtain-stats-row {
@@ -184,7 +187,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(37, 99, 235, 0.1), transparent);
+  background: linear-gradient(to bottom, rgba(21, 71, 105, 0.12), transparent);
   pointer-events: none;
 }
 
@@ -198,7 +201,7 @@
 .airflow-line {
   width: 2px;
   height: 60px;
-  background: linear-gradient(to bottom, #3b82f6, transparent);
+  background: linear-gradient(to bottom, #2a628a, transparent);
   animation: windDrop 2s infinite linear;
 }
 
@@ -229,7 +232,7 @@
 }
 
 .curtain-image-badge svg {
-  color: #2563eb;
+  color: var(--curtain-blue);
 }
 
 @keyframes curtainFloat {
@@ -283,12 +286,12 @@
 .curtain-benefit-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 30px 40px -10px rgba(37, 99, 235, 0.1);
-  border-color: #2563eb;
+  border-color: var(--curtain-blue);
 }
 
 .benefit-icon {
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--curtain-blue-soft);
+  color: var(--curtain-blue);
   min-width: 80px;
   height: 80px;
   border-radius: 20px;
@@ -299,7 +302,7 @@
 }
 
 .curtain-benefit-card:hover .benefit-icon {
-  background: #2563eb;
+  background: var(--curtain-blue);
   color: #ffffff;
 }
 
@@ -342,7 +345,7 @@
 .usecase-card:hover {
   background: #ffffff;
   transform: translateY(-8px);
-  border-color: #2563eb;
+  border-color: var(--curtain-blue);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
 }
 
@@ -386,7 +389,7 @@
 }
 
 .curtain-trust-card:hover {
-  background: #2563eb;
+  background: var(--curtain-blue);
   color: #ffffff;
   transform: translateY(-3px);
 }

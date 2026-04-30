@@ -122,12 +122,12 @@ export default function CentralizedACSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block text-[0.7rem] font-bold tracking-[0.3em] text-blue-600 uppercase mb-4">
+            <span className="inline-block text-[0.7rem] font-bold tracking-[0.3em] text-[#154769] uppercase mb-4">
               Industrial Grade Climate Control
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0d2f5a] mb-6 leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#103754] mb-6 leading-[1.1]">
               Centralized AC <br />
-              <span className="text-blue-600">Solutions</span>
+              <span className="text-[#154769]">Solutions</span>
             </h1>
             <p className="text-lg leading-relaxed text-gray-600 max-w-xl mb-12">
               From initial blueprint to final optimization, we manage every stage of your climate control infrastructure with precision engineering and advanced technology.
@@ -145,7 +145,7 @@ export default function CentralizedACSection() {
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white shadow-sm">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e8f1f7] text-[#154769] transition-colors duration-300 group-hover:bg-[#154769] group-hover:text-white shadow-sm">
                       <item.icon className={`h-6 w-6 stroke-[1.5px] ${item.pulse ? 'icon-pulse' : ''}`} />
                     </div>
                     <h3 className="font-bold text-[14px] uppercase tracking-wider text-gray-900">
@@ -164,7 +164,7 @@ export default function CentralizedACSection() {
                 href="https://api.whatsapp.com/send/?phone=918712322475&text=Hi%2C%20I'm%20interested%20in%20Centralized%20AC%20Solutions&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block px-10 py-4 bg-[#0d2f5a] text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-900/10 active:scale-95"
+                className="inline-block px-10 py-4 bg-[#103754] text-white font-bold rounded-lg hover:bg-[#154769] transition-colors shadow-lg shadow-[#103754]/10 active:scale-95"
               >
                 DISCUSS YOUR PROJECT
               </a>
@@ -181,8 +181,8 @@ export default function CentralizedACSection() {
           >
             <div className="relative">
               {/* Decorative Elements */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60 animate-pulse"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#d9e7f0] rounded-full blur-3xl opacity-60 animate-pulse"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#e8f1f7] rounded-full blur-3xl opacity-60"></div>
 
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(13,47,90,0.15)] border border-gray-100">
                 <img
@@ -193,10 +193,10 @@ export default function CentralizedACSection() {
                 {/* Overlay Badge */}
                 <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-xl">
                   <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">✓</div>
+                    <div className="h-10 w-10 bg-[#154769] rounded-full flex items-center justify-center text-white font-bold">✓</div>
                     <div>
                       <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Quality Guaranteed</p>
-                      <p className="text-sm font-bold text-[#0d2f5a]">Industry-Leading HVAC Standards</p>
+                      <p className="text-sm font-bold text-[#103754]">Industry-Leading HVAC Standards</p>
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ export default function CentralizedACSection() {
         }
         @keyframes icon-glow-pulse {
           0%, 100% { filter: drop-shadow(0 0 2px rgba(100, 100, 100, 0)); opacity: 0.8; }
-          50% { filter: drop-shadow(0 0 6px rgba(100, 100, 100, 0.5)); opacity: 1; stroke: #3b82f6; }
+          50% { filter: drop-shadow(0 0 6px rgba(100, 100, 100, 0.5)); opacity: 1; stroke: #154769; }
         }
         .animate-glow {
           animation: subtle-glow 3s infinite;

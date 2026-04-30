@@ -1,5 +1,8 @@
 /* Exhaust AMC Services CSS - Ultra Modern SaaS Theme */
 .amc-page {
+  --amc-primary: #154769;
+  --amc-primary-dark: #103754;
+  --amc-primary-soft: #e8f1f7;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #103764;
   background: #ffffff;
@@ -16,7 +19,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #1d5eff;
+  background: var(--amc-primary);
   color: #ffffff;
   padding: 1.15rem 2.4rem;
   font-size: 1.05rem;
@@ -27,24 +30,24 @@
   text-decoration: none;
   width: max-content;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background 0.3s ease;
-  box-shadow: 0 12px 24px -6px rgba(29, 94, 255, 0.3);
+  box-shadow: 0 12px 24px -6px rgba(21, 71, 105, 0.3);
 }
 
 .amc-btn:hover {
   transform: translateY(-3px) scale(1.02);
-  background: #164bd1;
-  box-shadow: 0 20px 32px -8px rgba(29, 94, 255, 0.4);
+  background: var(--amc-primary-dark);
+  box-shadow: 0 20px 32px -8px rgba(21, 71, 105, 0.4);
 }
 
 .amc-btn-inverse {
   background: #ffffff;
-  color: #1d5eff;
+  color: var(--amc-primary);
   box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.15);
 }
 
 .amc-btn-inverse:hover {
-  background: #f5faff;
-  color: #164bd1;
+  background: var(--amc-primary-soft);
+  color: var(--amc-primary-dark);
   box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.25);
 }
 
@@ -77,10 +80,10 @@
   display: flex;
   align-items: center;
   background: 
-    radial-gradient(circle at top right, rgba(29, 94, 255, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at bottom left, rgba(29, 94, 255, 0.05) 0%, transparent 40%),
-    linear-gradient(135deg, rgba(246, 250, 255, 1) 0%, rgba(234, 244, 255, 0.9) 100%);
-  border-bottom: 1px solid rgba(29, 94, 255, 0.1);
+    radial-gradient(circle at top right, rgba(21, 71, 105, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at bottom left, rgba(21, 71, 105, 0.05) 0%, transparent 40%),
+    linear-gradient(135deg, rgba(246, 250, 255, 1) 0%, rgba(232, 241, 247, 0.9) 100%);
+  border-bottom: 1px solid rgba(21, 71, 105, 0.1);
 }
 
 .amc-hero-container {
@@ -102,9 +105,9 @@
   width: fit-content;
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: #eef5ff;
-  border: 1px solid rgba(29, 94, 255, 0.15);
-  color: #1d5eff;
+  background: var(--amc-primary-soft);
+  border: 1px solid rgba(21, 71, 105, 0.15);
+  color: var(--amc-primary);
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -125,7 +128,7 @@
 .amc-hero-subheading {
   font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 600;
-  color: #1d5eff;
+  color: var(--amc-primary);
   margin: 0;
   max-width: 38rem;
   line-height: 1.4;
@@ -150,7 +153,7 @@
   padding: 0.6rem 1rem;
   border-radius: 999px;
   background: #ffffff;
-  border: 1px solid rgba(29, 94, 255, 0.12);
+  border: 1px solid rgba(21, 71, 105, 0.12);
   color: #103764;
   font-size: 0.95rem;
   font-weight: 600;
@@ -201,7 +204,7 @@
   display: block;
   font-size: 1.6rem;
   font-weight: 900;
-  color: #1d5eff;
+  color: var(--amc-primary);
   margin-bottom: 0.25rem;
   letter-spacing: -0.02em;
 }
@@ -290,14 +293,14 @@
 }
 
 .amc-include-card:hover .include-icon {
-  background: #1d5eff;
+  background: var(--amc-primary);
   color: #ffffff;
   transform: scale(1.1) rotate(5deg);
 }
 
 .include-icon {
   background: #eef5ff;
-  color: #1d5eff;
+  color: var(--amc-primary);
   width: 64px;
   height: 64px;
   border-radius: 18px;
@@ -354,12 +357,12 @@
 
 .benefit-highlight:hover {
   transform: translateY(-4px);
-  border-color: #1d5eff;
+  border-color: var(--amc-primary);
   box-shadow: 0 16px 32px -12px rgba(29, 94, 255, 0.15);
 }
 
 .benefit-highlight svg {
-  color: #1d5eff;
+  color: var(--amc-primary);
   flex-shrink: 0;
 }
 
@@ -399,7 +402,7 @@
 
 .who-needs-card:hover {
   transform: translateY(-6px);
-  border-color: #1d5eff;
+  border-color: var(--amc-primary);
   box-shadow: 0 20px 40px -12px rgba(29, 94, 255, 0.2);
 }
 
@@ -409,7 +412,7 @@
 }
 
 .who-needs-card svg {
-  color: #1d5eff;
+  color: var(--amc-primary);
   margin-bottom: 1.25rem;
   display: block;
   margin-left: auto;
@@ -446,7 +449,7 @@
   left: 10%;
   right: 10%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(29, 94, 255, 0.1), #1d5eff, rgba(29, 94, 255, 0.1));
+  background: linear-gradient(90deg, rgba(21, 71, 105, 0.1), var(--amc-primary), rgba(21, 71, 105, 0.1));
   z-index: 0;
 }
 
@@ -470,7 +473,7 @@
 .amc-step-icon {
   background: #ffffff;
   border: 2px solid rgba(29, 94, 255, 0.15);
-  color: #1d5eff;
+  color: var(--amc-primary);
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -482,8 +485,8 @@
 }
 
 .amc-step:hover .amc-step-icon {
-  background: #1d5eff;
-  border-color: #1d5eff;
+  background: var(--amc-primary);
+  border-color: var(--amc-primary);
   color: #ffffff;
   transform: scale(1.15);
   box-shadow: 0 16px 36px -10px rgba(29, 94, 255, 0.5);
@@ -505,7 +508,7 @@
 .amc-cta > div {
   max-width: 1120px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #0b2545 0%, #1d5eff 100%);
+  background: linear-gradient(135deg, #0b2545 0%, var(--amc-primary) 100%);
   padding: 6rem 3rem;
   border-radius: 32px;
   text-align: center;
@@ -548,6 +551,7 @@
   margin: 0 auto 2.5rem;
   letter-spacing: -0.03em;
   max-width: 32ch;
+  color: #ffffff;
 }
 
 .amc-cta .amc-btn-inverse {
@@ -620,7 +624,7 @@
     bottom: 0;
     right: auto;
     margin-left: -1px;
-    background: linear-gradient(180deg, rgba(29, 94, 255, 0.1), #1d5eff, rgba(29, 94, 255, 0.1));
+    background: linear-gradient(180deg, rgba(21, 71, 105, 0.1), var(--amc-primary), rgba(21, 71, 105, 0.1));
   }
 }
 

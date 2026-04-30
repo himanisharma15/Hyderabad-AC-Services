@@ -62,13 +62,13 @@ export default function DuctingSection() {
 
           {/* Left Side */}
           <div className="lg:w-[45%]">
-            <div className="inline-block border-t-[3px] border-blue-600 pt-3 mb-5">
+            <div className="inline-block border-t-[3px] border-[#154769] pt-3 mb-5">
               <span className="text-[13px] font-bold tracking-[0.15em] text-gray-500 uppercase">
                 Premium HVAC Solutions
               </span>
             </div>
-            <h2 className="text-4xl md:text-[2.75rem] text-gray-900 mb-6 font-medium leading-[1.15] tracking-tight">
-              Ducting Contractors in <span className="text-blue-600 font-serif">Hyderabad</span>
+            <h2 className="text-4xl md:text-[2.75rem] text-[#103754] mb-6 font-medium leading-[1.15] tracking-tight">
+              Ducting Contractors in <span className="text-[#154769] font-serif">Hyderabad</span>
             </h2>
             <p className="text-gray-500 mb-10 leading-relaxed text-[15px] max-w-lg">
               At Hyderabad AC Services, we specialize in custom ducting solutions for HVAC systems—designed for efficiency, durability, and noise-free airflow. Whether you're setting up a Centralized AC System, Ventilation System, Commercial Exhaust Setup, or industrial exhaust, we deliver precision and performance.
@@ -80,7 +80,7 @@ export default function DuctingSection() {
                 const Icon = feature.icon;
                 return (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full border border-blue-100 flex items-center justify-center text-blue-600 bg-white shadow-sm">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full border border-[#b8ccda] flex items-center justify-center text-[#154769] bg-white shadow-sm">
                       <Icon size={18} strokeWidth={2} />
                     </div>
                     <div>
@@ -100,7 +100,7 @@ export default function DuctingSection() {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white text-[14px] font-bold tracking-wider rounded border border-blue-600 shadow-sm hover:bg-transparent hover:text-blue-600 hover:shadow-none transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#154769] text-white text-[14px] font-bold tracking-wider rounded border border-[#154769] shadow-sm hover:bg-transparent hover:text-[#154769] hover:shadow-none transition-all"
             >
               CONTACT US
             </a>
@@ -124,7 +124,7 @@ export default function DuctingSection() {
                       }`}
                     >
                       {/* Circular Thin-bordered Icon */}
-                      <div className="shrink-0 w-12 h-12 rounded-full border border-blue-200 flex items-center justify-center text-blue-600 bg-white shadow-sm mt-1">
+                      <div className="shrink-0 w-12 h-12 rounded-full border border-[#b8ccda] flex items-center justify-center text-[#154769] bg-white shadow-sm mt-1">
                         <Icon size={20} strokeWidth={1.8} />
                       </div>
                       <div className="pt-1">
