@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './BlogPage.css';
 
@@ -257,6 +258,40 @@ export default function BlogPage() {
     </motion.article>
   );
 
+  const modalMarkup = (
+    <AnimatePresence>
+      {selectedPost ? (
+        <motion.div
+          className="blog-modal-overlay"
+          onClick={() => setSelectedPost(null)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="blog-modal"
+            onClick={(event) => event.stopPropagation()}
+            variants={modalMotion}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{ duration: 0.28, ease: 'easeOut' }}
+          >
+            <button type="button" className="blog-modal__close" onClick={() => setSelectedPost(null)}>
+              ✕
+            </button>
+            <img src={selectedPost.image} alt={selectedPost.title} className="blog-modal__image" />
+            <p className="blog-modal__date">
+              {selectedPost.category} • {selectedPost.date}
+            </p>
+            <h3>{selectedPost.title}</h3>
+            <div className="blog-modal__content" dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
+          </motion.div>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>
+  );
+
   return (
     <div className="blog-page">
       <main className="blog-page__main">
@@ -286,39 +321,8 @@ export default function BlogPage() {
             ))}
           </div>
         </section>
-
-        <AnimatePresence>
-          {selectedPost ? (
-            <motion.div
-              className="blog-modal-overlay"
-              onClick={() => setSelectedPost(null)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                className="blog-modal"
-                onClick={(event) => event.stopPropagation()}
-                variants={modalMotion}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                transition={{ duration: 0.28, ease: 'easeOut' }}
-              >
-                <button type="button" className="blog-modal__close" onClick={() => setSelectedPost(null)}>
-                  ✕
-                </button>
-                <img src={selectedPost.image} alt={selectedPost.title} className="blog-modal__image" />
-                <p className="blog-modal__date">
-                  {selectedPost.category} • {selectedPost.date}
-                </p>
-                <h3>{selectedPost.title}</h3>
-                <div className="blog-modal__content" dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
-              </motion.div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
       </main>
+      {typeof document !== 'undefined' ? createPortal(modalMarkup, document.body) : null}
     </div>
   );
 }
