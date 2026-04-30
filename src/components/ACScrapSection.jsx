@@ -57,28 +57,98 @@ export default function ACScrapSection() {
         </div>
       </section>
 
-      {/* 2. SERVICES (CARD GRID) */}
+      {/* 2. SERVICES (INFOGRAPHIC TIMELINE) */}
       <section className="scrap-services">
         <h2 className="scrap-section-title scrap-fade-up" ref={addToRefs}>What We Offer</h2>
-        <div className="scrap-offer-grid">
-          {[
-            { title: "Buy Old AC Units",     desc: "We accept window, split, cassette, and centralized systems.", icon: <Package  size={26} /> },
-            { title: "Free Pickup",           desc: "Zero transportation or uninstallation charges.",              icon: <Truck    size={26} /> },
-            { title: "Instant Payment",       desc: "Cash, UPI, or bank transfer right at your doorstep.",        icon: <Banknote size={26} /> },
-            { title: "Eco-Friendly Recycling",desc: "Responsible dismantling and hazardous gas disposal.",        icon: <Leaf     size={26} /> },
-            { title: "Bulk Collection",       desc: "B2B solutions for replacing enterprise climate networks.",    icon: <Building2 size={26} /> },
-          ].map((offer, idx) => (
-            <div
-              className="scrap-simple-card scrap-fade-up"
-              ref={addToRefs}
-              style={{ transitionDelay: `${idx * 0.1}s` }}
-              key={idx}
+        <div className="scrap-services-shell">
+          <div className="scrap-services-path" aria-hidden="true">
+            {/*
+              Math behind node alignment:
+              - SVG viewBox: 300 × 600, preserveAspectRatio="none" in a 280×560px container
+              - Card height: 80px, gap: 32px, padding: 16px
+              - Total height: 16 + 5×80 + 4×32 + 16 = 560px
+              - Card centers in px: 56, 168, 280, 392, 504
+              - Scaled to viewBox (×600/560): 60, 180, 300, 420, 540
+            */}
+            <svg
+              viewBox="0 0 300 600"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
             >
-              <div className="scrap-card-icon">{offer.icon}</div>
-              <h3 className="scrap-card-title">{offer.title}</h3>
-              <p className="scrap-card-desc">{offer.desc}</p>
-            </div>
-          ))}
+              <defs>
+                <linearGradient id="arcGradV" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stopColor="#22d3ee" />
+                  <stop offset="45%"  stopColor="#0ea5e9" />
+                  <stop offset="100%" stopColor="#818cf8" stopOpacity="0.75" />
+                </linearGradient>
+                <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              {/* Large semi-circle: center (300,300), radius 280 — perfectly smooth vertical arc */}
+              <path
+                d="M 298 20 A 280 280 0 0 0 298 580"
+                fill="none"
+                stroke="url(#arcGradV)"
+                strokeWidth="46"
+                strokeLinecap="round"
+                opacity="0.5"
+              />
+
+              {/* Dashed S-curve path through the 5 nodes */}
+              <path
+                d="M 230 60
+                   C 196 90,  154 140, 157 180
+                   C 160 220, 190 266, 186 300
+                   C 182 334, 147 380, 151 420
+                   C 155 460, 182 508, 178 540"
+                fill="none"
+                stroke="#1e3a5f"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeDasharray="5 12"
+                opacity="0.55"
+              />
+
+              {/* 5 nodes — y values mathematically aligned with card centers */}
+              {[
+                [230, 60],
+                [157, 180],
+                [186, 300],
+                [151, 420],
+                [178, 540],
+              ].map(([cx, cy], i) => (
+                <g key={i} filter="url(#nodeGlow)">
+                  <circle cx={cx} cy={cy} r="14" fill="#ffffff" stroke="#0f172a" strokeWidth="2.5" />
+                  <circle cx={cx} cy={cy} r="6"  fill="#0ea5e9" />
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          <div className="scrap-services-timeline">
+            {[
+              { title: "Buy Old AC Units", desc: "We accept window, split, cassette, and centralized systems.", icon: <Package size={28} /> },
+              { title: "Free Pickup", desc: "Zero transportation or uninstallation charges.", icon: <Truck size={28} /> },
+              { title: "Instant Payment", desc: "Cash, UPI, or bank transfer right at your doorstep.", icon: <Banknote size={28} /> },
+              { title: "Eco-Friendly Recycling", desc: "Responsible dismantling and hazardous gas disposal.", icon: <Leaf size={28} /> },
+              { title: "Bulk Collection", desc: "B2B solutions for replacing enterprise climate networks.", icon: <Building2 size={28} /> }
+            ].map((offer, idx) => (
+              <div className="scrap-offer-card scrap-fade-up scrap-timeline-step" ref={addToRefs} style={{ transitionDelay: `${idx * 0.12}s` }} key={idx}>
+                <div className="scrap-offer-meta">
+                  <span className="scrap-step-badge">{String(idx + 1).padStart(2, '0')}</span>
+                  <div className="scrap-offer-copy">
+                    <h3>{offer.title}</h3>
+                    <p>{offer.desc}</p>
+                  </div>
+                </div>
+                <div className="offer-icon">{offer.icon}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

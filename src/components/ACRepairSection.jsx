@@ -78,26 +78,81 @@ export default function ACRepairSection() {
         </div>
       </section>
 
-      {/* 3. OUR SERVICES */}
+      {/* 3. OUR SERVICES (INFOGRAPHIC TIMELINE) */}
       <section className="repair-services">
-        <h2 className="repair-section-heading repair-fade-up" ref={addToRefs}>What We Include</h2>
-        <div className="services-grid">
-          {[
-            { title: "AC Inspection", desc: "Thorough diagnostic check of all indoor and outdoor components to pinpoint exact issues." },
-            { title: "Gas Leak Repair", desc: "Permanent sealing of refrigerant lines and professional recharging to optimal levels." },
-            { title: "Compressor Repair", desc: "Advanced diagnostics and repair for the heart of your AC, saving you from expensive replacements." },
-            { title: "Electrical Repair", desc: "Safe fixing of blown fuses, bad capacitors, and faulty thermostat wiring." },
-            { title: "Coil Cleaning", desc: "Deep cleaning of evaporator and condenser coils to restore lost cooling performance." },
-            { title: "Performance Testing", desc: "Post-repair stress testing to guarantee your AC handles peak summer heat perfectly." }
-          ].map((service, idx) => (
-            <div className="services-card repair-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
-              <div className="services-icon-box">
-                <ShieldCheck size={28} />
+        <h2 className="repair-section-heading repair-fade-up" ref={addToRefs}>Our Repair Standards</h2>
+        <div className="scrap-services-shell max-w-[1100px] mx-auto">
+          <div className="scrap-services-path" aria-hidden="true" style={{ height: '672px' }}>
+            <svg
+              viewBox="0 0 300 700"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
+            >
+              <defs>
+                <linearGradient id="arcGradRepair" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#ef4444" />
+                  <stop offset="50%" stopColor="#991b1b" />
+                  <stop offset="100%" stopColor="#1e293b" />
+                </linearGradient>
+                <filter id="nodeGlowRepair" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              <path
+                d="M 298 20 A 300 330 0 0 0 298 652"
+                fill="none"
+                stroke="url(#arcGradRepair)"
+                strokeWidth="46"
+                strokeLinecap="round"
+                opacity="0.3"
+              />
+
+              <path
+                d="M 230 56 C 180 80, 140 130, 150 168 C 160 206, 200 240, 195 280 C 190 320, 140 350, 145 392 C 150 434, 190 470, 185 504 C 180 538, 140 570, 145 616"
+                fill="none"
+                stroke="#475569"
+                strokeWidth="2"
+                strokeDasharray="5 12"
+                opacity="0.4"
+              />
+
+              {[
+                [230, 56], [150, 168], [195, 280], [145, 392], [185, 504], [145, 616]
+              ].map(([cx, cy], i) => (
+                <g key={i} filter="url(#nodeGlowRepair)">
+                  <circle cx={cx} cy={cy} r="14" fill="#ffffff" stroke="#1e293b" strokeWidth="2.5" />
+                  <circle cx={cx} cy={cy} r="6"  fill="#ef4444" />
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          <div className="scrap-services-timeline flex flex-col gap-8 py-4">
+            {[
+              { title: "AC Inspection", desc: "Thorough diagnostic check of all indoor and outdoor components to pinpoint exact issues." },
+              { title: "Gas Leak Repair", desc: "Permanent sealing of refrigerant lines and professional recharging to optimal levels." },
+              { title: "Compressor Repair", desc: "Advanced diagnostics and repair for the heart of your AC, saving you from expensive replacements." },
+              { title: "Electrical Repair", desc: "Safe fixing of blown fuses, bad capacitors, and faulty thermostat wiring." },
+              { title: "Coil Cleaning", desc: "Deep cleaning of evaporator and condenser coils to restore lost cooling performance." },
+              { title: "Performance Testing", desc: "Post-repair stress testing to guarantee your AC handles peak summer heat perfectly." }
+            ].map((service, idx) => (
+              <div className="scrap-offer-card scrap-timeline-step repair-infographic-card" key={idx}>
+                <div className="scrap-offer-meta flex items-center flex-1">
+                  <span className="scrap-step-badge">{String(idx + 1).padStart(2, '0')}</span>
+                  <div className="scrap-offer-copy ml-4">
+                    <h3>{service.title}</h3>
+                    <p>{service.desc}</p>
+                  </div>
+                </div>
+                <div className="offer-icon w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                  <ShieldCheck size={28} />
+                </div>
               </div>
-              <h3>{service.title}</h3>
-              <p>{service.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

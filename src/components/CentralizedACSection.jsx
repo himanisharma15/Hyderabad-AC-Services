@@ -139,50 +139,98 @@ export default function CentralizedACSection() {
           </p>
         </motion.div>
 
-        {/* 5-Column Bento Grid */}
-        <motion.div 
-          ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-24"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {capabilities.map((item, index) => (
-            <motion.div 
-              key={index} 
-              variants={itemVariants}
-              className="bento-card relative flex flex-col p-6 rounded-xl border border-gray-200 bg-linear-to-b from-gray-50 to-white overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group min-h-[280px]"
+        {/* 2. CAPABILITIES (INFOGRAPHIC TIMELINE) */}
+        <div className="scrap-services-shell max-w-[1100px] mx-auto">
+          <div className="scrap-services-path" aria-hidden="true">
+            <svg
+              viewBox="0 0 300 600"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
             >
-              {/* Magic Mouse Glow Effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
-                   style={{ background: 'radial-gradient(circle 250px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(15, 23, 42, 0.03), transparent 80%)' }}>
-              </div>
-              
-              <div className="relative z-10 flex-1 flex flex-col">
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-white border border-gray-200 text-gray-800 shadow-sm transition-colors duration-300 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
-                  <item.icon className={`h-5 w-5 stroke-[1.5px] ${item.pulse ? 'icon-pulse' : ''}`} />
+              <defs>
+                <linearGradient id="arcGradCentral" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#0ea5e9" />
+                  <stop offset="50%" stopColor="#0f172a" />
+                  <stop offset="100%" stopColor="#1d5eff" />
+                </linearGradient>
+                <filter id="nodeGlowCentral" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              {/* Smooth vertical arc */}
+              <path
+                d="M 298 20 A 280 280 0 0 0 298 580"
+                fill="none"
+                stroke="url(#arcGradCentral)"
+                strokeWidth="42"
+                strokeLinecap="round"
+                opacity="0.35"
+              />
+
+              {/* S-curve connecting 5 nodes */}
+              <path
+                d="M 230 60 C 190 90, 150 140, 155 180 C 160 220, 200 260, 195 300 C 190 340, 140 380, 145 420 C 150 460, 190 510, 185 540"
+                fill="none"
+                stroke="#0f172a"
+                strokeWidth="2"
+                strokeDasharray="4 10"
+                opacity="0.4"
+              />
+
+              {/* 5 nodes aligned to cards */}
+              {[
+                [230, 60],
+                [155, 180],
+                [195, 300],
+                [145, 420],
+                [185, 540],
+              ].map(([cx, cy], i) => (
+                <g key={i} filter="url(#nodeGlowCentral)">
+                  <circle cx={cx} cy={cy} r="13" fill="#ffffff" stroke="#0f172a" strokeWidth="2.5" />
+                  <circle cx={cx} cy={cy} r="6"  fill="#0ea5e9" />
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          <div className="scrap-services-timeline flex flex-col gap-8 py-4">
+            {capabilities.map((item, idx) => (
+              <motion.div 
+                key={idx} 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={itemVariants}
+                className="scrap-offer-card scrap-timeline-step central-infographic-card"
+              >
+                <div className="scrap-offer-meta flex items-center flex-1">
+                  <span className="scrap-step-badge">{String(idx + 1).padStart(2, '0')}</span>
+                  <div className="scrap-offer-copy ml-4">
+                    <h3 className="text-[13px] font-bold uppercase tracking-[0.1em] text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-200 text-sm opacity-90">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="mt-auto">
-                  <h3 className="text-[13px] font-bold uppercase tracking-[0.1em] text-gray-900 mb-3 font-['Inter','Montserrat',sans-serif]">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div className="offer-icon w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                  <item.icon className="h-5 w-5" />
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Action Button */}
         <motion.div 
-          className="flex justify-center mb-24"
+          className="flex justify-center mt-20 mb-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
           viewport={{ once: true }}
         >
           <button className="group relative inline-flex items-center gap-4 bg-gray-900 text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm transition-all duration-300 hover:bg-black hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] animate-glow rounded-sm">
@@ -212,19 +260,68 @@ export default function CentralizedACSection() {
 
       </div>
       <style dangerouslySetInnerHTML={{__html: `
+        .scrap-services-shell {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          align-items: center;
+          position: relative;
+        }
+        .scrap-services-path {
+          position: relative;
+          height: 560px;
+        }
+        .scrap-services-path svg {
+          position: absolute;
+          top: 0; left: -16px;
+          width: calc(100% + 16px);
+          height: 560px;
+        }
+        .central-infographic-card {
+          position: relative;
+          display: flex;
+          align-items: center;
+          height: 80px;
+          border-radius: 60px;
+          padding: 0 1.4rem 0 5.2rem;
+          background: linear-gradient(100deg, #0d2f5a 0%, #1e293b 60%, #0f172a 100%);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .central-infographic-card:hover {
+          transform: translateY(-4px) scale(1.01);
+          box-shadow: 0 16px 36px rgba(0,0,0,0.25);
+        }
+        .scrap-step-badge {
+          position: absolute;
+          left: -1.8rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 72px; height: 72px;
+          border-radius: 50%;
+          display: grid; place-items: center;
+          background: #ffffff;
+          color: #0f172a;
+          font-size: 1.1rem; font-weight: 900;
+          border: 4px solid #0d2f5a;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+          z-index: 2;
+        }
+        @media (max-width: 1024px) {
+          .scrap-services-shell { grid-template-columns: 1fr; }
+          .scrap-services-path { display: none; }
+          .scrap-services-timeline { padding-left: 3.5rem; }
+        }
+        @media (max-width: 768px) {
+          .central-infographic-card { height: auto; min-height: 72px; padding: 0.8rem 1rem 0.8rem 3.8rem; border-radius: 40px; }
+          .scrap-step-badge { width: 52px; height: 52px; left: -1.3rem; font-size: 0.85rem; }
+        }
         @keyframes subtle-glow {
           0%, 100% { box-shadow: 0 0 10px rgba(0,0,0,0.05); }
           50% { box-shadow: 0 0 25px rgba(0,0,0,0.2); }
         }
-        @keyframes icon-glow-pulse {
-          0%, 100% { filter: drop-shadow(0 0 2px rgba(100, 100, 100, 0)); opacity: 0.8; }
-          50% { filter: drop-shadow(0 0 6px rgba(100, 100, 100, 0.5)); opacity: 1; stroke: #3b82f6; }
-        }
         .animate-glow {
           animation: subtle-glow 3s infinite;
-        }
-        .icon-pulse {
-          animation: icon-glow-pulse 2s ease-in-out infinite;
         }
       `}} />
     </section>

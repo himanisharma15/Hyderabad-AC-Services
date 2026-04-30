@@ -253,16 +253,55 @@ export default function RestaurantCleaningSection() {
             <h2 id="restaurant-clean-process-title">Our Cleaning Process</h2>
           </div>
 
-          <div className="restaurant-clean-process restaurant-clean-reveal">
-            {cleaningSteps.map((step, index) => (
-              <div className="restaurant-clean-process__step" key={step.label}>
-                <div className="restaurant-clean-process__node">
-                  <CleanIcon type={step.icon} />
+          <div className="scrap-services-shell max-w-[900px] mx-auto mt-12">
+            <div className="scrap-services-path" aria-hidden="true" style={{ height: '448px' }}>
+              <svg
+                viewBox="0 0 300 500"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
+              >
+                <defs>
+                  <linearGradient id="arcGradRest" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#d97706" />
+                  </linearGradient>
+                </defs>
+                
+                <path
+                  d="M 298 20 A 240 240 0 0 0 298 428"
+                  fill="none"
+                  stroke="url(#arcGradRest)"
+                  strokeWidth="38"
+                  strokeLinecap="round"
+                  opacity="0.3"
+                />
+                
+                {[60, 172, 284, 396].map((cy, i) => (
+                  <g key={i}>
+                    <circle cx="210" cy={cy} r="12" fill="#ffffff" stroke="#f59e0b" strokeWidth="2" />
+                    <circle cx="210" cy={cy} r="5"  fill="#f59e0b" />
+                  </g>
+                ))}
+              </svg>
+            </div>
+
+            <div className="scrap-services-timeline flex flex-col gap-8 py-2">
+              {cleaningSteps.map((step, idx) => (
+                <div className="scrap-offer-card restaurant-infographic-card" key={idx}>
+                  <div className="scrap-offer-meta flex items-center flex-1">
+                    <span className="scrap-step-badge">{String(idx + 1).padStart(2, '0')}</span>
+                    <div className="scrap-offer-copy ml-4">
+                      <h3 className="text-white text-sm font-bold uppercase">{step.label}</h3>
+                      <p className="text-white/80 text-[11px] leading-4">Professional kitchen hygiene step {idx + 1}.</p>
+                    </div>
+                  </div>
+                  <div className="offer-icon w-10 h-10 rounded-lg bg-white/10 text-white flex items-center justify-center">
+                    <CleanIcon type={step.icon} />
+                  </div>
                 </div>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <strong>{step.label}</strong>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

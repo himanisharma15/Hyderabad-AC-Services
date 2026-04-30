@@ -61,24 +61,92 @@ export default function ExhaustAMCSection() {
         </div>
       </section>
 
-      {/* 2. WHAT AMC INCLUDES (CARD GRID) */}
+      {/* 2. WHAT’S INCLUDED (INFOGRAPHIC TIMELINE) */}
       <section className="amc-includes">
-        <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>What's Included in Exhaust AMC?</h2>
-        <div className="amc-includes-grid">
-          {[
-            { title: "Regular Cleaning", desc: "Chemical breakdown of carbon deposits across the canopy.", icon: <SparklesIcon /> },
-            { title: "Grease & Duct Scrubbing", desc: "Deep interior duct removal of combustible lipid buildup.", icon: <Droplets size={32} /> },
-            { title: "Fan & Motor Inspection", desc: "Vibration and bearing checks to prevent fatal mechanical failures.", icon: <Settings size={32} /> },
-            { title: "Airflow Performance", desc: "Digital manometry checks ensuring cubic feet per minute target delivery.", icon: <Wind size={32} /> },
-            { title: "Filter Replacement", desc: "Baffle and electrostatic precipitator cleaning or replacement.", icon: <Hexagon size={32} /> },
-            { title: "Emergency Support", desc: "24/7 priority response for system outages or failed starts.", icon: <Clock size={32} /> }
-          ].map((item, idx) => (
-            <div className="amc-include-card amc-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
-              <div className="include-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
+        <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>What's Included?</h2>
+        <div className="scrap-services-shell">
+          <div className="scrap-services-path" aria-hidden="true" style={{ height: '672px' }}>
+            <svg
+              viewBox="0 0 300 700"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
+            >
+              <defs>
+                <linearGradient id="arcGradExhaust" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#38bdf8" />
+                  <stop offset="50%" stopColor="#2563eb" />
+                  <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.8" />
+                </linearGradient>
+                <filter id="nodeGlowExhaust" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              {/* Large vertical arc scaled for 6 steps */}
+              <path
+                d="M 298 20 A 300 330 0 0 0 298 652"
+                fill="none"
+                stroke="url(#arcGradExhaust)"
+                strokeWidth="46"
+                strokeLinecap="round"
+                opacity="0.45"
+              />
+
+              {/* S-curve connecting 6 nodes */}
+              <path
+                d="M 230 56
+                   C 180 80, 140 130, 150 168
+                   C 160 206, 200 240, 195 280
+                   C 190 320, 140 350, 145 392
+                   C 150 434, 190 470, 185 504
+                   C 180 538, 140 570, 145 616"
+                fill="none"
+                stroke="#1e3a5f"
+                strokeWidth="2"
+                strokeDasharray="5 12"
+                opacity="0.4"
+              />
+
+              {/* 6 nodes aligned to card centers (56, 168, 280, 392, 504, 616 px) */}
+              {[
+                [230, 56],
+                [150, 168],
+                [195, 280],
+                [145, 392],
+                [185, 504],
+                [145, 616],
+              ].map(([cx, cy], i) => (
+                <g key={i} filter="url(#nodeGlowExhaust)">
+                  <circle cx={cx} cy={cy} r="14" fill="#ffffff" stroke="#0f172a" strokeWidth="2.5" />
+                  <circle cx={cx} cy={cy} r="6"  fill="#2563eb" />
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          <div className="scrap-services-timeline" style={{ gap: '32px', padding: '16px 0' }}>
+            {[
+              { title: "Regular Cleaning", desc: "Chemical breakdown of carbon deposits across the canopy.", icon: <SparklesIcon /> },
+              { title: "Grease & Duct Scrubbing", desc: "Deep interior duct removal of combustible lipid buildup.", icon: <Droplets size={28} /> },
+              { title: "Fan & Motor Inspection", desc: "Vibration and bearing checks to prevent fatal mechanical failures.", icon: <Settings size={28} /> },
+              { title: "Airflow Performance", desc: "Digital manometry checks ensuring cubic feet per minute target delivery.", icon: <Wind size={28} /> },
+              { title: "Filter Replacement", desc: "Baffle and electrostatic precipitator cleaning or replacement.", icon: <Hexagon size={28} /> },
+              { title: "Emergency Support", desc: "24/7 priority response for system outages or failed starts.", icon: <Clock size={28} /> }
+            ].map((item, idx) => (
+              <div className="scrap-offer-card scrap-timeline-step amc-infographic-card scrap-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
+                <div className="scrap-offer-meta">
+                  <span className="scrap-step-badge">{String(idx + 1).padStart(2, '0')}</span>
+                  <div className="scrap-offer-copy">
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+                <div className="offer-icon">{item.icon}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

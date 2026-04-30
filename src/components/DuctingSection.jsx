@@ -81,39 +81,58 @@ export default function DuctingSection() {
             </a>
           </div>
 
-          {/* Right Side - Staggered Grid (Image 2 style) */}
-          <div className="lg:w-[55%] w-full relative sm:pl-6">
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-6 relative">
-                
-                {/* Horizontal Divider Line */}
-                <div className="hidden sm:block absolute top-[50%] left-0 right-0 border-t border-gray-100 z-0"></div>
+          {/* Right Side - Premium Infographic Timeline (4 items) */}
+          <div className="lg:w-[55%] w-full relative">
+            <div className="scrap-services-shell w-full">
+              <div className="scrap-services-path" aria-hidden="true" style={{ height: '448px' }}>
+                <svg
+                  viewBox="0 0 300 500"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
+                >
+                  <defs>
+                    <linearGradient id="arcGradDuct" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#2563eb" />
+                      <stop offset="100%" stopColor="#0f172a" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <path
+                    d="M 298 20 A 240 240 0 0 0 298 428"
+                    fill="none"
+                    stroke="url(#arcGradDuct)"
+                    strokeWidth="38"
+                    strokeLinecap="round"
+                    opacity="0.25"
+                  />
+                  
+                  {[60, 172, 284, 396].map((cy, i) => (
+                    <g key={i}>
+                      <circle cx="210" cy={cy} r="12" fill="#ffffff" stroke="#2563eb" strokeWidth="2" />
+                      <circle cx="210" cy={cy} r="5"  fill="#2563eb" />
+                    </g>
+                  ))}
+                </svg>
+              </div>
 
-                {ductingFeatures.map((feature, i) => {
-                  const Icon = feature.icon;
-                  return (
-                    <div 
-                      key={i} 
-                      className={`flex items-start gap-4 relative z-10 bg-[#fcfdfd] ${
-                        i < 2 ? 'sm:pb-8' : 'sm:pt-8'
-                      }`}
-                    >
-                      {/* Circular Thin-bordered Icon */}
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full border border-blue-200 flex items-center justify-center text-blue-600 bg-white shadow-sm mt-1">
-                        <Icon size={20} strokeWidth={1.8} />
-                      </div>
-                      <div className="pt-1">
-                        <h4 className="text-[1.05rem] font-bold text-gray-800 mb-2 leading-tight">
-                          {feature.title}
-                        </h4>
-                        <p className="text-gray-500 text-[13px] leading-[1.6]">
-                          {feature.desc}
-                        </p>
+              <div className="scrap-services-timeline flex flex-col gap-6 py-2">
+                {ductingFeatures.map((feature, idx) => (
+                  <div className="scrap-offer-card ducting-infographic-card" key={idx}>
+                    <div className="scrap-offer-meta flex items-center flex-1">
+                      <span className="scrap-step-badge">{String(idx + 1).padStart(2, '0')}</span>
+                      <div className="scrap-offer-copy ml-4">
+                        <h4 className="text-white text-sm font-bold uppercase">{feature.title}</h4>
+                        <p className="text-white/80 text-[11px] leading-4">{feature.desc}</p>
                       </div>
                     </div>
-                  )
-                })}
-
-             </div>
+                    <div className="offer-icon w-10 h-10 rounded-lg bg-white/10 text-white flex items-center justify-center">
+                      <feature.icon size={20} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
         </div>
