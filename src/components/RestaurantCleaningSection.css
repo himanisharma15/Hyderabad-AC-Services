@@ -1,0 +1,584 @@
+.restaurant-clean-page {
+  --clean-blue: #1d5eff;
+  --clean-blue-dark: #0d2f5a;
+  --clean-blue-soft: #eef6ff;
+  --clean-ink: #172033;
+  --clean-muted: #627087;
+  --clean-industrial: #2d3748;
+  --clean-line: #d9e5f2;
+  --clean-panel: rgba(255, 255, 255, 0.86);
+  --clean-shadow: 0 18px 45px rgba(13, 47, 90, 0.12);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(29, 94, 255, 0.11), transparent 32rem),
+    linear-gradient(135deg, #ffffff 0%, #f1f7ff 48%, #ffffff 100%);
+  color: var(--clean-ink);
+}
+
+.restaurant-clean-container {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+}
+
+.restaurant-clean-hero {
+  position: relative;
+  /* reduced bottom padding to remove excessive blank space */
+  padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 4vw, 32px);
+  background:
+    linear-gradient(90deg, rgba(45, 55, 72, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(29, 94, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(135deg, #ffffff 0%, #edf6ff 58%, #f9fbff 100%);
+  background-size: 44px 44px, 44px 44px, auto;
+}
+
+.restaurant-clean-hero::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(29, 94, 255, 0.3), transparent);
+  content: "";
+}
+
+.restaurant-clean-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+  gap: clamp(34px, 5vw, 72px);
+  align-items: center;
+}
+
+.restaurant-clean-hero__content {
+  max-width: 650px;
+}
+
+.restaurant-clean-eyebrow,
+.restaurant-clean-heading span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--clean-blue);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.restaurant-clean-eyebrow::before,
+.restaurant-clean-heading span::before {
+  width: 28px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--clean-blue);
+  content: "";
+}
+
+.restaurant-clean-hero h1 {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--clean-blue-dark);
+  font-size: clamp(2.45rem, 5vw, 4.65rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.restaurant-clean-hero h2 {
+  margin: 18px 0 0;
+  color: var(--clean-industrial);
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.restaurant-clean-hero p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: var(--clean-muted);
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.75;
+}
+
+.restaurant-clean-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  border-radius: 999px;
+  padding: 0 28px;
+  font-weight: 900;
+  text-decoration: none;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.restaurant-clean-button--primary {
+  background: var(--clean-blue);
+  box-shadow: 0 16px 34px rgba(29, 94, 255, 0.28);
+  color: #ffffff;
+}
+
+.restaurant-clean-button--primary:hover {
+  transform: translateY(-2px);
+  background: #164bd1;
+  box-shadow: 0 20px 42px rgba(29, 94, 255, 0.34);
+}
+
+.restaurant-clean-button--light {
+  margin-top: 0;
+  background: #ffffff;
+  color: var(--clean-blue-dark);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+.restaurant-clean-button--light:hover {
+  transform: translateY(-2px);
+  background: var(--clean-blue-soft);
+}
+
+.restaurant-clean-image-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(217, 229, 242, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--clean-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.restaurant-clean-image-card::before {
+  position: absolute;
+  inset: 14px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 6px;
+  pointer-events: none;
+  content: "";
+}
+
+.restaurant-clean-image-card img {
+  display: block;
+  width: 100%;
+  height: clamp(380px, 44vw, 520px);
+  object-fit: cover;
+  object-position: 50% 28%;
+  transition: transform 700ms ease;
+}
+
+.restaurant-clean-image-card:hover img {
+  transform: scale(1.045);
+}
+
+.restaurant-clean-image-card__badge {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3;
+  display: grid;
+  gap: 4px;
+  width: min(280px, calc(100% - 36px));
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 8px;
+  background: rgba(13, 47, 90, 0.84);
+  padding: 14px 16px;
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+}
+
+.restaurant-clean-image-card__badge span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.restaurant-clean-image-card__badge strong {
+  font-size: 1.04rem;
+}
+
+.restaurant-clean-section {
+  /* reduced vertical spacing between sections */
+  padding: clamp(24px, 4vw, 40px) 0;
+}
+
+.restaurant-clean-section--soft {
+  background:
+    linear-gradient(135deg, rgba(238, 246, 255, 0.76), rgba(255, 255, 255, 0.96));
+}
+
+.restaurant-clean-heading {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.restaurant-clean-heading h2,
+.restaurant-clean-cta h2 {
+  margin: 12px 0 0;
+  color: var(--clean-blue-dark);
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.restaurant-clean-card-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.restaurant-clean-card-grid--four,
+.restaurant-clean-card-grid--visual {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.restaurant-clean-card,
+.restaurant-clean-visual-card {
+  border: 1px solid var(--clean-line);
+  border-radius: 8px;
+  background: var(--clean-panel);
+  box-shadow: 0 10px 24px rgba(13, 47, 90, 0.08);
+  backdrop-filter: blur(14px);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.restaurant-clean-card {
+  min-height: 218px;
+  padding: 24px;
+}
+
+.restaurant-clean-visual-card {
+  min-height: 190px;
+  padding: 24px;
+  text-align: center;
+}
+
+.restaurant-clean-card:hover,
+.restaurant-clean-visual-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(29, 94, 255, 0.34);
+  box-shadow: 0 22px 42px rgba(13, 47, 90, 0.14);
+}
+
+.restaurant-clean-card__icon,
+.restaurant-clean-visual-card__icon,
+.restaurant-clean-process__node {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(29, 94, 255, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(29, 94, 255, 0.13), rgba(255, 255, 255, 0.9));
+  color: var(--clean-blue);
+}
+
+.restaurant-clean-card__icon {
+  width: 50px;
+  height: 50px;
+}
+
+.restaurant-clean-visual-card__icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto;
+}
+
+.restaurant-clean-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+.restaurant-clean-card h3,
+.restaurant-clean-visual-card h3 {
+  margin: 18px 0 0;
+  color: var(--clean-ink);
+  font-size: 1.06rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.restaurant-clean-card p,
+.restaurant-clean-visual-card p {
+  margin: 10px 0 0;
+  color: var(--clean-muted);
+  font-size: 0.93rem;
+  line-height: 1.58;
+}
+
+.restaurant-clean-process {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  border: 1px solid var(--clean-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--clean-shadow);
+  padding: 30px;
+}
+
+.restaurant-clean-process::before {
+  position: absolute;
+  top: 60px;
+  right: 12%;
+  left: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(29, 94, 255, 0.28), transparent);
+  content: "";
+}
+
+.restaurant-clean-process::after {
+  position: absolute;
+  top: 60px;
+  left: 12%;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clean-blue), transparent);
+  content: "";
+  animation: restaurantCleanLineFlow 3.1s ease-in-out infinite;
+}
+
+.restaurant-clean-process__step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.restaurant-clean-process__step:not(:last-child)::after {
+  position: absolute;
+  top: 24px;
+  right: -13px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid rgba(29, 94, 255, 0.5);
+  border-right: 2px solid rgba(29, 94, 255, 0.5);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.restaurant-clean-process__node {
+  width: 62px;
+  height: 62px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 12px 24px rgba(29, 94, 255, 0.18);
+  animation: restaurantCleanPulse 2.6s ease-in-out infinite;
+}
+
+.restaurant-clean-process__step:nth-child(2) .restaurant-clean-process__node {
+  animation-delay: 140ms;
+}
+
+.restaurant-clean-process__step:nth-child(3) .restaurant-clean-process__node {
+  animation-delay: 280ms;
+}
+
+.restaurant-clean-process__step:nth-child(4) .restaurant-clean-process__node {
+  animation-delay: 420ms;
+}
+
+.restaurant-clean-process__step span {
+  margin-top: 14px;
+  color: var(--clean-blue);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.restaurant-clean-process__step strong {
+  display: block;
+  max-width: 150px;
+  margin-top: 6px;
+  color: var(--clean-industrial);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.restaurant-clean-cta {
+  padding: clamp(56px, 7vw, 86px) 0;
+  background: linear-gradient(135deg, #071a33 0%, #0d2f5a 48%, #1d5eff 100%);
+}
+
+.restaurant-clean-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03));
+  padding: clamp(26px, 4vw, 42px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-clean-cta h2 {
+  max-width: 660px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.restaurant-clean-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: restaurantCleanReveal 750ms cubic-bezier(0.21, 0.47, 0.32, 0.98) both;
+  animation-delay: var(--delay, 0ms);
+  animation-timeline: view();
+  animation-range: entry 8% cover 28%;
+}
+
+@supports not (animation-timeline: view()) {
+  .restaurant-clean-reveal {
+    opacity: 1;
+    transform: none;
+    animation-timeline: auto;
+  }
+}
+
+@keyframes restaurantCleanReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes restaurantCleanPulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-3px) scale(1.035);
+  }
+}
+
+@keyframes restaurantCleanLineFlow {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(190%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1080px) {
+  .restaurant-clean-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-clean-hero__content {
+    max-width: 780px;
+  }
+
+  .restaurant-clean-card-grid--four,
+  .restaurant-clean-card-grid--visual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .restaurant-clean-process {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .restaurant-clean-process::before,
+  .restaurant-clean-process::after,
+  .restaurant-clean-process__step::after {
+    display: none;
+  }
+
+  .restaurant-clean-process__step {
+    grid-template-columns: 62px 1fr;
+    justify-items: start;
+    column-gap: 16px;
+    text-align: left;
+  }
+
+  .restaurant-clean-process__node {
+    grid-row: span 2;
+  }
+
+  .restaurant-clean-process__step span,
+  .restaurant-clean-process__step strong {
+    margin-top: 0;
+  }
+
+  .restaurant-clean-process__step strong {
+    max-width: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .restaurant-clean-container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .restaurant-clean-hero {
+    padding-top: 48px;
+  }
+
+  .restaurant-clean-hero h1 {
+    font-size: clamp(2.25rem, 12vw, 3.3rem);
+  }
+
+  .restaurant-clean-image-card img {
+    height: 320px;
+  }
+
+  .restaurant-clean-card-grid--four,
+  .restaurant-clean-card-grid--visual {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-clean-cta__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .restaurant-clean-reveal,
+  .restaurant-clean-image-card,
+  .restaurant-clean-process::after,
+  .restaurant-clean-process__node {
+    animation: none;
+  }
+
+  .restaurant-clean-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .restaurant-clean-card,
+  .restaurant-clean-visual-card,
+  .restaurant-clean-button,
+  .restaurant-clean-image-card img {
+    transition: none;
+  }
+}

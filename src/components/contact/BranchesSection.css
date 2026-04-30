@@ -179,7 +179,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #0c84cc 0%, #154769 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -211,7 +211,7 @@
 
 /* Color variants for each card */
 .branch-card--phone::after {
-  background: linear-gradient(90deg, #0c84cc 0%, #1a9fd6 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
 }
 
 .branch-card--phone:hover .branch-icon-wrapper {
@@ -219,12 +219,12 @@
 }
 
 .branch-card--phone:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-card--email::after {
-  background: linear-gradient(90deg, #0c84cc 0%, #1a9fd6 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
 }
 
 .branch-card--email:hover .branch-icon-wrapper {
@@ -232,12 +232,12 @@
 }
 
 .branch-card--email:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-card--address::after {
-  background: linear-gradient(90deg, #0c84cc 0%, #1a9fd6 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
 }
 
 .branch-card--address:hover .branch-icon-wrapper {
@@ -245,8 +245,8 @@
 }
 
 .branch-card--address:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-icon-wrapper {
@@ -280,8 +280,8 @@
 }
 
 .branch-card:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-title {

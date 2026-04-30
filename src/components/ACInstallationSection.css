@@ -1,0 +1,500 @@
+/* AC Installation Services Premium CSS */
+
+.install-page {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  background: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* Observer Animations */
+.fade-up-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1. HERO SECTION */
+.install-hero {
+  position: relative;
+  isolation: isolate;
+  background-color: #e0f2fe;
+  background-image:
+    linear-gradient(90deg, rgba(224, 242, 254, 0.96) 0%, rgba(191, 219, 254, 0.82) 42%, rgba(37, 99, 235, 0.32) 72%, rgba(14, 116, 144, 0.28) 100%),
+    var(--install-hero-bg);
+  background-position: center right;
+  background-size: cover;
+  padding: clamp(5rem, 8vw, 8rem) 2rem clamp(4.5rem, 7vw, 6rem);
+  display: flex;
+  align-items: center;
+  min-height: 78vh;
+}
+
+.install-hero-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 650px);
+  gap: 0;
+  align-items: center;
+}
+
+.install-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.install-hero-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.install-hero-subheading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin: 0;
+}
+
+.install-hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.install-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 1.125rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  width: max-content;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  margin-top: 1rem;
+}
+
+.install-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* 2. WHY PROFESSIONAL INSTALLATION (WARNING CARDS) */
+.install-warnings-section {
+  padding: 6rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.install-section-heading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 3rem;
+}
+
+.install-warnings-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  perspective: 1100px;
+}
+
+.warning-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 204px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96)),
+    #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.78);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s ease,
+    border-color 0.42s ease,
+    background 0.42s ease;
+}
+
+.warning-card::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, transparent 36%, rgba(37, 99, 235, 0.12) 48%, rgba(255, 255, 255, 0.76) 52%, transparent 64%, transparent 100%);
+  opacity: 0;
+  transform: translateX(-115%);
+  transition: opacity 0.25s ease, transform 0.72s ease;
+  pointer-events: none;
+  content: "";
+}
+
+.warning-card.is-visible {
+  animation: installWarningCardPop 680ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--warning-delay, 0ms);
+}
+
+.warning-card:hover {
+  transform: translateY(-10px) rotateX(3deg) rotateY(3deg);
+  border-color: rgba(37, 99, 235, 0.32);
+  background:
+    linear-gradient(145deg, #ffffff, #f3f8ff),
+    #ffffff;
+  box-shadow: 0 24px 46px -18px rgba(37, 99, 235, 0.24);
+}
+
+.warning-card:hover::before {
+  opacity: 1;
+  transform: translateX(115%);
+}
+
+.warning-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.warning-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+@keyframes installWarningCardPop {
+  0% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.96);
+  }
+  62% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 3. SERVICES GRID */
+.install-services-section {
+  padding: 6rem 2rem;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(37, 99, 235, 0.08), transparent 30rem),
+    #f8fafc;
+  text-align: center;
+}
+
+.install-services-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  perspective: 1200px;
+}
+
+.service-card {
+  min-height: 264px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96)),
+    #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.78);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s ease,
+    border-color 0.42s ease,
+    background 0.42s ease;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.service-card:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, transparent 38%, rgba(37, 99, 235, 0.13) 48%, rgba(255, 255, 255, 0.72) 52%, transparent 62%, transparent 100%);
+  opacity: 0;
+  transform: translateX(-115%);
+  transition: opacity 0.25s ease, transform 0.72s ease;
+  pointer-events: none;
+}
+
+.service-card.is-visible {
+  animation: installServiceCardPop 680ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--card-delay, 0ms);
+}
+
+.service-card:hover {
+  transform: translateY(-12px) rotateX(3deg) rotateY(-3deg);
+  border-color: rgba(37, 99, 235, 0.34);
+  background:
+    linear-gradient(145deg, #ffffff, #f3f8ff),
+    #ffffff;
+  box-shadow: 0 28px 50px -18px rgba(37, 99, 235, 0.28);
+}
+
+.service-card:hover:before {
+  opacity: 1;
+  transform: translateX(115%);
+}
+
+.service-icon {
+  color: #2563eb;
+  width: 40px; height: 40px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.32s ease, filter 0.32s ease;
+}
+
+.service-card:hover .service-icon {
+  animation: installIconPulse 820ms ease both;
+  filter: drop-shadow(0 10px 16px rgba(37, 99, 235, 0.28));
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+@keyframes installServiceCardPop {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  62% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes installIconPulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  42% {
+    transform: rotate(-8deg) scale(1.18);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.08);
+  }
+}
+
+/* 4. TRUST SECTION */
+.install-trust-section {
+  padding: 6rem 2rem;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.install-trust-container {
+  position: relative;
+  max-width: 1180px;
+  width: 100%;
+  background: #ffffff;
+  border-left: 5px solid #2563eb;
+  border-radius: 0;
+  padding: clamp(3rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(3rem, 6vw, 5rem);
+  align-items: center;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+}
+
+.install-trust-kicker {
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 0.75rem;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.install-trust-kicker::after {
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 54px;
+  height: 3px;
+  background: #2563eb;
+  content: "";
+}
+
+.install-trust-content h2 {
+  max-width: 430px;
+  color: #0f172a;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.install-trust-content h2::first-line {
+  color: #0f172a;
+}
+
+.install-trust-content p {
+  max-width: 410px;
+  margin: 1.5rem 0 0;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.install-trust-cta {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.6rem;
+  border-radius: 4px;
+  background: #2563eb;
+  padding: 0 1.25rem;
+  color: #ffffff;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.install-trust-cta:hover {
+  transform: translateY(-2px);
+  background: #1d4ed8;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
+}
+
+.trust-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-left: 1px solid #dbe3ee;
+}
+
+.trust-feature {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 1rem;
+  min-height: 126px;
+  padding: 1.25rem 1.4rem;
+  border-bottom: 1px solid #dbe3ee;
+  text-align: left;
+}
+
+.trust-feature:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.trust-feature-icon {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(37, 99, 235, 0.22);
+  border-radius: 999px;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.trust-feature h3 {
+  margin: 0 0 0.45rem;
+  color: #0f172a;
+  font-size: 1.06rem;
+  font-weight: 800;
+}
+
+.trust-feature p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .install-hero-heading { font-size: 2.75rem; }
+  .install-warnings-grid { grid-template-columns: repeat(2, 1fr); }
+  .install-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .install-trust-container { grid-template-columns: 1fr; padding: 3rem; }
+  .trust-feature-grid { border-left: 0; }
+}
+
+@media (max-width: 768px) {
+  .install-hero {
+    background-image:
+      linear-gradient(180deg, rgba(224, 242, 254, 0.98) 0%, rgba(191, 219, 254, 0.9) 58%, rgba(37, 99, 235, 0.36) 100%),
+      var(--install-hero-bg);
+    background-position: center top;
+    min-height: auto;
+    padding: 4.5rem 1.5rem;
+  }
+  .install-hero-container { grid-template-columns: 1fr; gap: 0; }
+  .install-hero-content { order: 1; text-align: center; align-items: center; }
+  .install-warnings-grid { grid-template-columns: 1fr; }
+  .install-services-grid { grid-template-columns: 1fr; }
+  .install-hero-heading { font-size: 2.25rem; }
+  .install-trust-section { padding: 4rem 1.25rem; }
+  .install-trust-container { padding: 2rem 1.25rem; }
+  .trust-feature-grid { grid-template-columns: 1fr; }
+  .trust-feature:nth-last-child(-n + 2) { border-bottom: 1px solid #dbe3ee; }
+  .trust-feature:last-child { border-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .warning-card,
+  .warning-card::before,
+  .service-card,
+  .service-card:before,
+  .service-icon {
+    animation: none;
+    transition: none;
+  }
+
+  .warning-card:hover,
+  .service-card:hover {
+    transform: none;
+  }
+}
