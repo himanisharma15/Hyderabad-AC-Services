@@ -417,16 +417,7 @@ export default function ACServicePage() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="rounded-[1.8rem] bg-linear-to-r from-[#0d2f5a] via-[#15457f] to-[#1d5eff] p-8 shadow-2xl shadow-blue-900/30 sm:p-10">
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-              <h3 className="max-w-2xl text-3xl font-black text-white sm:text-4xl">
-                Ensure Safe &amp; Fresh Air in Your Basement
-              </h3>
-              <a href="tel:+918712322475" className="inline-flex h-13 items-center justify-center rounded-full bg-white px-7 font-semibold text-[#0d2f5a] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-100">
-                Get Consultation
-              </a>
-            </div>
-          </motion.div>
+          
         </div>
       </motion.section>
 

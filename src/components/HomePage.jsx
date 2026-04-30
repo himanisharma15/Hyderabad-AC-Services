@@ -150,16 +150,6 @@ export default function HomePage({ onBookNow }) {
         </div>
       </section>
 
-      {/* 6. CTA BANNER */}
-      <section className="home-cta">
-        <div className="scroll-fade" ref={addToRefs}>
-          <h2>Ready to upgrade your climate infrastructure?</h2>
-          <button className="btn-primary btn-inverse" onClick={() => onBookNow('General HVAC Consultation')}>
-            Schedule Expert Visit
-          </button>
-        </div>
-      </section>
-
     </div>
   );
 }

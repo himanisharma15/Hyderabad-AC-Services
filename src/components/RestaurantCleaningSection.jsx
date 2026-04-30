@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import ductSystemImage from '../assets/hvac-ducting-3d.png'
 import './RestaurantCleaningSection.css'
+
+const ductSystemImage = '/DUCTING CONSTRUCTORS.jpg'
 
 const importanceCards = [
   {
