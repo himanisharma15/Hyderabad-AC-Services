@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   FaCalendarAlt,
@@ -44,6 +44,23 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
     notes: '',
   });
 
+  const resetForm = useCallback(() => {
+    setIsSubmitting(false);
+    setIsSubmitted(false);
+    setFormData({
+      fullName: '',
+      phone: '',
+      preferredDate: '',
+      address: '',
+      notes: '',
+    });
+  }, []);
+
+  const handleClose = useCallback(() => {
+    resetForm();
+    onClose();
+  }, [onClose, resetForm]);
+
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -63,27 +80,13 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
 
     const handleEsc = (event) => {
       if (event.key === 'Escape') {
-        onClose();
+        handleClose();
       }
     };
 
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [isOpen, onClose]);
-
-  useEffect(() => {
-    if (!isOpen) {
-      setIsSubmitting(false);
-      setIsSubmitted(false);
-      setFormData({
-        fullName: '',
-        phone: '',
-        preferredDate: '',
-        address: '',
-        notes: '',
-      });
-    }
-  }, [isOpen]);
+  }, [handleClose, isOpen]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -104,7 +107,7 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
 
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
-      onClose();
+      handleClose();
     }
   };
 
@@ -130,7 +133,7 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
             aria-modal="true"
             aria-label="Book Service Form"
           >
-            <button className={styles.closeButton} type="button" onClick={onClose} aria-label="Close form">
+            <button className={styles.closeButton} type="button" onClick={handleClose} aria-label="Close form">
               <FaTimes />
             </button>
 

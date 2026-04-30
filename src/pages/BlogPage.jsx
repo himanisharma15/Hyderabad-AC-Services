@@ -326,3 +326,6 @@ export default function BlogPage() {
     </div>
   );
 }
+};
+
+export default BlogPage;

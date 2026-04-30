@@ -1,0 +1,383 @@
+/* AC Repair Services Premium CSS */
+
+.repair-page {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  background: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* Observer Animations */
+.repair-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.repair-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1. HERO SECTION */
+.repair-hero {
+  background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+  padding: 8rem 2rem 5rem 2rem;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.repair-hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.repair-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.repair-hero-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.repair-hero-subheading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin: 0;
+}
+
+.repair-hero-desc {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.repair-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  width: max-content;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  margin-top: 1rem;
+}
+
+.repair-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.repair-hero-image-wrapper {
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1);
+  animation: repairFloat 6s ease-in-out infinite;
+}
+
+.repair-hero-image {
+  width: 100%;
+  border-radius: 1.5rem;
+  display: block;
+}
+
+@keyframes repairFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 2. COMMON PROBLEMS */
+.repair-problems {
+  padding: 6rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.repair-section-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 3rem;
+}
+
+.problems-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.problem-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.problem-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.08);
+  border-color: #bfdbfe;
+}
+
+.problem-icon {
+  color: #ef4444;
+  width: 32px;
+  height: 32px;
+}
+
+.problem-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* 3. OUR SERVICES */
+.repair-services {
+  padding: 6rem 2rem;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.services-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.services-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+.services-icon-box {
+  background: #eff6ff;
+  color: #2563eb;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.services-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.services-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 4. WORKFLOW */
+.repair-workflow {
+  padding: 6rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.workflow-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.workflow-line {
+  position: absolute;
+  top: 40px; /* middle of icon */
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+.workflow-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 0 1rem;
+  transition: transform 0.3s ease;
+}
+
+.workflow-step:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.workflow-icon-wrapper {
+  background: #ffffff;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.workflow-step:hover .workflow-icon-wrapper {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.workflow-step h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* 5. TRUST HIGHLIGHTS */
+.repair-trust {
+  padding: 6rem 2rem;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.trust-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.trust-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-3px);
+  border-color: #bfdbfe;
+}
+
+.trust-card svg {
+  color: #10b981;
+}
+
+.trust-card span {
+  font-weight: 600;
+  color: #334155;
+}
+
+/* 6. FINAL CTA */
+.repair-cta-banner {
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.repair-cta-banner h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.repair-btn-inverse {
+  background-color: #ffffff;
+  color: #1e40af;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.repair-btn-inverse:hover {
+  background-color: #f8fafc;
+  color: #1e3a8a;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .repair-hero-heading { font-size: 2.75rem; }
+  .problems-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .workflow-container { flex-direction: column; gap: 3rem; }
+  .workflow-line {
+    width: 2px; height: 100%;
+    left: 50%; top: 0; bottom: 0; right: auto; margin-left: -1px;
+  }
+}
+
+@media (max-width: 768px) {
+  .repair-hero-container { grid-template-columns: 1fr; gap: 3rem; }
+  .repair-hero-content { order: 1; text-align: center; align-items: center; }
+  .repair-hero-image-wrapper { order: 2; }
+  .problems-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: 1fr; }
+  .repair-hero-heading { font-size: 2.25rem; }
+  .repair-section-heading { font-size: 2rem; }
+  .repair-cta-banner h2 { font-size: 2.25rem; }
+}
