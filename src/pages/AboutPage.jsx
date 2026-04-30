@@ -2,7 +2,7 @@ import styles from './AboutPage.module.css';
 import {
   FaPhoneAlt, FaSnowflake, FaArrowRight, FaMapMarkerAlt, 
   FaTools, FaClock, FaShieldAlt, FaUsers, FaCheckCircle, 
-  FaAward, FaClipboardList, FaStar, FaBullseye, FaStarHalfAlt, FaRegStar
+  FaAward, FaClipboardList, FaStar, FaBullseye, FaStarHalfAlt, FaRegStar, FaUserCircle
 } from 'react-icons/fa';
 import acTechnicianHero from '../assets/ac_technician_hero.png?v=2';
 import acInstallIndoor from '../assets/ac_install_indoor.png';
@@ -399,15 +399,21 @@ export default function AboutPage({ onBookNow }) {
 
           <motion.div className={styles.testimonialsGrid} variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
             {[
-              { name: "Jerome Bell", location: "Riverside District", avatar: avatarJerome, text: "The team arrived within an hour of my call. They quickly diagnosed the gas leak in my split AC, fixed it, and didn't leave any mess behind. True professionals!", rating: 4.5 },
-              { name: "Eleanor Pena", location: "Downtown Area", avatar: avatarEleanor, text: "We hired them to upgrade our office ducting. Not only were they incredibly affordable, but they finished the entire installation over the weekend so our work wasn't disrupted.", rating: 4.2 },
-              { name: "Robert Fox", location: "Oakwood Business Park", avatar: avatarRobert, text: "I've used several AC services in Hyderabad, but this company is by far the best. Their AMC package gives me complete peace of mind. Highly recommended.", rating: 4.8 }
+              { name: "Sangeta", location: "Chartered Accountant", avatar: avatarJerome, text: "Excellent customer service! My AC went out over the weekend. I called and they showed up within two hours to diagnose and fix the problem. Technicians were very professional and already had the replacement part on hand. I will definitely be a returning customer.", rating: 4.5 },
+              { name: "Raju", location: "Doctor", avatar: avatarEleanor, text: "When I called they were out within two hours. The technicians were extremely professional, worked quickly, and explained every detail of what was wrong with our air conditioning. They fixed it for a reasonable price and the experience was wonderful.", rating: 4.5 },
+              { name: "Aijaz Khan", location: "Software Engg", avatar: avatarRobert, text: "Always impressed with these guys. Friendly, professional, thorough and honest. They take the time to explain exactly what they are doing and what the options are. Prices are fair, and they are always so nice! Highly recommend them for quality work.", rating: 5 }
             ].map((testimonial, idx) => (
               <motion.div key={idx} className={styles.testimonialCard} variants={fadeUpItem}>
                 <div className={styles.testimonialBg}>
                    <FaSnowflake className={styles.bgSnow1} />
                    <FaSnowflake className={styles.bgSnow2} />
                    <FaSnowflake className={styles.bgSnow3} />
+                </div>
+                <div className={styles.quoteIconWrap}>
+                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{opacity: 0.1}}>
+                     <path d="M10 25H15L12.5 15H7.5L10 25ZM22.5 25H27.5L25 15H20L22.5 25Z" fill="#0284C7" />
+                     <path d="M11.6667 30C15.3486 30 18.3333 27.0152 18.3333 23.3333V13.3333C18.3333 11.4924 16.8409 10 15 10H8.33333C6.49238 10 5 11.4924 5 13.3333V20C5 21.8409 6.49238 23.3333 8.33333 23.3333H11.6667C11.6667 25.1742 10.1742 26.6667 8.33333 26.6667C7.41489 26.6667 6.66667 27.4149 6.66667 28.3333C6.66667 29.2518 7.41489 30 8.33333 30H11.6667ZM28.3333 30C32.0152 30 35 27.0152 35 23.3333V13.3333C35 11.4924 33.5076 10 31.6667 10H25C23.1591 10 21.6667 11.4924 21.6667 13.3333V20C21.6667 21.8409 23.1591 23.3333 25 23.3333H28.3333C28.3333 25.1742 26.8409 26.6667 25 26.6667C24.0815 26.6667 23.3333 27.4149 23.3333 28.3333C23.3333 29.2518 24.0815 30 25 30H28.3333Z" fill="#0284C7" />
+                   </svg>
                 </div>
                 
                 <div className={styles.starsRow}>
@@ -417,7 +423,9 @@ export default function AboutPage({ onBookNow }) {
                   {testimonial.text}
                 </p>
                 <div className={styles.testimonialAuthor}>
-                  <img src={testimonial.avatar} alt={testimonial.name} className={styles.authorAvatar} />
+                  <div className={styles.authorIconWrapper}>
+                    <FaUserCircle className={styles.authorUserIcon} />
+                  </div>
                   <div className={styles.authorInfo}>
                     <h4>{testimonial.name}</h4>
                     <span>{testimonial.location}</span>

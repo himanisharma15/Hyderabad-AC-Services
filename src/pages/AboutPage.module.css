@@ -1024,10 +1024,17 @@
   color: #0284C7;
 }
 
+.quoteIconWrap {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 0;
+}
+
 .starsRow {
   display: flex;
   gap: 6px;
-  color: #FBBF24; /* Golden yellow */
+  color: #FBBF24;
   font-size: 1.1rem;
   margin-bottom: 24px;
   position: relative;
@@ -1035,13 +1042,14 @@
 }
 
 .testimonialText {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #111827;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #1f2937;
   font-weight: 500;
-  margin: 0 0 32px 0;
+  margin: 0 0 28px 0;
   flex-grow: 1;
   z-index: 1;
+  font-style: italic;
 }
 
 .testimonialAuthor {
@@ -1051,11 +1059,19 @@
   z-index: 1;
 }
 
-.authorAvatar {
+.authorIconWrapper {
   width: 50px;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f9ff;
   border-radius: 50%;
-  object-fit: cover;
+  color: #0284c7;
+}
+
+.authorUserIcon {
+  font-size: 3rem;
 }
 
 .authorInfo h4 {
@@ -1066,8 +1082,16 @@
 }
 
 .authorInfo span {
-  font-size: 0.85rem;
-  color: #6b7280;
+  font-size: 0.75rem;
+  color: #0284c7;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: #e0f2fe;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 2px;
 }
 
 .carouselIndicators {
