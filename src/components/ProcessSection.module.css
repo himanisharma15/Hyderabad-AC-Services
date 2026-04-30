@@ -28,7 +28,7 @@
   bottom: -140px;
   width: 320px;
   height: 320px;
-  background: rgba(29, 94, 255, 0.05);
+  background: rgba(21, 71, 105, 0.05);
 }
 
 .header {
@@ -123,9 +123,9 @@
   display: grid;
   place-items: center;
   color: #0b2b55;
-  background: rgba(29, 94, 255, 0.08);
+  background: rgba(21, 71, 105, 0.08);
   box-shadow: 0 8px 18px rgba(13, 50, 112, 0.06);
-  border: 1px solid rgba(29, 94, 255, 0.06);
+  border: 1px solid rgba(21, 71, 105, 0.06);
   font-size: var(--fs-step-badge);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -136,7 +136,7 @@
   height: 20px;
   margin: 10px auto 0;
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(29, 94, 255, 0.2), rgba(29, 94, 255, 0.08));
+  background: linear-gradient(180deg, rgba(21, 71, 105, 0.2), rgba(21, 71, 105, 0.08));
   transform-origin: top;
 }
 

@@ -13,7 +13,7 @@
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(0, 174, 221, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(21, 71, 105, 0.08) 0%, transparent 70%);
   border-radius: 50%;
   animation: float 8s ease-in-out infinite;
 }
@@ -120,7 +120,7 @@
   padding: 2.5rem 2rem;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(0, 174, 221, 0.15);
+  border: 1.5px solid rgba(21, 71, 105, 0.15);
   border-radius: 20px;
   box-shadow: 
     0 8px 32px rgba(21, 71, 105, 0.1),
@@ -165,7 +165,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 174, 221, 0.1) 0%, rgba(21, 71, 105, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(21, 71, 105, 0.1) 0%, rgba(21, 71, 105, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   border-radius: 20px;
@@ -179,7 +179,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #0c84cc 0%, #00aedd 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -187,10 +187,10 @@
 }
 
 .branch-card:hover {
-  border-color: rgba(0, 174, 221, 0.35);
+  border-color: rgba(21, 71, 105, 0.35);
   box-shadow: 
     0 20px 48px rgba(21, 71, 105, 0.2),
-    0 0 32px rgba(0, 174, 221, 0.15),
+    0 0 32px rgba(21, 71, 105, 0.15),
     inset 0 1px 1px rgba(255, 255, 255, 0.8),
     inset 0 -1px 1px rgba(0, 0, 0, 0.05);
   transform: translateY(-12px) scale(1.02);
@@ -211,7 +211,7 @@
 
 /* Color variants for each card */
 .branch-card--phone::after {
-  background: linear-gradient(90deg, #0c84cc 0%, #1a9fd6 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
 }
 
 .branch-card--phone:hover .branch-icon-wrapper {
@@ -219,12 +219,12 @@
 }
 
 .branch-card--phone:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-card--email::after {
-  background: linear-gradient(90deg, #0c84cc 0%, #1a9fd6 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
 }
 
 .branch-card--email:hover .branch-icon-wrapper {
@@ -232,12 +232,12 @@
 }
 
 .branch-card--email:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-card--address::after {
-  background: linear-gradient(90deg, #0c84cc 0%, #1a9fd6 50%, #0c84cc 100%);
+  background: linear-gradient(90deg, #154769 0%, #0d7fa8 50%, #154769 100%);
 }
 
 .branch-card--address:hover .branch-icon-wrapper {
@@ -245,8 +245,8 @@
 }
 
 .branch-card--address:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-icon-wrapper {
@@ -280,8 +280,8 @@
 }
 
 .branch-card:hover .branch-icon {
-  color: #0c84cc;
-  stroke: #0c84cc;
+  color: #154769;
+  stroke: #154769;
 }
 
 .branch-title {
@@ -333,7 +333,7 @@
 }
 
 .branch-card:hover .branch-detail-value {
-  color: #0c84cc;
+  color: #154769;
   font-weight: 600;
 }
 

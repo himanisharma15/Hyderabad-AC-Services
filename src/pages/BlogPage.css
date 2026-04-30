@@ -1,8 +1,8 @@
 .blog-page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(74, 153, 201, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(44, 123, 167, 0.12), transparent 32%),
+    radial-gradient(circle at top left, rgba(21, 71, 105, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(21, 71, 105, 0.12), transparent 32%),
     #eef3f6;
   color: #0f2e4a;
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -28,10 +28,10 @@
 
 @keyframes backgroundGlow {
   0%, 100% {
-    box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18), 0 0 30px rgba(44, 123, 167, 0);
+    box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18), 0 0 30px rgba(21, 71, 105, 0);
   }
   50% {
-    box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18), 0 0 50px rgba(44, 123, 167, 0.35);
+    box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18), 0 0 50px rgba(21, 71, 105, 0.35);
   }
 }
 
@@ -43,20 +43,18 @@
 
 .blog-hero {
   position: relative;
-  /* make the background shorter so only a small visible strip shows */
-  min-height: 80vh;
+  min-height: 74vh;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   margin-bottom: 0;
-  margin-top: -24px;
+  margin-top: 0;
   border-radius: 0;
-  /* allow the card to visually overflow the hero so it can sit partly outside */
   overflow: visible;
-  background-image: url('/background-blog%20.png');
+  background-image: url('/background-blog.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,22 +66,21 @@
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(7, 18, 30, 0.08), rgba(7, 18, 30, 0.48)),
-    linear-gradient(135deg, rgba(74, 153, 201, 0.2), rgba(255, 255, 255, 0.02));
+    linear-gradient(135deg, rgba(21, 71, 105, 0.2), rgba(255, 255, 255, 0.02));
 }
 
 .blog-hero__card {
-  /* place the card so it sits half inside and half outside the hero */
   position: absolute;
   z-index: 4;
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 50%);
-  width: min(96%, 640px);
+  width: min(92%, 720px);
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
-  border-radius: 20px;
+  border-radius: 22px;
   box-shadow: 0 24px 54px rgba(9, 28, 51, 0.18);
-  padding: 34px 30px;
+  padding: 38px 34px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -133,7 +130,7 @@
   width: fit-content;
   align-self: center;
   color: #fff;
-  background: linear-gradient(135deg, #4a99c9, #2c7ba7);
+  background: #154769;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -141,7 +138,7 @@
 
 .blog-hero__cta:hover {
   transform: scale(0.92);
-  box-shadow: 0 8px 24px rgba(44, 123, 167, 0.4);
+  box-shadow: 0 8px 24px rgba(21, 71, 105, 0.4);
 }
 
 .blog-hero__cta:active {
@@ -149,7 +146,7 @@
 }
 
 .blog-section {
-  margin-top: 200px;
+  margin-top: 240px;
   text-align: center;
 }
 
@@ -159,7 +156,7 @@
   padding: 0;
   border-radius: 0;
   background: transparent;
-  color: #1f6dd8;
+  color: #154769;
   font-size: clamp(1.8rem, 3.2vw, 2.4rem);
   line-height: 1.2;
   letter-spacing: 0.12em;
@@ -170,7 +167,7 @@
 }
 
 .blog-section__pill:hover {
-  color: #0f5bc7;
+  color: #123c5a;
   transform: translateY(-1px);
 }
 
@@ -247,6 +244,9 @@
 .blog-card__content {
   width: 100%;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .blog-card__content > * {
@@ -282,7 +282,7 @@
 }
 
 .blog-card__category {
-  color: #2c7ba7;
+  color: #154769;
   font-weight: 700;
 }
 
@@ -307,13 +307,14 @@
   color: #5f748c;
   line-height: 1.7;
   max-width: 64ch;
+  flex: 1;
 }
 
 .blog-card__readmore {
-  margin-top: 16px;
+  margin-top: auto;
   border: 0;
   background: transparent;
-  color: #1f6dd8;
+  color: #154769;
   font-weight: 700;
   cursor: pointer;
   padding: 0;
@@ -321,6 +322,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   display: inline-block;
+  align-self: flex-start;
 }
 
 .blog-card__readmore::after {
@@ -330,12 +332,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #1f6dd8 0%, #0f5bc7 100%);
+  background: linear-gradient(90deg, #154769 0%, #123c5a 100%);
   transition: width 0.3s ease;
 }
 
 .blog-card__readmore:hover {
-  color: #0f5bc7;
+  color: #123c5a;
   transform: translateX(4px);
 }
 
@@ -384,7 +386,7 @@
   top: 14px;
   right: 14px;
   border: 0;
-  background: #f0f5fa;
+  background: rgba(21, 71, 105, 0.1);
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -437,11 +439,12 @@
   }
 
   .blog-hero {
-    /* keep mobile hero short too */
-    min-height: 72vh;
-    margin-bottom: 78px;
+    min-height: 82vh;
+    margin-bottom: 74px;
+    margin-top: 0;
     border-radius: 20px;
     overflow: visible;
+    background-position: center top;
   }
 
   .blog-hero__card {
@@ -449,13 +452,13 @@
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 50%);
-    padding: 24px 18px;
-    border-radius: 14px;
-    width: min(92%, 520px);
+    padding: 22px 18px;
+    border-radius: 16px;
+    width: min(92%, 540px);
   }
 
   .blog-section {
-    margin-top: 86px;
+    margin-top: 56px;
   }
 
   .blog-section__pill {

@@ -31,8 +31,8 @@
   height: 34px;
   border: 0;
   border-radius: 999px;
-  background: rgba(29, 94, 255, 0.1);
-  color: #1d5eff;
+  background: rgba(21, 71, 105, 0.1);
+  color: #154769;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -41,7 +41,7 @@
 
 .closeButton:hover {
   transform: scale(1.05);
-  background: rgba(29, 94, 255, 0.18);
+  background: rgba(21, 71, 105, 0.2);
 }
 
 .topBar {
@@ -57,8 +57,8 @@
   height: 30px;
   padding: 0 12px;
   border-radius: 999px;
-  color: #1d5eff;
-  background: rgba(29, 94, 255, 0.1);
+  color: #154769;
+  background: rgba(21, 71, 105, 0.1);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -136,12 +136,12 @@
 }
 
 .inputWrap:focus-within {
-  border-color: rgba(29, 94, 255, 0.75);
-  box-shadow: 0 0 0 3px rgba(29, 94, 255, 0.12);
+  border-color: rgba(21, 71, 105, 0.75);
+  box-shadow: 0 0 0 3px rgba(21, 71, 105, 0.12);
 }
 
 .inputWrap svg {
-  color: #2a6cff;
+  color: #154769;
   font-size: 0.9rem;
   flex-shrink: 0;
 }
@@ -178,8 +178,8 @@
 }
 
 .field textarea:focus {
-  border-color: rgba(29, 94, 255, 0.75);
-  box-shadow: 0 0 0 3px rgba(29, 94, 255, 0.12);
+  border-color: rgba(21, 71, 105, 0.75);
+  box-shadow: 0 0 0 3px rgba(21, 71, 105, 0.12);
 }
 
 .submitButton {
@@ -192,8 +192,15 @@
   font-size: 0.96rem;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(135deg, #1d5eff, #31a2ff);
-  box-shadow: 0 15px 28px rgba(29, 94, 255, 0.25);
+  background: linear-gradient(135deg, #154769, #1e6a9c);
+  box-shadow: 0 15px 28px rgba(21, 71, 105, 0.3);
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #0f3450, #154769);
+  box-shadow: 0 18px 36px rgba(21, 71, 105, 0.4);
+  transform: translateY(-2px);
 }
 
 .submitButton:disabled {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { PenTool, Fan, ShieldCheck, Wrench } from 'lucide-react';
 
 const whatsappUrl = 'https://api.whatsapp.com/send/?phone=918712322475&text=Hi%2C%20I%20need%20ducting%20service%20details.&type=phone_number&app_absent=0';
@@ -30,6 +30,8 @@ export default function DuctingSection() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    const container = containerRef.current;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -39,13 +41,13 @@ export default function DuctingSection() {
       });
     }, { threshold: 0.1 });
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, []);
@@ -54,7 +56,7 @@ export default function DuctingSection() {
     <section className="bg-[#fcfdfd] font-sans w-full pt-12 pb-6 sm:pt-16 sm:pb-10 overflow-hidden border-b border-gray-100">
       <div
         ref={containerRef}
-        className="mx-auto max-w-[1200px] px-6 lg:px-8 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+        className="mx-auto max-w-300 px-6 lg:px-8 opacity-0 translate-y-8 transition-all duration-700 ease-out"
       >
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-40 items-center justify-between">
 
@@ -104,20 +106,53 @@ export default function DuctingSection() {
             </a>
           </div>
 
-          {/* Right Side - Image */}
-          <div className="lg:w-[45%] w-full">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100/50 relative group">
-              <img
-                src="/DUCTING%20CONTRACTORS.jpg"
-                alt="DUCTING CONTRACTORS"
-                className="w-full h-[550px] object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
+
+          {/* Right Side - Staggered Grid (Image 2 style) */}
+          <div className="lg:w-[55%] w-full relative sm:pl-6">
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-6 relative">
+                
+                {/* Horizontal Divider Line */}
+                <div className="hidden sm:block absolute top-[50%] left-0 right-0 border-t border-gray-100 z-0"></div>
+
+                {ductingFeatures.map((feature, i) => {
+                  const Icon = feature.icon;
+                  return (
+                    <div 
+                      key={i} 
+                      className={`flex items-start gap-4 relative z-10 bg-[#fcfdfd] ${
+                        i < 2 ? 'sm:pb-8' : 'sm:pt-8'
+                      }`}
+                    >
+                      {/* Circular Thin-bordered Icon */}
+                      <div className="shrink-0 w-12 h-12 rounded-full border border-blue-200 flex items-center justify-center text-blue-600 bg-white shadow-sm mt-1">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </div>
+                      <div className="pt-1">
+                        <h4 className="text-[1.05rem] font-bold text-gray-800 mb-2 leading-tight">
+                          {feature.title}
+                        </h4>
+                        <p className="text-gray-500 text-[13px] leading-[1.6]">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    </div>
+                  )
+                })}
+
+             </div>
           </div>
 
         </div>
-
+        
+        {/* Full Width Image Below the features, since we replaced the image space with the features block */}
+        <div className="mt-24 rounded-2xl overflow-hidden shadow-2xl border border-gray-100/50">
+          <img 
+            src="/DUCTING%20CONTRACTORS.jpg" 
+            alt="DUCTING CONTRACTORS" 
+            className="w-full h-auto max-h-125 object-cover object-center"
+          />
+        </div>
+        
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ const acDropdownItems = [
 ];
 
 const exhaustDropdownItems = [
-  { id: 'amc', label: 'AMC\'s', path: '/amc' },
+  { id: 'amc', label: "AMC's", path: '/amc' },
   { id: 'basement-exhaust', label: 'Basement Exhaust', path: '/basement-exhaust' },
   { id: 'restaurant-exhaust-cleaning', label: 'Restaurant Exhaust Cleaning', path: '/restaurant-exhaust-cleaning' },
 ];
@@ -124,6 +124,38 @@ export default function Navbar({ onBookNow }) {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const routeSectionMap = {
+      '/': 'home',
+      '/services': 'services',
+      '/contact': 'contact',
+      '/amc': 'amc',
+      '/ac-service': 'ac-service',
+      '/centralized-ac': 'centralized-ac',
+      '/copper-pipe': 'copper-pipe',
+      '/ducting': 'ducting',
+      '/ac-gas-leak': 'ac-gas-leak',
+      '/ac-installation': 'ac-installation',
+      '/ac-repair': 'ac-repair',
+      '/ac-scrap': 'ac-scrap',
+      '/air-curtain': 'air-curtain',
+      '/basement-exhaust': 'basement-exhaust',
+      '/restaurant-exhaust-cleaning': 'restaurant-exhaust-cleaning',
+    };
+
+    const nextSection = routeSectionMap[currentPathname];
+
+    if (!nextSection) {
+      return;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      setActiveSection(nextSection);
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [currentPathname]);
 
   const closeMenus = () => {
     setOpenDesktopDropdown(false);

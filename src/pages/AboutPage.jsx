@@ -2,9 +2,8 @@ import styles from './AboutPage.module.css';
 import {
   FaPhoneAlt, FaSnowflake, FaArrowRight, FaMapMarkerAlt, 
   FaTools, FaClock, FaShieldAlt, FaUsers, FaCheckCircle, 
-  FaAward, FaClipboardList, FaStar, FaBullseye, FaStarHalfAlt, FaRegStar
+  FaAward, FaClipboardList, FaStar, FaBullseye, FaStarHalfAlt, FaRegStar, FaUserCircle
 } from 'react-icons/fa';
-import acTechnicianHero from '../assets/ac_technician_hero.png?v=2';
 import acInstallIndoor from '../assets/ac_install_indoor.png';
 import acCheckOutdoor from '../assets/ac_check_outdoor.png';
 import familyAcComfort from '../assets/family_ac_comfort.png';
@@ -55,38 +54,67 @@ export default function AboutPage({ onBookNow }) {
   return (
     <div className={styles.aboutPage}>
       {/* Hero Section */}
-      <motion.section className={styles.hero} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7 }}>
-        <div className={styles.container}>
-          <div className={styles.heroContent}>
-            <div className={styles.badge}>
-              <FaSnowflake className={styles.badgeIcon} />
-              <span>Expert Heating & Cooling Specialists</span>
-            </div>
-            <h1 className={styles.title}>
-              Expert Air Conditioning &<br />
-              Heating Repair Services
-            </h1>
-            <p className={styles.description}>
-              From scorching summer days to unexpected breakdowns, Hyderabad AC Services is your trusted partner for commercial and residential cooling. We deliver fast, affordable, and energy-efficient HVAC solutions across Hyderabad to ensure you stay comfortable year-round.
-            </p>
-            <div className={styles.actions}>
-              <button className={styles.scheduleBtn} onClick={() => onBookNow('General HVAC Consultation')}>
-                Schedule Now <FaArrowRight className={styles.btnIcon} />
-              </button>
-              <a href="tel:+918712322475" className={styles.phoneBlock} style={{textDecoration: 'none', color: 'inherit'}}>
-                <div className={styles.phoneIconWrapper}>
-                  <FaPhoneAlt className={styles.phoneIcon} />
-                </div>
-                <div className={styles.phoneText}>
-                  <span className={styles.phoneLabel}>Call Us Now</span>
-                  <span className={styles.phoneNumber}>+91 87123 22475</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className={styles.heroImage}>
-            <img src={acTechnicianHero} alt="AC Technician" />
-          </div>
+      <motion.section className={styles.hero} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <div className={styles.bgLayer} />
+        <div className={styles.overlay} />
+        
+        <div className={styles.heroContentCentered}>
+          <motion.div 
+            className={styles.badgeGlassHero}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <FaSnowflake className={styles.badgeIconGlass} />
+            <span>Trusted Cooling Partners Since 2014</span>
+          </motion.div>
+          
+          <motion.h1 
+            className={styles.heroTitleCentered}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Expert Air Conditioning &<br />
+            Heating Repair Services
+          </motion.h1>
+          
+          <motion.p 
+            className={styles.heroDescCentered}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            From scorching summer days to unexpected breakdowns, Hyderabad AC Services is your trusted partner for commercial and residential cooling. We deliver fast, affordable, and energy-efficient HVAC solutions across Hyderabad.
+          </motion.p>
+          
+          <motion.div 
+            className={styles.heroActionsCentered}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <button className={styles.scheduleBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
+              Schedule Now <FaArrowRight />
+            </button>
+            <a href="tel:+918712322475" className={styles.phoneLinkHero}>
+              <div className={styles.phoneIconWrapHero}><FaPhoneAlt /></div>
+              <span>+91 87123 22475</span>
+            </a>
+          </motion.div>
+
+          <motion.div 
+            className={styles.trustStripHero}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <span>⭐ 4.9 Rated</span>
+            <span className={styles.dotHero}>•</span>
+            <span>10+ Years Experience</span>
+            <span className={styles.dotHero}>•</span>
+            <span>Certified Experts</span>
+          </motion.div>
         </div>
       </motion.section>
       
@@ -399,15 +427,21 @@ export default function AboutPage({ onBookNow }) {
 
           <motion.div className={styles.testimonialsGrid} variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
             {[
-              { name: "Jerome Bell", location: "Riverside District", avatar: avatarJerome, text: "The team arrived within an hour of my call. They quickly diagnosed the gas leak in my split AC, fixed it, and didn't leave any mess behind. True professionals!", rating: 4.5 },
-              { name: "Eleanor Pena", location: "Downtown Area", avatar: avatarEleanor, text: "We hired them to upgrade our office ducting. Not only were they incredibly affordable, but they finished the entire installation over the weekend so our work wasn't disrupted.", rating: 4.2 },
-              { name: "Robert Fox", location: "Oakwood Business Park", avatar: avatarRobert, text: "I've used several AC services in Hyderabad, but this company is by far the best. Their AMC package gives me complete peace of mind. Highly recommended.", rating: 4.8 }
+              { name: "Sangeta", location: "Chartered Accountant", avatar: avatarJerome, text: "Excellent customer service! My AC went out over the weekend. I called and they showed up within two hours to diagnose and fix the problem. Technicians were very professional and already had the replacement part on hand. I will definitely be a returning customer.", rating: 4.5 },
+              { name: "Raju", location: "Doctor", avatar: avatarEleanor, text: "When I called they were out within two hours. The technicians were extremely professional, worked quickly, and explained every detail of what was wrong with our air conditioning. They fixed it for a reasonable price and the experience was wonderful.", rating: 4.5 },
+              { name: "Aijaz Khan", location: "Software Engg", avatar: avatarRobert, text: "Always impressed with these guys. Friendly, professional, thorough and honest. They take the time to explain exactly what they are doing and what the options are. Prices are fair, and they are always so nice! Highly recommend them for quality work.", rating: 5 }
             ].map((testimonial, idx) => (
               <motion.div key={idx} className={styles.testimonialCard} variants={fadeUpItem}>
                 <div className={styles.testimonialBg}>
                    <FaSnowflake className={styles.bgSnow1} />
                    <FaSnowflake className={styles.bgSnow2} />
                    <FaSnowflake className={styles.bgSnow3} />
+                </div>
+                <div className={styles.quoteIconWrap}>
+                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{opacity: 0.1}}>
+                     <path d="M10 25H15L12.5 15H7.5L10 25ZM22.5 25H27.5L25 15H20L22.5 25Z" fill="#0284C7" />
+                     <path d="M11.6667 30C15.3486 30 18.3333 27.0152 18.3333 23.3333V13.3333C18.3333 11.4924 16.8409 10 15 10H8.33333C6.49238 10 5 11.4924 5 13.3333V20C5 21.8409 6.49238 23.3333 8.33333 23.3333H11.6667C11.6667 25.1742 10.1742 26.6667 8.33333 26.6667C7.41489 26.6667 6.66667 27.4149 6.66667 28.3333C6.66667 29.2518 7.41489 30 8.33333 30H11.6667ZM28.3333 30C32.0152 30 35 27.0152 35 23.3333V13.3333C35 11.4924 33.5076 10 31.6667 10H25C23.1591 10 21.6667 11.4924 21.6667 13.3333V20C21.6667 21.8409 23.1591 23.3333 25 23.3333H28.3333C28.3333 25.1742 26.8409 26.6667 25 26.6667C24.0815 26.6667 23.3333 27.4149 23.3333 28.3333C23.3333 29.2518 24.0815 30 25 30H28.3333Z" fill="#0284C7" />
+                   </svg>
                 </div>
                 
                 <div className={styles.starsRow}>
@@ -417,7 +451,9 @@ export default function AboutPage({ onBookNow }) {
                   {testimonial.text}
                 </p>
                 <div className={styles.testimonialAuthor}>
-                  <img src={testimonial.avatar} alt={testimonial.name} className={styles.authorAvatar} />
+                  <div className={styles.authorIconWrapper}>
+                    <FaUserCircle className={styles.authorUserIcon} />
+                  </div>
                   <div className={styles.authorInfo}>
                     <h4>{testimonial.name}</h4>
                     <span>{testimonial.location}</span>
