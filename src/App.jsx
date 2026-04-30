@@ -90,12 +90,6 @@ export default function App() {
         onClose={handleCloseModal}
       />
     </div>
-        <ServiceFormModal
-          isOpen={isModalOpen}
-          selectedService={selectedService}
-          onClose={handleCloseModal}
-        />
-      </div>
     </BrowserRouter>
   )
 }
