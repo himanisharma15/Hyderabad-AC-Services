@@ -37,63 +37,55 @@ const capabilities = [
     title: 'Engineering & Design',
     desc: 'Bespoke system design and precision layout planning.',
     pulse: false,
+    imageName: 'Engineering & Design.jpg',
   },
   {
     icon: Layers,
     title: 'Infrastructure',
     desc: 'Expert AC duct installation with high-grade thermal insulation.',
     pulse: false,
+    imageName: 'Infrastructure.jpg',
   },
   {
     icon: Server,
     title: 'Advanced Systems',
     desc: 'Seamless setup for VRV/VRF, Chillers, and Ducted Split units.',
     pulse: false,
+    imageName: 'Advanced Systems.jpg',
   },
   {
     icon: SlidersHorizontal,
     title: 'Smart Controls',
     desc: 'Precision zoning and integrated control panel installation.',
     pulse: true,
+    imageName: 'Smart Controls.jpg',
   },
   {
     icon: Activity,
     title: 'Performance',
     desc: 'Comprehensive commissioning, testing, and system optimization.',
     pulse: false,
+    imageName: 'Performance AC.jpg',
   }
 ]
 
-// Simple SVG approximations of the logos
+// Logo components using real image files
 const DaikinLogo = () => (
-  <svg viewBox="0 0 160 30" className="h-6 filter transition-opacity">
-    <g fill="#4b5563">
-      <polygon points="10,0 25,0 9,30 0,30" />
-      <polygon points="35,0 42,0 25,30 18,30" />
-      <text x="45" y="24" fontSize="25" fontWeight="900" fontFamily="sans-serif" fontStyle="italic" letterSpacing="0.5">DAIKIN</text>
-    </g>
-  </svg>
+  <img src="/Daikin.jpeg" alt="Daikin" className="h-32 object-contain filter transition-opacity" />
 )
 
 const BlueStarLogo = () => (
-  <svg viewBox="0 0 200 30" className="h-6 filter transition-opacity">
-    <g fill="#4b5563">
-      <path d="M15,0 L19,10 L30,10 L21,17 L24,28 L15,22 L6,28 L9,17 L0,10 L11,10 Z" />
-      <text x="38" y="24" fontSize="24" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.5">BLUE STAR</text>
-    </g>
-  </svg>
+  <div className="overflow-hidden bg-transparent leading-none">
+    <img src="/bluestar.jpeg" alt="Blue Star" className="block h-32 w-auto object-contain border-0 bg-transparent shadow-none outline-none filter transition-opacity" />
+  </div>
 )
 
 const CarrierLogo = () => (
-  <svg viewBox="0 0 140 30" className="h-6 filter transition-opacity">
-    <text x="0" y="24" fontSize="30" fontWeight="600" fontFamily="serif" fontStyle="italic" letterSpacing="-0.5" fill="#4b5563">Carrier</text>
-  </svg>
+  <img src="/carrier.jpeg" alt="Carrier" className="h-32 object-contain filter transition-opacity" />
 )
 
 const VoltasLogo = () => (
-  <svg viewBox="0 0 140 30" className="h-6 filter transition-opacity">
-    <text x="0" y="26" fontSize="28" fontWeight="800" fontFamily="sans-serif" fontStyle="italic" letterSpacing="-0.5" fill="#4b5563">VOLTAS</text>
-  </svg>
+  <img src="/voltas.jpeg" alt="Voltas" className="h-32 object-contain filter transition-opacity" />
 )
 
 export default function CentralizedACSection() {
@@ -117,91 +109,93 @@ export default function CentralizedACSection() {
   }, [])
 
   return (
-    <section className="bg-white min-h-screen py-24 sm:py-32 flex flex-col justify-center border-y border-gray-200 overflow-hidden font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full">
-        
-        {/* Header Section */}
-        <motion.div 
-          className="max-w-3xl mb-16 mx-auto text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={headerVariants}
-        >
-          <span className="inline-block text-[0.65rem] font-bold tracking-[0.3em] text-gray-500 uppercase mb-4">
-            Industrial Grade Climate Control
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 uppercase leading-[1.2] font-['Inter','Montserrat',sans-serif]">
-            Our End-To-End Capabilities
-          </h2>
-          <p className="mt-6 text-[15px] leading-relaxed text-gray-500 max-w-2xl mx-auto">
-            From initial blueprint to final optimization, we manage every stage of your climate control infrastructure.
-          </p>
-        </motion.div>
+    <section className="bg-white flex flex-col font-sans">
+      {/* Header Section */}
+      <motion.div 
+        className="relative w-screen min-h-[72vh] text-center flex flex-col items-center justify-center overflow-visible py-16 sm:py-20"
+        style={{
+          backgroundImage: 'url(/header.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={headerVariants}
+      >
+        <span className="inline-block text-[0.65rem] font-bold tracking-[0.3em] text-[#0d2f5a] uppercase mb-3">
+          Industrial Grade Climate Control
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0d2f5a] uppercase leading-[1.15] font-['Inter','Montserrat',sans-serif]">
+          Our End-To-End Capabilities
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-[#0d2f5a]/85 max-w-2xl mx-auto px-6">
+          From initial blueprint to final optimization, we manage every stage of your climate control infrastructure.
+        </p>
 
         {/* 5-Column Bento Grid */}
         <motion.div 
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-24"
+          className="absolute left-1/2 bottom-0 z-20 w-full max-w-350 -translate-x-1/2 translate-y-1/2 px-6 lg:px-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {capabilities.map((item, index) => (
-            <motion.div 
-              key={index} 
-              variants={itemVariants}
-              className="bento-card relative flex flex-col p-6 rounded-xl border border-gray-200 bg-linear-to-b from-gray-50 to-white overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group min-h-[280px]"
-            >
-              {/* Magic Mouse Glow Effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
-                   style={{ background: 'radial-gradient(circle 250px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(15, 23, 42, 0.03), transparent 80%)' }}>
-              </div>
-              
-              <div className="relative z-10 flex-1 flex flex-col">
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-white border border-gray-200 text-gray-800 shadow-sm transition-colors duration-300 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
-                  <item.icon className={`h-5 w-5 stroke-[1.5px] ${item.pulse ? 'icon-pulse' : ''}`} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {capabilities.map((item, index) => (
+              <motion.div 
+                key={index} 
+                variants={itemVariants}
+                className="bento-card relative flex min-h-70 flex-col overflow-hidden rounded-xl border border-gray-200 bg-linear-to-b from-gray-50 to-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group"
+              >
+                {/* Magic Mouse Glow Effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+                     style={{ background: 'radial-gradient(circle 250px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(15, 23, 42, 0.03), transparent 80%)' }}>
                 </div>
                 
-                <div className="mt-auto">
-                  <h3 className="text-[13px] font-bold uppercase tracking-[0.1em] text-gray-900 mb-3 font-['Inter','Montserrat',sans-serif]">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <div className="mb-5 h-32 w-full overflow-hidden rounded-lg">
+                    <img
+                      src={encodeURI(`/${item.imageName || `${item.title}.jpg`}`)}
+                      alt={item.title}
+                      className="block h-full w-full object-cover"
+                    />
+                  </div>
 
-        {/* Action Button */}
-        <motion.div 
-          className="flex justify-center mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <button className="group relative inline-flex items-center gap-4 bg-gray-900 text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm transition-all duration-300 hover:bg-black hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] animate-glow rounded-sm">
-            <span>Begin Consultation</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </button>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-800 shadow-sm transition-colors duration-300 group-hover:border-gray-900 group-hover:bg-gray-900 group-hover:text-white">
+                    <item.icon className={`h-5 w-5 stroke-[1.5px] ${item.pulse ? 'icon-pulse' : ''}`} />
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <h3 className="mb-3 font-['Inter','Montserrat',sans-serif] text-[13px] font-bold uppercase tracking-widest text-gray-900">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
+      </motion.div>
+
+      <div className="max-w-350 mx-auto w-full border-y border-gray-200 px-6 pt-48 pb-24 sm:pt-56 sm:pb-32 lg:px-12">
 
         {/* Brands We Work With */}
         <motion.div 
-          className="border-t border-gray-200 pt-16 flex flex-col items-center gap-8 text-center"
+          className="border-t border-gray-200 pt-8 flex flex-col items-center gap-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-semibold tracking-[0.15em] text-[#7d93a8] uppercase">
-            BRANDS WE WORK WITH
-          </span>
+          <h3 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 uppercase">
+            Brands We Work With
+          </h3>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 group">
             <BlueStarLogo />
             <DaikinLogo />
