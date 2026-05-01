@@ -4,6 +4,9 @@
   --brand-blue-soft: #e8f1f7;
   --brand-blue-mid: #2a628a;
   --brand-blue-line: #b8ccda;
+  --section-gap: 80px;
+  --card-radius: 20px;
+  --container-max-width: 1200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -22,6 +25,7 @@
   text-align: center;
   overflow: hidden;
   background: #0f172a;
+  margin-top: 25px;
 }
 
 .bgLayer {
@@ -139,6 +143,19 @@
   box-shadow: 0 15px 30px rgba(21, 71, 105, 0.42);
 }
 
+/* Visible focus outline for keyboard users */
+.scheduleBtnPrimary:focus-visible,
+.primaryBtn:focus-visible,
+.ctaBtnPrimary:focus-visible,
+.ctaBtnOutline:focus-visible,
+.outlineBtn:focus-visible,
+.projectIconBtn:focus-visible,
+.mobileToggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(21, 71, 105, 0.12);
+  border-radius: 12px;
+}
+
 .phoneLinkHero {
   display: flex;
   align-items: center;
@@ -184,7 +201,7 @@
 
 /* --- New Sections Globals --- */
 .comfortSection, .whoWeAreSection, .missionSection {
-  padding: 80px 0;
+  padding: var(--section-gap) 0;
   background: #ffffff;
 }
 
@@ -216,7 +233,7 @@
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   line-height: 1.15;
   font-weight: 700;
-  color: #111827;
+  color: var(--brand-blue); /* use brand color for better visual match */
   margin-bottom: 24px;
   font-family: var(--heading);
   letter-spacing: -0.5px;
@@ -672,7 +689,7 @@
 
 .projectCard {
   position: relative;
-  border-radius: 20px;
+  border-radius: var(--card-radius);
   overflow: hidden;
   height: 400px;
   background: #f8f9fa;
@@ -1005,7 +1022,7 @@
 
 .testimonialsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
   margin-bottom: 50px;
 }
@@ -1013,10 +1030,12 @@
 .testimonialCard {
   position: relative;
   background: linear-gradient(180deg, var(--brand-blue-soft) 0%, #ffffff 100%);
-  border-radius: 20px;
-  padding: 40px 32px 32px;
+  border-radius: var(--card-radius);
+  padding: 36px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px; /* consistent card height */
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
@@ -1026,9 +1045,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 120px;
   overflow: hidden;
-  opacity: 0.08;
+  opacity: 0.06;
   pointer-events: none;
 }
 
@@ -1058,17 +1077,19 @@
 
 .quoteIconWrap {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   z-index: 0;
+  opacity: 0.08;
+  pointer-events: none;
 }
 
 .starsRow {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   color: #FBBF24;
-  font-size: 1.1rem;
-  margin-bottom: 24px;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
   position: relative;
   z-index: 2;
 }
@@ -1078,7 +1099,7 @@
   line-height: 1.65;
   color: #1f2937;
   font-weight: 500;
-  margin: 0 0 28px 0;
+  margin: 0 0 20px 0;
   flex-grow: 1;
   z-index: 1;
   font-style: italic;
@@ -1092,8 +1113,8 @@
 }
 
 .authorIconWrapper {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1103,7 +1124,7 @@
 }
 
 .authorUserIcon {
-  font-size: 3rem;
+  font-size: 2.4rem;
 }
 
 .authorInfo h4 {
@@ -1339,6 +1360,7 @@
   margin-bottom: 20px;
   line-height: 1.2;
   font-family: var(--heading);
+  color: white; /* ensure visibility on gradient background */
 }
 
 .ctaDesc {
@@ -1399,4 +1421,16 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: white;
   transform: translateY(-3px);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bgLayer {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

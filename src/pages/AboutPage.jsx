@@ -94,10 +94,10 @@ export default function AboutPage({ onBookNow }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <button className={styles.scheduleBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
+            <button type="button" aria-label="Schedule consultation" className={styles.scheduleBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
               Schedule Now <FaArrowRight />
             </button>
-            <a href="tel:+918712322475" className={styles.phoneLinkHero}>
+            <a href="tel:+918712322475" aria-label="Call +91 87123 22475" className={styles.phoneLinkHero}>
               <div className={styles.phoneIconWrapHero}><FaPhoneAlt /></div>
               <span>+91 87123 22475</span>
             </a>
@@ -109,7 +109,7 @@ export default function AboutPage({ onBookNow }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <span>⭐ 4.9 Rated</span>
+            <span>4.9 Rated</span>
             <span className={styles.dotHero}>•</span>
             <span>10+ Years Experience</span>
             <span className={styles.dotHero}>•</span>
@@ -148,17 +148,17 @@ export default function AboutPage({ onBookNow }) {
                </motion.div>
             </motion.div>
             <div className={styles.btnRow}>
-               <button className={styles.primaryBtn} onClick={() => { if(onBookNow) onBookNow('AC Service'); }}>
+               <button type="button" aria-label="Book AC Service" className={styles.primaryBtn} onClick={() => { if(onBookNow) onBookNow('AC Service'); }}>
                  Book A Service <FaArrowRight />
                </button>
-               <button className={styles.outlineBtn} onClick={() => window.location.href='tel:+918712322475'}>
+               <button type="button" aria-label="Call Hyderabad AC Services" className={styles.outlineBtn} onClick={() => window.location.href='tel:+918712322475'}>
                  Call Now <FaPhoneAlt />
                </button>
             </div>
           </div>
           <div className={styles.imageRight}>
             <div className={styles.imgWrapper}>
-               <img src={acInstallIndoor} alt="AC Install" className={`${styles.roundedImg} ${styles.curvedImgLeftHero}`} />
+               <img src={acInstallIndoor} alt="AC Install" className={`${styles.roundedImg} ${styles.curvedImgLeftHero}`} loading="lazy" decoding="async" />
                <div className={styles.floatingCardLeft}>
                  <div className={styles.shieldIcon}><FaShieldAlt /></div>
                  <div className={styles.floatingText}>
@@ -176,7 +176,7 @@ export default function AboutPage({ onBookNow }) {
         <div className={styles.container}>
            <div className={styles.imageLeft}>
               <div className={styles.imgWrapper}>
-                 <img src={acCheckOutdoor} alt="Outdoor AC Check" className={styles.roundedImg} />
+                 <img src={acCheckOutdoor} alt="Outdoor AC Check" className={styles.roundedImg} loading="lazy" decoding="async" />
                  <div className={styles.floatingCardBottom}>
                     <div className={styles.avatarGroup}>
                       <FaUsers className={styles.usersIcon} />
@@ -231,7 +231,7 @@ export default function AboutPage({ onBookNow }) {
           <div className={styles.imageRight}>
              <div className={`${styles.imgWrapper} ${styles.missionImgWrap}`}>
                <div className={styles.greyBackdrop}></div>
-               <img src={familyAcComfort} alt="Family Comfort" className={styles.roundedImg} />
+               <img src={familyAcComfort} alt="Family Comfort" className={styles.roundedImg} loading="lazy" decoding="async" />
                <div className={styles.floatingCardRight}>
                  <div className={styles.targetIconWrapper}>
                    <FaBullseye className={styles.targetIcon} />
@@ -288,9 +288,9 @@ export default function AboutPage({ onBookNow }) {
       {/* --- Section 6: WHY CHOOSE US --- */}
       <motion.section className={styles.whyChooseSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7 }}>
         <div className={styles.whyChooseContainer}>
-          <div className={styles.whyChooseLeft}>
+            <div className={styles.whyChooseLeft}>
             <div className={styles.whyChooseBgOverlay}></div>
-            <img src={whyChooseBg} alt="AC Background" className={styles.whyChooseBgImg} />
+            <img src={whyChooseBg} alt="AC Background" className={styles.whyChooseBgImg} loading="lazy" decoding="async" />
             <div className={styles.whyChooseContent}>
               <div className={styles.badgeGlass}>
                 <FaSnowflake className={styles.badgeIconGlass} />
@@ -304,7 +304,7 @@ export default function AboutPage({ onBookNow }) {
               </p>
               
               <div className={styles.trustedBox}>
-                <img src={trustedPartner} alt="Trusted Partner" className={styles.trustedImg} />
+                <img src={trustedPartner} alt="Trusted Partner" className={styles.trustedImg} loading="lazy" decoding="async" />
                 <div className={styles.trustedBadge}>
                   <div className={styles.handshakeIcon}><FaHandshake /></div>
                   <strong>Trusted By 500+ Partner</strong>
@@ -368,40 +368,40 @@ export default function AboutPage({ onBookNow }) {
              </div>
           </div>
           
-          <motion.div className={styles.projectsGrid} variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.div className={styles.projectsGrid} variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <motion.div className={styles.projectCard} variants={fadeUpItem}>
-              <img src={project1} alt="3-Bedroom Home AC Installation" className={styles.projectImg} />
+              <img src={project1} alt="3-Bedroom Home AC Installation" className={styles.projectImg} loading="lazy" decoding="async" />
               <div className={styles.projectCardContent}>
                 <h3>3-Bedroom Home AC Installation</h3>
                 <p>Complete split AC installation for a modern villa, optimizing airflow and energy efficiency in every room.</p>
-                <button className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
+                <button type="button" aria-label="View services" className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
               </div>
             </motion.div>
             
             <motion.div className={styles.projectCard} variants={fadeUpItem}>
-              <img src={project2} alt="Restaurant Kitchen Ventilation" className={styles.projectImg} />
+              <img src={project2} alt="Restaurant Kitchen Ventilation" className={styles.projectImg} loading="lazy" decoding="async" />
               <div className={styles.projectCardContent}>
                 <h3>Restaurant Kitchen Ventilation</h3>
                 <p>Heavy-duty exhaust and ventilation setup ensuring a smoke-free and cool environment for kitchen staff.</p>
-                <button className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
+                <button type="button" aria-label="View services" className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
               </div>
             </motion.div>
 
             <motion.div className={styles.projectCard} variants={fadeUpItem}>
-              <img src={project3} alt="Office Building HVAC Upgrade" className={styles.projectImg} />
+              <img src={project3} alt="Office Building HVAC Upgrade" className={styles.projectImg} loading="lazy" decoding="async" />
               <div className={styles.projectCardContent}>
                 <h3>Office Building HVAC Upgrade</h3>
                 <p>Centralized cooling system overhaul for a 3-story corporate office, improving air quality and reducing energy costs by 20%.</p>
-                <button className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
+                <button type="button" aria-label="View services" className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
               </div>
             </motion.div>
 
             <motion.div className={styles.projectCard} variants={fadeUpItem}>
-              <img src={project4} alt="Smart Home Climate Control" className={styles.projectImg} />
+              <img src={project4} alt="Smart Home Climate Control" className={styles.projectImg} loading="lazy" decoding="async" />
               <div className={styles.projectCardContent}>
                 <h3>Smart Home Climate Control</h3>
                 <p>Integration of smart thermostats with VRV technology, allowing the homeowner full mobile control over their cooling.</p>
-                <button className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
+                <button type="button" aria-label="View services" className={styles.projectIconBtn} onClick={() => navigateTo('/services')}><FaArrowRight className={styles.rotateIcon} /></button>
               </div>
             </motion.div>
           </motion.div>
@@ -474,10 +474,10 @@ export default function AboutPage({ onBookNow }) {
             Book a service today and let our certified technicians ensure your AC runs efficiently all year round. Fast, affordable, and 100% reliable.
           </p>
           <div className={styles.ctaActions}>
-            <button className={styles.ctaBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
+            <button type="button" aria-label="Book Now" className={styles.ctaBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
               Book Now <FaArrowRight className={styles.btnIcon} />
             </button>
-            <a href="tel:+918712322475" className={styles.ctaBtnOutline}>
+            <a href="tel:+918712322475" aria-label="Call +91 87123 22475" className={styles.ctaBtnOutline}>
               <FaPhoneAlt /> Call +91 87123 22475
             </a>
           </div>
