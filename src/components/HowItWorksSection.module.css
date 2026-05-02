@@ -1,10 +1,9 @@
 .section {
-  padding: 100px 0 40px;
-  background: #eef5fb;
+  padding: 100px 0 100px;
+  background: #f8fafc;
   overflow: hidden;
   position: relative;
   z-index: 5;
-  margin-top: -40px;
 }
 
 .container {
@@ -13,13 +12,13 @@
   padding: 0 40px;
 }
 
-/* HEADER ALIGNMENT SYSTEM */
+/* HEADER ALIGNMENT */
 .headerRow {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 48px;
   align-items: start;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .labelCol {
@@ -28,7 +27,7 @@
 
 .howLabel {
   display: block;
-  font-size: 30px;
+  font-size: 24px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #154769;
@@ -61,218 +60,207 @@
   color: #0f172a;
   line-height: 1.15;
   margin: 0;
-  text-align: left;
   letter-spacing: -0.02em;
 }
 
 .headerSub {
-  font-size: 17px;
+  font-size: 18px;
   color: #64748b;
-  margin-top: 14px;
+  margin-top: 16px;
   line-height: 1.7;
-  text-align: left;
   max-width: 560px;
 }
 
-/* CARDS ALIGNMENT SYSTEM */
-.cardsRow {
-  display: block; /* Full width cards - not split like header */
-  margin-top: 20px;
-}
-
-.cardsCol {
-  width: 100%;
-}
-
+/* FLIP CARD SYSTEM */
 .stepsContainer {
   display: flex;
-  gap: 20px;
-  min-height: 320px;
-  width: 100%;
+  gap: 24px;
+  justify-content: space-between;
+  perspective: 1000px;
 }
 
-/* CARD STYLES */
-.card {
-  position: relative;
-  height: 320px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+.cardWrapper {
+  flex: 1;
+  height: 380px;
   cursor: pointer;
-  overflow: hidden;
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-.active {
-  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
-  z-index: 10;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .cardInner {
   position: relative;
+  width: 100%;
   height: 100%;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-.activeBg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #154769 0%, #1e6a9c 100%);
-  z-index: 1;
+.cardWrapper.active .cardInner {
+  transform: rotateY(180deg) scale(1.05);
 }
 
-.stepNum {
-  font-family: var(--heading);
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: #94a3b8;
+.cardWrapper:hover:not(.active) {
+  transform: translateY(-6px);
+}
+
+.cardWrapper.faded {
   opacity: 0.5;
 }
 
-.active .stepNum {
-  color: #ffffff;
-  opacity: 0.3;
+/* FRONT & BACK SIDES */
+.cardFront, .cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.iconContainer {
-  flex: 1;
-  display: flex;
-  align-items: center; /* Center icon vertically in its space */
-  justify-content: center;
-  margin-bottom: 0;
+/* FRONT SIDE */
+.cardFront {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.stepNum {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #154769;
+  opacity: 0.15;
 }
 
 .iconBox {
-  width: 64px;
-  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 14px;
+  color: #154769;
+  opacity: 1;
+  filter: blur(0px);
   transition: all 0.3s ease;
+  background: rgba(21, 71, 105, 0.08);
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
 }
 
 .iconBox svg {
-  color: #94a3b8;
-  opacity: 0.6;
-  filter: blur(0.2px);
-  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
 }
 
-.active .iconBox {
-  background: rgba(255, 255, 255, 0.4);
+.frontLabel {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  opacity: 0.9;
 }
 
-.active .iconBox svg {
-  color: #ffffff;
-  opacity: 1;
-  filter: none;
-  transform: scale(1.08);
+/* BACK SIDE */
+.cardBack {
+  background: linear-gradient(135deg, #0F3D5E, #1C6EA4);
+  color: white;
+  transform: rotateY(180deg);
 }
 
-.content {
-  position: absolute;
-  bottom: 30px;
-  left: 24px;
-  right: 24px;
-  text-align: center;
-  color: #ffffff;
-  transition: all 0.3s ease;
+.backContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.backIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  color: white;
 }
 
 .cardTitle {
   font-family: var(--heading);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  margin-top: 8px;
   margin-bottom: 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .cardDesc {
   font-size: 0.95rem;
   line-height: 1.6;
-  opacity: 0.9;
-  max-width: 280px;
-  margin: 8px auto 0;
+  opacity: 0.85;
+  max-width: 200px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 1000px) {
-  .headerRow, .cardsRow {
+@media (max-width: 1024px) {
+  .headerRow {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  
-  .labelCol {
-    padding-top: 0;
+    margin-bottom: 40px;
   }
 
-  .cardsCol {
-    grid-column: 1;
+  .stepsContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .cardWrapper {
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .headerTitle {
+    font-size: 36px;
+  }
+
+  .howLabel {
+    font-size: 18px;
   }
 
   .stepsContainer {
     flex-direction: column;
-    height: auto;
-    min-height: 0;
+    align-items: center;
   }
 
-  .card {
-    flex: none !important;
+  .cardWrapper {
     width: 100%;
-    height: 100px;
-    min-height: 100px;
-    transition: height 0.4s ease;
+    max-width: 340px;
+    height: 320px;
   }
 
-  .card.active {
-    height: 280px;
+  /* No hover on mobile as per requirement */
+  .cardWrapper:hover:not(.active) {
+    transform: none;
   }
-
-  .cardInner {
-    padding: 20px 24px;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .iconContainer {
-    flex: none;
-    align-items: center;
-    margin-bottom: 0;
-  }
-
-  .iconBox {
-    transform: none !important;
-  }
-
-  .content {
-    position: static;
-    text-align: left;
-    margin-top: 0;
-  }
-
-  .cardTitle {
-    font-size: 1.3rem;
-    margin-bottom: 4px;
-  }
-
-  .cardDesc {
-    font-size: 0.85rem;
-    max-width: none;
+  
+  .cardWrapper.faded {
+    opacity: 0.7; /* Less faded on mobile for visibility */
   }
 }

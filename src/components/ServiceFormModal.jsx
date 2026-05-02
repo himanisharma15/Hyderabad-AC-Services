@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   FaCalendarAlt,
+  FaChevronDown,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaTimes,
@@ -39,6 +40,7 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
+    serviceType: selectedService || '',
     preferredDate: '',
     address: '',
     notes: '',
@@ -55,6 +57,12 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
       notes: '',
     });
   }, []);
+
+  useEffect(() => {
+    if (isOpen && selectedService) {
+      setFormData((prev) => ({ ...prev, serviceType: selectedService }));
+    }
+  }, [isOpen, selectedService]);
 
   const handleClose = useCallback(() => {
     resetForm();
@@ -144,10 +152,39 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
             <h3>Book Your Service</h3>
             <p>Share your details and we will confirm your appointment shortly.</p>
 
-            <div className={styles.serviceTypeBar}>
+            <label className={styles.field}>
               <span>Selected Service</span>
-              <strong>{selectedService || 'General AC Service'}</strong>
-            </div>
+              <div className={styles.inputWrap}>
+                <FaWrench />
+                <select
+                  name="serviceType"
+                  value={formData.serviceType}
+                  onChange={handleChange}
+                  required
+                  className={styles.topSelect}
+                >
+                  <option value="" disabled>Select a service</option>
+                  <option value="General HVAC Consultation">General HVAC Consultation</option>
+                  <optgroup label="Air Conditioning">
+                    <option value="AC Repair">AC Repair</option>
+                    <option value="AC Service">AC Service</option>
+                    <option value="Centralized Air Conditioning">Centralized Air Conditioning</option>
+                    <option value="Copper Pipe Planning">Copper Pipe Planning</option>
+                    <option value="Ducting">Ducting</option>
+                    <option value="AC Gas Leak">AC Gas Leak</option>
+                    <option value="AC Installation">AC Installation</option>
+                    <option value="AC Scrap">AC Scrap</option>
+                    <option value="Air Curtain">Air Curtain</option>
+                  </optgroup>
+                  <optgroup label="Exhaust Systems">
+                    <option value="AMC's">AMC's</option>
+                    <option value="Basement Exhaust">Basement Exhaust</option>
+                    <option value="Restaurant Exhaust Cleaning">Restaurant Exhaust Cleaning</option>
+                  </optgroup>
+                </select>
+                <FaChevronDown className={styles.dropdownIcon} />
+              </div>
+            </label>
 
             {isSubmitted ? (
               <div className={styles.successBox}>
@@ -188,14 +225,6 @@ export default function ServiceFormModal({ isOpen, selectedService, onClose }) {
                         required
                         placeholder="Enter your phone number"
                       />
-                    </div>
-                  </label>
-
-                  <label className={styles.field}>
-                    <span>Service Type</span>
-                    <div className={`${styles.inputWrap} ${styles.readonlyField}`}>
-                      <FaWrench />
-                      <input type="text" value={selectedService} readOnly placeholder="Selected service" />
                     </div>
                   </label>
 

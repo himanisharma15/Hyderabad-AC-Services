@@ -1,10 +1,13 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1100;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(243, 249, 255, 0.9);
+  background: #f3f9ff;
+  /* Solid color for better logo blending */
   border-bottom: 1px solid rgba(85, 139, 226, 0.18);
 }
 
@@ -26,6 +29,7 @@
   cursor: pointer;
   padding: 0;
   line-height: 0;
+  mix-blend-mode: multiply;
 }
 
 .logoImage {
@@ -34,6 +38,8 @@
   max-width: 100%;
   display: block;
   object-fit: contain;
+  background: transparent !important;
+  mix-blend-mode: multiply;
 }
 
 .desktopMenu {
@@ -113,7 +119,7 @@
 
 .dropdownItem:hover,
 .dropdownItemActive {
-  background: rgba(47, 119, 255, 0.1);
+  background: rgba(var(--brand-primary-rgb), 0.1);
   color: var(--brand-primary);
 }
 

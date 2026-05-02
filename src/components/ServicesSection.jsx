@@ -48,11 +48,10 @@ export default function ServicesSection({ onBookNow }) {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
-          onTimeUpdate={handleHeaderVideoTimeUpdate}
         >
-          <source src="/images /Ac repair .mp4" type="video/mp4" />
+          <source src="/services.mp4" type="video/mp4" />
         </video>
         <div className={styles.headerOverlay} aria-hidden="true" />
 

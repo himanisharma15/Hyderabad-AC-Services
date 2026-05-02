@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './PremiumFooter.css';
 
 const PremiumFooter = () => {
@@ -12,7 +13,7 @@ const PremiumFooter = () => {
       hours: '24/7',
     },
     services: [
-      { name: 'AC Service', link: '/ac-service' },
+      { name: 'AC Service', link: '/services/ac-service' },
       { name: 'AC Repair', link: '/services/ac-repair' },
       { name: 'AC Installation', link: '/services/ac-installation' },
       { name: 'Ducting', link: '/services/ducting' },
@@ -72,9 +73,9 @@ const PremiumFooter = () => {
             <ul className="footer-link-list">
               {footerData.services.map((service, index) => (
                 <li key={index}>
-                  <a href={service.link} className="footer-link">
+                  <Link to={service.link} className="footer-link">
                     {service.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,9 +87,9 @@ const PremiumFooter = () => {
             <ul className="footer-link-list">
               {footerData.quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.link} className="footer-link">
+                  <Link to={link.link} className="footer-link">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -97,7 +98,7 @@ const PremiumFooter = () => {
           {/* Column 4: Social & Hours */}
           <div className="footer-column social-column">
             <h3 className="footer-column-title">Connect With Us</h3>
-            
+
             <div className="footer-social-links">
               {footerData.social.map((social, index) => {
                 const Icon = social.icon;
