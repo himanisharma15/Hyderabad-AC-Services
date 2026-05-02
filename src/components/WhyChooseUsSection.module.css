@@ -1,5 +1,5 @@
 .section {
-  padding: 40px 20px 60px;
+  padding: 120px 20px 100px;
   background: #eef5fb;
   position: relative;
   overflow: visible;
@@ -16,14 +16,14 @@
 .mainGrid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 80px;
+  gap: 40px;
   align-items: center;
 }
 
 .leftContent {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
 .header {

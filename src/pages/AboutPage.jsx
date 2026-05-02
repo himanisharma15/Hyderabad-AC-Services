@@ -148,9 +148,6 @@ export default function AboutPage({ onBookNow }) {
                </motion.div>
             </motion.div>
             <div className={styles.btnRow}>
-               <button className={styles.primaryBtn} onClick={() => { if(onBookNow) onBookNow('AC Service'); }}>
-                 Book A Service <FaArrowRight />
-               </button>
                <button className={styles.outlineBtn} onClick={() => window.location.href='tel:+918712322475'}>
                  Call Now <FaPhoneAlt />
                </button>
@@ -466,23 +463,6 @@ export default function AboutPage({ onBookNow }) {
         </div>
       </motion.section>
 
-      {/* --- Section 8: CTA / BOOK NOW --- */}
-      <motion.section className={styles.ctaSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7 }}>
-        <div className={styles.ctaContainer}>
-          <h2 className={styles.ctaTitle}>Ready to Experience Ultimate Cooling Comfort?</h2>
-          <p className={styles.ctaDesc}>
-            Book a service today and let our certified technicians ensure your AC runs efficiently all year round. Fast, affordable, and 100% reliable.
-          </p>
-          <div className={styles.ctaActions}>
-            <button className={styles.ctaBtnPrimary} onClick={() => onBookNow('General HVAC Consultation')}>
-              Book Now <FaArrowRight className={styles.btnIcon} />
-            </button>
-            <a href="tel:+918712322475" className={styles.ctaBtnOutline}>
-              <FaPhoneAlt /> Call +91 87123 22475
-            </a>
-          </div>
-        </div>
-      </motion.section>
 
     </div>
   );

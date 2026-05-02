@@ -1,70 +1,70 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Wrench, 
-  Settings, 
-  Wind, 
-  ShieldCheck, 
-  Snowflake, 
+import {
+  Wrench,
+  Settings,
+  Wind,
+  ShieldCheck,
+  Snowflake,
   Fan,
   ChevronRight
 } from "lucide-react";
 import styles from "./ServicesDashboardSection.module.css";
 
 const services = [
-  { 
+  {
     id: "installation",
-    title: "AC Installation", 
-    pos: "top", 
+    title: "AC Installation",
+    pos: "top",
     icon: <Settings size={20} />,
     img: "/HomeImages/AC installation in Bhopa.jpeg",
     description: "Expert installation for all AC brands and models with precision.",
-    lineCoords: { x1: "450", y1: "400", x2: "450", y2: "40" }
+    lineCoords: { x1: "450", y1: "400", x2: "450", y2: "185" }
   },
-  { 
+  {
     id: "repair",
-    title: "AC Repair", 
-    pos: "leftTop", 
+    title: "AC Repair",
+    pos: "leftTop",
     icon: <Wrench size={20} />,
     img: "/HomeImages/AC Repair.jpg",
     description: "Fast and reliable repair services to keep you cool year-round.",
-    lineCoords: { x1: "450", y1: "400", x2: "60", y2: "180" }
+    lineCoords: { x1: "450", y1: "400", x2: "113", y2: "210" }
   },
-  { 
+  {
     id: "ducting",
-    title: "Ducting", 
-    pos: "rightTop", 
+    title: "Ducting",
+    pos: "rightTop",
     icon: <Wind size={20} />,
     img: "/HomeImages/Ducting.jpg",
     description: "Professional ductwork design and installation for optimal airflow.",
-    lineCoords: { x1: "450", y1: "400", x2: "840", y2: "180" }
+    lineCoords: { x1: "450", y1: "400", x2: "788", y2: "210" }
   },
-  { 
+  {
     id: "maintenance",
-    title: "AC Maintenance", 
-    pos: "leftBottom", 
+    title: "AMC's",
+    pos: "leftBottom",
     icon: <ShieldCheck size={20} />,
     img: "/HomeImages/Ac Maintenance.jpg",
     description: "Regular checkups and cleaning to ensure peak performance.",
-    lineCoords: { x1: "450", y1: "400", x2: "60", y2: "620" }
+    lineCoords: { x1: "450", y1: "400", x2: "113", y2: "590" }
   },
-  { 
+  {
     id: "centralized",
-    title: "Centralized Cooling", 
-    pos: "rightBottom", 
+    title: "Centralized Air Conditioning",
+    pos: "rightBottom",
     icon: <Snowflake size={20} />,
     img: "/HomeImages/Centralized Cooling.jpg",
     description: "Customized solutions for large commercial and residential spaces.",
-    lineCoords: { x1: "450", y1: "400", x2: "840", y2: "620" }
+    lineCoords: { x1: "450", y1: "400", x2: "788", y2: "590" }
   },
-  { 
+  {
     id: "exhaust",
-    title: "Kitchen Exhaust Installation", 
-    pos: "bottom", 
+    title: "Restaurant Exhaust Cleaning",
+    pos: "bottom",
     icon: <Fan size={20} />,
     img: "/HomeImages/Kitchen Exhaust.jpg",
     description: "Efficient ventilation solutions for commercial and residential kitchens.",
-    lineCoords: { x1: "450", y1: "400", x2: "450", y2: "760" }
+    lineCoords: { x1: "450", y1: "400", x2: "450", y2: "615" }
   },
 ];
 
@@ -78,18 +78,48 @@ export default function ServicesDashboardSection({ onBookNow }) {
           <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" className={styles.shapeFill}></path>
         </svg>
       </div>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={styles.sectionHeader}
       >
-        <span className={styles.kicker}>OUR EXPERTISE</span>
-        <h2>Comprehensive HVAC Solutions</h2>
-        <p>From rapid repairs to full-scale installations, we provide tailored solutions for your comfort.</p>
+        <div className={styles.headerRow}>
+          <div className={styles.labelCol}>
+            <motion.span 
+              className={styles.howLabel}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              OUR EXPERTISE
+            </motion.span>
+          </div>
+          
+          <div className={styles.contentCol}>
+            <motion.h2 
+              className={styles.headerTitle}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Comprehensive HVAC Solutions
+            </motion.h2>
+            <motion.p 
+              className={styles.headerSub}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              From rapid repairs to full-scale installations, we provide tailored solutions for your comfort.
+            </motion.p>
+          </div>
+        </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -115,6 +145,20 @@ export default function ServicesDashboardSection({ onBookNow }) {
               animate={hoveredService === service.id ? { opacity: 1, strokeWidth: 2 } : { opacity: 0.4, strokeWidth: 1 }}
             />
           ))}
+          
+          {/* VERTICAL AXIS POINTERS */}
+          <motion.line 
+            x1="450" y1="0" x2="450" y2="10" 
+            className={styles.pointerLine}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 0.3 }}
+          />
+          <motion.line 
+            x1="450" y1="790" x2="450" y2="800" 
+            className={styles.pointerLine}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 0.3 }}
+          />
         </svg>
 
         {/* CENTER HUB */}
@@ -135,14 +179,6 @@ export default function ServicesDashboardSection({ onBookNow }) {
                 <p className={styles.hubDesc}>
                   {services.find(s => s.id === hoveredService).description}
                 </p>
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={styles.bookBtn}
-                  onClick={() => onBookNow(services.find(s => s.id === hoveredService).title)}
-                >
-                  Book Now
-                </motion.button>
               </motion.div>
             ) : (
               <motion.div
@@ -161,14 +197,14 @@ export default function ServicesDashboardSection({ onBookNow }) {
 
         {/* CARDS */}
         {services.map((item, i) => (
-          <motion.div 
-            key={item.id} 
+          <motion.div
+            key={item.id}
             className={`${styles.card} ${styles[item.pos]}`}
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            whileHover={{ 
-              scale: 1.05, 
+            whileHover={{
+              scale: 1.05,
               y: -10,
               boxShadow: "0 30px 60px rgba(0, 0, 0, 0.12)",
               zIndex: 10

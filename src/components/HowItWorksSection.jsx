@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { PhoneCall, Calendar, Wrench, CreditCard, CheckCircle } from 'lucide-react';
 import styles from './HowItWorksSection.module.css';
 
@@ -8,62 +8,39 @@ const steps = [
     id: "01",
     title: "Contact Us",
     desc: "Submit a quick request or call us. Our team is ready to listen.",
-    icon: <PhoneCall size={36} />
+    icon: <PhoneCall size={32} />
   },
   {
     id: "02",
     title: "Pick a Time",
     desc: "Choose a convenient schedule. We work around your availability.",
-    icon: <Calendar size={36} />
+    icon: <Calendar size={32} />
   },
   {
     id: "03",
     title: "Get a Service",
     desc: "Our expert visits your location to diagnose and fix the issue.",
-    icon: <Wrench size={36} />
+    icon: <Wrench size={32} />
   },
   {
     id: "04",
     title: "Pay Safely",
     desc: "Transparent pricing with no hidden charges. Pay after service.",
-    icon: <CreditCard size={36} />
+    icon: <CreditCard size={32} />
   },
   {
     id: "05",
     title: "Ready!",
     desc: "Your AC is back to perfect cooling. Enjoy comfort again.",
-    icon: <CheckCircle size={36} />
+    icon: <CheckCircle size={32} />
   }
 ];
 
 export default function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef(null);
-
-  // Auto-animate logic
-  useEffect(() => {
-    const startAutoPlay = () => {
-      intervalRef.current = setInterval(() => {
-        if (!isPaused && window.innerWidth > 900) {
-          setActiveStep((prev) => (prev + 1) % steps.length);
-        }
-      }, 2000); // Faster switch
-    };
-
-    startAutoPlay();
-    return () => clearInterval(intervalRef.current);
-  }, [isPaused]);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const handleCardClick = (index) => {
-    setActiveStep(index);
-    // Reset timer on click
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      if (!isPaused && window.innerWidth > 900) {
-        setActiveStep((prev) => (prev + 1) % steps.length);
-      }
-    }, 2500);
+    setActiveIndex(index === activeIndex ? null : index);
   };
 
   return (
@@ -105,73 +82,43 @@ export default function HowItWorksSection() {
           </div>
         </div>
 
-        {/* Cards Row - Aligned to Content Column */}
-        <div 
-          className={styles.cardsRow}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div className={styles.cardsCol}>
-            <div className={styles.stepsContainer}>
-              {steps.map((step, index) => {
-                const isActive = activeStep === index;
-                return (
-                  <motion.div
-                    key={step.id}
-                    className={`${styles.card} ${isActive ? styles.active : ""}`}
-                    onClick={() => handleCardClick(index)}
-                    animate={{
-                      flex: isActive ? 2.5 : 1,
-                      opacity: isActive ? 1 : 0.6,
-                    }}
-                    transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
-                  >
-                    {/* Background State */}
-                    <AnimatePresence>
-                      {isActive && (
-                        <motion.div 
-                          className={styles.activeBg}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        />
-                      )}
-                    </AnimatePresence>
-    
-                    <div className={styles.cardInner}>
+        {/* Cards Row */}
+        <div className={styles.cardsRow}>
+          <div className={styles.stepsContainer}>
+            {steps.map((step, index) => {
+              const isActive = activeIndex === index;
+              const isOtherActive = activeIndex !== null && activeIndex !== index;
+              
+              return (
+                <div
+                  key={step.id}
+                  className={`${styles.cardWrapper} ${isActive ? styles.active : ""} ${isOtherActive ? styles.faded : ""}`}
+                  onClick={() => handleCardClick(index)}
+                >
+                  <div className={styles.cardInner}>
+                    {/* Front Side */}
+                    <div className={styles.cardFront}>
                       <span className={styles.stepNum}>{step.id}</span>
-    
-                      <div className={styles.iconContainer}>
-                        <motion.div 
-                          className={styles.iconBox}
-                          animate={{ 
-                            y: isActive ? -100 : 0,
-                          }}
-                          transition={{ duration: 0.28, ease: "easeOut" }}
-                        >
-                          {step.icon}
-                        </motion.div>
+                      <div className={styles.iconBox}>
+                        {step.icon}
                       </div>
-    
-                      <AnimatePresence>
-                        {isActive && (
-                          <motion.div 
-                            className={styles.content}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.3, delay: 0.05 }}
-                          >
-                            <h3 className={styles.cardTitle}>{step.title}</h3>
-                            <p className={styles.cardDesc}>{step.desc}</p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      <span className={styles.frontLabel}>{step.title}</span>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+
+                    {/* Back Side */}
+                    <div className={styles.cardBack}>
+                      <div className={styles.backContent}>
+                        <div className={styles.backIcon}>
+                          {step.icon}
+                        </div>
+                        <h3 className={styles.cardTitle}>{step.title}</h3>
+                        <p className={styles.cardDesc}>{step.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
