@@ -5,6 +5,8 @@
     radial-gradient(circle at top left, rgba(69, 158, 255, 0.14), transparent 22%),
     radial-gradient(circle at bottom right, rgba(29, 94, 255, 0.09), transparent 22%),
     linear-gradient(180deg, #eff6ff 0%, #f9fcff 34%, #ffffff 100%);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 @media (max-width: 920px) {

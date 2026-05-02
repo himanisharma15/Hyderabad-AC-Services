@@ -27,7 +27,7 @@
 
 .heading {
   font-family: var(--heading);
-  font-size: 52px; /* Bigger and stronger */
+  font-size: clamp(32px, 6vw, 52px); /* Responsive font size */
   font-weight: 900;
   color: #1e293b;
   line-height: 1.05;
@@ -231,6 +231,7 @@
   }
 
   .heading {
-    font-size: 36px;
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.1;
   }
 }

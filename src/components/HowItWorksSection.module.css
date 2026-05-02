@@ -1,6 +1,6 @@
 .section {
   padding: 100px 0 100px;
-  background: #f8fafc;
+  background: #ffffff;
   overflow: hidden;
   position: relative;
   z-index: 5;
@@ -303,6 +303,8 @@
   .howLabel {
     text-align: center;
     padding-left: 0;
+    display: flex;
+    justify-content: center;
   }
   .howLabel::before {
     display: none;
