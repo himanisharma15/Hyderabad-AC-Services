@@ -236,6 +236,10 @@
     padding: 60px 0;
   }
 
+  .container {
+    padding: 0 20px;
+  }
+
   .headerTitle {
     font-size: 36px;
   }
@@ -245,22 +249,64 @@
   }
 
   .stepsContainer {
-    flex-direction: column;
-    align-items: center;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 20px 0 60px !important;
+    perspective: none !important; /* Remove perspective on mobile to prevent layout quirks */
   }
 
   .cardWrapper {
-    width: 100%;
-    max-width: 340px;
-    height: 320px;
+    width: 100% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    min-height: 280px !important;
+    margin: 0 auto !important;
   }
 
-  /* No hover on mobile as per requirement */
-  .cardWrapper:hover:not(.active) {
-    transform: none;
+  .cardInner {
+    transform: none !important; /* Disable flip on mobile for better usability */
+    height: auto !important;
+    min-height: 280px !important;
   }
-  
-  .cardWrapper.faded {
-    opacity: 0.7; /* Less faded on mobile for visibility */
+
+  .cardFront, .cardBack {
+    position: relative !important; /* Switch to relative to stack naturally in flux */
+    width: 100% !important;
+    height: auto !important;
+    min-height: 280px !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+  }
+
+  .cardBack {
+    display: none !important; /* Hide back on mobile if not flipped */
+  }
+
+  /* Show back if active on mobile */
+  .cardWrapper.active .cardFront {
+    display: none !important;
+  }
+  .cardWrapper.active .cardBack {
+    display: flex !important;
+  }
+
+  .headerTitle {
+    font-size: 32px !important;
+    text-align: center;
+  }
+
+  .headerSub {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .howLabel {
+    text-align: center;
+    padding-left: 0;
+  }
+  .howLabel::before {
+    display: none;
   }
 }

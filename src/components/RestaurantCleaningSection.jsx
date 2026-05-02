@@ -70,7 +70,7 @@ export default function RestaurantCleaningSection() {
           
           <div className="amc-graphic-wrapper">
             <div className="amc-hero-image-wrapper">
-              <img src="/images /real_cleaning_hero.png" alt="Exhaust Cleaning" className="amc-hero-image" />
+              <img src="/images/real_cleaning_hero.png" alt="Exhaust Cleaning" className="amc-hero-image" />
             </div>
           </div>
         </div>
