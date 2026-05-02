@@ -1,9 +1,9 @@
 import ACScrapSection from '../../components/ACScrapSection';
 
-export default function ACScrap() {
+export default function ACScrap({ onBookNow }) {
   return (
     <>
-      <ACScrapSection />
+      <ACScrapSection onBookNow={onBookNow} />
     </>
   );
 }

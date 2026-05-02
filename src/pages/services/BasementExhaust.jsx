@@ -1,160 +1,173 @@
-import React, { useEffect, useRef } from 'react';
-import { Settings, ShieldCheck, Wind, CheckCircle, Clock, Activity, Building, Droplets, Zap } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Settings, ShieldCheck, Wind, CheckCircle, Clock, Activity, Building, Droplets, Zap, ChevronRight, AlertTriangle, Shield } from 'lucide-react';
+import { motion } from 'framer-motion';
 import '../../components/ExhaustAMCSection.css';
-import './BasementExhaust.css';
 
-export default function BasementExhaust() {
-  const elementsRef = useRef([]);
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
+const fadeUpItem = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+export default function BasementExhaust({ onBookNow }) {
   useEffect(() => {
     window.scrollTo(0, 0);
-    const elements = elementsRef.current;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elements.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      elements.forEach((el) => {
-        if (el) observer.unobserve(el);
-      });
-    };
   }, []);
 
-  const addToRefs = (el) => {
-    if (el && !elementsRef.current.includes(el)) {
-      elementsRef.current.push(el);
+  const handleBookNow = (service = 'Basement Exhaust Consultation') => {
+    if (onBookNow) {
+      onBookNow(service);
     }
   };
 
   return (
     <div className="amc-page">
+      {/* 1. HERO SECTION */}
       <section className="amc-hero">
-        <div className="amc-hero-container amc-fade-up" ref={addToRefs}>
+        <motion.div 
+          className="amc-hero-container amc-container"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="amc-hero-content">
-            <div className="amc-eyebrow">Basement Exhaust Services</div>
-            <h1 className="amc-hero-heading">Safe & Fresh Basement Air</h1>
-            <h2 className="amc-hero-subheading">Engineered exhaust systems for residential and commercial basements</h2>
+            <div className="amc-eyebrow">
+              <Wind size={18} className="text-primary" />
+              <span>Advanced Ventilation</span>
+            </div>
+            <h1 className="amc-hero-title">
+              Efficient <span className="amc-accent">Basement Exhaust</span> Systems
+            </h1>
             <p className="amc-hero-desc">
-              Remove fumes, control damp air, and keep enclosed basement spaces safer with our industrial-grade ducting and balanced airflow solutions.
+              Eliminate dampness, stale air, and toxic fumes from your underground spaces with our high-performance ventilation engineering.
             </p>
-            <div className="amc-hero-tags">
-              <span>Smoke & Fume Extraction</span>
-              <span>Moisture Control</span>
-              <span>Balanced Ventilation</span>
-            </div>
+            
             <div className="amc-hero-actions">
-              <a href="/contact" className="amc-btn">Get Consultation</a>
-              <p className="amc-hero-note">Ideal for parking areas, residential basements, and commercial spaces.</p>
+              <button onClick={() => handleBookNow('Basement Exhaust')} className="amc-btn">
+                Free Site Audit <ChevronRight size={18} style={{ marginLeft: '8px' }} />
+              </button>
+              <button onClick={() => handleBookNow('Call Expert')} className="amc-btn amc-btn-secondary">Speak to Engineer</button>
             </div>
-            <div className="amc-stats-row">
-              {[
-                { value: '100%', label: 'Balanced Airflow' },
-                { value: '24/7', label: 'Safety Monitored' },
-                { value: 'Zero', label: 'Stagnant Air' },
-              ].map((stat, idx) => (
-                <div className="amc-stat-card" key={idx}>
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
+
+            <div className="amc-hero-trust">
+              <div className="amc-trust-item">
+                <CheckCircle size={16} />
+                <span>ASHRAE Standard</span>
+              </div>
+              <div className="amc-trust-item">
+                <CheckCircle size={16} />
+                <span>Zero Fume Retention</span>
+              </div>
+              <div className="amc-trust-item">
+                <CheckCircle size={16} />
+                <span>Low Noise Tech</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="amc-hero-visual">
+            <div className="amc-graphic-wrapper">
+              <div className="amc-hero-image-wrapper">
+                <img 
+                  src="/images /Basement Ventilation.jpg" 
+                  alt="Basement Exhaust System" 
+                  className="amc-hero-image"
+                />
+                <div className="amc-image-overlay"></div>
+              </div>
+              
+              <motion.div 
+                className="amc-floating-card amc-card-1"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="amc-floating-icon"><Wind size={20} /></div>
+                <div>
+                  <strong>Fresh Air Flow</strong>
+                  <p>1000+ CFM output</p>
                 </div>
-              ))}
+              </motion.div>
             </div>
           </div>
-
-          <div className="amc-graphic-wrapper">
-            <div className="amc-hero-image-wrapper">
-              <img src="/images/real_basement_hero.png" alt="Basement Exhaust" className="amc-hero-image" />
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="amc-includes">
-        <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Why Basement Ventilation Matters</h2>
-        <div className="amc-includes-grid">
-          {[
-            { title: 'Removes Smoke & Fumes', desc: 'Extracts trapped car exhaust and fumes before they spread through the building.', icon: <Zap size={32} /> },
-            { title: 'Prevents Moisture & Mold', desc: 'Controls damp air that can lead to structural damage, odors, and mold growth.', icon: <Droplets size={32} /> },
-            { title: 'Improves Air Quality', desc: 'Continuously refreshes stale air, making enclosed zones safer to breathe in.', icon: <Wind size={32} /> },
-            { title: 'Enhances Fire Safety', desc: 'Crucial for removing thick smoke in case of emergencies in underground levels.', icon: <ShieldCheck size={32} /> },
-            { title: 'Balanced Circulation', desc: 'Ensures uniform airflow across all corners of massive basement spaces.', icon: <Activity size={32} /> },
-            { title: 'Energy Efficient', desc: 'Smart systems that optimize power usage based on carbon monoxide levels.', icon: <Settings size={32} /> },
-          ].map((item, idx) => (
-            <div className="amc-include-card amc-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
-              <div className="include-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      {/* 2. WHY IT MATTERS */}
       <section className="amc-benefits">
-        <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Key Advantages</h2>
-        <div className="benefits-highlight-grid amc-fade-up" ref={addToRefs}>
-          {[
-            'Prevents Toxic Gas Buildup',
-            'Eliminates Damp Smells',
-            'Protects Building Structure',
-            'CO2 & CO Monitoring',
-            'Meets Safety Regulations',
-          ].map((item, idx) => (
-            <div className="benefit-highlight" key={idx}>
-              <CheckCircle size={20} />
-              <span>{item}</span>
-            </div>
-          ))}
+        <div className="amc-container">
+          <div className="amc-section-header">
+            <span className="amc-subtag">Safety First</span>
+            <h2 className="amc-section-title">Why Basement Ventilation Matters?</h2>
+            <p className="amc-section-desc">Underground spaces face unique challenges that require specialized air management.</p>
+          </div>
+
+          <motion.div 
+            className="amc-benefits-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {[
+              { 
+                title: 'CO Prevention', 
+                desc: 'Prevent the buildup of lethal Carbon Monoxide from vehicle idling in parking basements.',
+                icon: AlertTriangle
+              },
+              { 
+                title: 'Moisture Control', 
+                desc: 'Stop mold growth and structural damage by maintaining optimal humidity levels.',
+                icon: Droplets
+              },
+              { 
+                title: 'Fire Safety', 
+                desc: 'Specialized smoke extraction systems to keep exit routes clear during emergencies.',
+                icon: Shield
+              },
+              { 
+                title: 'Odor Elimination', 
+                desc: 'Quickly remove stagnant smells and damp odors, making the space usable.',
+                icon: Wind
+              }
+            ].map((benefit, idx) => (
+              <motion.div key={idx} className="amc-benefit-card" variants={fadeUpItem}>
+                <div className="amc-benefit-icon-wrapper">
+                  <benefit.icon size={32} />
+                </div>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.desc}</p>
+                <div className="amc-benefit-hover-effect"></div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      <section className="amc-who">
-        <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Ideal For</h2>
-        <div className="who-needs-grid who-needs-grid-4">
-          {[
-            { title: 'Residential Buildings', icon: <Building size={32} /> },
-            { title: 'Parking Basements', icon: <Wind size={32} /> },
-            { title: 'Commercial Complexes', icon: <Building size={32} /> },
-            { title: 'Industrial Facilities', icon: <Settings size={32} /> },
-          ].map((who, idx) => (
-            <div className="who-needs-card amc-fade-up" ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
-              {who.icon}
-              <h4>{who.title}</h4>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="amc-workflow">
-        <h2 className="amc-section-title amc-fade-up" ref={addToRefs}>Our Ventilation Process</h2>
-        <div className="amc-workflow-wrap amc-fade-up" ref={addToRefs}>
-          <div className="amc-step-line"></div>
-          {[
-            { step: 'Site Inspection', icon: <Activity size={32} /> },
-            { step: 'System Design', icon: <Settings size={32} /> },
-            { step: 'Installation', icon: <Settings size={32} /> },
-            { step: 'Airflow Testing', icon: <Wind size={32} /> },
-            { step: 'Maintenance Support', icon: <Clock size={32} /> },
-          ].map((item, idx) => (
-            <div className="amc-step" key={idx}>
-              <div className="amc-step-icon">{item.icon}</div>
-              <span>{idx + 1}. {item.step}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      {/* 3. CTA SECTION */}
       <section className="amc-cta">
-        <div className="amc-fade-up" ref={addToRefs}>
-          <h2>Ensure Safe & Fresh Air in Your Basement</h2>
-          <a href="/contact" className="amc-btn amc-btn-inverse">Get a Free Quote</a>
+        <div className="amc-container">
+          <motion.div 
+            className="amc-cta-box"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="amc-cta-content">
+              <h2>Let Your Basement Breathe</h2>
+              <p>Get a custom-engineered exhaust solution tailored to your building's footprint.</p>
+              <div className="amc-cta-btns">
+                <button onClick={() => handleBookNow('Basement Audit')} className="amc-btn amc-btn-inverse">Schedule Site Visit</button>
+                <button onClick={() => handleBookNow('Technical Quote')} className="amc-btn amc-btn-secondary" style={{ color: 'white', borderColor: 'white' }}>Technical Quote</button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

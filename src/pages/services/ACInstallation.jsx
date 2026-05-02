@@ -1,9 +1,9 @@
 import ACInstallationSection from '../../components/ACInstallationSection'
 
-export default function ACInstallation() {
+export default function ACInstallation({ onBookNow }) {
   return (
     <>
-      <ACInstallationSection />
+      <ACInstallationSection onBookNow={onBookNow} />
     </>
   )
 }

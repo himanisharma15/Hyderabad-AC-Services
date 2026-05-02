@@ -132,3 +132,9 @@ body[data-theme="dark"] .contact-page-wrapper {
     min-height: auto;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-page-wrapper {
+    padding: 20px 0;
+  }
+}

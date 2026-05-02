@@ -50,7 +50,7 @@ export default function CtaSection({ onBookNow }) {
               >
                 Schedule Service
               </button>
-              <a href="tel:+910000000000" className={styles.secondaryBtn}>
+              <a href="tel:+918712322475" className={styles.secondaryBtn}>
                 Call Now
               </a>
             </motion.div>
@@ -64,7 +64,7 @@ export default function CtaSection({ onBookNow }) {
             transition={{ duration: 1, delay: 0.5 }}
           >
             <img 
-              src="/home/navgurukul/.gemini/antigravity/brain/1aadf78e-501e-415a-a4d4-7aee3b5ddbf0/modern_ac_unit_cta_1777459275356.png" 
+              src="/HomeImages/modern_ac_unit_cta.png" 
               alt="Modern AC Unit" 
               className={styles.acImage}
             />

@@ -120,48 +120,67 @@
 }
 
 .trustStrip {
-  margin-top: 24px;
+  margin-top: 32px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: rgba(255, 255, 255, 0.9);
+  gap: 24px;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.95);
   font-size: 15px;
   font-weight: 600;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .dot {
-  opacity: 0.7;
+  opacity: 0.6;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
 }
 
 @media (max-width: 900px) {
   .hero {
-    height: 85vh;
-    justify-content: center;
-    text-align: center;
+    height: auto;
+    min-height: 85vh;
+    padding: 120px 0 80px;
   }
   
   .content {
-    align-items: center;
     padding: 0 24px;
   }
 
-  .actions {
-    justify-content: center;
-  }
-  
   .title {
-    font-size: 36px;
-  }
-  
-  .subtext {
-    font-size: 16px;
+    font-size: 42px;
   }
   
   .trustStrip {
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    margin-top: 32px;
+  }
+
+  .trustStrip > div {
+    flex: 0 1 auto;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 34px;
+  }
+
+  .trustStrip {
+    gap: 12px 20px;
+  }
+
+  .trustStrip > div {
+    flex: 0 1 calc(50% - 10px);
+    display: flex;
+    justify-content: center;
   }
   
   .dot {

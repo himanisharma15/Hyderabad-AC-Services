@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2, ShieldCheck, Zap, Clock, Wrench, Settings } from 'lucide-react';
 import styles from './ExpertSolutionsSection.module.css';
-import technicianImg from '../assets/2f3aa925-8713-4c37-8c14-9b01f40a33f5_.jpg';
+import technicianImg from '../assets/technician_expert.jpg';
 
 const services = [
   { title: "Indoor Air Quality Check", icon: <CheckCircle2 size={18} /> },

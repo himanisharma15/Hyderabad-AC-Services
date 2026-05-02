@@ -1,14 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { 
-  ThermometerSnowflake, ZapOff, Droplets, Wind, Volume2, ShieldAlert, Cpu, Settings, 
-  Wrench, Search, Activity, CheckCircle, ShieldCheck, Clock, Shield, Snowflake, Zap, MapPin, Phone, Fan, Star,
-  Award, Zap as ZapIcon, HardHat
+  Snowflake, Zap, Droplets, Wind, Volume2, ShieldAlert, Cpu, Settings, 
+  Wrench, Search, Activity, CheckCircle, ShieldCheck, Clock, Shield, MapPin, Phone, Fan, Star,
+  Award, Zap as ZapIcon, HardHat, ChevronRight
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import styles from './ServiceLayout.module.css';
 
 const iconMap = {
-  ThermometerSnowflake: <ThermometerSnowflake size={32} />,
-  ZapOff: <ZapOff size={32} />,
+  Snowflake: <Snowflake size={32} />,
+  Zap: <ZapIcon size={32} />,
   Droplets: <Droplets size={32} />,
   Wind: <Wind size={32} />,
   Volume2: <Volume2 size={32} />,
@@ -32,37 +33,23 @@ const iconMap = {
   HardHat: <HardHat size={32} />
 };
 
-export default function ServiceLayout({ data, onBookNow }) {
-  const elementsRef = useRef([]);
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 }
+  }
+};
 
+const fadeUpItem = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+export default function ServiceLayout({ data, onBookNow }) {
   useEffect(() => {
     window.scrollTo(0, 0);
-    const elements = elementsRef.current;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(styles.isVisible);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elements.forEach(el => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      elements.forEach(el => {
-        if (el) observer.unobserve(el);
-      });
-    };
   }, [data]);
-
-  const addToRefs = (el) => {
-    if (el && !elementsRef.current.includes(el)) {
-      elementsRef.current.push(el);
-    }
-  };
 
   if (!data) return null;
 
@@ -75,8 +62,13 @@ export default function ServiceLayout({ data, onBookNow }) {
 
       {/* 1. HERO SECTION */}
       <section className={styles.hero}>
-        <div className={`${styles.heroContainer} ${styles.fadeUp}`} ref={addToRefs}>
-          <div className={styles.heroContent}>
+        <motion.div 
+          className={styles.heroContainer}
+          initial="hidden"
+          animate="show"
+          variants={staggerContainer}
+        >
+          <motion.div className={styles.heroContent} variants={fadeUpItem}>
             <div className={styles.badge}>
               <Award size={14} />
               <span>Premium Service Excellence</span>
@@ -91,6 +83,13 @@ export default function ServiceLayout({ data, onBookNow }) {
             </p>
             
             <div className={styles.heroActions}>
+              <button 
+                className={styles.primaryBtn}
+                onClick={() => onBookNow(data.title)}
+              >
+                Book Service Now <ChevronRight size={18} />
+              </button>
+              
               <div className={styles.heroContact}>
                 <div className={styles.contactIcon}><Phone size={18} /></div>
                 <div className={styles.contactInfo}>
@@ -114,69 +113,110 @@ export default function ServiceLayout({ data, onBookNow }) {
                 <span>Top Rated Service</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.heroVisual}>
+          <motion.div 
+            className={styles.heroVisual}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <div className={styles.imageWrapper}>
               <img src={data.heroImage} alt={data.title} className={styles.heroImage} />
               <div className={styles.glassOverlay}></div>
-              <div className={styles.floatingCard}>
+              <motion.div 
+                className={styles.floatingCard}
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
                 <div className={styles.floatingIcon}><CheckCircle size={20} /></div>
                 <div>
                   <strong>Guaranteed Fix</strong>
                   <p>100% Peace of Mind</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* 2. INTRODUCTION SECTION */}
       <section className={styles.intro}>
-        <div className={`${styles.introContainer} ${styles.fadeUp}`} ref={addToRefs}>
-          <div className={styles.introHeader}>
+        <motion.div 
+          className={styles.introContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div className={styles.introHeader} variants={fadeUpItem}>
             <div className={styles.line}></div>
             <h2 className={styles.sectionHeading}>The Professional Standard</h2>
             <div className={styles.line}></div>
-          </div>
-          <p className={styles.introText}>{data.introduction}</p>
-        </div>
+          </motion.div>
+          <motion.p className={styles.introText} variants={fadeUpItem}>
+            {data.introduction}
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* 3. BENEFITS GRID (Glassmorphism Cards) */}
+      {/* 3. BENEFITS GRID */}
       <section className={styles.benefits}>
-        <div className={`${styles.sectionHeader} ${styles.fadeUp}`} ref={addToRefs}>
-          <h2 className={styles.sectionHeading}>Service Advantages</h2>
-          <p className={styles.sectionDesc}>Why leading businesses and homeowners choose our technical expertise.</p>
-        </div>
-        <div className={styles.benefitsGrid}>
-          {data.benefits.map((benefit, idx) => (
-            <div className={`${styles.benefitCard} ${styles.fadeUp}`} ref={addToRefs} style={{ transitionDelay: `${idx * 0.1}s` }} key={idx}>
-              <div className={styles.cardHeader}>
-                <div className={styles.benefitIconBox}>
-                  {iconMap[benefit.icon] || <ShieldCheck size={24} />}
+        <div className={styles.container}>
+          <motion.div 
+            className={styles.sectionHeader}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpItem}
+          >
+            <h2 className={styles.sectionHeading}>Service Advantages</h2>
+            <p className={styles.sectionDesc}>Why leading businesses and homeowners choose our technical expertise.</p>
+          </motion.div>
+          <motion.div 
+            className={styles.benefitsGrid}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {data.benefits.map((benefit, idx) => (
+              <motion.div className={styles.benefitCard} variants={fadeUpItem} key={idx}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.benefitIconBox}>
+                    {iconMap[benefit.icon] || <ShieldCheck size={24} />}
+                  </div>
+                  <span className={styles.cardNumber}>0{idx + 1}</span>
                 </div>
-                <span className={styles.cardNumber}>0{idx + 1}</span>
-              </div>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.desc}</p>
-              <div className={styles.cardAccent}></div>
-            </div>
-          ))}
+                <h3>{benefit.title}</h3>
+                <p>{benefit.desc}</p>
+                <div className={styles.cardAccent}></div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* 4. TECHNICAL COMPLIANCE SECTION */}
       <section className={styles.specs}>
-        <div className={`${styles.specsContainer} ${styles.fadeUp}`} ref={addToRefs}>
-          <div className={styles.specsVisual}>
+        <motion.div 
+          className={styles.specsContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div className={styles.specsVisual} variants={fadeUpItem}>
             <div className={styles.specsIconLarge}>
               <HardHat size={48} />
             </div>
-            <div className={styles.specsCircle}></div>
-          </div>
-          <div className={styles.specsContent}>
+            <motion.div 
+              className={styles.specsCircle}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            ></motion.div>
+          </motion.div>
+          <motion.div className={styles.specsContent} variants={fadeUpItem}>
             <h2 className={styles.specsHeading}>Technical Compliance & Safety</h2>
             <p>{data.technicalSpecs}</p>
             <div className={styles.specsGrid}>
@@ -197,25 +237,66 @@ export default function ServiceLayout({ data, onBookNow }) {
                 <span>EPA Certified Refrigerants</span>
               </div>
             </div>
-          </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* 5. PROCESS SECTION */}
+      <section className={styles.process}>
+        <div className={styles.container}>
+          <motion.div 
+            className={styles.sectionHeader}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpItem}
+          >
+            <h2 className={styles.sectionHeading}>Execution Workflow</h2>
+            <p className={styles.sectionDesc}>A rigorous process ensures excellence from first contact to final handover.</p>
+          </motion.div>
+          <motion.div 
+            className={styles.processFlow}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {data.process.map((step, idx) => (
+              <motion.div className={styles.processCard} variants={fadeUpItem} key={idx}>
+                <div className={styles.stepBox}>{idx + 1}</div>
+                <h4>{step.step}</h4>
+                <p>{step.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* 5. PROCESS SECTION (Modern Timeline) */}
-      <section className={styles.process}>
-        <div className={`${styles.sectionHeader} ${styles.fadeUp}`} ref={addToRefs}>
-          <h2 className={styles.sectionHeading}>Execution Workflow</h2>
-          <p className={styles.sectionDesc}>A rigorous process ensures excellence from first contact to final handover.</p>
-        </div>
-        <div className={styles.processFlow}>
-          {data.process.map((step, idx) => (
-            <div className={`${styles.processCard} ${styles.fadeUp}`} ref={addToRefs} key={idx}>
-              <div className={styles.stepBox}>{idx + 1}</div>
-              <h4>{step.step}</h4>
-              <p>{step.desc}</p>
-            </div>
-          ))}
-        </div>
+      {/* 6. GLOBAL CTA */}
+      <section className={styles.globalCta}>
+        <motion.div 
+          className={styles.ctaInner}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className={styles.ctaText}>
+            <h2>Ready to Restore <span>Cooling?</span></h2>
+            <p>Our experts are standing by to provide immediate assistance across Hyderabad.</p>
+          </div>
+          <div className={styles.ctaActions}>
+            <button 
+              className={styles.ctaPrimary}
+              onClick={() => onBookNow(data.title)}
+            >
+              Request Call Back
+            </button>
+            <a href="tel:+918712322475" className={styles.ctaSecondary}>
+              <Phone size={20} /> +91 8712322475
+            </a>
+          </div>
+        </motion.div>
       </section>
 
     </div>

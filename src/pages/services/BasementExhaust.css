@@ -587,6 +587,35 @@
   }
 }
 
+@media (max-width: 600px) {
+  .basement-container { width: min(100% - 20px, 1180px); }
+  .basement-hero { padding-top: 40px; padding-bottom: 32px; }
+  .basement-hero__title { font-size: clamp(1.6rem, 8vw, 2.4rem); line-height: 1.1; }
+  .basement-hero__desc { font-size: 0.95rem; }
+  .basement-image-card img { min-height: 240px; }
+  .basement-button { padding: 0.95rem 1.8rem; font-size: 0.95rem; }
+  .basement-benefit-grid { gap: 1.5rem; }
+  .basement-final-cta__inner { padding: 2.5rem 1.5rem; }
+  .basement-final-cta__heading { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+  .basement-container { width: min(100% - 16px, 1180px); }
+  .basement-hero { padding-top: 32px; padding-bottom: 24px; background-size: 32px 32px, 32px 32px, auto; }
+  .basement-hero__title { font-size: clamp(1.4rem, 6vw, 2rem); line-height: 1.1; }
+  .basement-hero__desc { font-size: 0.85rem; line-height: 1.5; }
+  .basement-hero__grid { gap: 20px; }
+  .basement-image-card { min-height: 200px; }
+  .basement-image-card img { min-height: 200px; }
+  .basement-button { width: 100%; padding: 0.8rem 1.5rem; font-size: 0.85rem; }
+  .basement-benefit-grid, .basement-ideal-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .basement-benefit-card, .basement-ideal-card { padding: 1.5rem; }
+  .basement-final-cta { padding: 2.5rem 1rem; }
+  .basement-final-cta__inner { padding: 2rem 1rem; border-radius: 12px; }
+  .basement-final-cta__heading { font-size: 1.4rem; margin-bottom: 1rem; }
+  .basement-final-cta__desc { font-size: 0.85rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .basement-reveal,
   .basement-image-card,

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   FaArrowRight,
   FaBolt,
@@ -21,12 +22,15 @@ const iconMap = {
 
 export default function ServiceCard({ service, onBookNow }) {
   const Icon = iconMap[service.icon] || FaSnowflake;
+  const navigate = useNavigate();
 
   return (
     <motion.article
       className={styles.card}
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
+      onClick={() => navigate(service.path)}
+      style={{ cursor: 'pointer' }}
     >
       <div className={styles.mediaWrap}>
         <motion.img
@@ -49,17 +53,24 @@ export default function ServiceCard({ service, onBookNow }) {
         <h3>{service.title}</h3>
         <p>{service.description}</p>
 
-        <motion.button
-          className={styles.bookButton}
-          type="button"
-          aria-label={`Book ${service.title}`}
-          whileHover={{ x: 4 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-          onClick={() => onBookNow?.(service.title)}
-        >
-          Book Now
-          <FaArrowRight />
-        </motion.button>
+        <div className={styles.actions}>
+          <motion.button
+            className={styles.bookButton}
+            type="button"
+            aria-label={`Book ${service.title}`}
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onBookNow?.(service.title);
+            }}
+          >
+            Book Now
+            <FaArrowRight />
+          </motion.button>
+          
+          <span className={styles.learnMore}>Learn More</span>
+        </div>
       </div>
     </motion.article>
   );

@@ -250,40 +250,38 @@
 
   .stepsContainer {
     display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
     padding: 20px 0 60px !important;
-    perspective: none !important; /* Remove perspective on mobile to prevent layout quirks */
+    perspective: none !important;
   }
 
   .cardWrapper {
     width: 100% !important;
-    max-width: 360px !important;
     height: auto !important;
-    min-height: 280px !important;
-    margin: 0 auto !important;
+    min-height: 260px !important;
+    margin: 0 !important;
   }
 
   .cardInner {
-    transform: none !important; /* Disable flip on mobile for better usability */
+    transform: none !important;
     height: auto !important;
-    min-height: 280px !important;
+    min-height: 260px !important;
   }
 
   .cardFront, .cardBack {
-    position: relative !important; /* Switch to relative to stack naturally in flux */
+    position: relative !important;
     width: 100% !important;
     height: auto !important;
-    min-height: 280px !important;
+    min-height: 260px !important;
     transform: none !important;
     backface-visibility: visible !important;
   }
 
   .cardBack {
-    display: none !important; /* Hide back on mobile if not flipped */
+    display: none !important;
   }
 
-  /* Show back if active on mobile */
   .cardWrapper.active .cardFront {
     display: none !important;
   }
@@ -308,5 +306,16 @@
   }
   .howLabel::before {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .stepsContainer {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .cardWrapper {
+    max-width: 360px !important;
+    margin: 0 auto !important;
   }
 }

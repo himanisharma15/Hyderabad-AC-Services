@@ -1,201 +1,225 @@
-import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  ShieldAlert, Thermometer, Zap, Droplets, Volume2, 
+  Wind, ShieldCheck, Clock, Settings, Wrench, CheckCircle, 
+  Phone, ArrowRight 
+} from 'lucide-react';
 import './ACInstallationSection.css';
-import techImage from '../assets/ac-install-tech.png';
 
-const whatsappUrl = 'https://wa.me/918712322475?text=Hi%2C%20I%20need%20AC%20installation%20service.';
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
-const trustFeatures = [
-  {
-    title: 'Experienced & Certified Technicians',
-    desc: 'Skilled installation team for split, window, ductable, and centralized AC systems.',
-  },
-  {
-    title: 'Affordable Pricing',
-    desc: 'Clear estimates with no hidden charges before work begins.',
-  },
-  {
-    title: 'High-Quality Materials',
-    desc: 'Reliable copper piping, insulation, brackets, wiring, and fittings.',
-  },
-  {
-    title: 'All Major Brands',
-    desc: 'Installation support for leading residential and commercial AC brands.',
-  },
-  {
-    title: 'Same-Day / Next-Day Service',
-    desc: 'Fast scheduling across Hyderabad for urgent installation needs.',
-  },
-  {
-    title: 'Performance Check',
-    desc: 'Post-installation testing for airflow, cooling, drainage, and stability.',
-  },
-];
-
-export default function ACInstallationSection() {
-  const elementsRef = useRef([]);
-
-  useEffect(() => {
-    const elements = elementsRef.current;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elements.forEach(el => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      elements.forEach(el => {
-        if (el) observer.unobserve(el);
-      });
-    };
-  }, []);
-
-  const addToRefs = (el) => {
-    if (el && !elementsRef.current.includes(el)) {
-      elementsRef.current.push(el);
+const stagger = {
+  visible: {
+    transition: {
+      staggerChildren: 0.1
     }
-  };
+  }
+};
+
+export default function ACInstallationSection({ onBookNow }) {
+  const warnings = [
+    { title: "Frequent Gas Leaks", desc: "Improper flaring and joint tightening lead to refrigerant loss within months.", icon: <Wind /> },
+    { title: "Water Dripping", desc: "Poor indoor unit leveling causes water to leak onto your walls and floor.", icon: <Droplets /> },
+    { title: "Compressor Failure", desc: "Skipping the vacuuming process traps moisture, causing internal rust and burnout.", icon: <ShieldAlert /> },
+    { title: "High Power Bills", desc: "Bad placement reduces airflow, forcing the AC to work twice as hard.", icon: <Zap /> }
+  ];
+
+  const services = [
+    { title: "Split AC Installation", desc: "Precision mounting of indoor and outdoor units with expert copper piping.", icon: <Settings /> },
+    { title: "Window AC Setup", desc: "Sturdy bracket installation and gap sealing for peak cooling retention.", icon: <Wind /> },
+    { title: "AC Uninstallation", desc: "Safe removal and gas pump-down to prevent refrigerant loss during relocation.", icon: <Wrench /> },
+    { title: "Copper Piping", desc: "Industrial-grade copper line sets with professional insulation for long life.", icon: <ShieldCheck /> },
+    { title: "Bracket Fitting", desc: "Heavy-duty outdoor unit brackets with vibration-absorbing pads.", icon: <Clock /> },
+    { title: "Gas Top-up", desc: "Ensuring optimal pressure post-installation for day-one cooling efficiency.", icon: <Zap /> }
+  ];
+
+  const trustFeatures = [
+    { title: "Certified Techs", desc: "Trained professionals for every brand.", icon: "01" },
+    { title: "Clean Work", desc: "We leave your space exactly as we found it.", icon: "02" },
+    { title: "Right Tools", desc: "Using vacuum pumps and gauges, not guesswork.", icon: "03" },
+    { title: "1-Month Warranty", desc: "Full peace of mind on all installation work.", icon: "04" }
+  ];
 
   return (
     <div className="install-page">
       
       {/* 1. HERO SECTION */}
-      <section className="install-hero" style={{ '--install-hero-bg': `url(${techImage})` }}>
-        <div className="install-hero-container fade-up-element" ref={addToRefs}>
-          <div className="install-hero-content">
+      <section className="install-hero">
+        <motion.div 
+          className="install-hero-container"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          <motion.div className="install-hero-content" variants={fadeUp}>
+            <div className="install-eyebrow">
+              <Settings size={16} />
+              <span>Precision AC Commissioning</span>
+            </div>
             <h1 className="install-hero-heading">
-              AC Installation Services in Hyderabad
+              Professional <br />Installation
             </h1>
-            <h2 className="install-hero-subheading">
-              Professional Air Conditioner Installation for Homes & Businesses
-            </h2>
             <p className="install-hero-desc">
-              At Hyderabad AC Services, we specialize in expert AC installation services in Hyderabad for all major brands and models—Split AC, Window AC, Cassette AC, Ductable Units, and Centralized Air Conditioning Systems. Our certified technicians ensure perfect installation, optimal cooling performance, and long-term efficiency.
+              A perfect AC starts with a perfect installation. We ensure your unit is leveled, vacuumed, and tested for peak performance from the very first minute.
             </p>
-            <a
-              className="install-btn"
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Contact Hyderabad AC Services on WhatsApp for AC installation"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
+            
+            <div className="install-hero-actions">
+              <button 
+                onClick={() => onBookNow('AC Installation')}
+                className="install-btn"
+              >
+                Book Installation Now <ArrowRight size={20} style={{ marginLeft: '10px' }} />
+              </button>
+              <div className="install-call-link">
+                <Phone size={18} />
+                <a href="tel:+918712322475">+91 87123 22475</a>
+              </div>
+            </div>
+
+            <div className="install-hero-trust">
+              <div className="install-trust-item">
+                <CheckCircle size={16} />
+                <span>Certified Techs</span>
+              </div>
+              <div className="install-trust-item">
+                <CheckCircle size={16} />
+                <span>Clean Work</span>
+              </div>
+              <div className="install-trust-item">
+                <CheckCircle size={16} />
+                <span>1-Month Warranty</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div className="install-graphic-wrapper" variants={fadeUp}>
+            <div className="install-hero-image-wrapper">
+              <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Professional AC Installation" className="install-hero-image" />
+              <div className="install-image-badge">
+                <ShieldCheck size={20} />
+                <span>Verified Pros</span>
+              </div>
+              
+              <motion.div 
+                className="install-floating-card"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="install-float-icon"><Wind size={20} /></div>
+                <div>
+                  <strong>Smart Cooling</strong>
+                  <p>Day 1 efficiency</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* 2. WHY PROFESSIONAL INSTALLATION (WARNING CARDS) */}
+      {/* 2. WHY PROFESSIONAL (WARNINGS) */}
       <section className="install-warnings-section">
-        <h2 className="install-section-heading fade-up-element" ref={addToRefs}>Why Choose Professional AC Installation?</h2>
-        <div className="install-warnings-grid">
-          <div
-            className="warning-card fade-up-element"
-            ref={addToRefs}
-            style={{ transitionDelay: '0.1s', '--warning-delay': '90ms' }}
-          >
-            <div className="warning-title">Poor Cooling Efficiency</div>
-            <div className="warning-desc">Incorrect placement or sizing leads to uneven temperature and poor airflow.</div>
-          </div>
-          <div
-            className="warning-card fade-up-element"
-            ref={addToRefs}
-            style={{ transitionDelay: '0.2s', '--warning-delay': '180ms' }}
-          >
-            <div className="warning-title">Higher Electricity Bills</div>
-            <div className="warning-desc">Improper wiring or sealant can cause the system to overwork, consuming more power.</div>
-          </div>
-          <div
-            className="warning-card fade-up-element"
-            ref={addToRefs}
-            style={{ transitionDelay: '0.3s', '--warning-delay': '270ms' }}
-          >
-            <div className="warning-title">Frequent Breakdowns</div>
-            <div className="warning-desc">Bad installations are the leading cause of early gas leaks and compressor stress.</div>
-          </div>
-          <div
-            className="warning-card fade-up-element"
-            ref={addToRefs}
-            style={{ transitionDelay: '0.4s', '--warning-delay': '360ms' }}
-          >
-            <div className="warning-title">Shorter Lifespan</div>
-            <div className="warning-desc">A poorly installed unit will wear out significantly faster than a properly fitted one.</div>
-          </div>
-        </div>
+        <motion.h2 
+          className="install-section-heading"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          Risks of Poor Installation
+        </motion.h2>
+        
+        <motion.div 
+          className="install-warnings-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          {warnings.map((item, idx) => (
+            <motion.div className="warning-card" variants={fadeUp} key={idx}>
+              <div className="warning-icon" style={{ color: 'var(--install-blue)', marginBottom: '1rem' }}>{item.icon}</div>
+              <h3 className="warning-title">{item.title}</h3>
+              <p className="warning-desc">{item.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       {/* 3. SERVICES GRID */}
       <section className="install-services-section">
-        <h2 className="install-section-heading fade-up-element" ref={addToRefs}>Our AC Installation Services Include</h2>
-        <div className="install-services-grid">
-          {[
-            { title: "Split AC Installation", desc: "Expert wall mounting, wiring, and outdoor unit placement for perfectly quiet operation." },
-            { title: "Window AC Installation", desc: "Secure frame fitting and precision sealing to prevent rattling or hot air leaks." },
-            { title: "Ductable & Cassette AC", desc: "Refined ceiling integration for discrete, powerful cooling in commercial spaces." },
-            { title: "Centralized AC Installation", desc: "End-to-end setups for massive complexes requiring precision load balancing." },
-            { title: "Copper Pipe Pre-Installation", desc: "Concealed piping and internal infrastructure laid down during property construction." },
-            { title: "AC Replacement & Relocation", desc: "Safe uninstallation, transport, and careful reinstallation in your new location." }
-          ].map((service, idx) => (
-            <div
-              className="service-card fade-up-element"
-              ref={addToRefs}
-              style={{
-                transitionDelay: `${idx * 0.1}s`,
-                '--card-delay': `${idx * 90}ms`,
-              }}
-              key={idx}
-            >
-              <svg className="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-desc">{service.desc}</p>
-            </div>
+        <motion.h2 
+          className="install-section-heading"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          Our Installation Solutions
+        </motion.h2>
+        
+        <motion.div 
+          className="install-services-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          {services.map((item, idx) => (
+            <motion.div className="service-card" variants={fadeUp} key={idx}>
+              <div className="service-icon">{item.icon}</div>
+              <h3 className="service-title">{item.title}</h3>
+              <p className="service-desc">{item.desc}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* 4. TRUST SECTION */}
       <section className="install-trust-section">
-        <div className="install-trust-container fade-up-element" ref={addToRefs}>
+        <motion.div 
+          className="install-trust-container"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <div className="install-trust-content">
-            <span className="install-trust-kicker">Features</span>
-            <h2>Why Hyderabad AC Services?</h2>
+            <span className="install-trust-kicker">Hyderabad's Choice</span>
+            <h2>Why Trust Our Experts?</h2>
             <p>
-              Reliable AC installation with careful planning, clean execution, and final
-              performance checks for long-term comfort.
+              With over 10 years of experience, we've installed thousands of ACs across Hyderabad, ensuring every customer enjoys uninterrupted cooling and lower maintenance costs.
             </p>
-            <a
+            <button 
+              onClick={() => onBookNow('AC Installation Inquiry')}
               className="install-trust-cta"
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
             >
-              Book Service
-            </a>
+              Get a Quote
+            </button>
           </div>
 
-          <div className="trust-feature-grid">
-            {trustFeatures.map((feature, idx) => (
-              <article className="trust-feature" key={feature.title}>
-                <span className="trust-feature-icon">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
+          <motion.div 
+            className="trust-feature-grid"
+            variants={stagger}
+          >
+            {trustFeatures.map((item, idx) => (
+              <motion.div className="trust-feature" variants={fadeUp} key={idx}>
+                <div className="trust-feature-icon">{item.icon}</div>
                 <div>
-                  <h3>{feature.title}</h3>
-                  <p>{feature.desc}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
-              </article>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
     </div>

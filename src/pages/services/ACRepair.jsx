@@ -1,9 +1,9 @@
 import ACRepairSection from '../../components/ACRepairSection'
 
-export default function ACRepair() {
+export default function ACRepair({ onBookNow }) {
   return (
     <>
-      <ACRepairSection />
+      <ACRepairSection onBookNow={onBookNow} />
     </>
   )
 }

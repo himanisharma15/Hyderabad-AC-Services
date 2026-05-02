@@ -1,9 +1,9 @@
 import RestaurantCleaningSection from '../../components/RestaurantCleaningSection';
 
-export default function RestaurantExhaustCleaning() {
+export default function RestaurantExhaustCleaning({ onBookNow }) {
   return (
     <>
-      <RestaurantCleaningSection />
+      <RestaurantCleaningSection onBookNow={onBookNow} />
     </>
   );
 }

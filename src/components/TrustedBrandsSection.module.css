@@ -280,21 +280,60 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .body {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 60px;
+  }
+  
+  .leftColumn {
+    order: 2;
+  }
+  
+  .imageWrapper {
+    order: 1;
+    min-height: auto;
+  }
+  
+  .serviceImage {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+
+  .label {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 28px;
   }
 
   .logoGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .logoCard {
-    padding: 32px 16px;
+    height: 140px;
+    padding: 20px;
   }
 
-  .brandName {
-    font-size: 1.4rem;
+  .logoCard svg, .logoCard img {
+    height: 35px;
+  }
+
+  .serviceImage {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoGrid {
+    grid-template-columns: 1fr;
   }
 }

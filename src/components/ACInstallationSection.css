@@ -6,75 +6,169 @@
   --install-blue-soft: #e8f1f7;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  background: #f8fafc;
+  background: #ffffff;
   overflow-x: hidden;
-}
-
-/* Observer Animations */
-.fade-up-element {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.fade-up-element.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* 1. HERO SECTION */
 .install-hero {
-  position: relative;
-  isolation: isolate;
-  background-color: var(--install-blue-soft);
-  background-image:
-    linear-gradient(90deg, rgba(232, 241, 247, 0.96) 0%, rgba(201, 218, 230, 0.82) 42%, rgba(21, 71, 105, 0.32) 72%, rgba(16, 55, 84, 0.28) 100%),
-    var(--install-hero-bg);
-  background-position: center right;
-  background-size: cover;
-  padding: clamp(5rem, 8vw, 8rem) 2rem clamp(4.5rem, 7vw, 6rem);
-  display: flex;
-  align-items: center;
-  min-height: 78vh;
+  padding: 6rem 0 4rem;
+  background: 
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at bottom left, rgba(21, 71, 105, 0.03) 0%, transparent 40%),
+    #ffffff;
+  border-bottom: 1px solid var(--install-blue-soft);
 }
 
 .install-hero-container {
-  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 650px);
-  gap: 0;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
   align-items: center;
+  padding: 0 1.5rem;
+}
+
+.install-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--install-blue-soft);
+  color: var(--install-blue);
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(21, 71, 105, 0.1);
 }
 
 .install-hero-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.34);
 }
 
 .install-hero-heading {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 900;
   line-height: 1.1;
   color: #0f172a;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.install-hero-subheading {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--install-blue);
-  margin: 0;
+  margin-bottom: 1.5rem;
 }
 
 .install-hero-desc {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: #475569;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.install-hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.install-call-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--install-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.install-call-link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.install-hero-trust {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.install-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--install-blue);
+}
+
+.install-graphic-wrapper {
+  position: relative;
+}
+
+.install-hero-image-wrapper {
+  position: relative;
+  border-radius: 2rem;
+  overflow: visible;
+  box-shadow: 0 20px 50px rgba(21, 71, 105, 0.1);
+}
+
+.install-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  display: block;
+}
+
+.install-image-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.install-floating-card {
+  position: absolute;
+  bottom: 2rem;
+  left: -2rem;
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 15px 35px rgba(21, 71, 105, 0.15);
+  z-index: 3;
+  border: 1px solid rgba(21, 71, 105, 0.05);
+}
+
+.install-float-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--install-blue-soft);
+  color: var(--install-blue);
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-floating-card strong {
+  display: block;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.install-floating-card p {
   margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
 }
 
 .install-btn {
@@ -85,35 +179,34 @@
   color: #ffffff;
   padding: 1.125rem 2.5rem;
   font-size: 1.05rem;
-  font-weight: 600;
-  border-radius: 8px;
+  font-weight: 800;
+  border-radius: 12px;
   cursor: pointer;
   border: none;
   text-decoration: none;
   width: max-content;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(21, 71, 105, 0.25);
-  margin-top: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(21, 71, 105, 0.25);
 }
 
 .install-btn:hover {
   background-color: var(--install-blue-dark);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(21, 71, 105, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgba(21, 71, 105, 0.4);
 }
 
-/* 2. WHY PROFESSIONAL INSTALLATION (WARNING CARDS) */
+/* 2. WARNINGS SECTION */
 .install-warnings-section {
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   background: #ffffff;
   text-align: center;
 }
 
 .install-section-heading {
-  font-size: 2.25rem;
+  font-size: 3rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .install-warnings-grid {
@@ -122,93 +215,41 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  perspective: 1100px;
 }
 
 .warning-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 204px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96)),
-    #ffffff;
-  border: 1px solid rgba(203, 213, 225, 0.78);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
   text-align: left;
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition:
-    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.42s ease,
-    border-color 0.42s ease,
-    background 0.42s ease;
-}
-
-.warning-card::before {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 0%, transparent 36%, rgba(21, 71, 105, 0.12) 48%, rgba(255, 255, 255, 0.76) 52%, transparent 64%, transparent 100%);
-  opacity: 0;
-  transform: translateX(-115%);
-  transition: opacity 0.25s ease, transform 0.72s ease;
-  pointer-events: none;
-  content: "";
-}
-
-.warning-card.is-visible {
-  animation: installWarningCardPop 680ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: var(--warning-delay, 0ms);
+  transition: all 0.3s ease;
 }
 
 .warning-card:hover {
-  transform: translateY(-10px) rotateX(3deg) rotateY(3deg);
-  border-color: rgba(21, 71, 105, 0.32);
-  background:
-    linear-gradient(145deg, #ffffff, #f3f8ff),
-    #ffffff;
-  box-shadow: 0 24px 46px -18px rgba(21, 71, 105, 0.24);
-}
-
-.warning-card:hover::before {
-  opacity: 1;
-  transform: translateX(115%);
+  background: #ffffff;
+  transform: translateY(-8px);
+  border-color: var(--install-blue);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
 }
 
 .warning-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
   color: #0f172a;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .warning-desc {
   font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.5;
+  color: #64748b;
+  line-height: 1.6;
 }
 
-@keyframes installWarningCardPop {
-  0% {
-    opacity: 0;
-    transform: translateY(26px) scale(0.96);
-  }
-  62% {
-    opacity: 1;
-    transform: translateY(-4px) scale(1.01);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* 3. SERVICES GRID */
+/* 3. SERVICES SECTION */
 .install-services-section {
-  padding: 6rem 2rem;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(21, 71, 105, 0.08), transparent 30rem),
-    #f8fafc;
+  padding: 8rem 2rem;
+  background: #f8fafc;
   text-align: center;
 }
 
@@ -218,286 +259,155 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  perspective: 1200px;
 }
 
 .service-card {
-  min-height: 264px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96)),
-    #ffffff;
-  border: 1px solid rgba(203, 213, 225, 0.78);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 3rem 2rem;
   text-align: left;
-  transition:
-    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.42s ease,
-    border-color 0.42s ease,
-    background 0.42s ease;
-  position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-.service-card:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 0%, transparent 38%, rgba(37, 99, 235, 0.13) 48%, rgba(255, 255, 255, 0.72) 52%, transparent 62%, transparent 100%);
-  opacity: 0;
-  transform: translateX(-115%);
-  transition: opacity 0.25s ease, transform 0.72s ease;
-  pointer-events: none;
-}
-
-.service-card.is-visible {
-  animation: installServiceCardPop 680ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: var(--card-delay, 0ms);
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-12px) rotateX(3deg) rotateY(-3deg);
-  border-color: rgba(37, 99, 235, 0.34);
-  background:
-    linear-gradient(145deg, #ffffff, #f3f8ff),
-    #ffffff;
-  box-shadow: 0 28px 50px -18px rgba(37, 99, 235, 0.28);
-}
-
-.service-card:hover:before {
-  opacity: 1;
-  transform: translateX(115%);
+  transform: translateY(-10px);
+  border-color: var(--install-blue);
+  box-shadow: 0 30px 40px -10px rgba(21, 71, 105, 0.15);
 }
 
 .service-icon {
   color: var(--install-blue);
-  width: 40px; height: 40px;
-  margin-bottom: 1.5rem;
-  transition: transform 0.32s ease, filter 0.32s ease;
-}
-
-.service-card:hover .service-icon {
-  animation: installIconPulse 820ms ease both;
-  filter: drop-shadow(0 10px 16px rgba(37, 99, 235, 0.28));
+  width: 48px;
+  height: 48px;
+  margin-bottom: 2rem;
 }
 
 .service-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #0f172a;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .service-desc {
   font-size: 1rem;
-  color: #475569;
-  line-height: 1.6;
-}
-
-@keyframes installServiceCardPop {
-  0% {
-    opacity: 0;
-    transform: translateY(28px) scale(0.96);
-  }
-  62% {
-    opacity: 1;
-    transform: translateY(-5px) scale(1.01);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes installIconPulse {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  42% {
-    transform: rotate(-8deg) scale(1.18);
-  }
-  100% {
-    transform: rotate(0deg) scale(1.08);
-  }
+  color: #64748b;
+  line-height: 1.7;
 }
 
 /* 4. TRUST SECTION */
 .install-trust-section {
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   background: #ffffff;
-  display: flex;
-  justify-content: center;
 }
 
 .install-trust-container {
-  position: relative;
-  max-width: 1180px;
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   background: #ffffff;
-  border-left: 5px solid var(--install-blue);
-  border-radius: 0;
-  padding: clamp(3rem, 6vw, 5rem);
+  border-left: 6px solid var(--install-blue);
+  padding: 5rem;
   display: grid;
-  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
-  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
   align-items: center;
-  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
-}
-
-.install-trust-kicker {
-  position: relative;
-  display: inline-flex;
-  margin-bottom: 0.75rem;
-  color: #475569;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.install-trust-kicker::after {
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 54px;
-  height: 3px;
-  background: var(--install-blue);
-  content: "";
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
 }
 
 .install-trust-content h2 {
-  max-width: 430px;
+  font-size: 3.5rem;
+  font-weight: 900;
   color: #0f172a;
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
-  font-weight: 800;
-  line-height: 1.08;
-  margin: 0;
-}
-
-.install-trust-content h2::first-line {
-  color: #0f172a;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
 }
 
 .install-trust-content p {
-  max-width: 410px;
-  margin: 1.5rem 0 0;
-  color: #475569;
-  font-size: 0.98rem;
-  line-height: 1.75;
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
 }
 
 .install-trust-cta {
-  display: inline-flex;
-  min-height: 46px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.6rem;
-  border-radius: 4px;
   background: var(--install-blue);
-  padding: 0 1.25rem;
   color: #ffffff;
+  padding: 1.25rem 2.5rem;
+  border-radius: 12px;
   font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
-}
-
-.install-trust-cta:hover {
-  transform: translateY(-2px);
-  background: var(--install-blue-dark);
-  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .trust-feature-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-left: 1px solid #dbe3ee;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
 .trust-feature {
-  display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 1rem;
-  min-height: 126px;
-  padding: 1.25rem 1.4rem;
-  border-bottom: 1px solid #dbe3ee;
-  text-align: left;
-}
-
-.trust-feature:nth-last-child(-n + 2) {
-  border-bottom: 0;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .trust-feature-icon {
-  display: inline-flex;
-  width: 34px;
-  height: 34px;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(37, 99, 235, 0.22);
-  border-radius: 999px;
-  color: var(--install-blue);
-  font-size: 0.78rem;
+  font-size: 1.5rem;
   font-weight: 900;
+  color: var(--install-blue);
+  opacity: 0.3;
 }
 
 .trust-feature h3 {
-  margin: 0 0 0.45rem;
-  color: #0f172a;
-  font-size: 1.06rem;
+  font-size: 1.25rem;
   font-weight: 800;
+  margin-bottom: 0.5rem;
 }
 
 .trust-feature p {
-  margin: 0;
-  color: #64748b;
   font-size: 0.9rem;
-  line-height: 1.55;
+  color: #64748b;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .install-hero-heading { font-size: 2.75rem; }
+  .install-hero { padding: 6rem 2rem 4rem; }
+  .install-hero-container { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+  .install-hero-content { display: flex; flex-direction: column; align-items: center; }
+  .install-hero-desc { margin: 0 auto 2rem auto; }
+  .install-hero-actions { justify-content: center; }
+  .install-hero-trust { justify-content: center; }
   .install-warnings-grid { grid-template-columns: repeat(2, 1fr); }
   .install-services-grid { grid-template-columns: repeat(2, 1fr); }
-  .install-trust-container { grid-template-columns: 1fr; padding: 3rem; }
-  .trust-feature-grid { border-left: 0; }
+  .install-trust-container { grid-template-columns: 1fr; padding: 3rem; gap: 3rem; }
+  .install-trust-content h2 { font-size: 2.5rem; }
 }
 
 @media (max-width: 768px) {
-  .install-hero {
-    background-image:
-      linear-gradient(180deg, rgba(224, 242, 254, 0.98) 0%, rgba(191, 219, 254, 0.9) 58%, rgba(37, 99, 235, 0.36) 100%),
-      var(--install-hero-bg);
-    background-position: center top;
-    min-height: auto;
-    padding: 4.5rem 1.5rem;
+  .install-hero-heading { font-size: 2.8rem; }
+  .install-hero-actions { flex-direction: column; gap: 1.5rem; width: 100%; align-items: center; }
+  .install-btn { width: 100%; max-width: 400px; }
+  .install-hero-trust { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+    align-items: center;
   }
-  .install-hero-container { grid-template-columns: 1fr; gap: 0; }
-  .install-hero-content { order: 1; text-align: center; align-items: center; }
+  .install-trust-item {
+    flex: 0 1 calc(50% - 12px);
+    justify-content: center;
+  }
+  .install-section-heading { font-size: 2.25rem; }
   .install-warnings-grid { grid-template-columns: 1fr; }
   .install-services-grid { grid-template-columns: 1fr; }
-  .install-hero-heading { font-size: 2.25rem; }
-  .install-trust-section { padding: 4rem 1.25rem; }
-  .install-trust-container { padding: 2rem 1.25rem; }
   .trust-feature-grid { grid-template-columns: 1fr; }
-  .trust-feature:nth-last-child(-n + 2) { border-bottom: 1px solid #dbe3ee; }
-  .trust-feature:last-child { border-bottom: 0; }
+  .install-trust-container { padding: 3rem 1.5rem; border-left: 0; border-top: 6px solid var(--install-blue); }
+  .install-floating-card { left: 0; bottom: 1rem; scale: 0.9; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .warning-card,
-  .warning-card::before,
-  .service-card,
-  .service-card:before,
-  .service-icon {
-    animation: none;
-    transition: none;
-  }
-
-  .warning-card:hover,
-  .service-card:hover {
-    transform: none;
-  }
+@media (max-width: 480px) {
+  .install-hero-heading { font-size: 2.2rem; }
+  .install-trust-content h2 { font-size: 2rem; }
 }
