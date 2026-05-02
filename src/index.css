@@ -50,7 +50,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 section[id] {
@@ -63,7 +63,9 @@ body {
   background: #ffffff;
   font-size: var(--fs-base);
   font-family: inherit;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
 }
 
 img {

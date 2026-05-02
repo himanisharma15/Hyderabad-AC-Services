@@ -44,13 +44,10 @@
 .blog-hero {
   position: relative;
   min-height: 74vh;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  margin-bottom: 0;
-  margin-top: 0;
+  width: 100%;
+  margin: 0;
   border-radius: 0;
-  overflow: visible;
+  overflow: hidden;
   background-image: url('/background-blog.png');
   background-repeat: no-repeat;
   background-size: cover;

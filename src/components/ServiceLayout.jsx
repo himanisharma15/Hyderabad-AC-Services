@@ -83,13 +83,6 @@ export default function ServiceLayout({ data, onBookNow }) {
             </p>
             
             <div className={styles.heroActions}>
-              <button 
-                className={styles.primaryBtn}
-                onClick={() => onBookNow(data.title)}
-              >
-                Book Service Now <ChevronRight size={18} />
-              </button>
-              
               <div className={styles.heroContact}>
                 <div className={styles.contactIcon}><Phone size={18} /></div>
                 <div className={styles.contactInfo}>
@@ -270,33 +263,6 @@ export default function ServiceLayout({ data, onBookNow }) {
             ))}
           </motion.div>
         </div>
-      </section>
-
-      {/* 6. GLOBAL CTA */}
-      <section className={styles.globalCta}>
-        <motion.div 
-          className={styles.ctaInner}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className={styles.ctaText}>
-            <h2>Ready to Restore <span>Cooling?</span></h2>
-            <p>Our experts are standing by to provide immediate assistance across Hyderabad.</p>
-          </div>
-          <div className={styles.ctaActions}>
-            <button 
-              className={styles.ctaPrimary}
-              onClick={() => onBookNow(data.title)}
-            >
-              Request Call Back
-            </button>
-            <a href="tel:+918712322475" className={styles.ctaSecondary}>
-              <Phone size={20} /> +91 8712322475
-            </a>
-          </div>
-        </motion.div>
       </section>
 
     </div>

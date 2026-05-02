@@ -55,21 +55,6 @@ export default function CtaSection({ onBookNow }) {
               </a>
             </motion.div>
           </div>
-
-          <motion.div 
-            className={styles.imageWrapper}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <img 
-              src="/HomeImages/modern_ac_unit_cta.png" 
-              alt="Modern AC Unit" 
-              className={styles.acImage}
-            />
-            <div className={styles.imageOverlay} />
-          </motion.div>
         </motion.div>
       </div>
     </section>

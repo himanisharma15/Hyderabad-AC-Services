@@ -217,6 +217,7 @@
   }
 
   .title {
-    font-size: 28px;
+    font-size: clamp(24px, 8vw, 28px);
+    line-height: 1.15;
   }
 }

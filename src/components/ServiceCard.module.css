@@ -34,6 +34,7 @@
   justify-content: space-between;
   gap: 12px;
   margin-top: auto;
+  padding-top: 22px;
 }
 
 .bookButton {
@@ -112,7 +113,6 @@
 }
 
 .bookButton {
-  margin-top: 22px;
   min-width: 144px;
   height: 46px;
   padding: 0 20px;

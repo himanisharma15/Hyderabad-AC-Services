@@ -4,6 +4,7 @@
   background: linear-gradient(180deg, #154769 0%, #0d2f47 100%);
   color: #e4f3ff;
   margin-top: 80px;
+  overflow-x: hidden;
 }
 
 .footer-main {
