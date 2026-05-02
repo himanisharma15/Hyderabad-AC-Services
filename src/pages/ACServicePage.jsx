@@ -4,13 +4,13 @@ import {
   ArrowRight,
   BadgeCheck,
   BatteryCharging,
-  Clock3,
+  Clock,
   Fan,
   Flame,
   ShieldCheck,
   Sparkles,
   Star,
-  ThermometerSun,
+  Thermometer,
   Wrench,
   Waves,
   Wind,
@@ -177,7 +177,7 @@ export default function ACServicePage() {
               { icon: Flame, title: 'Gas Check', desc: 'Pressure and refrigerant inspection to keep cooling stable.' },
               { icon: BatteryCharging, title: 'Electrical Check', desc: 'Safe inspection of wiring, capacitor, and compressor links.' },
               { icon: Waves, title: 'Coil Wash', desc: 'Condenser and evaporator coil washing for smoother performance.' },
-              { icon: Clock3, title: 'Performance Test', desc: 'Cooling output verification and final system testing.' },
+              { icon: Clock, title: 'Performance Test', desc: 'Cooling output verification and final system testing.' },
               { icon: ShieldCheck, title: 'Preventive Maintenance', desc: 'Routine service to reduce wear and avoid surprise breakdowns.' },
             ].map((service, i) => (
               <motion.div 
@@ -207,9 +207,9 @@ export default function ACServicePage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: Sparkles, title: 'Premium Quality', desc: 'High-standard parts and certified technician expertise.' },
-              { icon: ThermometerSun, title: 'Temperature Control', desc: 'Optimized cooling for consistent comfort year-round.' },
+              { icon: Thermometer, title: 'Temperature Control', desc: 'Optimized cooling for consistent comfort year-round.' },
               { icon: Wrench, title: 'Expert Technicians', desc: '10+ years of cooling system repair and installation.' },
-              { icon: Clock3, title: 'Fast Response', desc: 'Same-day service availability for urgent cooling needs.' },
+              { icon: Clock, title: 'Fast Response', desc: 'Same-day service availability for urgent cooling needs.' },
               { icon: Star, title: '4.9★ Rating', desc: 'Trusted by thousands of satisfied Hyderabad customers.' },
               { icon: ShieldCheck, title: 'Service Guarantee', desc: 'Reliable support with transparent pricing and warranties.' },
             ].map((benefit, i) => (
@@ -271,7 +271,7 @@ export default function ACServicePage() {
             {[
               { icon: Fan, title: 'Split AC', desc: 'Service available with detailed inspection' },
               { icon: Wind, title: 'Window AC', desc: 'Service available with detailed inspection' },
-              { icon: ThermometerSun, title: 'Cassette AC', desc: 'Service available with detailed inspection' },
+              { icon: Thermometer, title: 'Cassette AC', desc: 'Service available with detailed inspection' },
               { icon: Waves, title: 'Central AC', desc: 'Service available with detailed inspection' },
             ].map((type, i) => (
               <motion.div 

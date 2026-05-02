@@ -168,17 +168,23 @@
 .trustStripHero {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
+  flex-wrap: wrap;
   color: #ffffff;
   font-weight: 700;
   font-size: 1.1rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   margin-top: 32px;
 }
 
 .dotHero {
   color: var(--brand-blue-mid);
   font-weight: 900;
+  width: 6px;
+  height: 6px;
+  background: var(--brand-blue-mid);
+  border-radius: 50%;
+  display: inline-block;
 }
 
 
@@ -1177,10 +1183,15 @@
   }
 
   .trustStripHero {
-    flex-direction: column;
-    gap: 8px;
-    padding: 20px;
-    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    padding: 0;
+  }
+
+  .trustStripHero > div {
+    flex: 0 1 auto;
   }
 
   .dotHero {
@@ -1399,4 +1410,122 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: white;
   transform: translateY(-3px);
+}
+
+/* Mobile Responsive Breakpoints */
+@media (max-width: 768px) {
+  .heroTitleCentered {
+    font-size: 2.2rem;
+  }
+
+  .heroDescCentered {
+    font-size: 0.95rem;
+  }
+
+  .ctaContainer {
+    padding: 40px 24px;
+  }
+
+  .ctaTitle {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+  }
+
+  .ctaDesc {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .ctaActions {
+    gap: 12px;
+  }
+
+  .ctaBtnPrimary, .ctaBtnOutline {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTitleCentered {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .heroDescCentered {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .ctaContainer {
+    padding: 30px 16px;
+    border-radius: 16px;
+  }
+
+  .ctaTitle {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .ctaDesc {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .ctaBtnPrimary, .ctaBtnOutline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitleCentered {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+
+  .heroDescCentered {
+    font-size: 0.85rem;
+  }
+
+  .ctaContainer {
+    padding: 24px 12px;
+  }
+
+  .ctaTitle {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .ctaDesc {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+
+  .ctaBtnPrimary, .ctaBtnOutline {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .trustStripHero {
+    gap: 12px 20px;
+    text-align: center;
+  }
+
+  .trustStripHero > div {
+    flex: 0 1 calc(50% - 10px);
+    display: flex;
+    justify-content: center;
+  }
+
+  .floatingCardBottom, .floatingCardRight {
+    width: 90%;
+  }
 }

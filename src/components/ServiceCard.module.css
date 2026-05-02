@@ -28,6 +28,57 @@
   display: block;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.bookButton {
+  background: var(--brand-primary);
+  color: white;
+  border: none;
+  border-radius: 99px;
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(var(--brand-primary-rgb), 0.2);
+}
+
+.learnMore {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.learnMore::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.card:hover .learnMore {
+  opacity: 1;
+}
+
+.card:hover .learnMore::after {
+  width: 100%;
+}
+
 .iconBubble {
   position: absolute;
   top: 16px;

@@ -562,6 +562,34 @@
   }
 }
 
+@media (max-width: 600px) {
+  .restaurant-clean-container { width: min(100% - 20px, 1180px); }
+  .restaurant-clean-hero { padding-top: 40px; padding-bottom: 32px; }
+  .restaurant-clean-hero h1 { font-size: clamp(1.6rem, 8vw, 2.4rem); line-height: 1.1; }
+  .restaurant-clean-hero p { font-size: 0.95rem; }
+  .restaurant-clean-image-card img { height: 240px; }
+  .restaurant-clean-button { padding: 0.95rem 1.8rem; font-size: 0.95rem; }
+  .restaurant-clean-card-grid--four { gap: 1.5rem; }
+  .restaurant-clean-cta__inner { padding: 2.5rem 1.5rem; }
+  .restaurant-clean-cta__heading { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+  .restaurant-clean-container { width: min(100% - 16px, 1180px); }
+  .restaurant-clean-hero { padding-top: 32px; padding-bottom: 24px; }
+  .restaurant-clean-hero h1 { font-size: clamp(1.4rem, 6vw, 2rem); line-height: 1.1; }
+  .restaurant-clean-hero p { font-size: 0.85rem; line-height: 1.5; }
+  .restaurant-clean-image-card { min-height: 200px; }
+  .restaurant-clean-image-card img { height: 200px; }
+  .restaurant-clean-button { width: 100%; padding: 0.8rem 1.5rem; font-size: 0.85rem; }
+  .restaurant-clean-card-grid--four, .restaurant-clean-card-grid--visual { grid-template-columns: 1fr; gap: 1.2rem; }
+  .restaurant-clean-card, .restaurant-clean-visual-card { padding: 1.5rem; }
+  .restaurant-clean-cta { padding: 2.5rem 1rem; }
+  .restaurant-clean-cta__inner { padding: 2rem 1rem; border-radius: 12px; }
+  .restaurant-clean-cta__heading { font-size: 1.4rem; margin-bottom: 1rem; }
+  .restaurant-clean-cta__desc { font-size: 0.85rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .restaurant-clean-reveal,
   .restaurant-clean-image-card,

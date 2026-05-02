@@ -68,65 +68,68 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  padding: 10px 20px;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 99px;
-  margin-bottom: 24px;
-  font-size: 0.85rem;
-  font-weight: 600;
   color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
 }
 
 .heroHeading {
-  font-size: 4.5rem;
-  font-weight: 900; /* Extra Bold as requested */
-  line-height: 1;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
   margin-bottom: 24px;
-  letter-spacing: -2px;
-  color: #ffffff !important; /* Pure White as requested */
+  letter-spacing: -0.02em;
+  color: #ffffff !important;
 }
 
 .accentText {
-  color: #ffffff !important;
+  color: #93c5fd !important;
   font-weight: 900;
 }
 
 .heroDesc {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 48px;
-  max-width: 600px;
+  margin-bottom: 40px;
+  max-width: 650px;
 }
 
 .heroActions {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   margin-bottom: 60px;
+  flex-wrap: wrap;
 }
 
 .primaryBtn {
   background: #ffffff;
-  color: #154769; /* Brand color on button text */
-  padding: 20px 48px;
-  border-radius: 16px;
+  color: #154769;
+  padding: 18px 40px;
+  border-radius: 99px;
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .primaryBtn:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  background: #f8fafc;
 }
 
 .heroContact {
@@ -136,127 +139,137 @@
 }
 
 .contactIcon {
-  width: 44px;
-  height: 44px;
-  background: rgba(255, 255, 255, 0.15);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  backdrop-filter: blur(5px);
 }
 
 .contactInfo span {
   display: block;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
 }
 
 .contactInfo strong {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: #ffffff;
   font-weight: 900;
   display: block;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .quickTrust {
   display: flex;
-  gap: 30px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .trustItem {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
+  gap: 10px;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .trustItem svg {
-  color: #ffffff;
+  color: #93c5fd;
 }
 
 .heroVisual {
   position: relative;
+  width: 100%;
 }
 
 .imageWrapper {
   position: relative;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+  border: 4px solid rgba(255, 255, 255, 0.1);
 }
 
 .heroImage {
   width: 100%;
-  height: 600px;
+  height: 550px;
   object-fit: cover;
-  transition: transform 1s ease;
+  display: block;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .imageWrapper:hover .heroImage {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .glassOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(21, 71, 105, 0.4));
+  background: linear-gradient(to bottom, transparent 50%, rgba(13, 47, 71, 0.6));
 }
 
 .floatingCard {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
-  background: rgba(255, 255, 255, 0.2);
+  bottom: 30px;
+  left: 30px;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 20px 24px;
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 18px 24px;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 16px;
   color: white;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  z-index: 5;
 }
 
 .floatingIcon {
-  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  color: #154769;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .floatingCard strong {
   display: block;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 .floatingCard p {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   opacity: 0.8;
+  margin: 0;
 }
 
 /* INTRODUCTION SECTION */
 .intro {
-  padding: 40px 0;
+  padding: 100px 0;
   background: #f8fafc;
   position: relative;
-  z-index: 2;
 }
 
 .introContainer {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
   text-align: center;
 }
 
@@ -271,79 +284,80 @@
 .line {
   flex: 1;
   height: 1px;
-  background: #e2e8f0;
+  background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
 }
 
 .sectionHeading {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   color: #154769;
-  letter-spacing: -1px;
+  letter-spacing: -0.02em;
 }
 
 .introText {
-  font-size: 1.3rem;
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.7;
   color: #475569;
   font-weight: 400;
 }
 
 /* BENEFITS SECTION */
 .benefits {
-  padding: 40px 0;
+  padding: 100px 0;
   background: #ffffff;
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
+  padding: 0 24px;
 }
 
 .sectionDesc {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #64748b;
   max-width: 600px;
   margin: 16px auto 0;
 }
 
 .benefitsGrid {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 30px;
 }
 
 .benefitCard {
   background: #ffffff;
-  padding: 50px 40px;
+  padding: 40px;
   border-radius: 30px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(21, 71, 105, 0.05);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
   border: 1px solid #f1f5f9;
+  transition: all 0.4s ease;
 }
 
 .benefitCard:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 40px 80px rgba(21, 71, 105, 0.1);
-  border-color: #154769;
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 30px;
 }
 
 .benefitIconBox {
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
   background: #f0f9ff;
-  border-radius: 20px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,25 +368,23 @@
 .benefitCard:hover .benefitIconBox {
   background: #154769;
   color: white;
-  transform: rotate(5deg);
 }
 
 .cardNumber {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 900;
   color: #f1f5f9;
-  line-height: 1;
 }
 
 .benefitCard h3 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #154769;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .benefitCard p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #64748b;
 }
@@ -395,23 +407,24 @@
 
 /* SPECS SECTION */
 .specs {
-  padding: 40px 0;
+  padding: 100px 0;
   background: #f8fafc;
 }
 
 .specsContainer {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 60px;
-  background: linear-gradient(180deg, #154769 0%, #0d2f47 100%);
+  padding: 80px;
+  background: #154769;
   border-radius: 50px;
   display: grid;
-  grid-template-columns: 0.6fr 1.4fr;
+  grid-template-columns: 0.7fr 1.3fr;
   gap: 80px;
   align-items: center;
   color: white;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 40px 80px rgba(21, 71, 105, 0.2);
 }
 
 .specsVisual {
@@ -424,96 +437,87 @@
 .specsIconLarge {
   width: 120px;
   height: 120px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  color: white;
   z-index: 2;
-  color: #154769;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .specsCircle {
   position: absolute;
-  width: 250px;
-  height: 250px;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
+  width: 280px;
+  height: 280px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  animation: spin 20s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .specsHeading {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 24px;
-  color: #f8fafc;
+  letter-spacing: -0.02em;
 }
 
 .specsContent p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 40px;
 }
 
 .specsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 .specItem {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   padding: 16px 20px;
-  border-radius: 12px;
+  border-radius: 16px;
   font-weight: 600;
-  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.specItem svg {
-  color: #ffffff;
+  font-size: 0.95rem;
 }
 
 /* PROCESS SECTION */
 .process {
-  padding: 40px 0;
+  padding: 100px 0;
   background: #ffffff;
 }
 
 .processFlow {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 40px;
 }
 
 .processCard {
   text-align: center;
+  position: relative;
 }
 
 .stepBox {
-  width: 60px;
-  height: 60px;
-  background: #f8fafc;
+  width: 70px;
+  height: 70px;
+  background: #f0f9ff;
   color: #154769;
-  border-radius: 18px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 900;
   margin: 0 auto 24px;
   border: 1px solid #e2e8f0;
@@ -523,75 +527,82 @@
 .processCard:hover .stepBox {
   background: #154769;
   color: white;
-  border-color: #154769;
   transform: translateY(-5px);
 }
 
 .processCard h4 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  margin-bottom: 12px;
   color: #154769;
+  margin-bottom: 12px;
 }
 
 .processCard p {
   color: #64748b;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
 /* GLOBAL CTA */
 .globalCta {
-  padding: 0 40px 100px;
+  padding: 0 24px 100px;
   background: #ffffff;
 }
 
 .ctaInner {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #3b82f6 0%, #154769 100%);
-  padding: 100px 80px;
+  background: #154769;
+  padding: 80px;
   border-radius: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 60px;
   color: white;
-  box-shadow: 0 40px 80px rgba(21, 71, 105, 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(21, 71, 105, 0.25);
 }
 
 .ctaText h2 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 20px;
 }
 
 .ctaText h2 span {
-  color: #d1e1f0;
+  color: #93c5fd;
 }
 
 .ctaText p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ctaActions {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex-shrink: 0;
 }
 
 .ctaPrimary {
-  background: white;
+  background: #ffffff;
   color: #154769;
   padding: 20px 50px;
-  border-radius: 18px;
+  border-radius: 99px;
   font-weight: 800;
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.ctaPrimary:hover {
+  transform: scale(1.05);
+  background: #f8fafc;
 }
 
 .ctaSecondary {
@@ -599,38 +610,87 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: white;
+  color: #ffffff;
   font-weight: 700;
+  font-size: 1.2rem;
   text-decoration: none;
-  font-size: 1.1rem;
-}
-
-.ctaPrimary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* RESPONSIVE */
 @media (max-width: 1200px) {
-  .heroHeading { font-size: 3.5rem; }
+  .heroContainer { grid-template-columns: 1fr; text-align: center; padding: 0 40px; gap: 60px; }
+  .heroContent { display: flex; flex-direction: column; align-items: center; }
+  .heroDesc { margin-left: auto; margin-right: auto; }
+  .heroActions { justify-content: center; }
+  .quickTrust { justify-content: center; }
   .benefitsGrid { grid-template-columns: repeat(2, 1fr); }
-  .processFlow { grid-template-columns: repeat(2, 1fr); gap: 60px; }
-  .ctaInner { flex-direction: column; text-align: center; padding: 60px; }
+  .processFlow { grid-template-columns: repeat(2, 1fr); }
+  .ctaInner { flex-direction: column; text-align: center; padding: 60px 40px; }
+  .specsContainer { grid-template-columns: 1fr; padding: 60px 40px; }
 }
 
 @media (max-width: 900px) {
-  .heroContainer { grid-template-columns: 1fr; text-align: center; }
-  .heroDesc { margin: 0 auto 48px; }
-  .heroActions { justify-content: center; }
-  .quickTrust { justify-content: center; }
-  .specsContainer { grid-template-columns: 1fr; padding: 40px; }
-  .specsVisual { margin-bottom: 40px; }
-  .specsHeading { font-size: 2rem; }
+  .heroImage { height: 450px; }
+  .sectionHeading { font-size: 2.5rem; }
+  .benefitsGrid { grid-template-columns: 1fr; max-width: 500px; }
+  .processFlow { grid-template-columns: 1fr; max-width: 400px; }
+  .specsGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 80px 0 60px; }
+  .heroHeading { font-size: 2.8rem; }
+  .primaryBtn { width: 100%; justify-content: center; }
+  .heroActions { flex-direction: column; width: 100%; max-width: 400px; }
+  .heroContact { width: 100%; justify-content: center; }
+  .contactInfo strong { font-size: 1.6rem; }
+  .intro, .benefits, .specs, .process { padding: 60px 0; }
+  .specsContainer { border-radius: 30px; }
+  .ctaInner { border-radius: 30px; padding: 50px 24px; }
+  .ctaText h2 { font-size: 2.5rem; }
+  .ctaPrimary { width: 100%; }
 }
 
 @media (max-width: 600px) {
-  .heroHeading { font-size: 2.8rem; }
-  .benefitsGrid { grid-template-columns: 1fr; }
-  .specsGrid { grid-template-columns: 1fr; }
-  .ctaInner h2 { font-size: 2.5rem; }
+  .heroHeading { font-size: 2.25rem; }
+  .heroDesc { font-size: 1rem; }
+  .quickTrust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+    align-items: center;
+  }
+  .trustItem {
+    flex: 0 1 calc(50% - 12px);
+    justify-content: center;
+  }
+  .trustItem:last-child {
+    flex: 0 1 100%;
+  }
+  .imageWrapper { border-radius: 24px; }
+  .heroImage { height: 350px; }
+  .floatingCard { left: 20px; bottom: 20px; padding: 12px 16px; border-radius: 16px; }
+  .floatingIcon { width: 32px; height: 32px; }
+  .floatingCard strong { font-size: 0.9rem; }
+  .floatingCard p { font-size: 0.75rem; }
+  .sectionHeading { font-size: 2rem; }
+  .introText { font-size: 1.1rem; }
+  .specsHeading { font-size: 2rem; }
+  .specsContent p { font-size: 1rem; }
+  .specItem { padding: 12px 16px; }
+  .ctaText h2 { font-size: 2rem; }
+  .ctaText p { font-size: 1rem; }
+  .ctaSecondary { font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 60px 0 40px; }
+  .heroHeading { font-size: 1.85rem; }
+  .badge { font-size: 0.75rem; padding: 8px 14px; }
+  .heroContainer { padding: 0 16px; }
+  .introContainer { padding: 0 16px; }
+  .benefitCard { padding: 24px; border-radius: 20px; }
+  .specsContainer { padding: 30px 20px; border-radius: 20px; }
+  .ctaInner { border-radius: 20px; padding: 40px 16px; }
 }

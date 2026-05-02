@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   Wrench,
   Settings,
@@ -15,6 +16,7 @@ const services = [
   {
     id: "installation",
     title: "AC Installation",
+    path: "/services/ac-installation",
     pos: "top",
     icon: <Settings size={20} />,
     img: "/HomeImages/AC installation in Bhopa.jpeg",
@@ -24,6 +26,7 @@ const services = [
   {
     id: "repair",
     title: "AC Repair",
+    path: "/services/ac-repair",
     pos: "leftTop",
     icon: <Wrench size={20} />,
     img: "/HomeImages/AC Repair.jpg",
@@ -33,6 +36,7 @@ const services = [
   {
     id: "ducting",
     title: "Ducting",
+    path: "/services/ducting",
     pos: "rightTop",
     icon: <Wind size={20} />,
     img: "/HomeImages/Ducting.jpg",
@@ -42,6 +46,7 @@ const services = [
   {
     id: "maintenance",
     title: "AMC's",
+    path: "/services/annual-maintenance-contracts-hvac",
     pos: "leftBottom",
     icon: <ShieldCheck size={20} />,
     img: "/HomeImages/Ac Maintenance.jpg",
@@ -51,6 +56,7 @@ const services = [
   {
     id: "centralized",
     title: "Centralized Air Conditioning",
+    path: "/services/centralized-ac",
     pos: "rightBottom",
     icon: <Snowflake size={20} />,
     img: "/HomeImages/Centralized Cooling.jpg",
@@ -60,6 +66,7 @@ const services = [
   {
     id: "exhaust",
     title: "Restaurant Exhaust Cleaning",
+    path: "/services/commercial-restaurant-exhaust-cleaning",
     pos: "bottom",
     icon: <Fan size={20} />,
     img: "/HomeImages/Kitchen Exhaust.jpg",
@@ -70,6 +77,11 @@ const services = [
 
 export default function ServicesDashboardSection({ onBookNow }) {
   const [hoveredService, setHoveredService] = useState(null);
+  const navigate = useNavigate();
+
+  const handleCardClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <section className={styles.section}>
@@ -203,6 +215,8 @@ export default function ServicesDashboardSection({ onBookNow }) {
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
+            style={{ cursor: 'pointer' }}
+            onClick={() => handleCardClick(item.path)}
             whileHover={{
               scale: 1.05,
               y: -10,

@@ -10,6 +10,15 @@ import ServiceFormModal from './components/ServiceFormModal'
 import PremiumFooter from './components/contact/PremiumFooter'
 import styles from './App.module.css'
 
+// Specialized Exhaust Pages
+import BasementExhaust from './pages/services/BasementExhaust'
+import RestaurantExhaustCleaning from './pages/services/RestaurantExhaustCleaning'
+import AMC from './pages/services/AMC'
+import ACRepair from './pages/services/ACRepair'
+import ACService from './pages/services/ACService'
+import ACInstallation from './pages/services/ACInstallation'
+import ACScrap from './pages/services/ACScrap'
+
 function ScrollToTop() {
   const { pathname } = useLocation()
 
@@ -53,6 +62,17 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage onBookNow={handleOpenModal} />} />
           <Route path="/services" element={<ServicesPage onBookNow={handleOpenModal} />} />
+          
+          {/* Specialized Routes */}
+          <Route path="/services/basement-exhaust-ventilation-systems" element={<BasementExhaust onBookNow={handleOpenModal} />} />
+          <Route path="/services/commercial-restaurant-exhaust-cleaning" element={<RestaurantExhaustCleaning onBookNow={handleOpenModal} />} />
+          <Route path="/services/annual-maintenance-contracts-hvac" element={<AMC onBookNow={handleOpenModal} />} />
+          
+          <Route path="/services/ac-repair" element={<ACRepair onBookNow={handleOpenModal} />} />
+          <Route path="/services/ac-service" element={<ACService onBookNow={handleOpenModal} />} />
+          <Route path="/services/ac-installation" element={<ACInstallation onBookNow={handleOpenModal} />} />
+          <Route path="/services/ac-scrap" element={<ACScrap onBookNow={handleOpenModal} />} />
+
           <Route path="/services/:slug" element={<ServiceDetailPage onBookNow={handleOpenModal} />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutPage onBookNow={handleOpenModal} />} />

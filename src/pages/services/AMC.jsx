@@ -1,9 +1,9 @@
 import ExhaustAMCSection from '../../components/ExhaustAMCSection';
 
-export default function AMC() {
+export default function AMC({ onBookNow }) {
   return (
     <>
-      <ExhaustAMCSection />
+      <ExhaustAMCSection onBookNow={onBookNow} />
     </>
   );
 }

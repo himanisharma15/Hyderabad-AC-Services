@@ -8,8 +8,8 @@ import {
   Gauge,
   ShieldCheck,
   Star,
-  ThermometerSun,
-  TimerReset,
+  Thermometer,
+  Timer,
   Wind,
   Wrench,
   Zap,
@@ -44,14 +44,14 @@ const scaleIn = {
 }
 
 const stats = [
-  { icon: Star, label: '4.9★', value: 'rating' },
-  { icon: TimerReset, label: '10+ years', value: 'experience' },
+  { icon: Thermometer, label: '4.9★', value: 'rating' },
+  { icon: Timer, label: '10+ years', value: 'experience' },
   { icon: ShieldCheck, label: 'Same day', value: 'support' },
 ]
 
 const serviceMatters = [
   {
-    icon: ThermometerSun,
+    icon: Thermometer,
     title: 'Consistent Cooling',
     description: 'Maintain consistent cooling performance',
   },
@@ -120,7 +120,7 @@ function SectionHeading({ title, description }) {
   )
 }
 
-export default function ACServicePage() {
+export default function ACServicePage({ onBookNow }) {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -133,29 +133,32 @@ export default function ACServicePage() {
         <div className="absolute bottom-0 left-1/2 h-44 w-96 -translate-x-1/2 rounded-full bg-white blur-3xl" />
 
         <div className="relative mx-auto grid min-h-[calc(100svh-190px)] max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div initial="hidden" animate="show" variants={stagger} className="max-w-2xl space-y-7">
+          <motion.div initial="hidden" animate="show" variants={stagger} className="max-w-2xl space-y-7 flex flex-col items-center lg:items-start text-center lg:text-left mx-auto lg:mx-0">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-3 rounded-full bg-[#154769]/10 px-5 py-2.5 text-sm font-bold text-[#154769] border border-[#154769]/10">
+              <Star className="h-4 w-4" />
+              <span>Professional AC Service</span>
+            </motion.div>
+
             <motion.h1
               variants={fadeUp}
-              className="max-w-2xl text-5xl font-black uppercase leading-[0.92] tracking-wide text-slate-950 sm:text-6xl lg:text-7xl"
-              style={{
-                fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
-                WebkitTextStroke: '0.7px currentColor',
-                textShadow: '0 0 0 currentColor',
-              }}
+              className="max-w-2xl text-5xl font-black leading-[1.1] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
             >
-              Cool Comfort, Simply Delivered
+              Cool Comfort, <br /><span className="text-[#154769]">Simply Delivered</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="max-w-xl text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
-              Premium AC maintenance for homes, offices, and commercial spaces.
+            <motion.p variants={fadeUp} className="max-w-xl text-lg leading-relaxed text-slate-500">
+              Premium AC maintenance for homes, offices, and commercial spaces. Trusted by 5000+ happy customers in Hyderabad.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
-              <a href="tel:+918712322475" className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#154769] px-8 font-semibold text-white shadow-xl shadow-[#154769]/20 transition-all duration-300 hover:scale-105 hover:bg-[#103754] hover:shadow-2xl active:scale-95">
+            <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row justify-center lg:justify-start w-full">
+              <button 
+                onClick={() => onBookNow('AC Service')}
+                className="inline-flex h-14 flex-1 items-center justify-center gap-3 rounded-full bg-[#154769] px-8 font-semibold text-white shadow-xl shadow-[#154769]/20 transition-all duration-300 hover:scale-105 hover:bg-[#103754] hover:shadow-2xl active:scale-95 sm:flex-none"
+              >
                 Schedule Service
                 <ArrowRight className="h-5 w-5" />
-              </a>
-              <a href="https://wa.me/918712322475" target="_blank" rel="noreferrer" className="inline-flex h-14 items-center justify-center gap-3 rounded-full border border-slate-200 bg-white/70 px-8 font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:border-[#154769]/30 hover:bg-white hover:text-[#154769] active:scale-95">
+              </button>
+              <a href="https://wa.me/918712322475" target="_blank" rel="noreferrer" className="inline-flex h-14 flex-1 items-center justify-center gap-3 rounded-full border border-slate-200 bg-white/70 px-8 font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:border-[#154769]/30 hover:bg-white hover:text-[#154769] active:scale-95 sm:flex-none">
                 <FaWhatsapp className="h-5 w-5 text-[#25d366]" />
                 WhatsApp
               </a>
@@ -169,18 +172,22 @@ export default function ACServicePage() {
           </motion.div>
         </div>
 
-        <motion.div initial="hidden" animate="show" variants={stagger} className="relative mx-auto -mt-2 grid max-w-5xl gap-4 sm:grid-cols-3 lg:-mt-10">
-          {stats.map((stat) => {
+        <motion.div initial="hidden" animate="show" variants={stagger} className="relative mx-auto -mt-2 flex flex-wrap justify-center gap-4 lg:-mt-10 max-w-5xl">
+          {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
-              <motion.div key={stat.value} variants={fadeUp} className="rounded-2xl border border-white/70 bg-white/60 p-5 shadow-lg shadow-slate-200/60 backdrop-blur">
+              <motion.div 
+                key={stat.value} 
+                variants={fadeUp} 
+                className={`flex-[1_1_calc(50%-1rem)] sm:flex-1 min-w-[140px] rounded-2xl border border-white/70 bg-white/60 p-5 shadow-lg shadow-slate-200/60 backdrop-blur ${index === 2 ? 'max-sm:max-w-[80%] max-sm:flex-none' : ''}`}
+              >
                 <div className="flex items-center gap-4">
-                  <div className="grid h-11 w-11 place-items-center rounded-full bg-[#e8f1f7] text-[#154769]">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#e8f1f7] text-[#154769]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-lg font-bold text-slate-950">{stat.label}</div>
-                    <div className="text-xs uppercase tracking-[0.18em] text-slate-500">{stat.value}</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500/80">{stat.value}</div>
                   </div>
                 </div>
               </motion.div>
@@ -204,7 +211,7 @@ export default function ACServicePage() {
                 <div className="flex items-start justify-between gap-6">
                   <div>
                     <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#b8ccda] bg-white text-[#154769] shadow-sm">
-                      <ThermometerSun className="h-6 w-6" />
+                      <Thermometer className="h-6 w-6" />
                     </div>
                     <h3 className="mt-5 text-[2.25rem] font-black text-slate-950">Consistent Cooling</h3>
                     <p className="mt-3 max-w-md text-sm leading-6 text-slate-500">
@@ -448,7 +455,7 @@ export default function ACServicePage() {
               Our Ventilation Process
             </motion.h3>
             <div className="mt-7 rounded-3xl border border-[#b8ccda] bg-white p-6 shadow-lg shadow-[#d9e7f0]/30 sm:p-8">
-              <div className="relative grid gap-6 lg:grid-cols-5 lg:gap-4">
+              <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
                 <div className="pointer-events-none absolute left-[10%] right-[10%] top-7 hidden h-px bg-linear-to-r from-transparent via-[#154769]/45 to-transparent lg:block" />
                 {[
                   { icon: Gauge, label: 'Site Inspection' },
@@ -460,10 +467,10 @@ export default function ACServicePage() {
                   const Icon = step.icon
                   return (
                     <motion.div key={step.label} variants={fadeUp} className="relative z-10 text-center">
-                      <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#b8ccda] bg-white text-[#154769] shadow-sm">
+                      <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#b8ccda] bg-white text-[#154769] shadow-sm transition-transform duration-300 group-hover:scale-110">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <div className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#154769]">Step {index + 1}</div>
+                      <div className="mt-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#154769]/60">Step {index + 1}</div>
                       <div className="mt-1 text-sm font-bold text-slate-800">{step.label}</div>
                     </motion.div>
                   )
